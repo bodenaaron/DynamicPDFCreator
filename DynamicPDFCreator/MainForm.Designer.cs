@@ -87,6 +87,7 @@
             this.tb_smNummer.Name = "tb_smNummer";
             this.tb_smNummer.Size = new System.Drawing.Size(194, 20);
             this.tb_smNummer.TabIndex = 2;
+            this.tb_smNummer.TextChanged += new System.EventHandler(this.Tb_smNummer_TextChanged);
             // 
             // lb_anschreibenTyp
             // 
