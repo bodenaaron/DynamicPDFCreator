@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping assembly="DynamicPDFCreator" namespace="DynamicPDFCreator" xmlns="urn:nhibernate-mapping-2.2">
+  <class name="TblProjekte" table="tblProjekte" schema="dbo">
+    <id name="IdProjekt" type="Int32">
+      <column name="idProjekt" not-null="true" precision="10" scale="0" sql-type="INT" />
+      <generator class="identity" />
+    </id>
+    <version name="SSMATimeStamp" type="Byte[]">
+      <column name="SSMA_TimeStamp" not-null="true" sql-type="TIMESTAMP" />
+    </version>
+    <property name="Projekt" type="String">
+      <column name="Projekt" not-null="false" length="255" sql-type="NVARCHAR(255)" />
+    </property>
+    <property name="BemerkungProjekt" type="String">
+      <column name="Bemerkung_Projekt" not-null="false" sql-type="NVARCHAR(MAX)" />
+    </property>
+    <property name="FaktorKNB0" type="Single">
+      <column name="FaktorKNB_0" default="0" not-null="false" precision="24" sql-type="REAL" />
+    </property>
+    <property name="FaktorKNB1" type="Single">
+      <column name="FaktorKNB_1" default="0" not-null="false" precision="24" sql-type="REAL" />
+    </property>
+    <property name="AnzahlAdTransMax" type="Int32">
+      <column name="AnzahlAdTransMax" default="0" not-null="false" precision="10" scale="0" sql-type="INT" />
+    </property>
+    <property name="AnzahlMFG15Max" type="Int32">
+      <column name="AnzahlMFG15Max" default="0" not-null="false" precision="10" scale="0" sql-type="INT" />
+    </property>
+    <property name="AnzahlMFG15MaxWT" type="Int32">
+      <column name="AnzahlMFG15MaxWT" default="0" not-null="false" precision="10" scale="0" sql-type="INT" />
+    </property>
+    <property name="HerstellerMFG15" type="String">
+      <column name="HerstellerMFG15" not-null="false" length="255" sql-type="NVARCHAR(255)" />
+    </property>
+    <property name="HerstellerMFG18" type="String">
+      <column name="HerstellerMFG18" not-null="false" length="255" sql-type="NVARCHAR(255)" />
+    </property>
+    <property name="HerstellerStromsäule" type="String">
+      <column name="HerstellerStromsäule" not-null="false" length="255" sql-type="NVARCHAR(255)" />
+    </property>
+    <property name="IdBearbeiter" type="String">
+      <column name="idBearbeiter" not-null="false" length="255" sql-type="NVARCHAR(255)" />
+    </property>
+    <property name="IdAuftrag" type="Int32">
+      <column name="idAuftrag" default="0" not-null="false" precision="10" scale="0" sql-type="INT" />
+    </property>
+    <property name="Inaktiv" type="Boolean">
+      <column name="Inaktiv" default="0" not-null="false" sql-type="BIT" />
+    </property>
+    <property name="AnzahlMiniMsanMax" type="Int32">
+      <column name="AnzahlMiniMsanMax" default="0" not-null="false" precision="10" scale="0" sql-type="INT" />
+    </property>
+    <property name="AnzahlMFG12Max" type="Int32">
+      <column name="AnzahlMFG12Max" default="0" not-null="false" precision="10" scale="0" sql-type="INT" />
+    </property>
+    <property name="AnzahlMFG12MaxWT" type="Int32">
+      <column name="AnzahlMFG12MaxWT" default="0" not-null="false" precision="10" scale="0" sql-type="INT" />
+    </property>
+    <property name="StreetviewPfad" type="String">
+      <column name="StreetviewPfad" not-null="false" length="255" sql-type="NVARCHAR(255)" />
+    </property>
+    <property name="Linkbaustein1" type="String">
+      <column name="Linkbaustein1" not-null="false" length="255" sql-type="NVARCHAR(255)" />
+    </property>
+    <property name="Linkbaustein2" type="String">
+      <column name="Linkbaustein2" not-null="false" length="255" sql-type="NVARCHAR(255)" />
+    </property>
+    <property name="Linkbaustein3" type="String">
+      <column name="Linkbaustein3" not-null="false" length="255" sql-type="NVARCHAR(255)" />
+    </property>
+    <property name="Fertigstellung" type="DateTime">
+      <column name="Fertigstellung" not-null="false" sql-type="DATETIME" />
+    </property>
+    <property name="Projekttyp" type="String">
+      <column name="Projekttyp" not-null="false" length="255" sql-type="NVARCHAR(255)" />
+    </property>
+    <property name="Medium" type="String">
+      <column name="Medium" not-null="false" length="255" sql-type="NVARCHAR(255)" />
+    </property>
+    <property name="IdProjekttyp" type="String">
+      <column name="idProjekttyp" not-null="false" length="255" sql-type="NVARCHAR(255)" />
+    </property>
+    <property name="IDNLPTI" type="String">
+      <column name="ID_NL_PTI" not-null="false" length="255" sql-type="NVARCHAR(255)" />
+    </property>
+    <property name="BemerkungProjektÜbersicht" type="String">
+      <column name="BemerkungProjektÜbersicht" not-null="false" length="255" sql-type="NVARCHAR(255)" />
+    </property>
+    <property name="IDProjektWegesicherung" type="String">
+      <column name="IDProjektWegesicherung" not-null="false" length="255" sql-type="NVARCHAR(255)" />
+    </property>
+    <property name="Markiert" type="Boolean">
+      <column name="Markiert" default="0" not-null="false" sql-type="BIT" />
+    </property>
+    <property name="IdAuftragnehmerTiefbau" type="String">
+      <column name="idAuftragnehmerTiefbau" not-null="false" length="255" sql-type="NVARCHAR(255)" />
+    </property>
+    <property name="IdAuftragnehmerMontage" type="String">
+      <column name="idAuftragnehmerMontage" not-null="false" length="255" sql-type="NVARCHAR(255)" />
+    </property>
+    <property name="IdAuftragnehmerPlanung" type="String">
+      <column name="idAuftragnehmerPlanung" not-null="false" length="255" sql-type="NVARCHAR(255)" />
+    </property>
+    <property name="IdAuftragnehmerBaubegleitung" type="String">
+      <column name="idAuftragnehmerBaubegleitung" not-null="false" length="255" sql-type="NVARCHAR(255)" />
+    </property>
+    <property name="IdAuftragnehmerDokumentation" type="String">
+      <column name="idAuftragnehmerDokumentation" not-null="false" length="255" sql-type="NVARCHAR(255)" />
+    </property>
+    <property name="IdAuftraggeber" type="String">
+      <column name="idAuftraggeber" not-null="false" length="255" sql-type="NVARCHAR(255)" />
+    </property>
+  </class>
+</hibernate-mapping>

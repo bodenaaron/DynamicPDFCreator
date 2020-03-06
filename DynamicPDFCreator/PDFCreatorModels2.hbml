@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping assembly="DynamicPDFCreator" namespace="DynamicPDFCreator" p1:Guid="6c44620d-fdf4-4fac-b43d-82b8999c30ea" xmlns:p1="http://devart.com/schemas/EntityDeveloper/1.0" xmlns="urn:nhibernate-mapping-2.2">
+  <class name="TblAnsprechpartner2Projekt" table="tblAnsprechpartner2Projekt" schema="dbo" p1:Guid="ebf2818b-9680-4793-99ff-5119d598d97e">
+    <composite-id>
+      <key-property name="IdProjekt" type="Int32" p1:ValidateRequired="true" p1:Guid="4bac0115-9368-4e7c-ac7d-3944d6983ef6">
+        <column name="idProjekt" default="0" not-null="true" precision="10" scale="0" sql-type="int" p1:unicode="false" />
+      </key-property>
+      <key-property name="IdAnsprechpartner" type="Int32" p1:ValidateRequired="true" p1:Guid="076b17f8-2910-464e-ae17-3b04e5ecb36f">
+        <column name="idAnsprechpartner" default="0" not-null="true" precision="10" scale="0" sql-type="int" p1:unicode="false" />
+      </key-property>
+    </composite-id>
+    <version name="SSMATimeStamp" type="Byte[]" p1:ValidateRequired="true" p1:Guid="6bd97bab-2402-4fa3-a464-d73c81b06c46">
+      <column name="SSMA_TimeStamp" not-null="true" sql-type="timestamp" p1:unicode="false" />
+    </version>
+  </class>
+  <class name="TblProjekte" table="tblProjekte" schema="dbo" p1:Guid="583cabc8-3ced-4ea1-b952-4176d79f2e0c">
+    <id name="IdProjekt" type="Int32" p1:ValidateRequired="true" p1:Guid="d34eb0e6-4bd1-4404-989b-c470bcb3fa91">
+      <column name="idProjekt" not-null="true" precision="10" scale="0" sql-type="int" p1:unicode="false" />
+      <generator class="identity" />
+    </id>
+    <version name="SSMATimeStamp" type="Byte[]" p1:ValidateRequired="true" p1:Guid="adbce279-41b7-4efe-bbda-fa58fdaa7c18">
+      <column name="SSMA_TimeStamp" not-null="true" sql-type="timestamp" p1:unicode="false" />
+    </version>
+    <property name="Projekt" type="String" p1:nullable="true" p1:ValidateMaxLength="255" p1:ValidateRequired="false" p1:Guid="fdff415c-21d7-4490-9bb3-0a4170801a49">
+      <column name="Projekt" not-null="false" length="255" sql-type="nvarchar" p1:unicode="true" />
+    </property>
+    <property name="BemerkungProjekt" type="String" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="c2cb74e6-58b5-45d0-88f1-009af48e441b">
+      <column name="Bemerkung_Projekt" not-null="false" sql-type="nvarchar" p1:unicode="true" />
+    </property>
+    <property name="FaktorKNB0" type="Single" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="4e4d5d6b-eb3a-4fa6-a318-5decc821a0c7">
+      <column name="FaktorKNB_0" default="0" not-null="false" precision="24" sql-type="real" p1:unicode="false" />
+    </property>
+    <property name="FaktorKNB1" type="Single" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="39a563f8-4c18-426c-bcad-ef235c50f1a7">
+      <column name="FaktorKNB_1" default="0" not-null="false" precision="24" sql-type="real" p1:unicode="false" />
+    </property>
+    <property name="AnzahlAdTransMax" type="Int32" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="a9426a18-9a0e-4ad6-b5fd-9edfd72af3f4">
+      <column name="AnzahlAdTransMax" default="0" not-null="false" precision="10" scale="0" sql-type="int" p1:unicode="false" />
+    </property>
+    <property name="AnzahlMFG15Max" type="Int32" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="a4cf0d9f-8d3f-405f-a36f-ee58e0e89605">
+      <column name="AnzahlMFG15Max" default="0" not-null="false" precision="10" scale="0" sql-type="int" p1:unicode="false" />
+    </property>
+    <property name="AnzahlMFG15MaxWT" type="Int32" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="e88464cb-6ff9-4732-a7b3-232059060004">
+      <column name="AnzahlMFG15MaxWT" default="0" not-null="false" precision="10" scale="0" sql-type="int" p1:unicode="false" />
+    </property>
+    <property name="HerstellerMFG15" type="String" p1:nullable="true" p1:ValidateMaxLength="255" p1:ValidateRequired="false" p1:Guid="7e4539a1-6d25-4c06-9639-369442780920">
+      <column name="HerstellerMFG15" not-null="false" length="255" sql-type="nvarchar" p1:unicode="true" />
+    </property>
+    <property name="HerstellerMFG18" type="String" p1:nullable="true" p1:ValidateMaxLength="255" p1:ValidateRequired="false" p1:Guid="7a70c73e-24cb-465a-bc9d-cfe2301d2b5d">
+      <column name="HerstellerMFG18" not-null="false" length="255" sql-type="nvarchar" p1:unicode="true" />
+    </property>
+    <property name="HerstellerStromsäule" type="String" p1:nullable="true" p1:ValidateMaxLength="255" p1:ValidateRequired="false" p1:Guid="37a7ee9b-2fa3-49c9-b1c0-a052665293d1">
+      <column name="HerstellerStromsäule" not-null="false" length="255" sql-type="nvarchar" p1:unicode="true" />
+    </property>
+    <property name="IdBearbeiter" type="String" p1:nullable="true" p1:ValidateMaxLength="255" p1:ValidateRequired="false" p1:Guid="65aef38c-52fc-491c-97b3-d1287a742828">
+      <column name="idBearbeiter" not-null="false" length="255" sql-type="nvarchar" p1:unicode="true" />
+    </property>
+    <property name="IdAuftrag" type="Int32" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="fdc12c25-f0bd-4f7e-a4ea-197ee8402b26">
+      <column name="idAuftrag" default="0" not-null="false" precision="10" scale="0" sql-type="int" p1:unicode="false" />
+    </property>
+    <property name="Inaktiv" type="Boolean" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="be5a2960-1324-46b3-9d02-185ff67b2dfb">
+      <column name="Inaktiv" default="0" not-null="false" sql-type="bit" p1:unicode="false" />
+    </property>
+    <property name="AnzahlMiniMsanMax" type="Int32" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="670a6b9e-6ed9-441d-899d-898a81e5b98d">
+      <column name="AnzahlMiniMsanMax" default="0" not-null="false" precision="10" scale="0" sql-type="int" p1:unicode="false" />
+    </property>
+    <property name="AnzahlMFG12Max" type="Int32" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="0ce19875-ae77-4bf3-8c5c-754e72d17c74">
+      <column name="AnzahlMFG12Max" default="0" not-null="false" precision="10" scale="0" sql-type="int" p1:unicode="false" />
+    </property>
+    <property name="AnzahlMFG12MaxWT" type="Int32" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="7d9958b6-fd94-49b3-950e-1a652f12df6b">
+      <column name="AnzahlMFG12MaxWT" default="0" not-null="false" precision="10" scale="0" sql-type="int" p1:unicode="false" />
+    </property>
+    <property name="StreetviewPfad" type="String" p1:nullable="true" p1:ValidateMaxLength="255" p1:ValidateRequired="false" p1:Guid="0b8abe8b-203d-4215-b06e-f256e9f3448e">
+      <column name="StreetviewPfad" not-null="false" length="255" sql-type="nvarchar" p1:unicode="true" />
+    </property>
+    <property name="Linkbaustein1" type="String" p1:nullable="true" p1:ValidateMaxLength="255" p1:ValidateRequired="false" p1:Guid="ee57b377-bb91-4be5-a4ae-e416dc1e2207">
+      <column name="Linkbaustein1" not-null="false" length="255" sql-type="nvarchar" p1:unicode="true" />
+    </property>
+    <property name="Linkbaustein2" type="String" p1:nullable="true" p1:ValidateMaxLength="255" p1:ValidateRequired="false" p1:Guid="b4ef9547-bed7-45da-8072-a91844fa8549">
+      <column name="Linkbaustein2" not-null="false" length="255" sql-type="nvarchar" p1:unicode="true" />
+    </property>
+    <property name="Linkbaustein3" type="String" p1:nullable="true" p1:ValidateMaxLength="255" p1:ValidateRequired="false" p1:Guid="c16238fe-2eba-456b-b918-2aeffc2f30fe">
+      <column name="Linkbaustein3" not-null="false" length="255" sql-type="nvarchar" p1:unicode="true" />
+    </property>
+    <property name="Fertigstellung" type="DateTime" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="7b1a1685-2477-49cf-9345-9b4907356d57">
+      <column name="Fertigstellung" not-null="false" sql-type="datetime" p1:unicode="false" />
+    </property>
+    <property name="Projekttyp" type="String" p1:nullable="true" p1:ValidateMaxLength="255" p1:ValidateRequired="false" p1:Guid="66b6027e-3860-4801-9a55-12444c13486c">
+      <Documentation>
+        <Summary>Art des Projektes 0= Sonstiges 1= APL-Projket</Summary>
+      </Documentation>
+      <column name="Projekttyp" not-null="false" length="255" sql-type="nvarchar" p1:unicode="true" />
+    </property>
+    <property name="Medium" type="String" p1:nullable="true" p1:ValidateMaxLength="255" p1:ValidateRequired="false" p1:Guid="15aa9674-5e33-40e3-bd6f-30660e310e7c">
+      <Documentation>
+        <Summary>Kennzeichnung ob Glas oder Kupfer</Summary>
+      </Documentation>
+      <column name="Medium" not-null="false" length="255" sql-type="nvarchar" p1:unicode="true" />
+    </property>
+    <property name="IdProjekttyp" type="String" p1:nullable="true" p1:ValidateMaxLength="255" p1:ValidateRequired="false" p1:Guid="8b8f6dd3-d49d-4f5b-ac51-c95bfb7ddc37">
+      <column name="idProjekttyp" not-null="false" length="255" sql-type="nvarchar" p1:unicode="true" />
+    </property>
+    <property name="IDNLPTI" type="String" p1:nullable="true" p1:ValidateMaxLength="255" p1:ValidateRequired="false" p1:Guid="47ec97f3-3433-4be9-a618-c799ba953412">
+      <column name="ID_NL_PTI" not-null="false" length="255" sql-type="nvarchar" p1:unicode="true" />
+    </property>
+    <property name="BemerkungProjektÜbersicht" type="String" p1:nullable="true" p1:ValidateMaxLength="255" p1:ValidateRequired="false" p1:Guid="468b12da-7456-4156-b3af-94c98e9e8a78">
+      <column name="BemerkungProjektÜbersicht" not-null="false" length="255" sql-type="nvarchar" p1:unicode="true" />
+    </property>
+    <property name="IDProjektWegesicherung" type="String" p1:nullable="true" p1:ValidateMaxLength="255" p1:ValidateRequired="false" p1:Guid="8f6043f3-54cc-47dc-b20d-f6c1b7566b24">
+      <column name="IDProjektWegesicherung" not-null="false" length="255" sql-type="nvarchar" p1:unicode="true" />
+    </property>
+    <property name="Markiert" type="Boolean" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="78fee96c-c692-4cbd-aeba-9e7694fe4270">
+      <column name="Markiert" default="0" not-null="false" sql-type="bit" p1:unicode="false" />
+    </property>
+    <property name="IdAuftragnehmerTiefbau" type="String" p1:nullable="true" p1:ValidateMaxLength="255" p1:ValidateRequired="false" p1:Guid="10aa6806-0aa8-47b1-bda1-050969241bab">
+      <column name="idAuftragnehmerTiefbau" not-null="false" length="255" sql-type="nvarchar" p1:unicode="true" />
+    </property>
+    <property name="IdAuftragnehmerMontage" type="String" p1:nullable="true" p1:ValidateMaxLength="255" p1:ValidateRequired="false" p1:Guid="aa475230-2609-412b-bfcf-70e00035b673">
+      <column name="idAuftragnehmerMontage" not-null="false" length="255" sql-type="nvarchar" p1:unicode="true" />
+    </property>
+    <property name="IdAuftragnehmerPlanung" type="String" p1:nullable="true" p1:ValidateMaxLength="255" p1:ValidateRequired="false" p1:Guid="e0945485-5f22-478d-8e27-ecac2059b6e4">
+      <column name="idAuftragnehmerPlanung" not-null="false" length="255" sql-type="nvarchar" p1:unicode="true" />
+    </property>
+    <property name="IdAuftragnehmerBaubegleitung" type="String" p1:nullable="true" p1:ValidateMaxLength="255" p1:ValidateRequired="false" p1:Guid="275bb80c-afc0-4e55-994d-30facdaba1e2">
+      <column name="idAuftragnehmerBaubegleitung" not-null="false" length="255" sql-type="nvarchar" p1:unicode="true" />
+    </property>
+    <property name="IdAuftragnehmerDokumentation" type="String" p1:nullable="true" p1:ValidateMaxLength="255" p1:ValidateRequired="false" p1:Guid="45e50ce5-4b08-49db-a7a2-f5439611657d">
+      <column name="idAuftragnehmerDokumentation" not-null="false" length="255" sql-type="nvarchar" p1:unicode="true" />
+    </property>
+    <property name="IdAuftraggeber" type="String" p1:nullable="true" p1:ValidateMaxLength="255" p1:ValidateRequired="false" p1:Guid="ad3c04e6-707b-4722-b8fa-1d0ad1d129bd">
+      <column name="idAuftraggeber" not-null="false" length="255" sql-type="nvarchar" p1:unicode="true" />
+    </property>
+  </class>
+</hibernate-mapping>

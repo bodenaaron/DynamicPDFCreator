@@ -51,6 +51,7 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
@@ -68,6 +69,8 @@
     <Compile Include="Entities\PDFCreatorModels.TblAnschreibenTyp.cs" />
     <Compile Include="Entities\PDFCreatorModels.TblAnsprechpartner.cs" />
     <Compile Include="Entities\PDFCreatorModels.TblAuftraege.cs" />
+    <Compile Include="Entities\PDFCreatorModels2.TblAnsprechpartner2Projekt.cs" />
+    <Compile Include="Entities\PDFCreatorModels2.TblProjekte.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,6 +107,21 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PDFCreatorModels.hbml</DependentUpon>
     </None>
+    <None Include="PDFCreatorModels2.dboDiagram.view">
+      <DependentUpon>PDFCreatorModels2.hbml</DependentUpon>
+    </None>
+    <None Include="PDFCreatorModels2.edps">
+      <DependentUpon>PDFCreatorModels2.hbml</DependentUpon>
+    </None>
+    <None Include="PDFCreatorModels2.hbml">
+      <Generator>DevartHibernateGenerator</Generator>
+      <LastGenOutput>PDFCreatorModels2.info</LastGenOutput>
+    </None>
+    <None Include="PDFCreatorModels2.info">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PDFCreatorModels2.hbml</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -130,6 +148,8 @@
     <Content Include="hibernate.cfg.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <EmbeddedResource Include="Mapping\PDFCreatorModels2.TblProjekte.hbm.xml" />
+    <EmbeddedResource Include="Mapping\PDFCreatorModels2.TblAnsprechpartner2Projekt.hbm.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

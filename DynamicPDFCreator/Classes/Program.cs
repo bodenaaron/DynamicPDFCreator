@@ -14,8 +14,7 @@ namespace DynamicPDFCreator
         [STAThread]
         static void Main()
         {
-            DBManager DBm = new DBManager();
-            DBm.Main();
+            
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainForm());

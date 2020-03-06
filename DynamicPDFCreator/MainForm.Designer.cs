@@ -38,37 +38,37 @@
             this.lb_absender = new System.Windows.Forms.Label();
             this.datePicker = new System.Windows.Forms.DateTimePicker();
             this.lb_datum = new System.Windows.Forms.Label();
-            this.txt_editor = new System.Windows.Forms.RichTextBox();
+            this.rtb_BeschreibungMassnahme = new System.Windows.Forms.RichTextBox();
             this.lb_texteditor = new System.Windows.Forms.Label();
             this.printPreviewControl1 = new System.Windows.Forms.PrintPreviewControl();
             this.btn_saveDocument = new System.Windows.Forms.Button();
             this.btn_printDocument = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.btn_sendEmail = new System.Windows.Forms.Button();
+            this.datePickerAusfuehrung = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmb_Ansprechpartner = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cmb_ortMassnahme = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.rtb_absprachen = new System.Windows.Forms.RichTextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tb_AnsprechpartnerBau = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.rtb_WesiAdresse = new System.Windows.Forms.RichTextBox();
+            this.cb_plansaetze = new System.Windows.Forms.CheckBox();
+            this.cb_beteiligte = new System.Windows.Forms.CheckBox();
+            this.cb_techBeschreibung = new System.Windows.Forms.CheckBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.tb_ZusatzAnlage1 = new System.Windows.Forms.TextBox();
+            this.tb_ZusatzAnlage2 = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.tb_ZusatzAnlage3 = new System.Windows.Forms.TextBox();
+            this.tb_WesiMail = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -156,13 +156,13 @@
             this.lb_datum.TabIndex = 10;
             this.lb_datum.Text = "Datum";
             // 
-            // txt_editor
+            // rtb_BeschreibungMassnahme
             // 
-            this.txt_editor.Location = new System.Drawing.Point(12, 522);
-            this.txt_editor.Name = "txt_editor";
-            this.txt_editor.Size = new System.Drawing.Size(432, 254);
-            this.txt_editor.TabIndex = 11;
-            this.txt_editor.Text = "";
+            this.rtb_BeschreibungMassnahme.Location = new System.Drawing.Point(12, 522);
+            this.rtb_BeschreibungMassnahme.Name = "rtb_BeschreibungMassnahme";
+            this.rtb_BeschreibungMassnahme.Size = new System.Drawing.Size(432, 254);
+            this.rtb_BeschreibungMassnahme.TabIndex = 11;
+            this.rtb_BeschreibungMassnahme.Text = "";
             // 
             // lb_texteditor
             // 
@@ -198,22 +198,22 @@
             this.btn_printDocument.Text = "Drucken";
             this.btn_printDocument.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btn_sendEmail
             // 
-            this.button1.Location = new System.Drawing.Point(472, 581);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(162, 61);
-            this.button1.TabIndex = 16;
-            this.button1.Text = "per Email verschicken";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.Button1_Click);
+            this.btn_sendEmail.Location = new System.Drawing.Point(472, 581);
+            this.btn_sendEmail.Name = "btn_sendEmail";
+            this.btn_sendEmail.Size = new System.Drawing.Size(162, 61);
+            this.btn_sendEmail.TabIndex = 16;
+            this.btn_sendEmail.Text = "per Email verschicken";
+            this.btn_sendEmail.UseVisualStyleBackColor = true;
+            this.btn_sendEmail.Click += new System.EventHandler(this.Button1_Click);
             // 
-            // dateTimePicker1
+            // datePickerAusfuehrung
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(123, 263);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(194, 20);
-            this.dateTimePicker1.TabIndex = 17;
+            this.datePickerAusfuehrung.Location = new System.Drawing.Point(123, 263);
+            this.datePickerAusfuehrung.Name = "datePickerAusfuehrung";
+            this.datePickerAusfuehrung.Size = new System.Drawing.Size(194, 20);
+            this.datePickerAusfuehrung.TabIndex = 17;
             // 
             // label1
             // 
@@ -224,13 +224,13 @@
             this.label1.TabIndex = 18;
             this.label1.Text = "Ausführungszeitraum";
             // 
-            // comboBox1
+            // cmb_Ansprechpartner
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(123, 300);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(194, 21);
-            this.comboBox1.TabIndex = 19;
+            this.cmb_Ansprechpartner.FormattingEnabled = true;
+            this.cmb_Ansprechpartner.Location = new System.Drawing.Point(123, 300);
+            this.cmb_Ansprechpartner.Name = "cmb_Ansprechpartner";
+            this.cmb_Ansprechpartner.Size = new System.Drawing.Size(194, 21);
+            this.cmb_Ansprechpartner.TabIndex = 19;
             // 
             // label2
             // 
@@ -241,13 +241,13 @@
             this.label2.TabIndex = 20;
             this.label2.Text = "Ansprechpartner";
             // 
-            // comboBox2
+            // cmb_ortMassnahme
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(123, 341);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(194, 21);
-            this.comboBox2.TabIndex = 21;
+            this.cmb_ortMassnahme.FormattingEnabled = true;
+            this.cmb_ortMassnahme.Location = new System.Drawing.Point(123, 341);
+            this.cmb_ortMassnahme.Name = "cmb_ortMassnahme";
+            this.cmb_ortMassnahme.Size = new System.Drawing.Size(194, 21);
+            this.cmb_ortMassnahme.TabIndex = 21;
             // 
             // label3
             // 
@@ -258,13 +258,13 @@
             this.label3.TabIndex = 22;
             this.label3.Text = "Ort der Maßnahme";
             // 
-            // richTextBox1
+            // rtb_absprachen
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(15, 417);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(302, 36);
-            this.richTextBox1.TabIndex = 23;
-            this.richTextBox1.Text = "";
+            this.rtb_absprachen.Location = new System.Drawing.Point(15, 417);
+            this.rtb_absprachen.Name = "rtb_absprachen";
+            this.rtb_absprachen.Size = new System.Drawing.Size(302, 36);
+            this.rtb_absprachen.TabIndex = 23;
+            this.rtb_absprachen.Text = "";
             // 
             // label4
             // 
@@ -284,12 +284,12 @@
             this.label5.TabIndex = 25;
             this.label5.Text = "Ansprechpartner Bau";
             // 
-            // textBox1
+            // tb_AnsprechpartnerBau
             // 
-            this.textBox1.Location = new System.Drawing.Point(502, 85);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(194, 20);
-            this.textBox1.TabIndex = 26;
+            this.tb_AnsprechpartnerBau.Location = new System.Drawing.Point(502, 85);
+            this.tb_AnsprechpartnerBau.Name = "tb_AnsprechpartnerBau";
+            this.tb_AnsprechpartnerBau.Size = new System.Drawing.Size(194, 20);
+            this.tb_AnsprechpartnerBau.TabIndex = 26;
             // 
             // label6
             // 
@@ -300,40 +300,40 @@
             this.label6.TabIndex = 27;
             this.label6.Text = "Wesi-Team Adresse";
             // 
-            // richTextBox2
+            // rtb_WesiAdresse
             // 
-            this.richTextBox2.Location = new System.Drawing.Point(502, 133);
-            this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(194, 65);
-            this.richTextBox2.TabIndex = 28;
-            this.richTextBox2.Text = "";
+            this.rtb_WesiAdresse.Location = new System.Drawing.Point(502, 133);
+            this.rtb_WesiAdresse.Name = "rtb_WesiAdresse";
+            this.rtb_WesiAdresse.Size = new System.Drawing.Size(194, 65);
+            this.rtb_WesiAdresse.TabIndex = 28;
+            this.rtb_WesiAdresse.Text = "";
             // 
-            // checkBox1
+            // cb_plansaetze
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(510, 271);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(15, 14);
-            this.checkBox1.TabIndex = 29;
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.cb_plansaetze.AutoSize = true;
+            this.cb_plansaetze.Location = new System.Drawing.Point(510, 271);
+            this.cb_plansaetze.Name = "cb_plansaetze";
+            this.cb_plansaetze.Size = new System.Drawing.Size(15, 14);
+            this.cb_plansaetze.TabIndex = 29;
+            this.cb_plansaetze.UseVisualStyleBackColor = true;
             // 
-            // checkBox2
+            // cb_beteiligte
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(510, 290);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(15, 14);
-            this.checkBox2.TabIndex = 30;
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.cb_beteiligte.AutoSize = true;
+            this.cb_beteiligte.Location = new System.Drawing.Point(510, 290);
+            this.cb_beteiligte.Name = "cb_beteiligte";
+            this.cb_beteiligte.Size = new System.Drawing.Size(15, 14);
+            this.cb_beteiligte.TabIndex = 30;
+            this.cb_beteiligte.UseVisualStyleBackColor = true;
             // 
-            // checkBox3
+            // cb_techBeschreibung
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(510, 310);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(15, 14);
-            this.checkBox3.TabIndex = 31;
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.cb_techBeschreibung.AutoSize = true;
+            this.cb_techBeschreibung.Location = new System.Drawing.Point(510, 310);
+            this.cb_techBeschreibung.Name = "cb_techBeschreibung";
+            this.cb_techBeschreibung.Size = new System.Drawing.Size(15, 14);
+            this.cb_techBeschreibung.TabIndex = 31;
+            this.cb_techBeschreibung.UseVisualStyleBackColor = true;
             // 
             // label7
             // 
@@ -363,19 +363,19 @@
             this.label9.TabIndex = 34;
             this.label9.Text = "Liste der Beteiligten";
             // 
-            // textBox2
+            // tb_ZusatzAnlage1
             // 
-            this.textBox2.Location = new System.Drawing.Point(502, 344);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(194, 20);
-            this.textBox2.TabIndex = 35;
+            this.tb_ZusatzAnlage1.Location = new System.Drawing.Point(502, 344);
+            this.tb_ZusatzAnlage1.Name = "tb_ZusatzAnlage1";
+            this.tb_ZusatzAnlage1.Size = new System.Drawing.Size(194, 20);
+            this.tb_ZusatzAnlage1.TabIndex = 35;
             // 
-            // textBox3
+            // tb_ZusatzAnlage2
             // 
-            this.textBox3.Location = new System.Drawing.Point(502, 378);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(194, 20);
-            this.textBox3.TabIndex = 36;
+            this.tb_ZusatzAnlage2.Location = new System.Drawing.Point(502, 378);
+            this.tb_ZusatzAnlage2.Name = "tb_ZusatzAnlage2";
+            this.tb_ZusatzAnlage2.Size = new System.Drawing.Size(194, 20);
+            this.tb_ZusatzAnlage2.TabIndex = 36;
             // 
             // label10
             // 
@@ -404,19 +404,19 @@
             this.label12.TabIndex = 39;
             this.label12.Text = "Zusatzanlage 3";
             // 
-            // textBox4
+            // tb_ZusatzAnlage3
             // 
-            this.textBox4.Location = new System.Drawing.Point(502, 414);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(194, 20);
-            this.textBox4.TabIndex = 40;
+            this.tb_ZusatzAnlage3.Location = new System.Drawing.Point(502, 414);
+            this.tb_ZusatzAnlage3.Name = "tb_ZusatzAnlage3";
+            this.tb_ZusatzAnlage3.Size = new System.Drawing.Size(194, 20);
+            this.tb_ZusatzAnlage3.TabIndex = 40;
             // 
-            // textBox5
+            // tb_WesiMail
             // 
-            this.textBox5.Location = new System.Drawing.Point(502, 217);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(194, 20);
-            this.textBox5.TabIndex = 41;
+            this.tb_WesiMail.Location = new System.Drawing.Point(502, 217);
+            this.tb_WesiMail.Name = "tb_WesiMail";
+            this.tb_WesiMail.Size = new System.Drawing.Size(194, 20);
+            this.tb_WesiMail.TabIndex = 41;
             // 
             // label13
             // 
@@ -433,37 +433,37 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1367, 846);
             this.Controls.Add(this.label13);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.tb_WesiMail);
+            this.Controls.Add(this.tb_ZusatzAnlage3);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.tb_ZusatzAnlage2);
+            this.Controls.Add(this.tb_ZusatzAnlage1);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.checkBox3);
-            this.Controls.Add(this.checkBox2);
-            this.Controls.Add(this.checkBox1);
-            this.Controls.Add(this.richTextBox2);
+            this.Controls.Add(this.cb_techBeschreibung);
+            this.Controls.Add(this.cb_beteiligte);
+            this.Controls.Add(this.cb_plansaetze);
+            this.Controls.Add(this.rtb_WesiAdresse);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tb_AnsprechpartnerBau);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.rtb_absprachen);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.cmb_ortMassnahme);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cmb_Ansprechpartner);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.datePickerAusfuehrung);
+            this.Controls.Add(this.btn_sendEmail);
             this.Controls.Add(this.btn_printDocument);
             this.Controls.Add(this.btn_saveDocument);
             this.Controls.Add(this.printPreviewControl1);
             this.Controls.Add(this.lb_texteditor);
-            this.Controls.Add(this.txt_editor);
+            this.Controls.Add(this.rtb_BeschreibungMassnahme);
             this.Controls.Add(this.lb_datum);
             this.Controls.Add(this.datePicker);
             this.Controls.Add(this.lb_absender);
@@ -493,37 +493,37 @@
         private System.Windows.Forms.Label lb_absender;
         private System.Windows.Forms.DateTimePicker datePicker;
         private System.Windows.Forms.Label lb_datum;
-        private System.Windows.Forms.RichTextBox txt_editor;
+        private System.Windows.Forms.RichTextBox rtb_BeschreibungMassnahme;
         private System.Windows.Forms.Label lb_texteditor;
         private System.Windows.Forms.PrintPreviewControl printPreviewControl1;
         private System.Windows.Forms.Button btn_saveDocument;
         private System.Windows.Forms.Button btn_printDocument;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Button btn_sendEmail;
+        private System.Windows.Forms.DateTimePicker datePickerAusfuehrung;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmb_Ansprechpartner;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cmb_ortMassnahme;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox rtb_absprachen;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tb_AnsprechpartnerBau;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.RichTextBox richTextBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox3;
+        private System.Windows.Forms.RichTextBox rtb_WesiAdresse;
+        private System.Windows.Forms.CheckBox cb_plansaetze;
+        private System.Windows.Forms.CheckBox cb_beteiligte;
+        private System.Windows.Forms.CheckBox cb_techBeschreibung;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox tb_ZusatzAnlage1;
+        private System.Windows.Forms.TextBox tb_ZusatzAnlage2;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox tb_ZusatzAnlage3;
+        private System.Windows.Forms.TextBox tb_WesiMail;
         private System.Windows.Forms.Label label13;
     }
 }
