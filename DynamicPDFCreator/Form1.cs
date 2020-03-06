@@ -21,5 +21,15 @@ namespace DynamicPDFCreator
         {
 
         }
+
+        private void CheckBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Label7_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
