@@ -1,0 +1,393 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping assembly="DynamicPDFCreator" namespace="DynamicPDFCreator" xmlns="urn:nhibernate-mapping-2.2">
+  <class name="TblAuftraege" table="tblAuftraege" schema="dbo">
+    <id name="IdAuftrag" type="Int32">
+      <column name="idAuftrag" not-null="true" precision="10" scale="0" sql-type="INT" />
+      <generator class="identity" />
+    </id>
+    <version name="SSMATimeStamp" type="Byte[]">
+      <column name="SSMA_TimeStamp" not-null="true" sql-type="TIMESTAMP" />
+    </version>
+    <property name="SMNummer" type="String">
+      <column name="SM_Nummer" not-null="true" length="25" sql-type="NVARCHAR(25)" />
+    </property>
+    <property name="Requestnummer" type="String">
+      <column name="Requestnummer" not-null="false" length="255" sql-type="NVARCHAR(255)" />
+    </property>
+    <property name="IdWMSTIStatus" type="String">
+      <column name="idWMSTIStatus" default="'ohne WMSTI'" not-null="true" length="255" sql-type="NVARCHAR(255)" />
+    </property>
+    <property name="IdBearbeiter" type="String">
+      <column name="idBearbeiter" not-null="true" length="255" sql-type="NVARCHAR(255)" />
+    </property>
+    <property name="Bezeichnung" type="String">
+      <column name="Bezeichnung" not-null="false" length="60" sql-type="NVARCHAR(60)" />
+    </property>
+    <property name="Auftragseingang" type="DateTime">
+      <column name="Auftragseingang" default="CONVERT([datetime],CONVERT([varchar],getdate(),(1)),(1))" not-null="true" sql-type="DATETIME" />
+    </property>
+    <property name="BAFAKorrigiert" type="DateTime">
+      <column name="BAFA_korrigiert" not-null="false" sql-type="DATETIME" />
+    </property>
+    <property name="Bemerkung" type="String">
+      <column name="Bemerkung" not-null="false" sql-type="NVARCHAR(MAX)" />
+    </property>
+    <property name="Baubeschreibung" type="String">
+      <column name="Baubeschreibung" not-null="false" sql-type="NVARCHAR(MAX)" />
+    </property>
+    <property name="InternWMSTIAbschliessbar" type="Boolean">
+      <column name="internWMSTIAbschliessbar" default="0" not-null="false" sql-type="BIT" />
+    </property>
+    <property name="Selektiert" type="Boolean">
+      <column name="Selektiert" default="0" not-null="false" sql-type="BIT" />
+    </property>
+    <property name="CreateDate" type="DateTime">
+      <column name="CreateDate" default="getdate()" not-null="false" sql-type="DATETIME" />
+    </property>
+    <property name="UpdateDate" type="DateTime">
+      <column name="UpdateDate" not-null="false" sql-type="DATETIME" />
+    </property>
+    <property name="IdAuftragnehmerTiefbau" type="String">
+      <column name="idAuftragnehmerTiefbau" not-null="false" length="255" sql-type="NVARCHAR(255)" />
+    </property>
+    <property name="IdAuftragnehmerMontage" type="String">
+      <column name="idAuftragnehmerMontage" not-null="false" length="255" sql-type="NVARCHAR(255)" />
+    </property>
+    <property name="IdAuftragnehmerPlanung" type="String">
+      <column name="idAuftragnehmerPlanung" not-null="false" length="255" sql-type="NVARCHAR(255)" />
+    </property>
+    <property name="IdAuftragnehmerBaubegleitung" type="String">
+      <column name="idAuftragnehmerBaubegleitung" not-null="false" length="255" sql-type="NVARCHAR(255)" />
+    </property>
+    <property name="IdAuftragnehmerDokumentation" type="String">
+      <column name="idAuftragnehmerDokumentation" not-null="false" length="255" sql-type="NVARCHAR(255)" />
+    </property>
+    <property name="IdAuftraggeber" type="String">
+      <column name="idAuftraggeber" not-null="false" length="255" sql-type="NVARCHAR(255)" />
+    </property>
+    <property name="ExportiertAm" type="DateTime">
+      <column name="ExportiertAm" not-null="false" sql-type="DATETIME" />
+    </property>
+    <property name="Gemerkt" type="Boolean">
+      <column name="Gemerkt" default="0" not-null="false" sql-type="BIT" />
+    </property>
+    <property name="WMSTIStatusDatum" type="DateTime">
+      <column name="WMSTIStatusDatum" not-null="false" sql-type="DATETIME" />
+    </property>
+    <property name="PlanungsNummer" type="String">
+      <column name="PlanungsNummer" not-null="false" length="255" sql-type="NVARCHAR(255)" />
+    </property>
+    <property name="IdProjekt" type="Int32">
+      <column name="idProjekt" not-null="false" precision="10" scale="0" sql-type="INT" />
+    </property>
+    <property name="Postleitzahl" type="String">
+      <column name="Postleitzahl" not-null="false" length="255" sql-type="NVARCHAR(255)" />
+    </property>
+    <property name="Ort" type="String">
+      <column name="Ort" not-null="false" length="255" sql-type="NVARCHAR(255)" />
+    </property>
+    <property name="MontAOrtsteil" type="String">
+      <column name="`Mont A Ortsteil`" not-null="false" length="255" sql-type="NVARCHAR(255)" />
+    </property>
+    <property name="Strasse" type="String">
+      <column name="Strasse" not-null="false" length="255" sql-type="NVARCHAR(255)" />
+    </property>
+    <property name="Hausnummer" type="String">
+      <column name="Hausnummer" not-null="false" length="255" sql-type="NVARCHAR(255)" />
+    </property>
+    <property name="MontAZusatzStr" type="String">
+      <column name="`Mont A Zusatz Str`" not-null="false" length="255" sql-type="NVARCHAR(255)" />
+    </property>
+    <property name="Ortsnetz" type="String">
+      <column name="Ortsnetz" not-null="false" length="255" sql-type="NVARCHAR(255)" />
+    </property>
+    <property name="ASB" type="String">
+      <column name="ASB" not-null="false" length="255" sql-type="NVARCHAR(255)" />
+    </property>
+    <property name="KVZ" type="String">
+      <column name="KVZ" not-null="false" length="255" sql-type="NVARCHAR(255)" />
+    </property>
+    <property name="ZusatzMaterial" type="Int32">
+      <column name="ZusatzMaterial" default="0" not-null="false" precision="10" scale="0" sql-type="INT" />
+    </property>
+    <property name="Langtext" type="String">
+      <column name="Langtext" not-null="false" sql-type="NVARCHAR(MAX)" />
+    </property>
+    <property name="AbrechnungMitidAuftrag" type="Int32">
+      <column name="AbrechnungMitidAuftrag" not-null="false" precision="10" scale="0" sql-type="INT" />
+    </property>
+    <property name="WegesicherungErforderlich" type="Int32">
+      <column name="Wegesicherung_erforderlich" default="0" not-null="true" precision="10" scale="0" sql-type="INT" />
+    </property>
+    <property name="DatenblattErforderlich" type="Int32">
+      <column name="Datenblatt_erforderlich" default="0" not-null="true" precision="10" scale="0" sql-type="INT" />
+    </property>
+    <property name="WegesicherungErledigt" type="Int32">
+      <column name="Wegesicherung_erledigt" default="2" not-null="true" precision="10" scale="0" sql-type="INT" />
+    </property>
+    <property name="DatenblattErledigt" type="Int32">
+      <column name="Datenblatt_erledigt" default="2" not-null="true" precision="10" scale="0" sql-type="INT" />
+    </property>
+    <property name="SollBeginnPlanung" type="DateTime">
+      <column name="Soll_Beginn_Planung" not-null="false" sql-type="DATETIME" />
+    </property>
+    <property name="SollDauerPlanung" type="Single">
+      <column name="Soll_Dauer_Planung" default="0" not-null="false" precision="24" sql-type="REAL" />
+    </property>
+    <property name="SollEndePlanung" type="DateTime">
+      <column name="Soll_Ende_Planung" not-null="false" sql-type="DATETIME" />
+    </property>
+    <property name="IstEndePlanung" type="DateTime">
+      <column name="Ist_Ende_Planung" not-null="false" sql-type="DATETIME" />
+    </property>
+    <property name="MegaplanDatenbank" type="String">
+      <column name="Megaplan_Datenbank" not-null="false" length="255" sql-type="NVARCHAR(255)" />
+    </property>
+    <property name="SollDauerDoku" type="Int32">
+      <column name="Soll_Dauer_Doku" default="0" not-null="false" precision="10" scale="0" sql-type="INT" />
+    </property>
+    <property name="IstEndeDoku" type="DateTime">
+      <column name="Ist_Ende_Doku" not-null="false" sql-type="DATETIME" />
+    </property>
+    <property name="MegaplanAnsprechpartner" type="String">
+      <column name="Megaplan_Ansprechpartner" not-null="false" length="255" sql-type="NVARCHAR(255)" />
+    </property>
+    <property name="MBfDVertragsnummer" type="String">
+      <column name="MBfD_Vertragsnummer" not-null="false" length="255" sql-type="NVARCHAR(255)" />
+    </property>
+    <property name="IdAuftragVeranschlagungshilfe" type="Int32">
+      <column name="idAuftragVeranschlagungshilfe" default="0" not-null="false" precision="10" scale="0" sql-type="INT" />
+    </property>
+    <property name="EsassNR" type="String">
+      <column name="esassNR" not-null="false" length="255" sql-type="NVARCHAR(255)" />
+    </property>
+    <property name="WegesicherungThema" type="String">
+      <column name="Wegesicherung_Thema" not-null="false" sql-type="NVARCHAR(MAX)" />
+    </property>
+    <property name="WegesicherungErgebnis" type="String">
+      <column name="Wegesicherung_Ergebnis" not-null="false" sql-type="NVARCHAR(MAX)" />
+    </property>
+    <property name="WegesicherungVerschickt" type="DateTime">
+      <column name="Wegesicherung_verschickt" not-null="false" sql-type="DATETIME" />
+    </property>
+    <property name="WegesicherungBestätigt" type="DateTime">
+      <column name="Wegesicherung_bestätigt" not-null="false" sql-type="DATETIME" />
+    </property>
+    <property name="WegesicherungUhrzeitvon" type="DateTime">
+      <column name="`Wegesicherung_Uhrzeit von`" not-null="false" sql-type="DATETIME" />
+    </property>
+    <property name="WegesicherungUhrzeitbis" type="DateTime">
+      <column name="`Wegesicherung_Uhrzeit bis`" not-null="false" sql-type="DATETIME" />
+    </property>
+    <property name="WegesicherungAnspreichpartner" type="String">
+      <column name="Wegesicherung_Anspreichpartner" not-null="false" sql-type="NVARCHAR(MAX)" />
+    </property>
+    <property name="WegesicherungTextbox1" type="String">
+      <column name="Wegesicherung_Textbox1" not-null="false" sql-type="NVARCHAR(MAX)" />
+    </property>
+    <property name="WegesicherungTextbox2" type="String">
+      <column name="Wegesicherung_Textbox2" not-null="false" sql-type="NVARCHAR(MAX)" />
+    </property>
+    <property name="WegesicherungTextbox3" type="String">
+      <column name="Wegesicherung_Textbox3" not-null="false" sql-type="NVARCHAR(MAX)" />
+    </property>
+    <property name="WegesicherungAusführungszeitraum" type="String">
+      <column name="Wegesicherung_Ausführungszeitraum" not-null="false" length="255" sql-type="NVARCHAR(255)" />
+    </property>
+    <property name="WegesicherungBemerkung" type="String">
+      <column name="Wegesicherung_Bemerkung" not-null="false" sql-type="NVARCHAR(MAX)" />
+    </property>
+    <property name="KDName" type="String">
+      <column name="`KD Name`" not-null="false" length="255" sql-type="NVARCHAR(255)" />
+    </property>
+    <property name="KDVorname" type="String">
+      <column name="`KD Vorname`" not-null="false" length="255" sql-type="NVARCHAR(255)" />
+    </property>
+    <property name="KDPLZ" type="String">
+      <column name="`KD PLZ`" not-null="false" length="255" sql-type="NVARCHAR(255)" />
+    </property>
+    <property name="KDOrt" type="String">
+      <column name="`KD Ort`" not-null="false" length="255" sql-type="NVARCHAR(255)" />
+    </property>
+    <property name="KDOrtsteil" type="String">
+      <column name="`KD Ortsteil`" not-null="false" length="255" sql-type="NVARCHAR(255)" />
+    </property>
+    <property name="KDStraße" type="String">
+      <column name="`KD Straße`" not-null="false" length="255" sql-type="NVARCHAR(255)" />
+    </property>
+    <property name="KDHsNr" type="String">
+      <column name="`KD HsNr`" not-null="false" length="255" sql-type="NVARCHAR(255)" />
+    </property>
+    <property name="KDZusatz" type="String">
+      <column name="`KD Zusatz`" not-null="false" length="255" sql-type="NVARCHAR(255)" />
+    </property>
+    <property name="KDAnsprechpartner" type="String">
+      <column name="`KD Ansprechpartner`" not-null="false" length="255" sql-type="NVARCHAR(255)" />
+    </property>
+    <property name="KDTelAnsprechpartner" type="String">
+      <column name="`KD Tel Ansprechpartner`" not-null="false" length="255" sql-type="NVARCHAR(255)" />
+    </property>
+    <property name="AuftragsfallTI" type="String">
+      <column name="`Auftragsfall TI`" not-null="false" length="255" sql-type="NVARCHAR(255)" />
+    </property>
+    <property name="APL" type="String">
+      <column name="APL" not-null="false" length="255" sql-type="NVARCHAR(255)" />
+    </property>
+    <property name="AnzahlWE" type="String">
+      <column name="`Anzahl WE`" not-null="false" length="255" sql-type="NVARCHAR(255)" />
+    </property>
+    <property name="AnzahlGE" type="String">
+      <column name="`Anzahl GE`" not-null="false" length="255" sql-type="NVARCHAR(255)" />
+    </property>
+    <property name="Bauweise" type="String">
+      <column name="Bauweise" not-null="false" length="255" sql-type="NVARCHAR(255)" />
+    </property>
+    <property name="IdBaugebiet" type="Int32">
+      <column name="idBaugebiet" default="0" not-null="false" precision="10" scale="0" sql-type="INT" />
+    </property>
+    <property name="IdKVZBaugebiet" type="String">
+      <column name="idKVZBaugebiet" not-null="false" length="255" sql-type="NVARCHAR(255)" />
+    </property>
+    <property name="BaubeschreibungAPL" type="String">
+      <column name="Baubeschreibung_APL" not-null="false" sql-type="NVARCHAR(MAX)" />
+    </property>
+    <property name="ÜbergeordneteRequestIDAusImport" type="String">
+      <column name="ÜbergeordneteRequestIDAusImport" not-null="false" length="255" sql-type="NVARCHAR(255)" />
+    </property>
+    <property name="Verzögerungsgrund" type="String">
+      <column name="Verzögerungsgrund" not-null="false" sql-type="NVARCHAR(MAX)" />
+    </property>
+    <property name="CSAuftrag" type="String">
+      <column name="CSAuftrag" not-null="false" length="255" sql-type="NVARCHAR(255)" />
+    </property>
+    <property name="PlanungsLeistungenInHauptauftrag" type="Boolean">
+      <column name="PlanungsLeistungenInHauptauftrag" default="0" not-null="false" sql-type="BIT" />
+    </property>
+    <property name="Markiert" type="Boolean">
+      <column name="Markiert" default="0" not-null="false" sql-type="BIT" />
+    </property>
+    <property name="ErstVon" type="String">
+      <column name="Erst_von" not-null="false" length="255" sql-type="NVARCHAR(255)" />
+    </property>
+    <property name="ErstAm" type="DateTime">
+      <column name="Erst_am" default="getdate()" not-null="false" sql-type="DATETIME" />
+    </property>
+    <property name="AendVon" type="String">
+      <column name="Aend_von" not-null="false" length="255" sql-type="NVARCHAR(255)" />
+    </property>
+    <property name="AendAm" type="DateTime">
+      <column name="Aend_am" not-null="false" sql-type="DATETIME" />
+    </property>
+    <property name="IDStatusWegesicherung" type="Int32">
+      <column name="IDStatusWegesicherung" not-null="false" precision="10" scale="0" sql-type="INT" />
+    </property>
+    <property name="IDStatusBauablauf" type="Int32">
+      <column name="IDStatusBauablauf" not-null="false" precision="10" scale="0" sql-type="INT" />
+    </property>
+    <property name="IDStatusQgis" type="Int32">
+      <column name="IDStatusQgis" not-null="false" precision="10" scale="0" sql-type="INT" />
+    </property>
+    <property name="IDStatusVeranschlagung" type="Int32">
+      <column name="IDStatusVeranschlagung" not-null="false" precision="10" scale="0" sql-type="INT" />
+    </property>
+    <property name="IDStatusBauakte" type="Int32">
+      <column name="IDStatusBauakte" not-null="false" precision="10" scale="0" sql-type="INT" />
+    </property>
+    <property name="IDStatusMegaplan" type="Int32">
+      <column name="IDStatusMegaplan" not-null="false" precision="10" scale="0" sql-type="INT" />
+    </property>
+    <property name="IDStatusDokumentation" type="Int32">
+      <column name="IDStatusDokumentation" not-null="false" precision="10" scale="0" sql-type="INT" />
+    </property>
+    <property name="StatusWegesicherungBemerkung" type="String">
+      <column name="StatusWegesicherungBemerkung" not-null="false" sql-type="NVARCHAR(MAX)" />
+    </property>
+    <property name="StatusBauablaufBemerkung" type="String">
+      <column name="StatusBauablaufBemerkung" not-null="false" sql-type="NVARCHAR(MAX)" />
+    </property>
+    <property name="StatusQgisBemerkung" type="String">
+      <column name="StatusQgisBemerkung" not-null="false" sql-type="NVARCHAR(MAX)" />
+    </property>
+    <property name="StatusVeranschlagungBemerkung" type="String">
+      <column name="StatusVeranschlagungBemerkung" not-null="false" sql-type="NVARCHAR(MAX)" />
+    </property>
+    <property name="StatusBauakteBemerkung" type="String">
+      <column name="StatusBauakteBemerkung" not-null="false" sql-type="NVARCHAR(MAX)" />
+    </property>
+    <property name="StatusMegaplanBemerkung" type="String">
+      <column name="StatusMegaplanBemerkung" not-null="false" sql-type="NVARCHAR(MAX)" />
+    </property>
+    <property name="StatusDokumentationBemerkung" type="String">
+      <column name="StatusDokumentationBemerkung" not-null="false" sql-type="NVARCHAR(MAX)" />
+    </property>
+    <property name="StatusWegesicherungAendVon" type="String">
+      <column name="StatusWegesicherung_Aend_von" not-null="false" length="255" sql-type="NVARCHAR(255)" />
+    </property>
+    <property name="StatusWegesicherungZeitpunkt" type="DateTime">
+      <column name="StatusWegesicherungZeitpunkt" not-null="false" sql-type="DATETIME" />
+    </property>
+    <property name="StatusBauablaufAendVon" type="String">
+      <column name="StatusBauablauf_Aend_von" not-null="false" length="255" sql-type="NVARCHAR(255)" />
+    </property>
+    <property name="StatusBauablaufAendAm" type="DateTime">
+      <column name="StatusBauablauf_Aend_am" not-null="false" sql-type="DATETIME" />
+    </property>
+    <property name="StatusQgisAendVon" type="String">
+      <column name="StatusQgis_Aend_von" not-null="false" length="255" sql-type="NVARCHAR(255)" />
+    </property>
+    <property name="StatusQgisAendAm" type="DateTime">
+      <column name="StatusQgis_Aend_am" not-null="false" sql-type="DATETIME" />
+    </property>
+    <property name="StatusVeranschlagungAendVon" type="String">
+      <column name="StatusVeranschlagung_Aend_von" not-null="false" length="255" sql-type="NVARCHAR(255)" />
+    </property>
+    <property name="StatusVeranschlagungAendAm" type="DateTime">
+      <column name="StatusVeranschlagung_Aend_am" not-null="false" sql-type="DATETIME" />
+    </property>
+    <property name="StatusBauakteAendVon" type="String">
+      <column name="StatusBauakte_Aend_von" not-null="false" length="255" sql-type="NVARCHAR(255)" />
+    </property>
+    <property name="StatusBauakteAendAm" type="DateTime">
+      <column name="StatusBauakte_Aend_am" not-null="false" sql-type="DATETIME" />
+    </property>
+    <property name="StatusMegaplanAendVon" type="String">
+      <column name="StatusMegaplan_Aend_von" not-null="false" length="255" sql-type="NVARCHAR(255)" />
+    </property>
+    <property name="StatusMegaplanAendAm" type="DateTime">
+      <column name="StatusMegaplan_Aend_am" not-null="false" sql-type="DATETIME" />
+    </property>
+    <property name="StatusDokumentationAendVon" type="String">
+      <column name="StatusDokumentation_Aend_von" not-null="false" length="255" sql-type="NVARCHAR(255)" />
+    </property>
+    <property name="StatusDokumentationAendAm" type="DateTime">
+      <column name="StatusDokumentation_Aend_am" not-null="false" sql-type="DATETIME" />
+    </property>
+    <property name="Wunschtermin" type="DateTime">
+      <column name="Wunschtermin" not-null="false" sql-type="DATETIME" />
+    </property>
+    <property name="Wunschbearbeiter" type="String">
+      <column name="Wunschbearbeiter" not-null="false" length="255" sql-type="NVARCHAR(255)" />
+    </property>
+    <property name="IDStatusNacharbeiten" type="Int32">
+      <column name="IDStatusNacharbeiten" not-null="false" precision="10" scale="0" sql-type="INT" />
+    </property>
+    <property name="StatusNacharbeitenAendAm" type="DateTime">
+      <column name="StatusNacharbeiten_Aend_am" not-null="false" sql-type="DATETIME" />
+    </property>
+    <property name="StatusNacharbeitenAendVon" type="String">
+      <column name="StatusNacharbeiten_Aend_von" not-null="false" length="255" sql-type="NVARCHAR(255)" />
+    </property>
+    <property name="IDStatusQgisHausanschluesse" type="Int32">
+      <column name="IDStatusQgisHausanschluesse" not-null="false" precision="10" scale="0" sql-type="INT" />
+    </property>
+    <property name="StatusQgisHausanschluesseAendAm" type="DateTime">
+      <column name="StatusQgisHausanschluesse_Aend_am" not-null="false" sql-type="DATETIME" />
+    </property>
+    <property name="StatusQgisHausanschluesseAendVon" type="String">
+      <column name="StatusQgisHausanschluesse_Aend_von" not-null="false" length="255" sql-type="NVARCHAR(255)" />
+    </property>
+    <property name="StatusNacharbeitenBemerkung" type="String">
+      <column name="StatusNacharbeitenBemerkung" not-null="false" sql-type="NVARCHAR(MAX)" />
+    </property>
+  </class>
+</hibernate-mapping>
