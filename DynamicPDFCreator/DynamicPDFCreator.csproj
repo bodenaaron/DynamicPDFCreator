@@ -65,12 +65,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Absender.cs" />
     <Compile Include="Classes\DBManager.cs" />
+    <Compile Include="Classes\PDF.cs" />
     <Compile Include="Entities\PDFCreatorModels.TblAnschreibenTyp.cs" />
     <Compile Include="Entities\PDFCreatorModels.TblAnsprechpartner.cs" />
     <Compile Include="Entities\PDFCreatorModels.TblAuftraege.cs" />
     <Compile Include="Entities\PDFCreatorModels2.TblAnsprechpartner2Projekt.cs" />
     <Compile Include="Entities\PDFCreatorModels2.TblProjekte.cs" />
+    <Compile Include="Entities\PDFCreatorModels3.TblBearbeiter.cs" />
+    <Compile Include="Entities\PDFCreatorModels3.TblWesiTeam.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,6 +126,21 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PDFCreatorModels2.hbml</DependentUpon>
     </None>
+    <None Include="PDFCreatorModels3.dboDiagram.view">
+      <DependentUpon>PDFCreatorModels3.hbml</DependentUpon>
+    </None>
+    <None Include="PDFCreatorModels3.edps">
+      <DependentUpon>PDFCreatorModels3.hbml</DependentUpon>
+    </None>
+    <None Include="PDFCreatorModels3.hbml">
+      <Generator>DevartHibernateGenerator</Generator>
+      <LastGenOutput>PDFCreatorModels3.info</LastGenOutput>
+    </None>
+    <None Include="PDFCreatorModels3.info">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PDFCreatorModels3.hbml</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -148,6 +167,8 @@
     <Content Include="hibernate.cfg.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <EmbeddedResource Include="Mapping\PDFCreatorModels3.TblWesiTeam.hbm.xml" />
+    <EmbeddedResource Include="Mapping\PDFCreatorModels3.TblBearbeiter.hbm.xml" />
     <EmbeddedResource Include="Mapping\PDFCreatorModels2.TblProjekte.hbm.xml" />
     <EmbeddedResource Include="Mapping\PDFCreatorModels2.TblAnsprechpartner2Projekt.hbm.xml" />
   </ItemGroup>

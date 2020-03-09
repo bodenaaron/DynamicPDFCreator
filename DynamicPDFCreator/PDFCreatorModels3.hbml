@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping assembly="DynamicPDFCreator" namespace="DynamicPDFCreator" p1:Guid="7eb2680e-68f4-4487-8c87-0e332c6dc8a8" xmlns:p1="http://devart.com/schemas/EntityDeveloper/1.0" xmlns="urn:nhibernate-mapping-2.2">
+  <class name="TblBearbeiter" table="tblBearbeiter" schema="dbo" p1:Guid="512d0ad2-e07f-49d5-8a4e-78b25d30f33a">
+    <id name="IdBearbeiter" type="String" p1:ValidateMaxLength="255" p1:ValidateRequired="true" p1:Guid="0bd2a9ec-54a4-42de-9749-ddfb9f041307">
+      <column name="idBearbeiter" not-null="true" length="255" sql-type="nvarchar" p1:unicode="true" />
+    </id>
+    <version name="SSMATimeStamp" type="Byte[]" p1:ValidateRequired="true" p1:Guid="557838c7-6e31-4013-a931-377b649974b6">
+      <column name="SSMA_TimeStamp" not-null="true" sql-type="timestamp" p1:unicode="false" />
+    </version>
+    <property name="Passwort" type="String" p1:nullable="true" p1:ValidateMaxLength="255" p1:ValidateRequired="false" p1:Guid="6062b724-c367-4d7f-9489-1d6542bf457c">
+      <column name="Passwort" not-null="false" length="255" sql-type="nvarchar" p1:unicode="true" />
+    </property>
+    <property name="Email" type="String" p1:nullable="true" p1:ValidateMaxLength="255" p1:ValidateRequired="false" p1:Guid="b0fde384-667e-41be-9c77-cba1b74dd632">
+      <column name="Email" not-null="false" length="255" sql-type="nvarchar" p1:unicode="true" />
+    </property>
+    <property name="Telefon" type="String" p1:nullable="true" p1:ValidateMaxLength="255" p1:ValidateRequired="false" p1:Guid="5de21300-46ca-4b1f-9de7-cf86cc07f57b">
+      <column name="Telefon" not-null="false" length="255" sql-type="nvarchar" p1:unicode="true" />
+    </property>
+    <property name="CreateDate" type="DateTime" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="896e33e4-72c8-46bd-91a4-405a1c6f48ba">
+      <column name="CreateDate" default="getdate()" not-null="false" sql-type="datetime" p1:unicode="false" />
+    </property>
+    <property name="UpdateDate" type="DateTime" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="1b2f26a0-7901-49ab-bf40-ad120bbff976">
+      <column name="UpdateDate" not-null="false" sql-type="datetime" p1:unicode="false" />
+    </property>
+    <property name="SollStunden" type="Single" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="a24be78f-c13f-41df-ac8b-5408efe77a6c">
+      <column name="SollStunden" not-null="false" precision="24" sql-type="real" p1:unicode="false" />
+    </property>
+    <property name="BearbeiterName" type="String" p1:nullable="true" p1:ValidateMaxLength="255" p1:ValidateRequired="false" p1:Guid="8d641359-a878-4906-b369-096baa6c24a9">
+      <column name="Bearbeiter_Name" not-null="false" length="255" sql-type="nvarchar" p1:unicode="true" />
+    </property>
+    <property name="BearbeiterVorname" type="String" p1:nullable="true" p1:ValidateMaxLength="255" p1:ValidateRequired="false" p1:Guid="de679f36-e60d-4090-9f3e-cdca0cdb5aad">
+      <column name="Bearbeiter_Vorname" not-null="false" length="255" sql-type="nvarchar" p1:unicode="true" />
+    </property>
+  </class>
+  <class name="TblWesiTeam" table="tblWesiTeam" schema="dbo" p1:Guid="48d57ea3-6319-48ce-b274-6d16d14e983b">
+    <id name="Id" type="Int16" p1:ValidateRequired="true" p1:Guid="a6cf76b6-3719-4aff-8a8b-c0e1918f88a0">
+      <column name="id" not-null="true" precision="5" scale="0" sql-type="smallint" p1:unicode="false" />
+      <generator class="identity" />
+    </id>
+    <property name="Bezeichnung" type="StringClob" p1:ValidateMaxLength="1073741823" p1:ValidateRequired="true" p1:Guid="40409c39-dc4c-4f17-87e8-d1e43e237f42">
+      <column name="Bezeichnung" not-null="true" length="1073741823" sql-type="ntext" p1:unicode="true" />
+    </property>
+    <property name="Stadt" type="String" p1:nullable="true" p1:ValidateMaxLength="50" p1:ValidateRequired="false" p1:Guid="ca0916f5-bed8-470f-b7e7-821526bfd170">
+      <column name="Stadt" not-null="false" length="50" sql-type="nvarchar" p1:unicode="true" />
+    </property>
+    <property name="PLZ" type="String" p1:nullable="true" p1:ValidateMaxLength="50" p1:ValidateRequired="false" p1:Guid="19f850b7-c556-41b8-b4c8-73d191ec192c">
+      <column name="PLZ" not-null="false" length="50" sql-type="nvarchar" p1:unicode="true" />
+    </property>
+    <property name="Strasse" type="String" p1:nullable="true" p1:ValidateMaxLength="50" p1:ValidateRequired="false" p1:Guid="e63cd7c1-8b1e-4741-8de5-68ae21d1b9e8">
+      <column name="Strasse" not-null="false" length="50" sql-type="nvarchar" p1:unicode="true" />
+    </property>
+    <property name="Hausnummer" type="Int16" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="f3d4c7b6-368e-4d52-afd5-cda89db23eea">
+      <column name="Hausnummer" not-null="false" precision="5" scale="0" sql-type="smallint" p1:unicode="false" />
+    </property>
+    <property name="Bereich" type="String" p1:nullable="true" p1:ValidateMaxLength="50" p1:ValidateRequired="false" p1:Guid="e869ba38-6ed3-4c14-bae9-871a110538e8">
+      <column name="Bereich" not-null="false" length="50" sql-type="nvarchar" p1:unicode="true" />
+    </property>
+  </class>
+</hibernate-mapping>

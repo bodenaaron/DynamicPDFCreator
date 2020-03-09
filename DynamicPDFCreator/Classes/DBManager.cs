@@ -16,37 +16,37 @@ namespace DynamicPDFCreator
         public TblProjekte projekt;
         public List<TblAnsprechpartner> ansprechpartner;
         public object[] ansprechpartnerNamen;
-        List<TblAnschreibenTyp> anschreiben;
-        public void Main()
+        public List<TblAnschreibenTyp> anschreiben;
+        public object[] anschreibenNamen;
+        public List<TblBearbeiter> bearbeiter;
+        public object[] bearbeiterNamen;
+        public List<TblWesiTeam> wesiTeam;
+        public object[] wesiTeamNamen;
+
+        public DBManager()
         {
-            var nhConfig = new Configuration().Configure();
-            var sessionFactory = nhConfig.BuildSessionFactory();
-
-            var session = sessionFactory.OpenSession();
-            var tx = session.BeginTransaction();
-
-            TblAnschreibenTyp anschreiben = session.Get<TblAnschreibenTyp>(Convert.ToInt16(1));
-            tx.Commit();
-
-            Console.WriteLine(anschreiben.Bezeichnung);
+            getAnschreibenTyp();
+            getBearbeiter();
+            getWesiTeam();
+        }
+        public DBManager(string smNummer)
+        {
+            try
+            {
+                getAuftrag(smNummer);
+                if (auftrag!=null)
+                {
+                    getProjekt();
+                    getAnsprechpartner();
+                    getAnschreibenTyp();
+                    getBearbeiter();
+                    getWesiTeam();
+                }
+            }
+            catch (Exception e) { }
         }
 
-        private ISession getSession()
-        {
-            var nhConfig = new Configuration().Configure();
-            var sessionFactory = nhConfig.BuildSessionFactory();
-
-            ISession session = sessionFactory.OpenSession();
-            sessionFactory.Close();
-            return session;
-        }
-
-        private void closeSession(ISession session, ITransaction tx)
-        {
-            session.Clear();
-            tx.Dispose();
-        }
-
+        //braucht SMNummer
         public void getAuftrag(string smNummer)
         {
             auftrag = new TblAuftraege();
@@ -60,13 +60,9 @@ namespace DynamicPDFCreator
             auftrag = crit.List<TblAuftraege>().FirstOrDefault();
             tx.Commit();
             closeSession(session,tx);
-            if (auftrag!=null)
-            {
-                getAnsprechpartner();
-            }
-            
         }
 
+        //braucht Auftrag
         private void getProjekt()
         {
             ISession session = getSession();
@@ -75,6 +71,7 @@ namespace DynamicPDFCreator
             closeSession(session, tx);
         }
 
+        //braucht Projekt
         private void getAnsprechpartner()
         {
             ISession session = getSession();
@@ -102,6 +99,7 @@ namespace DynamicPDFCreator
             closeSession(session, tx);
         }
 
+        //immer verfügbar
         private void getAnschreibenTyp()
         {
             ISession session = getSession();
@@ -109,10 +107,77 @@ namespace DynamicPDFCreator
 
             ICriteria crit = session.CreateCriteria<TblAnschreibenTyp>();
            
-            List<TblAnschreibenTyp> anschreiben = (List<TblAnschreibenTyp>) crit.List<TblAnschreibenTyp>();
+            anschreiben = (List<TblAnschreibenTyp>) crit.List<TblAnschreibenTyp>();
+            
+            List<string> anschr = new List<string>();
+            //Object in String umwandeln
+            foreach (TblAnschreibenTyp an in anschreiben)
+            {
+                anschr.Add(an.Bezeichnung);
+            }
+            anschreibenNamen = anschr.Cast<object>().ToArray();
 
             closeSession(session, tx);
 
         }
+
+        //immer verfügbar
+        private void getBearbeiter()
+        {
+            ISession session = getSession();
+            ITransaction tx = session.BeginTransaction();
+
+            ICriteria crit = session.CreateCriteria<TblBearbeiter>();
+            bearbeiter = (List<TblBearbeiter>)crit.List<TblBearbeiter>();
+
+            List<string> bearb = new List<string>();
+            //Object in String umwandeln
+            foreach (TblBearbeiter an in bearbeiter)
+            {
+                bearb.Add(an.BearbeiterVorname+" "+an.BearbeiterName);
+            }
+            bearbeiterNamen = bearb.Cast<object>().ToArray();
+
+            closeSession(session, tx);
+        }
+
+        //immer verfügbar
+        private void getWesiTeam()
+        {
+            ISession session = getSession();
+            ITransaction tx = session.BeginTransaction();
+
+            ICriteria crit = session.CreateCriteria<TblWesiTeam>();
+            wesiTeam = (List<TblWesiTeam>)crit.List<TblWesiTeam>();
+
+            List<string> wesi = new List<string>();
+            //Object in String umwandeln
+            foreach (TblWesiTeam an in wesiTeam)
+            {
+                wesi.Add(an.Bezeichnung);
+            }
+            wesiTeamNamen = wesi.Cast<object>().ToArray();
+
+
+            closeSession(session, tx);
+        }
+
+        #region Session
+        private ISession getSession()
+        {
+            var nhConfig = new Configuration().Configure();
+            var sessionFactory = nhConfig.BuildSessionFactory();
+
+            ISession session = sessionFactory.OpenSession();
+            sessionFactory.Close();
+            return session;
+        }
+
+        private void closeSession(ISession session, ITransaction tx)
+        {
+            session.Clear();
+            tx.Dispose();
+        }
+        #endregion
     }
 }
