@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -76,7 +77,9 @@ namespace DynamicPDFCreator
 
         private void Cmb_empfaenger_SelectedIndexChanged(object sender, EventArgs e)
         {
-            pdf.empfaenger = DBm.ansprechpartner.ElementAt<TblAnsprechpartner>(cmb_Ansprechpartner.SelectedIndex);
+            pdf.empfaenger = DBm.ansprechpartner.ElementAt<TblAnsprechpartner>(cmb_empfaenger.SelectedIndex);
+            Interfaces.Wupfl wupfl = new Interfaces.Wupfl();
+            wupfl.writePDF(pdf);
         }
 
         private void Cmb_absender_SelectedIndexChanged(object sender, EventArgs e)
