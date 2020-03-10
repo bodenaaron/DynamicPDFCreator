@@ -36,9 +36,11 @@ namespace DynamicPDFCreator
                     break;
                 case 3:
                     error_label.Text = Properties.ErrorCodes.ERROR_EMPFAENGER;
+                    cmb_empfaenger.BackColor = System.Drawing.Color.Red;
                     break;
                 case 4:
                     error_label.Text = Properties.ErrorCodes.ERROR_ABSENDER;
+                    cmb_absender.BackColor = System.Drawing.Color.Red;
                     break;
                 case 5:
                     error_label.Text = Properties.ErrorCodes.ERROR_DATUM;
@@ -48,6 +50,7 @@ namespace DynamicPDFCreator
                     break;
                 case 7:
                     error_label.Text = Properties.ErrorCodes.ERROR_ANSPRECHPARTNER;
+                    cmb_Ansprechpartner.BackColor = System.Drawing.Color.Red;
                     break;
                 case 8:
                     error_label.Text = Properties.ErrorCodes.ERROR_ORTDERMASSNAHME;

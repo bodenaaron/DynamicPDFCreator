@@ -253,34 +253,38 @@ namespace DynamicPDFCreator
 
             RichTextBox rtb = new RichTextBox();
             rtb.Rtf = rtb_BeschreibungMassnahme.Rtf;
-            PDF FinalPDF = new PDF(
-                DBm.auftrag, 
-                DBm.anschreiben.ElementAt<TblAnschreibenTyp>(cmb_anschreibenTyp.SelectedIndex),
-                DBm.ansprechpartner.ElementAt<TblAnsprechpartner>(cmb_empfaenger.SelectedIndex),
-                DBm.bearbeiter.ElementAt<TblBearbeiter>(cmb_absender.SelectedIndex),
-                datePicker.Value,
-                datePickerAusfuehrung.Value,
-                datePickerAusfuehrungEnde.Value.Date,
-                DBm.bearbeiter.ElementAt<TblBearbeiter>(cmb_Ansprechpartner.SelectedIndex),
-                tb_ortMassnahme.Text,
-                //rtb_absprachen.Text,
-                rtb,
-                //DBm.ansprechpartner.ElementAt<TblAnsprechpartner>(cmb_ansprechpartnerBau.SelectedIndex),
-                DBm.wesiTeam.ElementAt<TblWesiTeam>(cmb_wesie.SelectedIndex),
-                cb_plansaetze.Checked,
-                cb_beteiligte.Checked,
-                cb_techBeschreibung.Checked,
-                zusatzanlagen);
+            try
+            {
+                PDF FinalPDF = new PDF(
+                    DBm.auftrag,
+                    DBm.anschreiben.ElementAt<TblAnschreibenTyp>(cmb_anschreibenTyp.SelectedIndex),
+                    DBm.ansprechpartner.ElementAt<TblAnsprechpartner>(cmb_empfaenger.SelectedIndex),
+                    DBm.bearbeiter.ElementAt<TblBearbeiter>(cmb_absender.SelectedIndex),
+                    datePicker.Value,
+                    datePickerAusfuehrung.Value,
+                    datePickerAusfuehrungEnde.Value.Date,
+                    DBm.bearbeiter.ElementAt<TblBearbeiter>(cmb_Ansprechpartner.SelectedIndex),
+                    tb_ortMassnahme.Text,
+                    //rtb_absprachen.Text,
+                    rtb,
+                    //DBm.ansprechpartner.ElementAt<TblAnsprechpartner>(cmb_ansprechpartnerBau.SelectedIndex),
+                    DBm.wesiTeam.ElementAt<TblWesiTeam>(cmb_wesie.SelectedIndex),
+                    cb_plansaetze.Checked,
+                    cb_beteiligte.Checked,
+                    cb_techBeschreibung.Checked,
+                    zusatzanlagen);
 
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Filter = "PDF|*.pdf";
-            saveFileDialog.Title = "PDF Speichern";
-            saveFileDialog.ShowDialog();
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+                saveFileDialog.Filter = "PDF|*.pdf";
+                saveFileDialog.Title = "PDF Speichern";
+                saveFileDialog.ShowDialog();
 
-            Interfaces.Wupfl wupfl = new Interfaces.Wupfl();
+                Interfaces.Wupfl wupfl = new Interfaces.Wupfl();
 
-            string html = wupfl.getHTML(FinalPDF);
-            wupfl.writeHTMLtoPDF(html, saveFileDialog.FileName);
+                string html = wupfl.getHTML(FinalPDF);
+                wupfl.writeHTMLtoPDF(html, saveFileDialog.FileName);
+            }
+            catch (Exception q) { }
         }
 
         private void Btn_vorschau_Click(object sender, EventArgs e)
@@ -297,6 +301,19 @@ namespace DynamicPDFCreator
             if (rtb_WesiAdresse.Text == "")
             {
                 displayError(ERROR_WESI_TEAM_ADRESSE);
+            }
+
+            if (cmb_empfaenger.Text=="")
+            {
+                displayError(ERROR_EMPFAENGER);
+            }
+            if (cmb_absender.Text == "")
+            {
+                displayError(ERROR_ABSENDER);
+            }
+            if (rtb_BeschreibungMassnahme.Text == "")
+            {
+                displayError(ERROR_BESCHREIBUNGMASSNAHME);
             }
             List<string> zusatzanlagen = new List<string>();
             if (cb_plansaetze.Checked)
@@ -326,32 +343,37 @@ namespace DynamicPDFCreator
 
             RichTextBox rtb = new RichTextBox();
             rtb.Rtf = rtb_BeschreibungMassnahme.Rtf;
-            PDF FinalPDF = new PDF(
-                DBm.auftrag,
-                DBm.anschreiben.ElementAt<TblAnschreibenTyp>(cmb_anschreibenTyp.SelectedIndex),
-                DBm.ansprechpartner.ElementAt<TblAnsprechpartner>(cmb_empfaenger.SelectedIndex),
-                DBm.bearbeiter.ElementAt<TblBearbeiter>(cmb_absender.SelectedIndex),
-                datePicker.Value,
-                datePickerAusfuehrung.Value,
-                datePickerAusfuehrungEnde.Value.Date,
-                DBm.bearbeiter.ElementAt<TblBearbeiter>(cmb_Ansprechpartner.SelectedIndex),
-                tb_ortMassnahme.Text,
-                //rtb_absprachen.Text,
-                rtb,
-                //DBm.ansprechpartner.ElementAt<TblAnsprechpartner>(cmb_ansprechpartnerBau.SelectedIndex),
-                DBm.wesiTeam.ElementAt<TblWesiTeam>(cmb_wesie.SelectedIndex),
-                cb_plansaetze.Checked,
-                cb_beteiligte.Checked,
-                cb_techBeschreibung.Checked,
-                zusatzanlagen);
+            try
+            {
+                 PDF FinalPDF = new PDF(
+                    DBm.auftrag,
+                    DBm.anschreiben.ElementAt<TblAnschreibenTyp>(cmb_anschreibenTyp.SelectedIndex),
+                    DBm.ansprechpartner.ElementAt<TblAnsprechpartner>(cmb_empfaenger.SelectedIndex),
+                    DBm.bearbeiter.ElementAt<TblBearbeiter>(cmb_absender.SelectedIndex),
+                    datePicker.Value,
+                    datePickerAusfuehrung.Value,
+                    datePickerAusfuehrungEnde.Value.Date,
+                    DBm.bearbeiter.ElementAt<TblBearbeiter>(cmb_Ansprechpartner.SelectedIndex),
+                    tb_ortMassnahme.Text,
+                    //rtb_absprachen.Text,
+                    rtb,
+                    //DBm.ansprechpartner.ElementAt<TblAnsprechpartner>(cmb_ansprechpartnerBau.SelectedIndex),
+                    DBm.wesiTeam.ElementAt<TblWesiTeam>(cmb_wesie.SelectedIndex),
+                    cb_plansaetze.Checked,
+                    cb_beteiligte.Checked,
+                    cb_techBeschreibung.Checked,
+                    zusatzanlagen);
 
-            Interfaces.Wupfl wupfl = new Interfaces.Wupfl();
+                Interfaces.Wupfl wupfl = new Interfaces.Wupfl();
 
-            string html = wupfl.getHTML(FinalPDF);
-            string hiddenPath = Path.GetTempPath() + @"\testpdf.pdf";
-            this.pdfPreview.Navigate("www.google.de");
+                string html = wupfl.getHTML(FinalPDF);
+                string hiddenPath = Path.GetTempPath() + @"\testpdf.pdf";
+                this.pdfPreview.Navigate("www.google.de");
+
+                pdfPreview.Navigate(wupfl.writeHTMLtoPDF(html, hiddenPath));
+            }
+            catch (Exception ef) { }
             
-            pdfPreview.Navigate(wupfl.writeHTMLtoPDF(html, hiddenPath));
         }
     }
 }

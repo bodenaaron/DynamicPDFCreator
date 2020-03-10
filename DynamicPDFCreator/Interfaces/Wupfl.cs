@@ -140,13 +140,14 @@ namespace DynamicPDFCreator.Interfaces
                   </td>
                 </tr>
             </table>
-
-            <p>
-                Wir bitten Sie, die Zustimmung gemäß § 68 Abs. 3 Satz 1 TKG zugunsten der Telekom
-                Deutschland GmbH (Reg-Nr.: 93/007 nach § 6 TKG) als Nutzungsberechtigte nach § 68 Abs. 1 i. V. m. § 69 Abs. 1 TKG zu erteilen.  Bitte senden Sie die Zustimmung unter Angabe der im Betreff 
-                genannten SM-Nr. an:
-            </p>
-            <table>
+            <table style='page-break-inside: avoid'>
+                <tr>
+                	<td>
+                            Wir bitten Sie, die Zustimmung gemäß § 68 Abs. 3 Satz 1 TKG zugunsten der Telekom
+                            Deutschland GmbH (Reg-Nr.: 93/007 nach § 6 TKG) als Nutzungsberechtigte nach § 68 Abs. 1 i. V. m. § 69 Abs. 1 TKG zu erteilen.  Bitte senden Sie die Zustimmung unter Angabe der im Betreff 
+                            genannten SM-Nr. an:</br></br></br>
+                  </td>
+                </tr>
                 <tr>
                 	<td>
                   	<b>{pdf.wesiTeam.Bezeichnung}</b>
