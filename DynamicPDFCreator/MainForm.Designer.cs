@@ -40,7 +40,6 @@
             this.lb_datum = new System.Windows.Forms.Label();
             this.rtb_BeschreibungMassnahme = new System.Windows.Forms.RichTextBox();
             this.lb_texteditor = new System.Windows.Forms.Label();
-            this.printPreviewControl1 = new System.Windows.Forms.PrintPreviewControl();
             this.btn_saveDocument = new System.Windows.Forms.Button();
             this.btn_printDocument = new System.Windows.Forms.Button();
             this.btn_sendEmail = new System.Windows.Forms.Button();
@@ -48,7 +47,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cmb_Ansprechpartner = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.cmb_ortMassnahme = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.rtb_absprachen = new System.Windows.Forms.RichTextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -61,17 +59,20 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.tb_ZusatzAnlage1 = new System.Windows.Forms.TextBox();
-            this.tb_ZusatzAnlage2 = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.tb_ZusatzAnlage3 = new System.Windows.Forms.TextBox();
             this.tb_WesiMail = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.cmb_ansprechpartnerBau = new System.Windows.Forms.ComboBox();
             this.cmb_wesie = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
+            this.tb_ortMassnahme = new System.Windows.Forms.TextBox();
+            this.pdfPreview = new System.Windows.Forms.WebBrowser();
+            this.tb_ZusatzAnlage3 = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.tb_ZusatzAnlage2 = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.tb_ZusatzAnlage1 = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.error_label = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lb_SMNumber
@@ -104,6 +105,8 @@
             // 
             this.cmb_anschreibenTyp.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmb_anschreibenTyp.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmb_anschreibenTyp.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmb_anschreibenTyp.Enabled = false;
             this.cmb_anschreibenTyp.FormattingEnabled = true;
             this.cmb_anschreibenTyp.Location = new System.Drawing.Point(123, 85);
             this.cmb_anschreibenTyp.Name = "cmb_anschreibenTyp";
@@ -115,6 +118,7 @@
             // 
             this.cmb_empfaenger.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmb_empfaenger.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmb_empfaenger.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_empfaenger.FormattingEnabled = true;
             this.cmb_empfaenger.Location = new System.Drawing.Point(123, 133);
             this.cmb_empfaenger.Name = "cmb_empfaenger";
@@ -135,6 +139,7 @@
             // 
             this.cmb_absender.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmb_absender.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmb_absender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_absender.FormattingEnabled = true;
             this.cmb_absender.Location = new System.Drawing.Point(123, 177);
             this.cmb_absender.Name = "cmb_absender";
@@ -186,13 +191,6 @@
             this.lb_texteditor.TabIndex = 12;
             this.lb_texteditor.Text = "Beschreibung der Maßnahme";
             // 
-            // printPreviewControl1
-            // 
-            this.printPreviewControl1.Location = new System.Drawing.Point(724, 15);
-            this.printPreviewControl1.Name = "printPreviewControl1";
-            this.printPreviewControl1.Size = new System.Drawing.Size(631, 822);
-            this.printPreviewControl1.TabIndex = 13;
-            // 
             // btn_saveDocument
             // 
             this.btn_saveDocument.Location = new System.Drawing.Point(472, 715);
@@ -201,9 +199,11 @@
             this.btn_saveDocument.TabIndex = 14;
             this.btn_saveDocument.Text = "Speichern unter";
             this.btn_saveDocument.UseVisualStyleBackColor = true;
+            this.btn_saveDocument.Click += new System.EventHandler(this.Btn_saveDocument_Click);
             // 
             // btn_printDocument
             // 
+            this.btn_printDocument.Enabled = false;
             this.btn_printDocument.Location = new System.Drawing.Point(472, 648);
             this.btn_printDocument.Name = "btn_printDocument";
             this.btn_printDocument.Size = new System.Drawing.Size(162, 61);
@@ -213,6 +213,7 @@
             // 
             // btn_sendEmail
             // 
+            this.btn_sendEmail.Enabled = false;
             this.btn_sendEmail.Location = new System.Drawing.Point(472, 581);
             this.btn_sendEmail.Name = "btn_sendEmail";
             this.btn_sendEmail.Size = new System.Drawing.Size(162, 61);
@@ -242,6 +243,7 @@
             // 
             this.cmb_Ansprechpartner.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmb_Ansprechpartner.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmb_Ansprechpartner.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_Ansprechpartner.FormattingEnabled = true;
             this.cmb_Ansprechpartner.Location = new System.Drawing.Point(123, 300);
             this.cmb_Ansprechpartner.Name = "cmb_Ansprechpartner";
@@ -257,15 +259,6 @@
             this.label2.Size = new System.Drawing.Size(85, 13);
             this.label2.TabIndex = 20;
             this.label2.Text = "Ansprechpartner";
-            // 
-            // cmb_ortMassnahme
-            // 
-            this.cmb_ortMassnahme.FormattingEnabled = true;
-            this.cmb_ortMassnahme.Location = new System.Drawing.Point(123, 341);
-            this.cmb_ortMassnahme.Name = "cmb_ortMassnahme";
-            this.cmb_ortMassnahme.Size = new System.Drawing.Size(194, 21);
-            this.cmb_ortMassnahme.TabIndex = 21;
-            this.cmb_ortMassnahme.SelectedIndexChanged += new System.EventHandler(this.Cmb_ortMassnahme_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -379,57 +372,6 @@
             this.label9.TabIndex = 34;
             this.label9.Text = "Liste der Beteiligten";
             // 
-            // tb_ZusatzAnlage1
-            // 
-            this.tb_ZusatzAnlage1.Location = new System.Drawing.Point(502, 391);
-            this.tb_ZusatzAnlage1.Name = "tb_ZusatzAnlage1";
-            this.tb_ZusatzAnlage1.Size = new System.Drawing.Size(194, 20);
-            this.tb_ZusatzAnlage1.TabIndex = 35;
-            this.tb_ZusatzAnlage1.TextChanged += new System.EventHandler(this.Tb_ZusatzAnlage1_TextChanged);
-            // 
-            // tb_ZusatzAnlage2
-            // 
-            this.tb_ZusatzAnlage2.Location = new System.Drawing.Point(502, 425);
-            this.tb_ZusatzAnlage2.Name = "tb_ZusatzAnlage2";
-            this.tb_ZusatzAnlage2.Size = new System.Drawing.Size(194, 20);
-            this.tb_ZusatzAnlage2.TabIndex = 36;
-            this.tb_ZusatzAnlage2.TextChanged += new System.EventHandler(this.Tb_ZusatzAnlage2_TextChanged);
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(373, 394);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(80, 13);
-            this.label10.TabIndex = 37;
-            this.label10.Text = "Zusatzanlage 1";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(373, 429);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(80, 13);
-            this.label11.TabIndex = 38;
-            this.label11.Text = "Zusatzanlage 2";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(373, 464);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(80, 13);
-            this.label12.TabIndex = 39;
-            this.label12.Text = "Zusatzanlage 3";
-            // 
-            // tb_ZusatzAnlage3
-            // 
-            this.tb_ZusatzAnlage3.Location = new System.Drawing.Point(502, 461);
-            this.tb_ZusatzAnlage3.Name = "tb_ZusatzAnlage3";
-            this.tb_ZusatzAnlage3.Size = new System.Drawing.Size(194, 20);
-            this.tb_ZusatzAnlage3.TabIndex = 40;
-            this.tb_ZusatzAnlage3.TextChanged += new System.EventHandler(this.Tb_ZusatzAnlage3_TextChanged);
-            // 
             // tb_WesiMail
             // 
             this.tb_WesiMail.Location = new System.Drawing.Point(502, 264);
@@ -450,6 +392,7 @@
             // 
             this.cmb_ansprechpartnerBau.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmb_ansprechpartnerBau.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmb_ansprechpartnerBau.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_ansprechpartnerBau.FormattingEnabled = true;
             this.cmb_ansprechpartnerBau.Location = new System.Drawing.Point(502, 85);
             this.cmb_ansprechpartnerBau.Name = "cmb_ansprechpartnerBau";
@@ -461,6 +404,7 @@
             // 
             this.cmb_wesie.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmb_wesie.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmb_wesie.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_wesie.FormattingEnabled = true;
             this.cmb_wesie.Location = new System.Drawing.Point(502, 136);
             this.cmb_wesie.Name = "cmb_wesie";
@@ -477,11 +421,89 @@
             this.label14.TabIndex = 45;
             this.label14.Text = "Wesi-Team";
             // 
+            // tb_ortMassnahme
+            // 
+            this.tb_ortMassnahme.Location = new System.Drawing.Point(123, 337);
+            this.tb_ortMassnahme.Name = "tb_ortMassnahme";
+            this.tb_ortMassnahme.Size = new System.Drawing.Size(194, 20);
+            this.tb_ortMassnahme.TabIndex = 46;
+            this.tb_ortMassnahme.TextChanged += new System.EventHandler(this.Tb_ortMassnahme_TextChanged);
+            // 
+            // pdfPreview
+            // 
+            this.pdfPreview.Location = new System.Drawing.Point(753, 15);
+            this.pdfPreview.MinimumSize = new System.Drawing.Size(20, 20);
+            this.pdfPreview.Name = "pdfPreview";
+            this.pdfPreview.Size = new System.Drawing.Size(590, 694);
+            this.pdfPreview.TabIndex = 47;
+            // 
+            // tb_ZusatzAnlage3
+            // 
+            this.tb_ZusatzAnlage3.Location = new System.Drawing.Point(502, 461);
+            this.tb_ZusatzAnlage3.Name = "tb_ZusatzAnlage3";
+            this.tb_ZusatzAnlage3.Size = new System.Drawing.Size(194, 20);
+            this.tb_ZusatzAnlage3.TabIndex = 40;
+            this.tb_ZusatzAnlage3.TextChanged += new System.EventHandler(this.Tb_ZusatzAnlage3_TextChanged);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(373, 464);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(80, 13);
+            this.label12.TabIndex = 39;
+            this.label12.Text = "Zusatzanlage 3";
+            // 
+            // tb_ZusatzAnlage2
+            // 
+            this.tb_ZusatzAnlage2.Location = new System.Drawing.Point(502, 425);
+            this.tb_ZusatzAnlage2.Name = "tb_ZusatzAnlage2";
+            this.tb_ZusatzAnlage2.Size = new System.Drawing.Size(194, 20);
+            this.tb_ZusatzAnlage2.TabIndex = 36;
+            this.tb_ZusatzAnlage2.TextChanged += new System.EventHandler(this.Tb_ZusatzAnlage2_TextChanged);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(373, 429);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(80, 13);
+            this.label11.TabIndex = 38;
+            this.label11.Text = "Zusatzanlage 2";
+            // 
+            // tb_ZusatzAnlage1
+            // 
+            this.tb_ZusatzAnlage1.Location = new System.Drawing.Point(502, 391);
+            this.tb_ZusatzAnlage1.Name = "tb_ZusatzAnlage1";
+            this.tb_ZusatzAnlage1.Size = new System.Drawing.Size(194, 20);
+            this.tb_ZusatzAnlage1.TabIndex = 35;
+            this.tb_ZusatzAnlage1.TextChanged += new System.EventHandler(this.Tb_ZusatzAnlage1_TextChanged);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(373, 394);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(80, 13);
+            this.label10.TabIndex = 37;
+            this.label10.Text = "Zusatzanlage 1";
+            // 
+            // error_label
+            // 
+            this.error_label.AutoSize = true;
+            this.error_label.Location = new System.Drawing.Point(750, 739);
+            this.error_label.Name = "error_label";
+            this.error_label.Size = new System.Drawing.Size(0, 13);
+            this.error_label.TabIndex = 48;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1367, 846);
+            this.ClientSize = new System.Drawing.Size(1355, 799);
+            this.Controls.Add(this.error_label);
+            this.Controls.Add(this.pdfPreview);
+            this.Controls.Add(this.tb_ortMassnahme);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.cmb_wesie);
             this.Controls.Add(this.cmb_ansprechpartnerBau);
@@ -505,7 +527,6 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.rtb_absprachen);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.cmb_ortMassnahme);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cmb_Ansprechpartner);
             this.Controls.Add(this.label1);
@@ -513,7 +534,6 @@
             this.Controls.Add(this.btn_sendEmail);
             this.Controls.Add(this.btn_printDocument);
             this.Controls.Add(this.btn_saveDocument);
-            this.Controls.Add(this.printPreviewControl1);
             this.Controls.Add(this.lb_texteditor);
             this.Controls.Add(this.rtb_BeschreibungMassnahme);
             this.Controls.Add(this.lb_datum);
@@ -547,7 +567,6 @@
         private System.Windows.Forms.Label lb_datum;
         private System.Windows.Forms.RichTextBox rtb_BeschreibungMassnahme;
         private System.Windows.Forms.Label lb_texteditor;
-        private System.Windows.Forms.PrintPreviewControl printPreviewControl1;
         private System.Windows.Forms.Button btn_saveDocument;
         private System.Windows.Forms.Button btn_printDocument;
         private System.Windows.Forms.Button btn_sendEmail;
@@ -555,7 +574,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cmb_Ansprechpartner;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox cmb_ortMassnahme;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.RichTextBox rtb_absprachen;
         private System.Windows.Forms.Label label4;
@@ -568,17 +586,20 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox tb_ZusatzAnlage1;
-        private System.Windows.Forms.TextBox tb_ZusatzAnlage2;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox tb_ZusatzAnlage3;
         private System.Windows.Forms.TextBox tb_WesiMail;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.ComboBox cmb_ansprechpartnerBau;
         private System.Windows.Forms.ComboBox cmb_wesie;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox tb_ortMassnahme;
+        private System.Windows.Forms.WebBrowser pdfPreview;
+        private System.Windows.Forms.TextBox tb_ZusatzAnlage3;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox tb_ZusatzAnlage2;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox tb_ZusatzAnlage1;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label error_label;
     }
 }
 

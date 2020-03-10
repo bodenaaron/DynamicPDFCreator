@@ -128,13 +128,14 @@ namespace DynamicPDFCreator
             ITransaction tx = session.BeginTransaction();
 
             ICriteria crit = session.CreateCriteria<TblBearbeiter>();
+            crit.Add(Restrictions.IsNotNull("BearbeiterVorname"));
             bearbeiter = (List<TblBearbeiter>)crit.List<TblBearbeiter>();
 
             List<string> bearb = new List<string>();
             //Object in String umwandeln
             foreach (TblBearbeiter an in bearbeiter)
             {
-                bearb.Add(an.BearbeiterVorname+" "+an.BearbeiterName);
+                    bearb.Add(an.BearbeiterVorname + " " + an.BearbeiterName);
             }
             bearbeiterNamen = bearb.Cast<object>().ToArray();
 

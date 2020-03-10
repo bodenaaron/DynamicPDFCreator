@@ -8,6 +8,6 @@ namespace DynamicPDFCreator.Interfaces
 {
     interface IPDFWriter
     {
-        string writePDF(PDF pdf);
+        string getHTML(PDF pdf);
     }
 }

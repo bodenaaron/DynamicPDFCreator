@@ -41,50 +41,84 @@ namespace DynamicPDFCreator
 
         private void Tb_smNummer_TextChanged(object sender, EventArgs e)
         {
-
-            DBm=new DBManager(tb_smNummer.Text);
-            cmb_Ansprechpartner.Items.Clear();
-            cmb_Ansprechpartner.Items.AddRange(DBm.ansprechpartnerNamen);
-            cmb_Ansprechpartner.SelectedIndex=0;
-            this.cmb_Ansprechpartner.Items.Clear();
-            this.cmb_Ansprechpartner.Items.AddRange(DBm.bearbeiterNamen);
-            this.cmb_Ansprechpartner.Items.Clear();
-            this.cmb_ansprechpartnerBau.Items.AddRange(DBm.ansprechpartnerNamen);
-            this.cmb_Ansprechpartner.Items.Clear();
-            this.cmb_empfaenger.Items.AddRange(DBm.ansprechpartnerNamen);
-            this.cmb_Ansprechpartner.Items.Clear();
-            this.cmb_absender.Items.AddRange(DBm.bearbeiterNamen);
-            this.cmb_Ansprechpartner.Items.Clear();
-            this.cmb_Ansprechpartner.Items.AddRange(DBm.bearbeiterNamen);
-            this.cmb_Ansprechpartner.Items.Clear();
-            this.cmb_wesie.Items.AddRange(DBm.wesiTeamNamen);
-
-            pdf.auftrag = DBm.auftrag;
-
+            try
+            {
+                DBm = new DBManager(tb_smNummer.Text);
+                cmb_Ansprechpartner.Items.Clear();
+                cmb_Ansprechpartner.Items.AddRange(DBm.bearbeiterNamen);
+                cmb_Ansprechpartner.SelectedIndex = 0;
+                cmb_ansprechpartnerBau.Items.Clear();
+                cmb_ansprechpartnerBau.Items.AddRange(DBm.ansprechpartnerNamen);
+                cmb_empfaenger.Items.Clear();
+                cmb_empfaenger.Items.AddRange(DBm.ansprechpartnerNamen);
+                cmb_absender.Items.Clear();
+                cmb_absender.Items.AddRange(DBm.bearbeiterNamen);
+                cmb_wesie.Items.Clear();
+                cmb_wesie.Items.AddRange(DBm.wesiTeamNamen);
+                pdf.auftrag = DBm.auftrag;
+            }
+            catch (Exception fe) { }
         }
 
         private void ReinitializeComponents()
         {
             //Combobox Anschreiben Typ
-            this.cmb_anschreibenTyp.Items.AddRange(DBm.anschreibenNamen);
-            this.cmb_wesie.Items.AddRange(DBm.wesiTeamNamen);
+            cmb_anschreibenTyp.Items.AddRange(DBm.anschreibenNamen);
+            cmb_wesie.Items.AddRange(DBm.wesiTeamNamen);
+            cmb_anschreibenTyp.SelectedIndex = 2;
+            cmb_Ansprechpartner.Items.Clear();
+            cmb_Ansprechpartner.Items.AddRange(DBm.bearbeiterNamen);
+            cmb_absender.Items.Clear();
+            cmb_absender.Items.AddRange(DBm.bearbeiterNamen);
         }
 
         private void Cmb_anschreibenTyp_SelectedIndexChanged(object sender, EventArgs e)
         {
-            pdf.anschreibenTyp = DBm.anschreiben.ElementAt<TblAnschreibenTyp>(cmb_anschreibenTyp.SelectedIndex);
+            TblAnschreibenTyp anschreiben= DBm.anschreiben.ElementAt<TblAnschreibenTyp>(cmb_anschreibenTyp.SelectedIndex);
+
+            switch (anschreiben.Id-1)
+            {
+                case 0:
+                    break;
+                case 1:
+                    break;
+                case 2:
+                    //Interfaces.Wupfl wupfl = new Interfaces.Wupfl();
+                    //pdfPreview.DocumentText= wupfl.getHTML(pdf);
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    break;
+                case 5:
+                    break;
+                case 6:
+                    break;
+                case 7:
+                    break;
+                case 8:
+                    break;
+                case 9:
+                    break;
+                case 10:
+                    break;
+                case 11:
+                    break;
+            }
+
+
+            pdf.anschreibenTyp = anschreiben;
         }
 
         private void Cmb_empfaenger_SelectedIndexChanged(object sender, EventArgs e)
         {
             pdf.empfaenger = DBm.ansprechpartner.ElementAt<TblAnsprechpartner>(cmb_empfaenger.SelectedIndex);
-            Interfaces.Wupfl wupfl = new Interfaces.Wupfl();
-            wupfl.writePDF(pdf);
+            
         }
 
         private void Cmb_absender_SelectedIndexChanged(object sender, EventArgs e)
         {
-            pdf.absender = cmb_absender.Text;
+            pdf.absender = DBm.bearbeiter.ElementAt<TblBearbeiter>(cmb_absender.SelectedIndex);
         }
 
         private void DatePicker_ValueChanged(object sender, EventArgs e)
@@ -100,11 +134,6 @@ namespace DynamicPDFCreator
         private void Cmb_Ansprechpartner_SelectedIndexChanged(object sender, EventArgs e)
         {
             pdf.ansprechpartner = DBm.bearbeiter.ElementAt<TblBearbeiter>(cmb_Ansprechpartner.SelectedIndex);
-        }
-
-        private void Cmb_ortMassnahme_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            pdf.ortDerMaßnahme = cmb_ortMassnahme.Text;
         }
 
         private void Rtb_absprachen_TextChanged(object sender, EventArgs e)
@@ -164,5 +193,63 @@ namespace DynamicPDFCreator
         {
             pdf.zusatzAnlage3 = tb_ZusatzAnlage3.Text;
         }
+
+        private void Tb_ortMassnahme_TextChanged(object sender, EventArgs e)
+        {
+            pdf.ortDerMassnahme = tb_ortMassnahme.Text;
+        }
+
+        private void Btn_saveDocument_Click(object sender, EventArgs e)
+        {
+
+            if (pdf.auftrag == null)
+            {
+
+            }
+
+            List<string> zusatzanlagen=new List<string>();
+            if (tb_ZusatzAnlage1.Text!=null)
+            {
+                zusatzanlagen.Add(tb_ZusatzAnlage1.Text);
+            }
+            if (tb_ZusatzAnlage2.Text != null)
+            {
+                zusatzanlagen.Add(tb_ZusatzAnlage2.Text);
+            }
+            if (tb_ZusatzAnlage3.Text != null)
+            {
+                zusatzanlagen.Add(tb_ZusatzAnlage3.Text);
+            }
+
+            PDF FinalPDF = new PDF(
+                DBm.auftrag, 
+                DBm.anschreiben.ElementAt<TblAnschreibenTyp>(cmb_anschreibenTyp.SelectedIndex),
+                DBm.ansprechpartner.ElementAt<TblAnsprechpartner>(cmb_empfaenger.SelectedIndex),
+                DBm.bearbeiter.ElementAt<TblBearbeiter>(cmb_absender.SelectedIndex),
+                datePicker.Value,
+                datePickerAusfuehrung.Value,
+                DBm.bearbeiter.ElementAt<TblBearbeiter>(cmb_Ansprechpartner.SelectedIndex),
+                tb_ortMassnahme.Text,
+                rtb_absprachen.Text,
+                rtb_BeschreibungMassnahme.Text,
+                DBm.ansprechpartner.ElementAt<TblAnsprechpartner>(cmb_ansprechpartnerBau.SelectedIndex),
+                DBm.wesiTeam.ElementAt<TblWesiTeam>(cmb_wesie.SelectedIndex),
+                cb_plansaetze.Checked,
+                cb_beteiligte.Checked,
+                cb_techBeschreibung.Checked,
+                zusatzanlagen);
+
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "PDF|*.pdf";
+            saveFileDialog.Title = "PDF Speichern";
+            saveFileDialog.ShowDialog();
+
+            Interfaces.Wupfl wupfl = new Interfaces.Wupfl();
+
+            string html = wupfl.getHTML(FinalPDF);
+            wupfl.writeHTMLtoPDF(html, saveFileDialog.FileName);
+        }
+
+        
     }
 }
