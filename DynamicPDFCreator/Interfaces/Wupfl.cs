@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using PdfSharp;
 using PdfSharp.Fonts;
 using PdfSharp.Pdf;
@@ -24,8 +25,8 @@ namespace DynamicPDFCreator.Interfaces
 
         public string getHTML(PDF pdf)
         {
-           
 
+           
             string html="";
             html = $@"
             <div style='position: fixed; left: 150px; top: 810px; width:65% '>
@@ -108,7 +109,7 @@ namespace DynamicPDFCreator.Interfaces
                 </tr>
                 </table>
                 ";
-            string html2=$@"
+            string html2 = $@"
             <div id='anschreiben'>
                 <p>
                     Sehr geehrte Damen und Herren,
@@ -165,8 +166,13 @@ namespace DynamicPDFCreator.Interfaces
                 Rechtzeitig vor Baubeginn wird Ihnen der genaue Ausführungszeitraum sowie die mit den Arbeiten beauftragte Firma schriftlich mitgeteilt (Baubeginnanzeige).
             </p>
             <p>
-                Vorraussichtllicher Ausführungszeitraum: {pdf.ausfuehrungszeitraum.ToString("MMMM yyyy")}
-            </p>
+            Vorraussichtllicher Ausführungszeitraum: {pdf.ausfuehrungszeitraum.ToString("MMMM yyyy")}
+            ";
+            if (pdf.ausfuehrungszeitraum.Month!=pdf.ausfuehrungszeitraumEnde.Month||pdf.ausfuehrungszeitraum.Year != pdf.ausfuehrungszeitraumEnde.Year)
+            {
+                html2 += $@" bis {pdf.ausfuehrungszeitraumEnde.ToString("MMMM yyyy")}";
+            }
+            string html3 = $@"
             <p>
                 Falls bei der Bauausführung ihre Belange betroffen sind, bitten wir um deren Angabe und um Beifügung von Plänen der betroffenen Anlagen.</br>
             </p>
@@ -192,11 +198,11 @@ namespace DynamicPDFCreator.Interfaces
                     Anlagen:
                 </p>
             ";
-            html += ortDerMassnahme += html2;
+            html += ortDerMassnahme += html2 +=html3;
 
             foreach (string s in pdf.Zusatzanlagen)
             {
-                html += s;
+                html += "<p>"+s+"</p>";
             }
             
            

@@ -73,6 +73,8 @@
             this.tb_ZusatzAnlage1 = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.error_label = new System.Windows.Forms.Label();
+            this.btn_vorschau = new System.Windows.Forms.Button();
+            this.datePickerAusfuehrungEnde = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // lb_SMNumber
@@ -234,7 +236,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 269);
+            this.label1.Location = new System.Drawing.Point(10, 267);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(105, 13);
             this.label1.TabIndex = 18;
@@ -246,7 +248,7 @@
             this.cmb_Ansprechpartner.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmb_Ansprechpartner.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_Ansprechpartner.FormattingEnabled = true;
-            this.cmb_Ansprechpartner.Location = new System.Drawing.Point(123, 300);
+            this.cmb_Ansprechpartner.Location = new System.Drawing.Point(123, 344);
             this.cmb_Ansprechpartner.Name = "cmb_Ansprechpartner";
             this.cmb_Ansprechpartner.Size = new System.Drawing.Size(194, 21);
             this.cmb_Ansprechpartner.TabIndex = 19;
@@ -255,7 +257,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 303);
+            this.label2.Location = new System.Drawing.Point(12, 347);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(85, 13);
             this.label2.TabIndex = 20;
@@ -264,7 +266,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 344);
+            this.label3.Location = new System.Drawing.Point(12, 388);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(95, 13);
             this.label3.TabIndex = 22;
@@ -272,7 +274,8 @@
             // 
             // rtb_absprachen
             // 
-            this.rtb_absprachen.Location = new System.Drawing.Point(15, 417);
+            this.rtb_absprachen.Enabled = false;
+            this.rtb_absprachen.Location = new System.Drawing.Point(12, 461);
             this.rtb_absprachen.Name = "rtb_absprachen";
             this.rtb_absprachen.Size = new System.Drawing.Size(302, 36);
             this.rtb_absprachen.TabIndex = 23;
@@ -282,7 +285,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 388);
+            this.label4.Location = new System.Drawing.Point(12, 432);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(185, 26);
             this.label4.TabIndex = 24;
@@ -394,6 +397,7 @@
             this.cmb_ansprechpartnerBau.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmb_ansprechpartnerBau.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmb_ansprechpartnerBau.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmb_ansprechpartnerBau.Enabled = false;
             this.cmb_ansprechpartnerBau.FormattingEnabled = true;
             this.cmb_ansprechpartnerBau.Location = new System.Drawing.Point(502, 85);
             this.cmb_ansprechpartnerBau.Name = "cmb_ansprechpartnerBau";
@@ -424,7 +428,7 @@
             // 
             // tb_ortMassnahme
             // 
-            this.tb_ortMassnahme.Location = new System.Drawing.Point(123, 337);
+            this.tb_ortMassnahme.Location = new System.Drawing.Point(123, 381);
             this.tb_ortMassnahme.Name = "tb_ortMassnahme";
             this.tb_ortMassnahme.Size = new System.Drawing.Size(194, 20);
             this.tb_ortMassnahme.TabIndex = 46;
@@ -497,11 +501,31 @@
             this.error_label.Size = new System.Drawing.Size(0, 13);
             this.error_label.TabIndex = 48;
             // 
+            // btn_vorschau
+            // 
+            this.btn_vorschau.Enabled = false;
+            this.btn_vorschau.Location = new System.Drawing.Point(472, 514);
+            this.btn_vorschau.Name = "btn_vorschau";
+            this.btn_vorschau.Size = new System.Drawing.Size(162, 61);
+            this.btn_vorschau.TabIndex = 49;
+            this.btn_vorschau.Text = "Vorschau";
+            this.btn_vorschau.UseVisualStyleBackColor = true;
+            this.btn_vorschau.Click += new System.EventHandler(this.Btn_vorschau_Click);
+            // 
+            // datePickerAusfuehrungEnde
+            // 
+            this.datePickerAusfuehrungEnde.Location = new System.Drawing.Point(123, 299);
+            this.datePickerAusfuehrungEnde.Name = "datePickerAusfuehrungEnde";
+            this.datePickerAusfuehrungEnde.Size = new System.Drawing.Size(194, 20);
+            this.datePickerAusfuehrungEnde.TabIndex = 50;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1355, 799);
+            this.Controls.Add(this.datePickerAusfuehrungEnde);
+            this.Controls.Add(this.btn_vorschau);
             this.Controls.Add(this.error_label);
             this.Controls.Add(this.pdfPreview);
             this.Controls.Add(this.tb_ortMassnahme);
@@ -601,6 +625,8 @@
         private System.Windows.Forms.TextBox tb_ZusatzAnlage1;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label error_label;
+        private System.Windows.Forms.Button btn_vorschau;
+        private System.Windows.Forms.DateTimePicker datePickerAusfuehrungEnde;
     }
 }
 
