@@ -503,7 +503,6 @@
             // 
             // btn_vorschau
             // 
-            this.btn_vorschau.Enabled = false;
             this.btn_vorschau.Location = new System.Drawing.Point(472, 514);
             this.btn_vorschau.Name = "btn_vorschau";
             this.btn_vorschau.Size = new System.Drawing.Size(162, 61);

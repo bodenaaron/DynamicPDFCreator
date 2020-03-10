@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Printing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -153,7 +154,7 @@ namespace DynamicPDFCreator
 
         private void Rtb_BeschreibungMassnahme_TextChanged(object sender, EventArgs e)
         {
-            pdf.beschreibungMassnahme = rtb_BeschreibungMassnahme.Text;
+            pdf.beschreibungMassnahme.Text = rtb_BeschreibungMassnahme.Rtf;
         }
 
         private void Cmb_ansprechpartnerBau_SelectedIndexChanged(object sender, EventArgs e)
@@ -249,8 +250,9 @@ namespace DynamicPDFCreator
             {
                 zusatzanlagen.Add("- " + tb_ZusatzAnlage3.Text);
             }
-            
 
+            RichTextBox rtb = new RichTextBox();
+            rtb.Rtf = rtb_BeschreibungMassnahme.Rtf;
             PDF FinalPDF = new PDF(
                 DBm.auftrag, 
                 DBm.anschreiben.ElementAt<TblAnschreibenTyp>(cmb_anschreibenTyp.SelectedIndex),
@@ -262,7 +264,7 @@ namespace DynamicPDFCreator
                 DBm.bearbeiter.ElementAt<TblBearbeiter>(cmb_Ansprechpartner.SelectedIndex),
                 tb_ortMassnahme.Text,
                 //rtb_absprachen.Text,
-                rtb_BeschreibungMassnahme.Text,
+                rtb,
                 //DBm.ansprechpartner.ElementAt<TblAnsprechpartner>(cmb_ansprechpartnerBau.SelectedIndex),
                 DBm.wesiTeam.ElementAt<TblWesiTeam>(cmb_wesie.SelectedIndex),
                 cb_plansaetze.Checked,
@@ -283,6 +285,7 @@ namespace DynamicPDFCreator
 
         private void Btn_vorschau_Click(object sender, EventArgs e)
         {
+            
             if (pdf.auftrag == null)
             {
                 displayError(ERROR_SMNUMMER);
@@ -308,20 +311,21 @@ namespace DynamicPDFCreator
             {
                 zusatzanlagen.Add("- Technische Beschreibung");
             }
-            if (tb_ZusatzAnlage1.Text != null)
+            if (tb_ZusatzAnlage1.Text != "")
             {
                 zusatzanlagen.Add("- " + tb_ZusatzAnlage1.Text);
             }
-            if (tb_ZusatzAnlage2.Text != null)
+            if (tb_ZusatzAnlage2.Text != "")
             {
                 zusatzanlagen.Add("- " + tb_ZusatzAnlage2.Text);
             }
-            if (tb_ZusatzAnlage3.Text != null)
+            if (tb_ZusatzAnlage3.Text != "")
             {
                 zusatzanlagen.Add("- " + tb_ZusatzAnlage3.Text);
             }
 
-
+            RichTextBox rtb = new RichTextBox();
+            rtb.Rtf = rtb_BeschreibungMassnahme.Rtf;
             PDF FinalPDF = new PDF(
                 DBm.auftrag,
                 DBm.anschreiben.ElementAt<TblAnschreibenTyp>(cmb_anschreibenTyp.SelectedIndex),
@@ -329,12 +333,12 @@ namespace DynamicPDFCreator
                 DBm.bearbeiter.ElementAt<TblBearbeiter>(cmb_absender.SelectedIndex),
                 datePicker.Value,
                 datePickerAusfuehrung.Value,
-                datePickerAusfuehrungEnde.Value,
+                datePickerAusfuehrungEnde.Value.Date,
                 DBm.bearbeiter.ElementAt<TblBearbeiter>(cmb_Ansprechpartner.SelectedIndex),
                 tb_ortMassnahme.Text,
-                rtb_absprachen.Text,
-                rtb_BeschreibungMassnahme.Text,
-                DBm.ansprechpartner.ElementAt<TblAnsprechpartner>(cmb_ansprechpartnerBau.SelectedIndex),
+                //rtb_absprachen.Text,
+                rtb,
+                //DBm.ansprechpartner.ElementAt<TblAnsprechpartner>(cmb_ansprechpartnerBau.SelectedIndex),
                 DBm.wesiTeam.ElementAt<TblWesiTeam>(cmb_wesie.SelectedIndex),
                 cb_plansaetze.Checked,
                 cb_beteiligte.Checked,
@@ -344,9 +348,10 @@ namespace DynamicPDFCreator
             Interfaces.Wupfl wupfl = new Interfaces.Wupfl();
 
             string html = wupfl.getHTML(FinalPDF);
-            pdfPreview.ClientSize = new Size(2480, 3508);
-            pdfPreview.DocumentText = html;
-
+            string hiddenPath = Path.GetTempPath() + @"\testpdf.pdf";
+            this.pdfPreview.Navigate("www.google.de");
+            
+            pdfPreview.Navigate(wupfl.writeHTMLtoPDF(html, hiddenPath));
         }
     }
 }

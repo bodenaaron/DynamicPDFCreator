@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace DynamicPDFCreator
 {
     class PDF
     {
 
-        public PDF(TblAuftraege auftrag, TblAnschreibenTyp anschreibenTyp, TblAnsprechpartner empfaenger, TblBearbeiter absender, DateTime datum, DateTime ausfuehrungszeitraum, DateTime ausfuehrungszeitraumEnde, TblBearbeiter ansprechpartner, string ortDerMassnahme, string abgesprochenMit, string beschreibungMassnahme, TblAnsprechpartner ansprechpartnerBau, TblWesiTeam wesiTeam, bool plansaetze, bool listeBeteiligte, bool techBeschreibung, List<string>zusatzanlagen)
+        public PDF(TblAuftraege auftrag, TblAnschreibenTyp anschreibenTyp, TblAnsprechpartner empfaenger, TblBearbeiter absender, DateTime datum, DateTime ausfuehrungszeitraum, DateTime ausfuehrungszeitraumEnde, TblBearbeiter ansprechpartner, string ortDerMassnahme, string abgesprochenMit, RichTextBox beschreibungMassnahme, TblAnsprechpartner ansprechpartnerBau, TblWesiTeam wesiTeam, bool plansaetze, bool listeBeteiligte, bool techBeschreibung, List<string>zusatzanlagen)
         {
             this.auftrag = auftrag;
             this.anschreibenTyp = anschreibenTyp;
@@ -30,7 +31,7 @@ namespace DynamicPDFCreator
             this.Zusatzanlagen = zusatzanlagen;
         }
 
-        public PDF(TblAuftraege auftrag, TblAnschreibenTyp anschreibenTyp, TblAnsprechpartner empfaenger, TblBearbeiter absender, DateTime datum, DateTime ausfuehrungszeitraum, DateTime ausfuehrungszeitraumEnde, TblBearbeiter ansprechpartner, string ortDerMassnahme, string beschreibungMassnahme,  TblWesiTeam wesiTeam, bool plansaetze, bool listeBeteiligte, bool techBeschreibung, List<string> zusatzanlagen)
+        public PDF(TblAuftraege auftrag, TblAnschreibenTyp anschreibenTyp, TblAnsprechpartner empfaenger, TblBearbeiter absender, DateTime datum, DateTime ausfuehrungszeitraum, DateTime ausfuehrungszeitraumEnde, TblBearbeiter ansprechpartner, string ortDerMassnahme, RichTextBox beschreibungMassnahme,  TblWesiTeam wesiTeam, bool plansaetze, bool listeBeteiligte, bool techBeschreibung, List<string> zusatzanlagen)
         {
             this.auftrag = auftrag;
             this.anschreibenTyp = anschreibenTyp;
@@ -50,7 +51,7 @@ namespace DynamicPDFCreator
         }
         public PDF()
         {
-
+            this.beschreibungMassnahme = new RichTextBox();
         }
 
         public TblAuftraege auftrag { get; set; } //= new TblAuftraege();
@@ -63,7 +64,7 @@ namespace DynamicPDFCreator
         public TblBearbeiter ansprechpartner { get; set; }
         public string ortDerMassnahme { get; set; }
         public string abgesprochenMit { get; set; }
-        public string beschreibungMassnahme { get; set; }
+        public RichTextBox beschreibungMassnahme { get; set; }
         public TblAnsprechpartner ansprechpartnerBau { get; set; }
         public TblWesiTeam wesiTeam { get; set; } //= new TblWesiTeam();
         public bool plansaetze { get; set; }

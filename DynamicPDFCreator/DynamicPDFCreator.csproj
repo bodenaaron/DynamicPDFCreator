@@ -54,9 +54,6 @@
     <Reference Include="Iesi.Collections, Version=4.0.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
       <HintPath>..\packages\Iesi.Collections.4.0.4\lib\net461\Iesi.Collections.dll</HintPath>
     </Reference>
-    <Reference Include="IronPdf.Assets.Rendering.Windows, Version=17.0.0.0, Culture=neutral, PublicKeyToken=94e1c31412563c75, processorArchitecture=MSIL">
-      <HintPath>..\packages\Iron.Assets.Rendering.Windows.17.0.0\lib\net40\IronPdf.Assets.Rendering.Windows.dll</HintPath>
-    </Reference>
     <Reference Include="NHibernate, Version=5.2.0.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
       <HintPath>..\packages\NHibernate.5.2.7\lib\net461\NHibernate.dll</HintPath>
     </Reference>
@@ -71,6 +68,9 @@
     </Reference>
     <Reference Include="Remotion.Linq.EagerFetching, Version=2.2.0.0, Culture=neutral, PublicKeyToken=fee00910d6e5f53b, processorArchitecture=MSIL">
       <HintPath>..\packages\Remotion.Linq.EagerFetching.2.2.0\lib\net45\Remotion.Linq.EagerFetching.dll</HintPath>
+    </Reference>
+    <Reference Include="RtfPipe, Version=1.0.7322.27725, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\RtfPipe.1.0.7322.27725\lib\net45\RtfPipe.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
