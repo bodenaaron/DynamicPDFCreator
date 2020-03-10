@@ -119,6 +119,7 @@ namespace DynamicPDFCreator
         private void Cmb_absender_SelectedIndexChanged(object sender, EventArgs e)
         {
             pdf.absender = DBm.bearbeiter.ElementAt<TblBearbeiter>(cmb_absender.SelectedIndex);
+            cmb_Ansprechpartner.SelectedIndex = cmb_absender.SelectedIndex;
         }
 
         private void DatePicker_ValueChanged(object sender, EventArgs e)
@@ -204,22 +205,42 @@ namespace DynamicPDFCreator
 
             if (pdf.auftrag == null)
             {
-
+                displayError(ERROR_SMNUMMER);
             }
-
+            if (tb_ortMassnahme.Text=="")
+            {
+                displayError(ERROR_ORTDERMASSNAHME);
+            }
+            if (rtb_WesiAdresse.Text == "")
+            {
+                displayError(ERROR_WESI_TEAM_ADRESSE);
+            }
             List<string> zusatzanlagen=new List<string>();
+            if (cb_plansaetze.Checked)
+            {
+                zusatzanlagen.Add("- Plansatz");
+            }
+            if (cb_beteiligte.Checked)
+            {
+                zusatzanlagen.Add("- Liste der Beteiligten");
+            }
+            if (cb_techBeschreibung.Checked)
+            {
+                zusatzanlagen.Add("- Technische Beschreibung");
+            }
             if (tb_ZusatzAnlage1.Text!=null)
             {
-                zusatzanlagen.Add(tb_ZusatzAnlage1.Text);
+                zusatzanlagen.Add("- "+tb_ZusatzAnlage1.Text);
             }
             if (tb_ZusatzAnlage2.Text != null)
             {
-                zusatzanlagen.Add(tb_ZusatzAnlage2.Text);
+                zusatzanlagen.Add("- " + tb_ZusatzAnlage2.Text);
             }
             if (tb_ZusatzAnlage3.Text != null)
             {
-                zusatzanlagen.Add(tb_ZusatzAnlage3.Text);
+                zusatzanlagen.Add("- " + tb_ZusatzAnlage3.Text);
             }
+            
 
             PDF FinalPDF = new PDF(
                 DBm.auftrag, 

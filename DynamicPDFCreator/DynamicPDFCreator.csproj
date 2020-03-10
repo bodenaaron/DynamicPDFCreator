@@ -90,7 +90,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\Absender.cs" />
     <Compile Include="Classes\DBManager.cs" />
     <Compile Include="Classes\ErrorCodes.cs">
       <SubType>Form</SubType>

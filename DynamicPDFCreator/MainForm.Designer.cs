@@ -86,6 +86,7 @@
             // 
             // tb_smNummer
             // 
+            this.tb_smNummer.BackColor = System.Drawing.SystemColors.Window;
             this.tb_smNummer.Location = new System.Drawing.Point(123, 12);
             this.tb_smNummer.Name = "tb_smNummer";
             this.tb_smNummer.Size = new System.Drawing.Size(194, 20);

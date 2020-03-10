@@ -29,35 +29,52 @@ namespace DynamicPDFCreator
             {
                 case 1:
                     error_label.Text=Properties.ErrorCodes.ERROR_SMNUMMER;
+                    tb_smNummer.BackColor = System.Drawing.Color.Red;
                     break;
                 case 2:
+                    error_label.Text = Properties.ErrorCodes.ERROR_ANSCHREIBENTYP;
                     break;
                 case 3:
+                    error_label.Text = Properties.ErrorCodes.ERROR_EMPFAENGER;
                     break;
                 case 4:
+                    error_label.Text = Properties.ErrorCodes.ERROR_ABSENDER;
                     break;
                 case 5:
+                    error_label.Text = Properties.ErrorCodes.ERROR_DATUM;
                     break;
                 case 6:
+                    error_label.Text = Properties.ErrorCodes.ERROR_AUSFUEHRUNGSZEITRAUM;
                     break;
                 case 7:
+                    error_label.Text = Properties.ErrorCodes.ERROR_ANSPRECHPARTNER;
                     break;
                 case 8:
+                    error_label.Text = Properties.ErrorCodes.ERROR_ORTDERMASSNAHME;
+                    tb_ortMassnahme.BackColor = System.Drawing.Color.Red;
                     break;
                 case 9:
+                    error_label.Text = Properties.ErrorCodes.ERROR_BESCHREIBUNG_ABGESPROCHEN_MIT;
+                    rtb_absprachen.BackColor = System.Drawing.Color.Red;
                     break;
                 case 10:
+                    error_label.Text = Properties.ErrorCodes.ERROR_BESCHREIBUNGMASSNAHME;
+                    rtb_BeschreibungMassnahme.BackColor = System.Drawing.Color.Red;
                     break;
                 case 11:
+                    error_label.Text = Properties.ErrorCodes.ERROR_ANSPRECHPARTNER_BAU;
                     break;
                 case 12:
+                    error_label.Text = Properties.ErrorCodes.ERROR_WESI_TEAM_ADRESSE;
+                    rtb_WesiAdresse.BackColor = System.Drawing.Color.Red;
                     break;
                 case 13:
+                    error_label.Text = Properties.ErrorCodes.ERROR_CHECKBOXEN;
                     break;
                 case 14:
+                    error_label.Text = Properties.ErrorCodes.ERROR_ZUSATZ;
                     break;
-                case 15:
-                    break;
+
 
             }
         }

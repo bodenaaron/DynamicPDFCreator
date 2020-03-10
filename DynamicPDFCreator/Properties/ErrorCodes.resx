@@ -133,10 +133,10 @@
     <value>Es gab ein Problem mit dem Ausführungszeitraum. Bitte erneut probieren oder aaron.boden@eictronic.de bzw. 036071369018 kontaktiern</value>
   </data>
   <data name="ERROR_BESCHREIBUNGMASSNAHME" xml:space="preserve">
-    <value>Anscheinend befinden sich unerlaubte Zeichen im Textfeld "Beischreibung der Maßnahme"</value>
+    <value>Bitte alle Pflichtfelder ausfüllen!</value>
   </data>
   <data name="ERROR_BESCHREIBUNG_ABGESPROCHEN_MIT" xml:space="preserve">
-    <value>Anscheinend befinden sich unerlaubte Zeichen im Textfeld "Beschreibung mit wem das Vorhaben abgesprochen wurde"</value>
+    <value>Bitte alle Pflichtfelder ausfüllen!</value>
   </data>
   <data name="ERROR_CHECKBOXEN" xml:space="preserve">
     <value>Es gab ein Problem mit den Checkboxen. Bitte erneut probieren oder aaron.boden@eictronic.de bzw. 036071369018 kontaktiern</value>
@@ -148,13 +148,13 @@
     <value>Es gab ein Problem mit dem Empfänger. Bitte erneut probieren oder aaron.boden@eictronic.de bzw. 036071369018 kontaktiern</value>
   </data>
   <data name="ERROR_ORTDERMASSNAHME" xml:space="preserve">
-    <value>Anscheinend befinden sich unerlaubte Zeichen im Textfeld "Ort der Maßnahme"</value>
+    <value>Bitte alle Pflichtfelder ausfüllen!</value>
   </data>
   <data name="ERROR_SMNUMMER" xml:space="preserve">
     <value>SMNummer nicht gefunden</value>
   </data>
   <data name="ERROR_WESI_TEAM_ADRESSE" xml:space="preserve">
-    <value>Es gab ein Problem mit der Wesi Teamadresse. Bitte erneut probieren oder aaron.boden@eictronic.de bzw. 036071369018 kontaktiern</value>
+    <value>Bitte alle Pflichtfelder ausfüllen!</value>
   </data>
   <data name="ERROR_ZUSATZ" xml:space="preserve">
     <value>Es gab ein Problem mit den Zusatzfeldern. Bitte erneut probieren oder aaron.boden@eictronic.de bzw. 036071369018 kontaktiern</value>

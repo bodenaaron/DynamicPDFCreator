@@ -106,7 +106,7 @@ namespace DynamicPDFCreator.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Anscheinend befinden sich unerlaubte Zeichen im Textfeld &quot;Beschreibung mit wem das Vorhaben abgesprochen wurde&quot; ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Bitte alle Pflichtfelder ausfüllen! ähnelt.
         /// </summary>
         internal static string ERROR_BESCHREIBUNG_ABGESPROCHEN_MIT {
             get {
@@ -115,7 +115,7 @@ namespace DynamicPDFCreator.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Anscheinend befinden sich unerlaubte Zeichen im Textfeld &quot;Beischreibung der Maßnahme&quot; ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Bitte alle Pflichtfelder ausfüllen! ähnelt.
         /// </summary>
         internal static string ERROR_BESCHREIBUNGMASSNAHME {
             get {
@@ -151,7 +151,7 @@ namespace DynamicPDFCreator.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Anscheinend befinden sich unerlaubte Zeichen im Textfeld &quot;Ort der Maßnahme&quot; ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Bitte alle Pflichtfelder ausfüllen! ähnelt.
         /// </summary>
         internal static string ERROR_ORTDERMASSNAHME {
             get {
@@ -169,7 +169,7 @@ namespace DynamicPDFCreator.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Es gab ein Problem mit der Wesi Teamadresse. Bitte erneut probieren oder aaron.boden@eictronic.de bzw. 036071369018 kontaktiern ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Bitte alle Pflichtfelder ausfüllen! ähnelt.
         /// </summary>
         internal static string ERROR_WESI_TEAM_ADRESSE {
             get {

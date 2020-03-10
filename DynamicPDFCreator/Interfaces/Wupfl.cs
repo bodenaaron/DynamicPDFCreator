@@ -27,7 +27,7 @@ namespace DynamicPDFCreator.Interfaces
            
 
             string html="";
-                html = $@"
+            html = $@"
             <div style='position: fixed; left: 150px; top: 810px; width:65% '>
             <p style='font-size: 8px; '>Eictronic GmbH -Sitz: 37339 Berlingerode - Amtsgericht Jena - HRB 513528 - Geschäftsführer: Jörg Boden Steuernummer: 157 / 208 / 08940  UST - ID - Nr.: DE 251137789 Finanzamt Mühlhausen</p>
             </div>         
@@ -95,6 +95,8 @@ namespace DynamicPDFCreator.Interfaces
                   </td>
                 </tr>
                 </table>
+                ";
+            string ortDerMassnahme = $@"
                 <table style='width:100%; margin-top:15px'>
                 <tr>
                 	<td style='valign: top; width:20%'>
@@ -105,7 +107,8 @@ namespace DynamicPDFCreator.Interfaces
                   </td>
                 </tr>
                 </table>
-            
+                ";
+            string html2=$@"
             <div id='anschreiben'>
                 <p>
                     Sehr geehrte Damen und Herren,
@@ -188,10 +191,14 @@ namespace DynamicPDFCreator.Interfaces
                 <p>
                     Anlagen:
                 </p>
-                <p>
-                    {pdf.Zusatzanlagen[0]}, {pdf.Zusatzanlagen[1]}, {pdf.Zusatzanlagen[2]}
-                </p>
             ";
+            html += ortDerMassnahme += html2;
+
+            foreach (string s in pdf.Zusatzanlagen)
+            {
+                html += s;
+            }
+            
            
            
             return html;
