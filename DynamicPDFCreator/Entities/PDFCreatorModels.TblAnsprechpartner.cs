@@ -53,11 +53,11 @@ namespace DynamicPDFCreator
         /// <summary>
         /// There are no comments for SSMATimeStamp in the schema.
         /// </summary>
-        public virtual byte[] SSMATimeStamp
-        {
-            get;
-            set;
-        }
+        //public virtual byte[] SSMATimeStamp
+        //{
+        //    get;
+        //    set;
+        //}
 
     
         /// <summary>

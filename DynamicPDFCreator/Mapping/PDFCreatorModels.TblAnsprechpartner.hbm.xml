@@ -5,9 +5,9 @@
       <column name="idAnsprechpartner" not-null="true" precision="10" scale="0" sql-type="INT" unique="true" />
       <generator class="identity" />
     </id>
-    <version name="SSMATimeStamp" type="Byte[]">
+    <!--<version name="SSMATimeStamp" type="Byte[]">
       <column name="SSMA_TimeStamp" not-null="true" sql-type="TIMESTAMP" />
-    </version>
+    </version>-->
     <property name="Funktion" type="String">
       <column name="Funktion" not-null="false" length="255" sql-type="NVARCHAR(255)" />
     </property>

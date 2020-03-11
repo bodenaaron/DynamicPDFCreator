@@ -373,8 +373,11 @@ namespace DynamicPDFCreator
 
         private void Btn_bearbeiten_Click(object sender, EventArgs e)
         {
-            EditDatatset editDataset = new EditDatatset();
-            DBm.ansprechpartner.ElementAt<TblAnsprechpartner>(cmb_empfaenger.SelectedIndex);
+            EditDataset editDataset = new EditDataset();
+            editDataset.ReinitializeComponent(DBm.ansprechpartner.ElementAt<TblAnsprechpartner>(cmb_empfaenger.SelectedIndex));
+            this.Enabled=false;
+            editDataset.ShowDialog();
+            this.Enabled = true;
         }
     }
 }

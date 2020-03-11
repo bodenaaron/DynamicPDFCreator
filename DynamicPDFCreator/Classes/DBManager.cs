@@ -163,6 +163,14 @@ namespace DynamicPDFCreator
             closeSession(session, tx);
         }
 
+        public void set(TblAnsprechpartner a)
+        {
+            ISession session = getSession();
+            ITransaction tx = session.BeginTransaction();
+            session.SaveOrUpdate(a);
+            tx.Commit();
+            closeSession(session, tx);
+        }
         #region Session
         private ISession getSession()
         {

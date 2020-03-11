@@ -1,4 +1,4 @@
-﻿namespace DynamicPDFCreator.Classes
+﻿namespace DynamicPDFCreator
 {
     partial class EditDataset
     {
@@ -62,8 +62,8 @@
             this.tb_ptiBereich = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.tb_bemerkung = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btn_abbrechen = new System.Windows.Forms.Button();
+            this.btn_speichern = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // tb_vorname
@@ -338,31 +338,33 @@
             this.tb_bemerkung.Size = new System.Drawing.Size(337, 20);
             this.tb_bemerkung.TabIndex = 32;
             // 
-            // button1
+            // btn_abbrechen
             // 
-            this.button1.Location = new System.Drawing.Point(12, 415);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 34;
-            this.button1.Text = "Abbrechen";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btn_abbrechen.Location = new System.Drawing.Point(12, 415);
+            this.btn_abbrechen.Name = "btn_abbrechen";
+            this.btn_abbrechen.Size = new System.Drawing.Size(75, 23);
+            this.btn_abbrechen.TabIndex = 34;
+            this.btn_abbrechen.Text = "Abbrechen";
+            this.btn_abbrechen.UseVisualStyleBackColor = true;
+            this.btn_abbrechen.Click += new System.EventHandler(this.Btn_abbrechen_Click);
             // 
-            // button2
+            // btn_speichern
             // 
-            this.button2.Location = new System.Drawing.Point(861, 415);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 35;
-            this.button2.Text = "Speichern";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btn_speichern.Location = new System.Drawing.Point(861, 415);
+            this.btn_speichern.Name = "btn_speichern";
+            this.btn_speichern.Size = new System.Drawing.Size(75, 23);
+            this.btn_speichern.TabIndex = 35;
+            this.btn_speichern.Text = "Speichern";
+            this.btn_speichern.UseVisualStyleBackColor = true;
+            this.btn_speichern.Click += new System.EventHandler(this.Btn_speichern_Click);
             // 
             // EditDataset
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(948, 450);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btn_speichern);
+            this.Controls.Add(this.btn_abbrechen);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.tb_bemerkung);
             this.Controls.Add(this.label16);
@@ -440,7 +442,7 @@
         private System.Windows.Forms.TextBox tb_ptiBereich;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox tb_bemerkung;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btn_abbrechen;
+        private System.Windows.Forms.Button btn_speichern;
     }
 }
