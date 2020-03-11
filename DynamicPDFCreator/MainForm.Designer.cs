@@ -76,9 +76,9 @@
             this.btn_vorschau = new System.Windows.Forms.Button();
             this.datePickerAusfuehrungEnde = new System.Windows.Forms.DateTimePicker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btn_bearbeiten = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.btn_bearbeiten = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -557,6 +557,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
             // 
+            // btn_bearbeiten
+            // 
+            this.btn_bearbeiten.Location = new System.Drawing.Point(330, 146);
+            this.btn_bearbeiten.Name = "btn_bearbeiten";
+            this.btn_bearbeiten.Size = new System.Drawing.Size(75, 23);
+            this.btn_bearbeiten.TabIndex = 53;
+            this.btn_bearbeiten.Text = "bearbeiten";
+            this.btn_bearbeiten.UseVisualStyleBackColor = true;
+            this.btn_bearbeiten.Click += new System.EventHandler(this.Btn_bearbeiten_Click);
+            // 
             // groupBox2
             // 
             this.groupBox2.AutoSize = true;
@@ -603,15 +613,6 @@
             this.groupBox3.TabIndex = 52;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "groupBox3";
-            // 
-            // btn_bearbeiten
-            // 
-            this.btn_bearbeiten.Location = new System.Drawing.Point(330, 146);
-            this.btn_bearbeiten.Name = "btn_bearbeiten";
-            this.btn_bearbeiten.Size = new System.Drawing.Size(75, 23);
-            this.btn_bearbeiten.TabIndex = 53;
-            this.btn_bearbeiten.Text = "bearbeiten";
-            this.btn_bearbeiten.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 

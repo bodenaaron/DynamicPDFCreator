@@ -30,11 +30,6 @@ namespace DynamicPDFCreator
 
         }
 
-        private void CheckBox1_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void Label7_Click(object sender, EventArgs e)
         {
 
@@ -374,6 +369,12 @@ namespace DynamicPDFCreator
             }
             catch (Exception ef) { }
             
+        }
+
+        private void Btn_bearbeiten_Click(object sender, EventArgs e)
+        {
+            EditDatatset editDataset = new EditDatatset();
+            DBm.ansprechpartner.ElementAt<TblAnsprechpartner>(cmb_empfaenger.SelectedIndex);
         }
     }
 }
