@@ -93,7 +93,14 @@ namespace DynamicPDFCreator
             //Object in String umwandeln
             foreach (TblAnsprechpartner an in ansprechpartner)
             {
-                ansp.Add(an.AnsprechpartnerVorname+" "+an.AnsprechpartnerName);
+                if (an.AnsprechpartnerVorname==null && an.AnsprechpartnerName == null) {
+                    if (an.Firma!="")
+                    {
+                        ansp.Add(an.Firma);
+                        break;
+                    }
+                }
+                ansp.Add(an.AnsprechpartnerVorname + " " + an.AnsprechpartnerName);
             }
             ansprechpartnerNamen = ansp.Cast<object>().ToArray();
             closeSession(session, tx);

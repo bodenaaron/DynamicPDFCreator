@@ -74,6 +74,8 @@ namespace DynamicPDFCreator
             datePickerAusfuehrungEnde.Format = DateTimePickerFormat.Custom;
             datePickerAusfuehrungEnde.CustomFormat = "MMMM-yyyy";
 
+            btn_bearbeiten.Enabled = false;
+
         }
 
         private void Cmb_anschreibenTyp_SelectedIndexChanged(object sender, EventArgs e)
@@ -117,6 +119,7 @@ namespace DynamicPDFCreator
         private void Cmb_empfaenger_SelectedIndexChanged(object sender, EventArgs e)
         {
             pdf.empfaenger = DBm.ansprechpartner.ElementAt<TblAnsprechpartner>(cmb_empfaenger.SelectedIndex);
+            btn_bearbeiten.Enabled = true;
             
         }
 
