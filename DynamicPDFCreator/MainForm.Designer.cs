@@ -78,7 +78,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btn_bearbeiten = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_bearbeiten_wesi = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -369,7 +369,6 @@
             this.label7.Size = new System.Drawing.Size(53, 13);
             this.label7.TabIndex = 32;
             this.label7.Text = "Plansätze";
-            this.label7.Click += new System.EventHandler(this.Label7_Click);
             // 
             // label8
             // 
@@ -578,7 +577,7 @@
             // 
             this.groupBox2.AutoSize = true;
             this.groupBox2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.groupBox2.Controls.Add(this.button1);
+            this.groupBox2.Controls.Add(this.btn_bearbeiten_wesi);
             this.groupBox2.Controls.Add(this.label18);
             this.groupBox2.Controls.Add(this.label17);
             this.groupBox2.Controls.Add(this.cmb_ansprechpartnerBau);
@@ -607,15 +606,15 @@
             this.groupBox2.TabIndex = 51;
             this.groupBox2.TabStop = false;
             // 
-            // button1
+            // btn_bearbeiten_wesi
             // 
-            this.button1.Location = new System.Drawing.Point(494, 30);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 54;
-            this.button1.Text = "bearbeiten";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.Button1_Click_1);
+            this.btn_bearbeiten_wesi.Location = new System.Drawing.Point(494, 30);
+            this.btn_bearbeiten_wesi.Name = "btn_bearbeiten_wesi";
+            this.btn_bearbeiten_wesi.Size = new System.Drawing.Size(75, 23);
+            this.btn_bearbeiten_wesi.TabIndex = 54;
+            this.btn_bearbeiten_wesi.Text = "bearbeiten";
+            this.btn_bearbeiten_wesi.UseVisualStyleBackColor = true;
+            this.btn_bearbeiten_wesi.Click += new System.EventHandler(this.Btn_bearbeiten_wesi_Click);
             // 
             // label18
             // 
@@ -751,7 +750,7 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_bearbeiten_wesi;
     }
 }
 

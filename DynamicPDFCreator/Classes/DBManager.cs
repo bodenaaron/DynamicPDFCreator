@@ -187,6 +187,14 @@ namespace DynamicPDFCreator
             tx.Commit();
             closeSession(session, tx);
         }
+        public void set(TblWesiTeam a)
+        {
+            ISession session = getSession();
+            ITransaction tx = session.BeginTransaction();
+            session.SaveOrUpdate(a);
+            tx.Commit();
+            closeSession(session, tx);
+        }
         #region Session
         private ISession getSession()
         {

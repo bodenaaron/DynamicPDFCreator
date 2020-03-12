@@ -28,11 +28,6 @@ namespace DynamicPDFCreator
 
         }
 
-        private void Label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void Tb_smNummer_TextChanged(object sender, EventArgs e)
         {
             try
@@ -121,6 +116,7 @@ namespace DynamicPDFCreator
         {
             pdf.empfaenger = DBm.ansprechpartner.ElementAt<TblAnsprechpartner>(cmb_empfaenger.SelectedIndex);
             btn_bearbeiten.Enabled = true;
+
             
         }
 
@@ -354,10 +350,17 @@ namespace DynamicPDFCreator
 
             return zusatzanlagen;
         }
-
-        private void Button1_Click_1(object sender, EventArgs e)
+        private void Btn_bearbeiten_wesi_Click(object sender, EventArgs e)
         {
-
+            EditDataset editDataset = new EditDataset();
+            editDataset.ReinitializeComponent(DBm.wesiTeam.ElementAt<TblWesiTeam>(cmb_wesie.SelectedIndex));
+            this.Enabled = false;
+            editDataset.ShowDialog();
+            tb_WesiMail.Clear();
+            rtb_WesiAdresse.Clear();
+            cmb_wesie.Items.Clear();
+            cmb_wesie.Items.AddRange(DBm.wesiTeamNamen);
+            this.Enabled = true;
         }
     }
 }
