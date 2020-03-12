@@ -68,7 +68,6 @@ namespace DynamicPDFCreator
 
             datePickerAusfuehrungEnde.Format = DateTimePickerFormat.Custom;
             datePickerAusfuehrungEnde.CustomFormat = "MMMM-yyyy";
-
             btn_bearbeiten.Enabled = false;
             //btn_hinzufuegen.Enabled = false;
 

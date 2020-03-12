@@ -16,7 +16,7 @@ namespace DynamicPDFCreator.Interfaces
 {
     class Wupfl : IPDFWriter
     {
-        
+
         PdfGenerateConfig config = new PdfGenerateConfig()
         {
             MarginBottom = 50,
@@ -201,10 +201,7 @@ namespace DynamicPDFCreator.Interfaces
                     Mit freundlichen Grüßen:
                 </p>
                 <p>
-                    BILD UNTERSCHRIFT
-                </p>
-                <p>
-                    i.A. Jörg Boden
+                    i.A. {pdf.ansprechpartner.BearbeiterVorname} {pdf.ansprechpartner.BearbeiterName}
                 </p>
                 </td>
                 </tr>
@@ -250,7 +247,7 @@ namespace DynamicPDFCreator.Interfaces
             return pfad;
         }
 
-        private string checkSlash(string input) {
+        public string checkSlash(string input) {
             try
             {
                 return input.Remove(input.IndexOf("\\\\"),1);

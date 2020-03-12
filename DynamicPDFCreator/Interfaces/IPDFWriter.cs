@@ -9,5 +9,11 @@ namespace DynamicPDFCreator.Interfaces
     interface IPDFWriter
     {
         string getHTML(PDF pdf);
+
+        string writeHTMLtoPDF(string html, string pfad);
+
+        string checkSlash(string input);
+
+        string reduceRtfFormatting(string html);
     }
 }
