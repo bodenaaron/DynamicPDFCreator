@@ -57,6 +57,7 @@ namespace DynamicPDFCreator
         {
             this.WindowState = FormWindowState.Maximized;
             //Combobox Anschreiben Typ
+            cmb_anschreibenTyp.Items.Clear();
             cmb_anschreibenTyp.Items.AddRange(DBm.anschreibenNamen);
             cmb_wesie.Items.AddRange(DBm.wesiTeamNamen);
             //cmb_anschreibenTyp.SelectedIndex = 2;
@@ -71,6 +72,7 @@ namespace DynamicPDFCreator
 
             datePickerAusfuehrungEnde.Format = DateTimePickerFormat.Custom;
             datePickerAusfuehrungEnde.CustomFormat = "MMMM-yyyy";
+            //enableAll();
             btn_bearbeiten.Enabled = false;
             //btn_hinzufuegen.Enabled = false;
 
@@ -78,21 +80,31 @@ namespace DynamicPDFCreator
 
         private void Cmb_anschreibenTyp_SelectedIndexChanged(object sender, EventArgs e)
         {
+
+            
             TblAnschreibenTyp anschreiben = DBm.anschreiben.ElementAt<TblAnschreibenTyp>(cmb_anschreibenTyp.SelectedIndex);
+            //ReinitializeComponents();
+            //clearAll(false);
 
             switch (anschreiben.Id - 1)
             {
                 case 0:
                     //EVU
+                    enableAll();
                     pdfWriter = new Interfaces.EVU();
+                    rtb_absprachen.Enabled = false;
                     rtb_BeschreibungMassnahme.Enabled = false;
                     cmb_wesie.Enabled = false;
+                    cmb_ansprechpartnerBau.Enabled = false;
                     pflichtfelder_typ = Pflichtfelder_Klassen.Pflicht_EVU.PFLICHTFELDER;
                     break;
                 case 1:
                     break;
                 case 2:
                     //WUPFL
+                    enableAll();
+                    rtb_absprachen.Enabled = false;
+                    cmb_ansprechpartnerBau.Enabled = false;
                     pdfWriter = new Interfaces.Wupfl();
                     pflichtfelder_typ = Pflichtfelder_Klassen.Pflicht_EVU.PFLICHTFELDER;
                     break;
@@ -443,6 +455,62 @@ namespace DynamicPDFCreator
             
 
             return FinalPDF;
+        }
+        private void clearAll(bool fullClear)
+        {
+            Action<Control.ControlCollection> func = null;
+
+            func = (controls) =>
+            {
+                foreach (Control control in controls)
+                    if (control is TextBox && control.Name!= "tb_smNummer")
+                        (control as TextBox).Clear();
+                    else
+                        func(control.Controls);
+            };
+
+            func(Controls);
+        }
+
+        private void enableAll()
+        {
+            Action<Control.ControlCollection> func = null;
+
+            func = (controls) =>
+            {
+                foreach (Control control in controls)
+                    if (control is ComboBox)
+                        (control as ComboBox).Enabled=true;
+                    else
+                        func(control.Controls);
+            };
+
+            func(Controls);
+
+            func = null;
+
+            func = (controls) =>
+            {
+                foreach (Control control in controls)
+                    if (control is TextBox&&control.Name!= "tb_smNummer")
+                        (control as TextBox).Enabled = true;
+                    else
+                        func(control.Controls);
+            };
+
+            func(Controls);
+            func = null;
+
+            func = (controls) =>
+            {
+                foreach (Control control in controls)
+                    if (control is RichTextBox)
+                        (control as RichTextBox).Enabled = true;
+                    else
+                        func(control.Controls);
+            };
+
+            func(Controls);
         }
 
     }

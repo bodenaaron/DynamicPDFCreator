@@ -285,7 +285,6 @@
             // 
             // rtb_absprachen
             // 
-            this.rtb_absprachen.Enabled = false;
             this.rtb_absprachen.Location = new System.Drawing.Point(20, 463);
             this.rtb_absprachen.Name = "rtb_absprachen";
             this.rtb_absprachen.Size = new System.Drawing.Size(302, 36);
