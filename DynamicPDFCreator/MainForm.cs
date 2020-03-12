@@ -57,6 +57,7 @@ namespace DynamicPDFCreator
 
         private void ReinitializeComponents()
         {
+            this.WindowState = FormWindowState.Maximized;
             //Combobox Anschreiben Typ
             cmb_anschreibenTyp.Items.AddRange(DBm.anschreibenNamen);
             cmb_wesie.Items.AddRange(DBm.wesiTeamNamen);
