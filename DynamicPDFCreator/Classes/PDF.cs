@@ -49,6 +49,24 @@ namespace DynamicPDFCreator
             this.techBeschreibung = techBeschreibung;
             this.Zusatzanlagen = zusatzanlagen;
         }
+
+        public PDF(TblAuftraege auftrag, TblAnschreibenTyp anschreibenTyp, TblAnsprechpartner empfaenger, TblBearbeiter absender, DateTime datum, DateTime ausfuehrungszeitraum, DateTime ausfuehrungszeitraumEnde, TblBearbeiter ansprechpartner, string ortDerMassnahme, bool plansaetze, bool listeBeteiligte, bool techBeschreibung, List<string> zusatzanlagen)
+        {
+            this.auftrag = auftrag;
+            this.anschreibenTyp = anschreibenTyp;
+            this.empfaenger = empfaenger;
+            this.absender = absender;
+            this.datum = datum;
+            this.ausfuehrungszeitraum = ausfuehrungszeitraum;
+            this.ausfuehrungszeitraumEnde = ausfuehrungszeitraumEnde;
+            this.ansprechpartner = ansprechpartner;
+            this.ortDerMassnahme = ortDerMassnahme;
+            this.plansaetze = plansaetze;
+            this.listeBeteiligte = listeBeteiligte;
+            this.techBeschreibung = techBeschreibung;
+            this.Zusatzanlagen = zusatzanlagen;
+        }
+
         public PDF()
         {
             this.beschreibungMassnahme = new RichTextBox();

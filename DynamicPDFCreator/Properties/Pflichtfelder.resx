@@ -117,46 +117,55 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ERROR_ABSENDER" xml:space="preserve">
-    <value>Es gab ein Problem mit dem Absender. Bitte erneut probieren oder aaron.boden@eictronic.de bzw. 036071369018 kontaktiern</value>
+  <data name="Absender" xml:space="preserve">
+    <value>1</value>
   </data>
-  <data name="ERROR_ANSCHREIBENTYP" xml:space="preserve">
-    <value>Bitte Anschreiben wählen!</value>
+  <data name="Anschreiben_Typ" xml:space="preserve">
+    <value>2</value>
   </data>
-  <data name="ERROR_ANSPRECHPARTNER" xml:space="preserve">
-    <value>Bitte Ansprechpartner wählen!</value>
+  <data name="Ansprechpartner" xml:space="preserve">
+    <value>3</value>
   </data>
-  <data name="ERROR_ANSPRECHPARTNER_BAU" xml:space="preserve">
-    <value>Bitte Ansprechpartner Bau wählen!</value>
+  <data name="Ansprechpartner_Bau" xml:space="preserve">
+    <value>4</value>
   </data>
-  <data name="ERROR_AUSFUEHRUNGSZEITRAUM" xml:space="preserve">
-    <value>Es gab ein Problem mit dem Ausführungszeitraum. Bitte erneut probieren oder aaron.boden@eictronic.de bzw. 036071369018 kontaktiern</value>
+  <data name="Ausfuehrungszeitraum" xml:space="preserve">
+    <value>5</value>
   </data>
-  <data name="ERROR_BESCHREIBUNGMASSNAHME" xml:space="preserve">
-    <value>Bitte eine Beschreibung der Maßnahme angeben</value>
+  <data name="Beschreibung_Absprachen" xml:space="preserve">
+    <value>6</value>
   </data>
-  <data name="ERROR_BESCHREIBUNG_ABGESPROCHEN_MIT" xml:space="preserve">
-    <value>Bitte alle Pflichtfelder ausfüllen!</value>
+  <data name="Beschreibung_der_Massnahme" xml:space="preserve">
+    <value>7</value>
   </data>
-  <data name="ERROR_CHECKBOXEN" xml:space="preserve">
-    <value>Es gab ein Problem mit den Checkboxen. Bitte erneut probieren oder aaron.boden@eictronic.de bzw. 036071369018 kontaktiern</value>
+  <data name="Datum" xml:space="preserve">
+    <value>8</value>
   </data>
-  <data name="ERROR_DATUM" xml:space="preserve">
-    <value>Es gab ein Problem mit dem Datum. Bitte erneut probieren oder aaron.boden@eictronic.de bzw. 036071369018 kontaktiern</value>
+  <data name="Empfaenger" xml:space="preserve">
+    <value>9</value>
   </data>
-  <data name="ERROR_EMPFAENGER" xml:space="preserve">
-    <value>Bitte Empfänger auswählen!</value>
+  <data name="Liste_der_Beteiligten" xml:space="preserve">
+    <value>10</value>
   </data>
-  <data name="ERROR_ORTDERMASSNAHME" xml:space="preserve">
-    <value>Bitte Ort der Maßnahme ausfüllen!</value>
+  <data name="Ort_der_Massnahme" xml:space="preserve">
+    <value>11</value>
   </data>
-  <data name="ERROR_SMNUMMER" xml:space="preserve">
-    <value>SMNummer nicht gefunden</value>
+  <data name="Plansaetze" xml:space="preserve">
+    <value>12</value>
   </data>
-  <data name="ERROR_WESI_TEAM_ADRESSE" xml:space="preserve">
-    <value>Bitte Wesi-Team wählen</value>
+  <data name="Technische_Beschreibung" xml:space="preserve">
+    <value>13</value>
   </data>
-  <data name="ERROR_ZUSATZ" xml:space="preserve">
-    <value>Es gab ein Problem mit den Zusatzfeldern. Bitte erneut probieren oder aaron.boden@eictronic.de bzw. 036071369018 kontaktiern</value>
+  <data name="Wesi_Team" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <data name="Zusatz1" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="Zusatz2" xml:space="preserve">
+    <value>16</value>
+  </data>
+  <data name="Zusatz3" xml:space="preserve">
+    <value>17</value>
   </data>
 </root>

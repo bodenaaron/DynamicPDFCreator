@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Drawing.Printing;
 using System.IO;
 using System.Linq;
+using System.Resources;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,6 +15,8 @@ namespace DynamicPDFCreator
 {
     public partial class MainForm : Form
     {
+        private object[] pflichtfelder_typ;
+        Interfaces.IPDFWriter pdfWriter;
         DBManager DBm = new DBManager();
         PDF pdf = new PDF();
         public MainForm()
@@ -56,7 +59,7 @@ namespace DynamicPDFCreator
             //Combobox Anschreiben Typ
             cmb_anschreibenTyp.Items.AddRange(DBm.anschreibenNamen);
             cmb_wesie.Items.AddRange(DBm.wesiTeamNamen);
-            cmb_anschreibenTyp.SelectedIndex = 2;
+            //cmb_anschreibenTyp.SelectedIndex = 2;
             cmb_Ansprechpartner.Items.Clear();
             cmb_Ansprechpartner.Items.AddRange(DBm.bearbeiterNamen);
             cmb_absender.Items.Clear();
@@ -75,17 +78,23 @@ namespace DynamicPDFCreator
 
         private void Cmb_anschreibenTyp_SelectedIndexChanged(object sender, EventArgs e)
         {
-            TblAnschreibenTyp anschreiben= DBm.anschreiben.ElementAt<TblAnschreibenTyp>(cmb_anschreibenTyp.SelectedIndex);
+            TblAnschreibenTyp anschreiben = DBm.anschreiben.ElementAt<TblAnschreibenTyp>(cmb_anschreibenTyp.SelectedIndex);
 
-            switch (anschreiben.Id-1)
+            switch (anschreiben.Id - 1)
             {
                 case 0:
+                    //EVU
+                    pdfWriter = new Interfaces.EVU();
+                    rtb_BeschreibungMassnahme.Enabled = false;
+                    cmb_wesie.Enabled = false;
+                    pflichtfelder_typ = Pflichtfelder_Klassen.Pflicht_EVU.PFLICHTFELDER;
                     break;
                 case 1:
                     break;
                 case 2:
-                    //Interfaces.Wupfl wupfl = new Interfaces.Wupfl();
-                    //pdfPreview.DocumentText= wupfl.getHTML(pdf);
+                    //WUPFL
+                    pdfWriter = new Interfaces.Wupfl();
+                    pflichtfelder_typ = Pflichtfelder_Klassen.Pflicht_EVU.PFLICHTFELDER;
                     break;
                 case 3:
                     break;
@@ -116,7 +125,7 @@ namespace DynamicPDFCreator
             pdf.empfaenger = DBm.ansprechpartner.ElementAt<TblAnsprechpartner>(cmb_empfaenger.SelectedIndex);
             btn_bearbeiten.Enabled = true;
 
-            
+
         }
 
         private void Cmb_absender_SelectedIndexChanged(object sender, EventArgs e)
@@ -237,10 +246,10 @@ namespace DynamicPDFCreator
                 saveFileDialog.Title = "PDF Speichern";
                 saveFileDialog.ShowDialog();
 
-                Interfaces.Wupfl wupfl = new Interfaces.Wupfl();
 
-                string html = wupfl.getHTML(FinalPDF);
-                wupfl.writeHTMLtoPDF(html, saveFileDialog.FileName);
+
+                string html = pdfWriter.getHTML(FinalPDF);
+                pdfWriter.writeHTMLtoPDF(html, saveFileDialog.FileName);
             }
             catch (Exception q) { }
         }
@@ -254,35 +263,17 @@ namespace DynamicPDFCreator
             rtb.Rtf = rtb_BeschreibungMassnahme.Rtf;
             try
             {
-                 PDF FinalPDF = new PDF(
-                    DBm.auftrag,
-                    DBm.anschreiben.ElementAt<TblAnschreibenTyp>(cmb_anschreibenTyp.SelectedIndex),
-                    DBm.ansprechpartner.ElementAt<TblAnsprechpartner>(cmb_empfaenger.SelectedIndex),
-                    DBm.bearbeiter.ElementAt<TblBearbeiter>(cmb_absender.SelectedIndex),
-                    datePicker.Value,
-                    datePickerAusfuehrung.Value,
-                    datePickerAusfuehrungEnde.Value.Date,
-                    DBm.bearbeiter.ElementAt<TblBearbeiter>(cmb_Ansprechpartner.SelectedIndex),
-                    tb_ortMassnahme.Text,
-                    //rtb_absprachen.Text,
-                    rtb,
-                    //DBm.ansprechpartner.ElementAt<TblAnsprechpartner>(cmb_ansprechpartnerBau.SelectedIndex),
-                    DBm.wesiTeam.ElementAt<TblWesiTeam>(cmb_wesie.SelectedIndex),
-                    cb_plansaetze.Checked,
-                    cb_beteiligte.Checked,
-                    cb_techBeschreibung.Checked,
-                    zusatzanlagen);
+                PDF FinalPDF = createPDF(zusatzanlagen,rtb);
 
-                Interfaces.Wupfl wupfl = new Interfaces.Wupfl();
 
-                string html = wupfl.getHTML(FinalPDF);
+                string html = pdfWriter.getHTML(FinalPDF);
                 string hiddenPath = Path.GetTempPath() + @"\testpdf.pdf";
                 this.pdfPreview.Navigate("www.google.de");
 
-                pdfPreview.Navigate(wupfl.writeHTMLtoPDF(html, hiddenPath));
+                pdfPreview.Navigate(pdfWriter.writeHTMLtoPDF(html, hiddenPath));
             }
             catch (Exception ef) { }
-            
+
         }
 
         private void Btn_bearbeiten_Click(object sender, EventArgs e)
@@ -294,32 +285,71 @@ namespace DynamicPDFCreator
             this.Enabled = true;
         }
 
+        //noch falsche reihenfolge beim checken
         private List<string> checkInput()
         {
             if (pdf.auftrag == null)
             {
                 displayError(ERROR_SMNUMMER);
-            }
-            if (tb_ortMassnahme.Text == "")
-            {
-                displayError(ERROR_ORTDERMASSNAHME);
-            }
-            if (rtb_WesiAdresse.Text == "")
-            {
-                displayError(ERROR_WESI_TEAM_ADRESSE);
+                return null;
             }
 
-            if (cmb_empfaenger.Text == "")
+            if (pflichtfelder_typ == null)
             {
-                displayError(ERROR_EMPFAENGER);
+                displayError(ERROR_ANSCHREIBENTYP);
+                return null;
             }
-            if (cmb_absender.Text == "")
+            foreach (int s in pflichtfelder_typ)
             {
-                displayError(ERROR_ABSENDER);
-            }
-            if (rtb_BeschreibungMassnahme.Text == "")
-            {
-                displayError(ERROR_BESCHREIBUNGMASSNAHME);
+                switch (s)
+                {
+                    case Pflichtfelder_Klassen.Pflichtfelder.ABSENDER:
+                        if (cmb_absender.Text == "")
+                        {
+                            displayError(ERROR_ABSENDER);
+                            return null;
+                        }
+                        break;
+                    case Pflichtfelder_Klassen.Pflichtfelder.EMPFAENGER:
+                        if (cmb_empfaenger.Text == "")
+                        {
+                            displayError(ERROR_EMPFAENGER);
+                            return null;
+                        }
+                        break;
+                    case Pflichtfelder_Klassen.Pflichtfelder.ANSPRECHPARTNER:
+                        if (cmb_Ansprechpartner.Text == "")
+                        {
+                            displayError(ERROR_ANSPRECHPARTNER);
+                            return null;
+                        }
+                        break;
+                    case Pflichtfelder_Klassen.Pflichtfelder.ORT_DER_MASSNAHMEN:
+                        if (tb_ortMassnahme.Text == "")
+                        {
+                            displayError(ERROR_ORTDERMASSNAHME);
+                            return null;
+                        }
+                        break;
+                    case Pflichtfelder_Klassen.Pflichtfelder.BESCHREIBUNG_ABSPRACHEN:
+                        break;
+                    case Pflichtfelder_Klassen.Pflichtfelder.BESCHREIBUNG_DER_MASSNAHMEN:
+                        if (rtb_BeschreibungMassnahme.Text == "")
+                        {
+                            displayError(ERROR_BESCHREIBUNGMASSNAHME);
+                            return null;
+                        }
+                        break;
+                    case Pflichtfelder_Klassen.Pflichtfelder.WESI_TEAM:
+                        if (rtb_WesiAdresse.Text == "")
+                        {
+                            displayError(ERROR_WESI_TEAM_ADRESSE);
+                            return null;
+                        }
+                        break;
+                    case Pflichtfelder_Klassen.Pflichtfelder.ANSPRECHPARTNER_BAU:
+                        break;
+                }
             }
             List<string> zusatzanlagen = new List<string>();
             if (cb_plansaetze.Checked)
@@ -361,5 +391,59 @@ namespace DynamicPDFCreator
             cmb_wesie.Items.AddRange(DBm.wesiTeamNamen);
             this.Enabled = true;
         }
+
+        private PDF createPDF(List<string>zusatzanlagen, RichTextBox rtb)
+        {
+            PDF FinalPDF = new PDF();
+
+             switch (pdfWriter.GetType().Name)
+            {
+                case "EVU":
+                   FinalPDF = new PDF(
+                   DBm.auftrag,
+                   DBm.anschreiben.ElementAt<TblAnschreibenTyp>(cmb_anschreibenTyp.SelectedIndex),
+                   DBm.ansprechpartner.ElementAt<TblAnsprechpartner>(cmb_empfaenger.SelectedIndex),
+                   DBm.bearbeiter.ElementAt<TblBearbeiter>(cmb_absender.SelectedIndex),
+                   datePicker.Value,
+                   datePickerAusfuehrung.Value,
+                   datePickerAusfuehrungEnde.Value.Date,
+                   DBm.bearbeiter.ElementAt<TblBearbeiter>(cmb_Ansprechpartner.SelectedIndex),
+                   tb_ortMassnahme.Text,
+                   //rtb_absprachen.Text,
+                   //rtb,
+                   //DBm.ansprechpartner.ElementAt<TblAnsprechpartner>(cmb_ansprechpartnerBau.SelectedIndex),
+                   //DBm.wesiTeam.ElementAt<TblWesiTeam>(cmb_wesie.SelectedIndex),
+                   cb_plansaetze.Checked,
+                   cb_beteiligte.Checked,
+                   cb_techBeschreibung.Checked,
+                   zusatzanlagen);
+                    break;
+                case "Wupfl":
+                   FinalPDF = new PDF(
+                   DBm.auftrag,
+                   DBm.anschreiben.ElementAt<TblAnschreibenTyp>(cmb_anschreibenTyp.SelectedIndex),
+                   DBm.ansprechpartner.ElementAt<TblAnsprechpartner>(cmb_empfaenger.SelectedIndex),
+                   DBm.bearbeiter.ElementAt<TblBearbeiter>(cmb_absender.SelectedIndex),
+                   datePicker.Value,
+                   datePickerAusfuehrung.Value,
+                   datePickerAusfuehrungEnde.Value.Date,
+                   DBm.bearbeiter.ElementAt<TblBearbeiter>(cmb_Ansprechpartner.SelectedIndex),
+                   tb_ortMassnahme.Text,
+                   //rtb_absprachen.Text,
+                   rtb,
+                   //DBm.ansprechpartner.ElementAt<TblAnsprechpartner>(cmb_ansprechpartnerBau.SelectedIndex),
+                   DBm.wesiTeam.ElementAt<TblWesiTeam>(cmb_wesie.SelectedIndex),
+                   cb_plansaetze.Checked,
+                   cb_beteiligte.Checked,
+                   cb_techBeschreibung.Checked,
+                   zusatzanlagen);
+                    break;
+            }
+
+            
+
+            return FinalPDF;
+        }
+
     }
-}
+    }

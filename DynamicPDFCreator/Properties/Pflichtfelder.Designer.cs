@@ -22,14 +22,14 @@ namespace DynamicPDFCreator.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class ErrorCodes {
+    internal class Pflichtfelder {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal ErrorCodes() {
+        internal Pflichtfelder() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace DynamicPDFCreator.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("DynamicPDFCreator.Properties.ErrorCodes", typeof(ErrorCodes).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("DynamicPDFCreator.Properties.Pflichtfelder", typeof(Pflichtfelder).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,128 +61,155 @@ namespace DynamicPDFCreator.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Es gab ein Problem mit dem Absender. Bitte erneut probieren oder aaron.boden@eictronic.de bzw. 036071369018 kontaktiern ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die 1 ähnelt.
         /// </summary>
-        internal static string ERROR_ABSENDER {
+        internal static string Absender {
             get {
-                return ResourceManager.GetString("ERROR_ABSENDER", resourceCulture);
+                return ResourceManager.GetString("Absender", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Bitte Anschreiben wählen! ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die 2 ähnelt.
         /// </summary>
-        internal static string ERROR_ANSCHREIBENTYP {
+        internal static string Anschreiben_Typ {
             get {
-                return ResourceManager.GetString("ERROR_ANSCHREIBENTYP", resourceCulture);
+                return ResourceManager.GetString("Anschreiben_Typ", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Bitte Ansprechpartner wählen! ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die 3 ähnelt.
         /// </summary>
-        internal static string ERROR_ANSPRECHPARTNER {
+        internal static string Ansprechpartner {
             get {
-                return ResourceManager.GetString("ERROR_ANSPRECHPARTNER", resourceCulture);
+                return ResourceManager.GetString("Ansprechpartner", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Bitte Ansprechpartner Bau wählen! ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die 4 ähnelt.
         /// </summary>
-        internal static string ERROR_ANSPRECHPARTNER_BAU {
+        internal static string Ansprechpartner_Bau {
             get {
-                return ResourceManager.GetString("ERROR_ANSPRECHPARTNER_BAU", resourceCulture);
+                return ResourceManager.GetString("Ansprechpartner_Bau", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Es gab ein Problem mit dem Ausführungszeitraum. Bitte erneut probieren oder aaron.boden@eictronic.de bzw. 036071369018 kontaktiern ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die 5 ähnelt.
         /// </summary>
-        internal static string ERROR_AUSFUEHRUNGSZEITRAUM {
+        internal static string Ausfuehrungszeitraum {
             get {
-                return ResourceManager.GetString("ERROR_AUSFUEHRUNGSZEITRAUM", resourceCulture);
+                return ResourceManager.GetString("Ausfuehrungszeitraum", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Bitte alle Pflichtfelder ausfüllen! ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die 6 ähnelt.
         /// </summary>
-        internal static string ERROR_BESCHREIBUNG_ABGESPROCHEN_MIT {
+        internal static string Beschreibung_Absprachen {
             get {
-                return ResourceManager.GetString("ERROR_BESCHREIBUNG_ABGESPROCHEN_MIT", resourceCulture);
+                return ResourceManager.GetString("Beschreibung_Absprachen", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Bitte eine Beschreibung der Maßnahme angeben ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die 7 ähnelt.
         /// </summary>
-        internal static string ERROR_BESCHREIBUNGMASSNAHME {
+        internal static string Beschreibung_der_Massnahme {
             get {
-                return ResourceManager.GetString("ERROR_BESCHREIBUNGMASSNAHME", resourceCulture);
+                return ResourceManager.GetString("Beschreibung_der_Massnahme", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Es gab ein Problem mit den Checkboxen. Bitte erneut probieren oder aaron.boden@eictronic.de bzw. 036071369018 kontaktiern ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die 8 ähnelt.
         /// </summary>
-        internal static string ERROR_CHECKBOXEN {
+        internal static string Datum {
             get {
-                return ResourceManager.GetString("ERROR_CHECKBOXEN", resourceCulture);
+                return ResourceManager.GetString("Datum", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Es gab ein Problem mit dem Datum. Bitte erneut probieren oder aaron.boden@eictronic.de bzw. 036071369018 kontaktiern ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die 9 ähnelt.
         /// </summary>
-        internal static string ERROR_DATUM {
+        internal static string Empfaenger {
             get {
-                return ResourceManager.GetString("ERROR_DATUM", resourceCulture);
+                return ResourceManager.GetString("Empfaenger", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Bitte Empfänger auswählen! ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die 10 ähnelt.
         /// </summary>
-        internal static string ERROR_EMPFAENGER {
+        internal static string Liste_der_Beteiligten {
             get {
-                return ResourceManager.GetString("ERROR_EMPFAENGER", resourceCulture);
+                return ResourceManager.GetString("Liste_der_Beteiligten", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Bitte Ort der Maßnahme ausfüllen! ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die 11 ähnelt.
         /// </summary>
-        internal static string ERROR_ORTDERMASSNAHME {
+        internal static string Ort_der_Massnahme {
             get {
-                return ResourceManager.GetString("ERROR_ORTDERMASSNAHME", resourceCulture);
+                return ResourceManager.GetString("Ort_der_Massnahme", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die SMNummer nicht gefunden ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die 12 ähnelt.
         /// </summary>
-        internal static string ERROR_SMNUMMER {
+        internal static string Plansaetze {
             get {
-                return ResourceManager.GetString("ERROR_SMNUMMER", resourceCulture);
+                return ResourceManager.GetString("Plansaetze", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Bitte Wesi-Team wählen ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die 13 ähnelt.
         /// </summary>
-        internal static string ERROR_WESI_TEAM_ADRESSE {
+        internal static string Technische_Beschreibung {
             get {
-                return ResourceManager.GetString("ERROR_WESI_TEAM_ADRESSE", resourceCulture);
+                return ResourceManager.GetString("Technische_Beschreibung", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Es gab ein Problem mit den Zusatzfeldern. Bitte erneut probieren oder aaron.boden@eictronic.de bzw. 036071369018 kontaktiern ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die 14 ähnelt.
         /// </summary>
-        internal static string ERROR_ZUSATZ {
+        internal static string Wesi_Team {
             get {
-                return ResourceManager.GetString("ERROR_ZUSATZ", resourceCulture);
+                return ResourceManager.GetString("Wesi_Team", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die 15 ähnelt.
+        /// </summary>
+        internal static string Zusatz1 {
+            get {
+                return ResourceManager.GetString("Zusatz1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die 16 ähnelt.
+        /// </summary>
+        internal static string Zusatz2 {
+            get {
+                return ResourceManager.GetString("Zusatz2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die 17 ähnelt.
+        /// </summary>
+        internal static string Zusatz3 {
+            get {
+                return ResourceManager.GetString("Zusatz3", resourceCulture);
             }
         }
     }

@@ -1,24 +1,30 @@
-﻿using RtfPipe;
+﻿using PdfSharp;
+using PdfSharp.Pdf;
+using RtfPipe;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TheArtOfDev.HtmlRenderer.PdfSharp;
 
 namespace DynamicPDFCreator.Interfaces
 {
     class EVU : IPDFWriter
     {
-        public string checkSlash(string input)
+        PdfGenerateConfig config = new PdfGenerateConfig()
         {
-            throw new NotImplementedException();
-        }
+            MarginBottom = 50,
+            MarginLeft = 70,
+            MarginRight = 40,
+            MarginTop = 100,
+            PageSize = PageSize.A4
+        };
+
+        
 
         public string getHTML(PDF pdf)
         {
-            string htmlMassnahmen = Rtf.ToHtml(pdf.beschreibungMassnahme.Rtf);
-            htmlMassnahmen = reduceRtfFormatting(htmlMassnahmen);
-
             string html = "";
             html = $@"
             <div style='position: fixed; left: 150px; top: 810px; width:65% '>
@@ -84,102 +90,47 @@ namespace DynamicPDFCreator.Interfaces
                   	Betreff:
                   </td>
                   <td>
-                  	Zustimmung des Trägers der Wegebaulast nach §68 Telekommunikationsgesetz (TKG)
-                  </td>
-                </tr>
-                </table>
-                ";
-            //ort der Maßnahmen
-            html += $@"
-                <table style='width:100%; margin-top:15px'>
-                <tr>
-                	<td style='valign: top; width:20%'>
-                  	Bauvorhaben:
-                  </td>
-                  <td>
                   	{pdf.ortDerMassnahme}
                   </td>
                 </tr>
                 </table>
                 ";
+            
             //anschreiben
             html += $@"
             <div id='anschreiben'>
                 <p>
+                <p>
                     Sehr geehrte Damen und Herren,
-                    </br>
-                    </br>
-                    die Telekom Deutschland GmbH beabsichtigt nach den beiliegenden Plänen ihre </br>
+                </p>
+                <p>
+                    die Telekom Deutschland GmbH beabsichtigt nach den beiliegenden Plänen ihre
                     Telekommunikationslinien zu ändern/zu erweitern.</br>
-                    Dazu hat sie uns, die Eictronic GmbH beauftragt und bevollmächtigt die Aufgaben der Planung</br>
+                    Dazu hat sie uns, die Eictronic GmbH beauftragt und bevollmächtigt die Aufgaben der Planung
                     und Wegesicherung wahrzunehmen.
                 </p>
-            </div>
-            
-            <table style='width: 100%; margin-top:30px'>
-                 <tr>
-                	<td  valign=top style=' width:20%'>
-                      Baubeschreibung:
-                  </td>
-                </tr>
-                <tr>
-                  <td valign=top>
-                  	{htmlMassnahmen}
-                  </td>
-                </tr>
-            </table>
-            <table style='page-break-inside: avoid'>
-                <tr>
-                	<td>
-                            Wir bitten Sie, die Zustimmung gemäß § 68 Abs. 3 Satz 1 TKG zugunsten der Telekom
-                            Deutschland GmbH (Reg-Nr.: 93/007 nach § 6 TKG) als Nutzungsberechtigte nach § 68 Abs. 1 i. V. m. § 69 Abs. 1 TKG zu erteilen.  Bitte senden Sie die Zustimmung unter Angabe der im Betreff 
-                            genannten SM-Nr. an:</br></br></br>
-                  </td>
-                </tr>
-                <tr>
-                	<td>
-                  	<b>{pdf.wesiTeam.Firma}</b>
-                  </td>
-                </tr>
-                <tr>
-                	<td>
-                  	<b>{pdf.wesiTeam.Niederlassung}</b>
-                  </td>
-                </tr>
+                <p>
+                    Falls bei der Bauausführung Ihre Belange betroffen sind, bitten wir um deren Angabe
+                    und um Beifügung von Plänen der betroffenen Anlagen.
+                </p>
+                <p>
+                    Sollte zu diesem Bauvorhaben eine Koordinierung mit von Ihnen geplanten Maßnahmen in
+                    Betracht kommen, bitten wir um konkrete Angaben, für welchen Bereich aus Ihrer Sicht
+                    eine koordinierte Baudurchführung möglich ist.
+                </p>                
+                </p>
+            </div>           
+            <table style='width:100%; page-break-inside: avoid'>
                 <tr>
                     <td>
-                  	<b>{pdf.wesiTeam.Bereich}</b>
-                  </td>
-                </tr>
-                <tr>
-                    <td>
-                  	<b>{pdf.wesiTeam.Strasse}</b>
-                  </td>
-                </tr>
-                <tr>
-                    <td>
-                  	    <b>{pdf.wesiTeam.PLZ} {pdf.wesiTeam.Stadt}</b>
-                  </td>
-                </tr>
-                </table>
-                <table style='width:100%; page-break-inside: avoid'>
-                <tr>
-                <td>
             <p>
-                Rechtzeitig vor Baubeginn wird Ihnen der genaue Ausführungszeitraum sowie die mit den Arbeiten beauftragte Firma schriftlich mitgeteilt (Baubeginnanzeige).
-            </p>
-            <p>
-            Vorraussichtllicher Ausführungszeitraum: {pdf.ausfuehrungszeitraum.ToString("MMMM yyyy")}
+            Derzeit ist folgende Ausführungsfrist vorgesehen: {pdf.ausfuehrungszeitraum.ToString("MMMM yyyy")}
             ";
             if (pdf.ausfuehrungszeitraum.Month != pdf.ausfuehrungszeitraumEnde.Month || pdf.ausfuehrungszeitraum.Year != pdf.ausfuehrungszeitraumEnde.Year)
             {
                 html += $@" bis {pdf.ausfuehrungszeitraumEnde.ToString("MMMM yyyy")}";
             }
             html += $@"
-            <p>
-                Falls bei der Bauausführung Ihre Belange betroffen sind, bitten wir um deren Angabe und um Beifügung von Plänen der betroffenen Anlagen.</br>
-            </p>
-
             <p style='margin-top:30px'>
                 Für Rückfragen stehen wir Ihnen gern zur Verfügung
             </p>
@@ -211,12 +162,60 @@ namespace DynamicPDFCreator.Interfaces
 
         public string reduceRtfFormatting(string html)
         {
-            throw new NotImplementedException();
+            bool control = true;
+            int eins = html.IndexOf("\">") + 2;
+            int zwei = html.Length - 6;
+
+            html = html.Substring(eins, html.Length - eins - 6);
+            while (control)
+            {
+                try
+                {
+                    string startTag = html.Substring(0, html.IndexOf("style=\""));
+                    string endTag = html.Substring(html.IndexOf("\">") + 1);
+
+                    html = startTag + endTag;
+                }
+                catch (Exception e) { control = false; }
+            }
+            return html;
         }
 
         public string writeHTMLtoPDF(string html, string pfad)
         {
-            throw new NotImplementedException();
+            PdfDocument pdf1 = PdfGenerator.GeneratePdf(html, config);
+            pfad = checkSlash(pfad);
+            string alternativerPfad = pfad.Remove(pfad.Length - 5, 1);
+            try
+            {
+                pdf1.Save(pfad);
+                return checkSlash(pfad);
+            }
+            catch (Exception ef)
+            {
+            }
+            try
+            {
+                pdf1.Save(alternativerPfad);
+                return checkSlash(alternativerPfad);
+            }
+
+            catch (Exception e)
+            {
+            }
+
+
+            return pfad;
+        }
+
+        public string checkSlash(string input)
+        {
+            try
+            {
+                return input.Remove(input.IndexOf("\\\\"), 1);
+            }
+            catch (Exception e) { }
+            return input;
         }
     }
 }

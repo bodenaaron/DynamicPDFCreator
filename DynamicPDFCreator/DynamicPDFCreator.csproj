@@ -136,6 +136,14 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\Program.cs" />
+    <Compile Include="Pflichtfelder_Klassen\Pflichtfelder.cs" />
+    <Compile Include="Pflichtfelder_Klassen\Pflicht_EVU.cs" />
+    <Compile Include="Pflichtfelder_Klassen\Pflicht_Wupfl.cs" />
+    <Compile Include="Properties\Pflichtfelder.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Pflichtfelder.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Classes\EditDataset.resx">
       <DependentUpon>EditDataset.cs</DependentUpon>
@@ -145,6 +153,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Pflichtfelder.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Pflichtfelder.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\ErrorCodes.resx">
       <Generator>ResXFileCodeGenerator</Generator>

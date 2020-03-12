@@ -121,7 +121,6 @@
             this.cmb_anschreibenTyp.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmb_anschreibenTyp.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmb_anschreibenTyp.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmb_anschreibenTyp.Enabled = false;
             this.cmb_anschreibenTyp.FormattingEnabled = true;
             this.cmb_anschreibenTyp.Location = new System.Drawing.Point(130, 100);
             this.cmb_anschreibenTyp.Name = "cmb_anschreibenTyp";
