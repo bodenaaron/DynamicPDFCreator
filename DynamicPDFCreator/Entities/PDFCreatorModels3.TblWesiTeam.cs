@@ -53,7 +53,7 @@ namespace DynamicPDFCreator
         /// <summary>
         /// There are no comments for Bezeichnung in the schema.
         /// </summary>
-        public virtual string Bezeichnung
+        public virtual string Firma
         {
             get;
             set;
@@ -88,17 +88,6 @@ namespace DynamicPDFCreator
             get;
             set;
         }
-
-    
-        /// <summary>
-        /// There are no comments for Hausnummer in the schema.
-        /// </summary>
-        public virtual short? Hausnummer
-        {
-            get;
-            set;
-        }
-
     
         /// <summary>
         /// There are no comments for Bereich in the schema.
@@ -110,6 +99,12 @@ namespace DynamicPDFCreator
         }
 
         public virtual string Email
+        {
+            get;
+            set;
+        }
+
+        public virtual string Niederlassung
         {
             get;
             set;

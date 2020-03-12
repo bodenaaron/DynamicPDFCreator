@@ -150,7 +150,12 @@ namespace DynamicPDFCreator.Interfaces
                 </tr>
                 <tr>
                 	<td>
-                  	<b>{pdf.wesiTeam.Bezeichnung}</b>
+                  	<b>{pdf.wesiTeam.Firma}</b>
+                  </td>
+                </tr>
+                <tr>
+                	<td>
+                  	<b>{pdf.wesiTeam.Niederlassung}</b>
                   </td>
                 </tr>
                 <tr>
@@ -160,7 +165,7 @@ namespace DynamicPDFCreator.Interfaces
                 </tr>
                 <tr>
                     <td>
-                  	<b>{pdf.wesiTeam.Strasse} {pdf.wesiTeam.Hausnummer}</b>
+                  	<b>{pdf.wesiTeam.Strasse}</b>
                   </td>
                 </tr>
                 <tr>
@@ -184,7 +189,7 @@ namespace DynamicPDFCreator.Interfaces
             }
             html += $@"
             <p>
-                Falls bei der Bauausführung ihre Belange betroffen sind, bitten wir um deren Angabe und um Beifügung von Plänen der betroffenen Anlagen.</br>
+                Falls bei der Bauausführung Ihre Belange betroffen sind, bitten wir um deren Angabe und um Beifügung von Plänen der betroffenen Anlagen.</br>
             </p>
 
             <p style='margin-top:30px'>

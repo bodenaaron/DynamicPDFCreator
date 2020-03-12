@@ -78,6 +78,9 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btn_bearbeiten = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
@@ -284,7 +287,7 @@
             // rtb_absprachen
             // 
             this.rtb_absprachen.Enabled = false;
-            this.rtb_absprachen.Location = new System.Drawing.Point(19, 448);
+            this.rtb_absprachen.Location = new System.Drawing.Point(20, 463);
             this.rtb_absprachen.Name = "rtb_absprachen";
             this.rtb_absprachen.Size = new System.Drawing.Size(302, 36);
             this.rtb_absprachen.TabIndex = 23;
@@ -294,7 +297,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(19, 419);
+            this.label4.Location = new System.Drawing.Point(20, 434);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(185, 26);
             this.label4.TabIndex = 24;
@@ -303,7 +306,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(8, 33);
+            this.label5.Location = new System.Drawing.Point(8, 212);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(107, 13);
             this.label5.TabIndex = 25;
@@ -312,7 +315,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(8, 128);
+            this.label6.Location = new System.Drawing.Point(8, 76);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(102, 13);
             this.label6.TabIndex = 27;
@@ -320,8 +323,9 @@
             // 
             // rtb_WesiAdresse
             // 
-            this.rtb_WesiAdresse.Location = new System.Drawing.Point(137, 125);
+            this.rtb_WesiAdresse.Location = new System.Drawing.Point(137, 73);
             this.rtb_WesiAdresse.Name = "rtb_WesiAdresse";
+            this.rtb_WesiAdresse.ReadOnly = true;
             this.rtb_WesiAdresse.Size = new System.Drawing.Size(194, 65);
             this.rtb_WesiAdresse.TabIndex = 28;
             this.rtb_WesiAdresse.Text = "";
@@ -370,7 +374,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(8, 303);
+            this.label8.Location = new System.Drawing.Point(11, 303);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(131, 13);
             this.label8.TabIndex = 33;
@@ -379,7 +383,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(8, 282);
+            this.label9.Location = new System.Drawing.Point(11, 282);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(99, 13);
             this.label9.TabIndex = 34;
@@ -387,15 +391,16 @@
             // 
             // tb_WesiMail
             // 
-            this.tb_WesiMail.Location = new System.Drawing.Point(137, 209);
+            this.tb_WesiMail.Location = new System.Drawing.Point(137, 159);
             this.tb_WesiMail.Name = "tb_WesiMail";
+            this.tb_WesiMail.ReadOnly = true;
             this.tb_WesiMail.Size = new System.Drawing.Size(194, 20);
             this.tb_WesiMail.TabIndex = 41;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(8, 216);
+            this.label13.Location = new System.Drawing.Point(8, 166);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(89, 13);
             this.label13.TabIndex = 42;
@@ -408,7 +413,7 @@
             this.cmb_ansprechpartnerBau.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_ansprechpartnerBau.Enabled = false;
             this.cmb_ansprechpartnerBau.FormattingEnabled = true;
-            this.cmb_ansprechpartnerBau.Location = new System.Drawing.Point(137, 30);
+            this.cmb_ansprechpartnerBau.Location = new System.Drawing.Point(137, 209);
             this.cmb_ansprechpartnerBau.Name = "cmb_ansprechpartnerBau";
             this.cmb_ansprechpartnerBau.Size = new System.Drawing.Size(194, 21);
             this.cmb_ansprechpartnerBau.TabIndex = 43;
@@ -420,9 +425,9 @@
             this.cmb_wesie.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmb_wesie.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_wesie.FormattingEnabled = true;
-            this.cmb_wesie.Location = new System.Drawing.Point(137, 81);
+            this.cmb_wesie.Location = new System.Drawing.Point(137, 30);
             this.cmb_wesie.Name = "cmb_wesie";
-            this.cmb_wesie.Size = new System.Drawing.Size(194, 21);
+            this.cmb_wesie.Size = new System.Drawing.Size(343, 21);
             this.cmb_wesie.TabIndex = 44;
             this.cmb_wesie.SelectedIndexChanged += new System.EventHandler(this.Cmb_wesie_SelectedIndexChanged);
             // 
@@ -552,16 +557,16 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.rtb_absprachen);
+            this.groupBox1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(411, 503);
+            this.groupBox1.Size = new System.Drawing.Size(411, 518);
             this.groupBox1.TabIndex = 51;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
             // 
             // btn_bearbeiten
             // 
-            this.btn_bearbeiten.Location = new System.Drawing.Point(330, 146);
+            this.btn_bearbeiten.Location = new System.Drawing.Point(330, 148);
             this.btn_bearbeiten.Name = "btn_bearbeiten";
             this.btn_bearbeiten.Size = new System.Drawing.Size(75, 23);
             this.btn_bearbeiten.TabIndex = 53;
@@ -573,6 +578,9 @@
             // 
             this.groupBox2.AutoSize = true;
             this.groupBox2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.groupBox2.Controls.Add(this.button1);
+            this.groupBox2.Controls.Add(this.label18);
+            this.groupBox2.Controls.Add(this.label17);
             this.groupBox2.Controls.Add(this.cmb_ansprechpartnerBau);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.label6);
@@ -593,12 +601,39 @@
             this.groupBox2.Controls.Add(this.label11);
             this.groupBox2.Controls.Add(this.tb_ZusatzAnlage2);
             this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Location = new System.Drawing.Point(458, 85);
+            this.groupBox2.Location = new System.Drawing.Point(458, 82);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(337, 445);
+            this.groupBox2.Size = new System.Drawing.Size(575, 445);
             this.groupBox2.TabIndex = 51;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "groupBox2";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(494, 30);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 54;
+            this.button1.Text = "bearbeiten";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.Button1_Click_1);
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(11, 33);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(61, 13);
+            this.label18.TabIndex = 47;
+            this.label18.Text = "Wesi-Team";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(11, 263);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(53, 13);
+            this.label17.TabIndex = 46;
+            this.label17.Text = "Plansätze";
             // 
             // groupBox3
             // 
@@ -614,7 +649,6 @@
             this.groupBox3.Size = new System.Drawing.Size(229, 300);
             this.groupBox3.TabIndex = 52;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "groupBox3";
             // 
             // label15
             // 
@@ -715,6 +749,9 @@
         private System.Windows.Forms.Button btn_bearbeiten;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Button button1;
     }
 }
 

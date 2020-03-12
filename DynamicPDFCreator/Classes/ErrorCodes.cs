@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace DynamicPDFCreator
 {
-    public partial class MainForm 
+    partial class MainForm
     {
+
         public readonly int ERROR_SMNUMMER = 1;
         public readonly int ERROR_ANSCHREIBENTYP = 2;
         public readonly int ERROR_EMPFAENGER = 3;
@@ -28,19 +29,19 @@ namespace DynamicPDFCreator
             switch (error)
             {
                 case 1:
-                    error_label.Text=Properties.ErrorCodes.ERROR_SMNUMMER;
-                    tb_smNummer.BackColor = System.Drawing.Color.Red;
+                    error_label.Text = Properties.ErrorCodes.ERROR_SMNUMMER;
+                    //tb_smNummer.BackColor = System.Drawing.Color.Red;
                     break;
                 case 2:
                     error_label.Text = Properties.ErrorCodes.ERROR_ANSCHREIBENTYP;
                     break;
                 case 3:
                     error_label.Text = Properties.ErrorCodes.ERROR_EMPFAENGER;
-                    cmb_empfaenger.BackColor = System.Drawing.Color.Red;
+                    //cmb_empfaenger.BackColor = System.Drawing.Color.Red;
                     break;
                 case 4:
                     error_label.Text = Properties.ErrorCodes.ERROR_ABSENDER;
-                    cmb_absender.BackColor = System.Drawing.Color.Red;
+                    //cmb_absender.BackColor = System.Drawing.Color.Red;
                     break;
                 case 5:
                     error_label.Text = Properties.ErrorCodes.ERROR_DATUM;
@@ -50,26 +51,26 @@ namespace DynamicPDFCreator
                     break;
                 case 7:
                     error_label.Text = Properties.ErrorCodes.ERROR_ANSPRECHPARTNER;
-                    cmb_Ansprechpartner.BackColor = System.Drawing.Color.Red;
+                    //cmb_Ansprechpartner.BackColor = System.Drawing.Color.Red;
                     break;
                 case 8:
                     error_label.Text = Properties.ErrorCodes.ERROR_ORTDERMASSNAHME;
-                    tb_ortMassnahme.BackColor = System.Drawing.Color.Red;
+                    //tb_ortMassnahme.BackColor = System.Drawing.Color.Red;
                     break;
                 case 9:
                     error_label.Text = Properties.ErrorCodes.ERROR_BESCHREIBUNG_ABGESPROCHEN_MIT;
-                    rtb_absprachen.BackColor = System.Drawing.Color.Red;
+                    //rtb_absprachen.BackColor = System.Drawing.Color.Red;
                     break;
                 case 10:
                     error_label.Text = Properties.ErrorCodes.ERROR_BESCHREIBUNGMASSNAHME;
-                    rtb_BeschreibungMassnahme.BackColor = System.Drawing.Color.Red;
+                    //rtb_BeschreibungMassnahme.BackColor = System.Drawing.Color.Red;
                     break;
                 case 11:
                     error_label.Text = Properties.ErrorCodes.ERROR_ANSPRECHPARTNER_BAU;
                     break;
                 case 12:
                     error_label.Text = Properties.ErrorCodes.ERROR_WESI_TEAM_ADRESSE;
-                    rtb_WesiAdresse.BackColor = System.Drawing.Color.Red;
+                    //rtb_WesiAdresse.BackColor = System.Drawing.Color.Red;
                     break;
                 case 13:
                     error_label.Text = Properties.ErrorCodes.ERROR_CHECKBOXEN;
@@ -82,7 +83,4 @@ namespace DynamicPDFCreator
             }
         }
     }
-
-
 }
-

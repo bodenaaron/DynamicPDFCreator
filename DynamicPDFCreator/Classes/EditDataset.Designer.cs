@@ -51,7 +51,6 @@
             this.label11 = new System.Windows.Forms.Label();
             this.tb_funktion = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.tb_typ = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.tb_homepage = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
@@ -64,6 +63,7 @@
             this.tb_bemerkung = new System.Windows.Forms.TextBox();
             this.btn_abbrechen = new System.Windows.Forms.Button();
             this.btn_speichern = new System.Windows.Forms.Button();
+            this.cmb_typ = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // tb_vorname
@@ -251,13 +251,6 @@
             this.label12.TabIndex = 23;
             this.label12.Text = "Typ";
             // 
-            // tb_typ
-            // 
-            this.tb_typ.Location = new System.Drawing.Point(721, 143);
-            this.tb_typ.Name = "tb_typ";
-            this.tb_typ.Size = new System.Drawing.Size(125, 20);
-            this.tb_typ.TabIndex = 22;
-            // 
             // label13
             // 
             this.label13.AutoSize = true;
@@ -358,11 +351,27 @@
             this.btn_speichern.UseVisualStyleBackColor = true;
             this.btn_speichern.Click += new System.EventHandler(this.Btn_speichern_Click);
             // 
+            // cmb_typ
+            // 
+            this.cmb_typ.FormattingEnabled = true;
+            this.cmb_typ.Items.AddRange(new object[] {
+            "Wupfl",
+            "EVU",
+            "Eigentümer",
+            "Berater Gemeinde",
+            "Behörde"});
+            this.cmb_typ.Location = new System.Drawing.Point(725, 142);
+            this.cmb_typ.Name = "cmb_typ";
+            this.cmb_typ.Size = new System.Drawing.Size(121, 21);
+            this.cmb_typ.TabIndex = 36;
+            this.cmb_typ.SelectedIndexChanged += new System.EventHandler(this.ComboBox1_SelectedIndexChanged);
+            // 
             // EditDataset
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(948, 450);
+            this.Controls.Add(this.cmb_typ);
             this.Controls.Add(this.btn_speichern);
             this.Controls.Add(this.btn_abbrechen);
             this.Controls.Add(this.label17);
@@ -376,7 +385,6 @@
             this.Controls.Add(this.label13);
             this.Controls.Add(this.tb_homepage);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.tb_typ);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.tb_funktion);
             this.Controls.Add(this.label10);
@@ -431,7 +439,6 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox tb_funktion;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox tb_typ;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox tb_homepage;
         private System.Windows.Forms.Label label14;
@@ -444,5 +451,6 @@
         private System.Windows.Forms.TextBox tb_bemerkung;
         private System.Windows.Forms.Button btn_abbrechen;
         private System.Windows.Forms.Button btn_speichern;
+        private System.Windows.Forms.ComboBox cmb_typ;
     }
 }

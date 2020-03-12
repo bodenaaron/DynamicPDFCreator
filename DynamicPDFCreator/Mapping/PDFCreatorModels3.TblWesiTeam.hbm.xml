@@ -5,8 +5,8 @@
       <column name="id" not-null="true" precision="5" scale="0" sql-type="SMALLINT" />
       <generator class="identity" />
     </id>
-    <property name="Bezeichnung" type="StringClob">
-      <column name="Bezeichnung" not-null="true" length="1073741823" sql-type="NTEXT" />
+    <property name="Firma" type="StringClob">
+      <column name="Firma" not-null="true" length="1073741823" sql-type="NTEXT" />
     </property>
     <property name="Stadt" type="String">
       <column name="Stadt" not-null="false" length="50" sql-type="NVARCHAR(50)" />
@@ -17,14 +17,14 @@
     <property name="Strasse" type="String">
       <column name="Strasse" not-null="false" length="50" sql-type="NVARCHAR(50)" />
     </property>
-    <property name="Hausnummer" type="Int16">
-      <column name="Hausnummer" not-null="false" precision="5" scale="0" sql-type="SMALLINT" />
-    </property>
     <property name="Bereich" type="String">
       <column name="Bereich" not-null="false" length="50" sql-type="NVARCHAR(50)" />
     </property>
     <property name="Email" type="String">
       <column name="Email" not-null="true" length="50" sql-type="NVARCHAR(50)" />
+    </property>
+    <property name="Niederlassung" type="StringClob">
+      <column name="Niederlassung" not-null="true" length="1073741823" sql-type="NTEXT" />
     </property>
   </class>
 </hibernate-mapping>

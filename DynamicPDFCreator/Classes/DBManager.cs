@@ -74,33 +74,42 @@ namespace DynamicPDFCreator
         //braucht Projekt
         private void getAnsprechpartner()
         {
+            //session holen
             ISession session = getSession();
             ITransaction tx = session.BeginTransaction();
 
+            //Datensätze mit der Projekt ID
             ICriteria crit = session.CreateCriteria<TblAnsprechpartner2Projekt>();
             crit.Add(Restrictions.Like(nameof(TblAnsprechpartner2Projekt.IdProjekt), auftrag.IdProjekt));
             var a2ps = crit.List<TblAnsprechpartner2Projekt>();
+
             List<int> i=new List<int>();
             foreach (TblAnsprechpartner2Projekt a2p in a2ps)
             {
                 i.Add(a2p.IdAnsprechpartner);
             }
             crit = null;
+
             crit = session.CreateCriteria<TblAnsprechpartner>();
             crit.Add(Restrictions.In(nameof(TblAnsprechpartner.IdAnsprechpartner), i));
             ansprechpartner = (List<TblAnsprechpartner>)crit.List<TblAnsprechpartner>();
+
             List<string> ansp = new List<string>();
             //Object in String umwandeln
             foreach (TblAnsprechpartner an in ansprechpartner)
             {
-                if (an.AnsprechpartnerVorname==null && an.AnsprechpartnerName == null) {
-                    if (an.Firma!="")
+                if (an.AnsprechpartnerVorname == null && an.AnsprechpartnerName == null)
+                {
+                    if (an.Firma != "")
                     {
                         ansp.Add(an.Firma);
-                        break;
                     }
                 }
-                ansp.Add(an.AnsprechpartnerVorname + " " + an.AnsprechpartnerName);
+                else
+                {
+                    ansp.Add(an.AnsprechpartnerVorname + " " + an.AnsprechpartnerName);
+                }
+                
             }
             ansprechpartnerNamen = ansp.Cast<object>().ToArray();
             closeSession(session, tx);
@@ -162,7 +171,7 @@ namespace DynamicPDFCreator
             //Object in String umwandeln
             foreach (TblWesiTeam an in wesiTeam)
             {
-                wesi.Add(an.Bezeichnung);
+                wesi.Add($"{an.Firma} {an.Niederlassung}");
             }
             wesiTeamNamen = wesi.Cast<object>().ToArray();
 

@@ -12,11 +12,12 @@ namespace DynamicPDFCreator
 {
     public partial class EditDataset : Form
     {
-        TblAnsprechpartner ansprechpartner;
+        TblAnsprechpartner ansprechpartner = new TblAnsprechpartner();
         public EditDataset()
         {
             InitializeComponent();
         }
+
         public void ReinitializeComponent(TblAnsprechpartner ansprechpartner)
         {
             tb_vorname.Text =       ansprechpartner.AnsprechpartnerVorname;
@@ -30,7 +31,7 @@ namespace DynamicPDFCreator
             tb_firma.Text =         ansprechpartner.Firma;
             tb_bereich.Text =       ansprechpartner.Bereich;
             tb_funktion.Text =      ansprechpartner.Funktion;
-            tb_typ.Text =           ansprechpartner.Typ;
+            cmb_typ.Text =           ansprechpartner.Typ;
             tb_homepage.Text =      ansprechpartner.Homepage;
             tb_niederlassung.Text = ansprechpartner.Niederlassung;
             tb_nl_abteilung.Text =  ansprechpartner.NLAbteilung;
@@ -53,7 +54,7 @@ namespace DynamicPDFCreator
             ansprechpartner.Firma = tb_firma.Text;
             ansprechpartner.Bereich = tb_bereich.Text;
             ansprechpartner.Funktion = tb_funktion.Text;
-            ansprechpartner.Typ = tb_typ.Text;
+            ansprechpartner.Typ = cmb_typ.Text;
             ansprechpartner.Homepage = tb_homepage.Text;
             ansprechpartner.Niederlassung = tb_niederlassung.Text;
             ansprechpartner.NLAbteilung = tb_nl_abteilung.Text;
@@ -69,6 +70,11 @@ namespace DynamicPDFCreator
         private void Btn_abbrechen_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -18,10 +18,8 @@ namespace DynamicPDFCreator
         PDF pdf = new PDF();
         public MainForm()
         {
-            
             InitializeComponent();
             ReinitializeComponents();
-
 
         }
 
@@ -52,6 +50,7 @@ namespace DynamicPDFCreator
                 cmb_wesie.Items.Clear();
                 cmb_wesie.Items.AddRange(DBm.wesiTeamNamen);
                 pdf.auftrag = DBm.auftrag;
+                //btn_hinzufuegen.Enabled = true;
             }
             catch (Exception fe) { }
         }
@@ -75,6 +74,7 @@ namespace DynamicPDFCreator
             datePickerAusfuehrungEnde.CustomFormat = "MMMM-yyyy";
 
             btn_bearbeiten.Enabled = false;
+            //btn_hinzufuegen.Enabled = false;
 
         }
 
@@ -169,7 +169,7 @@ namespace DynamicPDFCreator
         {
             pdf.wesiTeam = DBm.wesiTeam.ElementAt<TblWesiTeam>(cmb_wesie.SelectedIndex);
             TblWesiTeam wesi = DBm.wesiTeam.ElementAt<TblWesiTeam>(cmb_wesie.SelectedIndex);
-            rtb_WesiAdresse.Text = wesi.Bezeichnung + Environment.NewLine + wesi.Bereich + Environment.NewLine + wesi.Strasse + " " + wesi.Hausnummer + Environment.NewLine + wesi.PLZ + " " + wesi.Stadt;
+            rtb_WesiAdresse.Text = $"{wesi.Firma} {wesi.Niederlassung}" + Environment.NewLine + wesi.Bereich + Environment.NewLine + wesi.Strasse + Environment.NewLine + wesi.PLZ + " " + wesi.Stadt;
             tb_WesiMail.Text = wesi.Email;
         }
 
@@ -210,44 +210,8 @@ namespace DynamicPDFCreator
 
         private void Btn_saveDocument_Click(object sender, EventArgs e)
         {
-
-            if (pdf.auftrag == null)
-            {
-                displayError(ERROR_SMNUMMER);
-            }
-            if (tb_ortMassnahme.Text=="")
-            {
-                displayError(ERROR_ORTDERMASSNAHME);
-            }
-            if (rtb_WesiAdresse.Text == "")
-            {
-                displayError(ERROR_WESI_TEAM_ADRESSE);
-            }
-            List<string> zusatzanlagen=new List<string>();
-            if (cb_plansaetze.Checked)
-            {
-                zusatzanlagen.Add("- Plansatz");
-            }
-            if (cb_beteiligte.Checked)
-            {
-                zusatzanlagen.Add("- Liste der Beteiligten");
-            }
-            if (cb_techBeschreibung.Checked)
-            {
-                zusatzanlagen.Add("- Technische Beschreibung");
-            }
-            if (tb_ZusatzAnlage1.Text!="")
-            {
-                zusatzanlagen.Add("- "+tb_ZusatzAnlage1.Text);
-            }
-            if (tb_ZusatzAnlage2.Text != "")
-            {
-                zusatzanlagen.Add("- " + tb_ZusatzAnlage2.Text);
-            }
-            if (tb_ZusatzAnlage3.Text != "")
-            {
-                zusatzanlagen.Add("- " + tb_ZusatzAnlage3.Text);
-            }
+            error_label.Text = "";
+            List<string> zusatzanlagen = checkInput();
 
             RichTextBox rtb = new RichTextBox();
             rtb.Rtf = rtb_BeschreibungMassnahme.Rtf;
@@ -287,57 +251,8 @@ namespace DynamicPDFCreator
 
         private void Btn_vorschau_Click(object sender, EventArgs e)
         {
-            
-            if (pdf.auftrag == null)
-            {
-                displayError(ERROR_SMNUMMER);
-            }
-            if (tb_ortMassnahme.Text == "")
-            {
-                displayError(ERROR_ORTDERMASSNAHME);
-            }
-            if (rtb_WesiAdresse.Text == "")
-            {
-                displayError(ERROR_WESI_TEAM_ADRESSE);
-            }
-
-            if (cmb_empfaenger.Text=="")
-            {
-                displayError(ERROR_EMPFAENGER);
-            }
-            if (cmb_absender.Text == "")
-            {
-                displayError(ERROR_ABSENDER);
-            }
-            if (rtb_BeschreibungMassnahme.Text == "")
-            {
-                displayError(ERROR_BESCHREIBUNGMASSNAHME);
-            }
-            List<string> zusatzanlagen = new List<string>();
-            if (cb_plansaetze.Checked)
-            {
-                zusatzanlagen.Add("- Plansatz");
-            }
-            if (cb_beteiligte.Checked)
-            {
-                zusatzanlagen.Add("- Liste der Beteiligten");
-            }
-            if (cb_techBeschreibung.Checked)
-            {
-                zusatzanlagen.Add("- Technische Beschreibung");
-            }
-            if (tb_ZusatzAnlage1.Text != "")
-            {
-                zusatzanlagen.Add("- " + tb_ZusatzAnlage1.Text);
-            }
-            if (tb_ZusatzAnlage2.Text != "")
-            {
-                zusatzanlagen.Add("- " + tb_ZusatzAnlage2.Text);
-            }
-            if (tb_ZusatzAnlage3.Text != "")
-            {
-                zusatzanlagen.Add("- " + tb_ZusatzAnlage3.Text);
-            }
+            error_label.Text = "";
+            List<string> zusatzanlagen = checkInput();
 
             RichTextBox rtb = new RichTextBox();
             rtb.Rtf = rtb_BeschreibungMassnahme.Rtf;
@@ -378,9 +293,70 @@ namespace DynamicPDFCreator
         {
             EditDataset editDataset = new EditDataset();
             editDataset.ReinitializeComponent(DBm.ansprechpartner.ElementAt<TblAnsprechpartner>(cmb_empfaenger.SelectedIndex));
-            this.Enabled=false;
+            this.Enabled = false;
             editDataset.ShowDialog();
             this.Enabled = true;
+        }
+
+        private List<string> checkInput()
+        {
+            if (pdf.auftrag == null)
+            {
+                displayError(ERROR_SMNUMMER);
+            }
+            if (tb_ortMassnahme.Text == "")
+            {
+                displayError(ERROR_ORTDERMASSNAHME);
+            }
+            if (rtb_WesiAdresse.Text == "")
+            {
+                displayError(ERROR_WESI_TEAM_ADRESSE);
+            }
+
+            if (cmb_empfaenger.Text == "")
+            {
+                displayError(ERROR_EMPFAENGER);
+            }
+            if (cmb_absender.Text == "")
+            {
+                displayError(ERROR_ABSENDER);
+            }
+            if (rtb_BeschreibungMassnahme.Text == "")
+            {
+                displayError(ERROR_BESCHREIBUNGMASSNAHME);
+            }
+            List<string> zusatzanlagen = new List<string>();
+            if (cb_plansaetze.Checked)
+            {
+                zusatzanlagen.Add("- Plansatz");
+            }
+            if (cb_beteiligte.Checked)
+            {
+                zusatzanlagen.Add("- Liste der Beteiligten");
+            }
+            if (cb_techBeschreibung.Checked)
+            {
+                zusatzanlagen.Add("- Technische Beschreibung");
+            }
+            if (tb_ZusatzAnlage1.Text != "")
+            {
+                zusatzanlagen.Add("- " + tb_ZusatzAnlage1.Text);
+            }
+            if (tb_ZusatzAnlage2.Text != "")
+            {
+                zusatzanlagen.Add("- " + tb_ZusatzAnlage2.Text);
+            }
+            if (tb_ZusatzAnlage3.Text != "")
+            {
+                zusatzanlagen.Add("- " + tb_ZusatzAnlage3.Text);
+            }
+
+            return zusatzanlagen;
+        }
+
+        private void Button1_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }
