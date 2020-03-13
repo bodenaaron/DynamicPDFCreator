@@ -21,10 +21,10 @@
       <column name="Bereich" not-null="false" length="50" sql-type="NVARCHAR(50)" />
     </property>
     <property name="Email" type="String">
-      <column name="Email" not-null="true" length="50" sql-type="NVARCHAR(50)" />
+      <column name="Email" not-null="false" length="50" sql-type="NVARCHAR(50)" />
     </property>
-    <property name="Niederlassung" type="StringClob">
-      <column name="Niederlassung" not-null="true" length="1073741823" sql-type="NTEXT" />
+    <property name="Niederlassung" type="String">
+      <column name="Niederlassung" not-null="false" length="50" sql-type="NVARCHAR(50)" />
     </property>
   </class>
 </hibernate-mapping>

@@ -22,6 +22,8 @@ namespace DynamicPDFCreator
         public object[] bearbeiterNamen;
         public List<TblWesiTeam> wesiTeam;
         public object[] wesiTeamNamen;
+        public List<TblAnsprechpartnerTyp> ansprechpartnerTyp;
+        public object[] ansprechpartnerTypNamen;
 
         public DBManager()
         {
@@ -125,6 +127,26 @@ namespace DynamicPDFCreator
            
             anschreiben = (List<TblAnschreibenTyp>) crit.List<TblAnschreibenTyp>();
             
+            List<string> anschr = new List<string>();
+            //Object in String umwandeln
+            foreach (TblAnschreibenTyp an in anschreiben)
+            {
+                anschr.Add(an.Bezeichnung);
+            }
+            anschreibenNamen = anschr.Cast<object>().ToArray();
+
+            closeSession(session, tx);
+
+        }
+        private void getAnsprechpartnerTyp()
+        {
+            ISession session = getSession();
+            ITransaction tx = session.BeginTransaction();
+
+            ICriteria crit = session.CreateCriteria<TblAnschreibenTyp>();
+
+            ansprechpartnerTyp = (List<TblAnsprechpartnerTyp>)crit.List<TblAnsprechpartnerTyp>();
+
             List<string> anschr = new List<string>();
             //Object in String umwandeln
             foreach (TblAnschreibenTyp an in anschreiben)

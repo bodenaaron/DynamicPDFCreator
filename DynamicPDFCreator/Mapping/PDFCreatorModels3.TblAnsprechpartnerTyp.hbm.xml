@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping assembly="DynamicPDFCreator" namespace="DynamicPDFCreator" xmlns="urn:nhibernate-mapping-2.2">
+  <class name="TblAnsprechpartnerTyp" table="tblAnsprechpartnerTyp" schema="dbo">
+    <id name="IdAnsprechpartnerTyp" type="Int16">
+      <column name="idAnsprechpartnerTyp" not-null="true" precision="5" scale="0" sql-type="SMALLINT" />
+      <generator class="identity" />
+    </id>
+    <property name="Typ" type="String">
+      <column name="typ" not-null="true" length="50" sql-type="NVARCHAR(50)" />
+    </property>
+  </class>
+</hibernate-mapping>

@@ -37,8 +37,8 @@
       <column name="id" not-null="true" precision="5" scale="0" sql-type="smallint" p1:unicode="false" />
       <generator class="identity" />
     </id>
-    <property name="Bezeichnung" type="StringClob" p1:ValidateMaxLength="1073741823" p1:ValidateRequired="true" p1:Guid="40409c39-dc4c-4f17-87e8-d1e43e237f42">
-      <column name="Bezeichnung" not-null="true" length="1073741823" sql-type="ntext" p1:unicode="true" />
+    <property name="Firma" type="StringClob" p1:ValidateMaxLength="1073741823" p1:ValidateRequired="true" p1:Guid="40409c39-dc4c-4f17-87e8-d1e43e237f42">
+      <column name="Firma" not-null="true" length="1073741823" sql-type="ntext" p1:unicode="true" />
     </property>
     <property name="Stadt" type="String" p1:nullable="true" p1:ValidateMaxLength="50" p1:ValidateRequired="false" p1:Guid="ca0916f5-bed8-470f-b7e7-821526bfd170">
       <column name="Stadt" not-null="false" length="50" sql-type="nvarchar" p1:unicode="true" />
@@ -56,4 +56,5 @@
       <column name="Bereich" not-null="false" length="50" sql-type="nvarchar" p1:unicode="true" />
     </property>
   </class>
+  
 </hibernate-mapping>
