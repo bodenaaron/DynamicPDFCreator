@@ -28,6 +28,7 @@ namespace DynamicPDFCreator
         public DBManager()
         {
             getAnschreibenTyp();
+            getAnsprechpartnerTyp();
             getBearbeiter();
             getWesiTeam();
         }
@@ -38,6 +39,7 @@ namespace DynamicPDFCreator
                 getAuftrag(smNummer);
                 if (auftrag!=null)
                 {
+                    getAnsprechpartnerTyp();
                     getProjekt();
                     getAnsprechpartner();
                     getAnschreibenTyp();
@@ -143,17 +145,17 @@ namespace DynamicPDFCreator
             ISession session = getSession();
             ITransaction tx = session.BeginTransaction();
 
-            ICriteria crit = session.CreateCriteria<TblAnschreibenTyp>();
+            ICriteria crit = session.CreateCriteria<TblAnsprechpartnerTyp>();
 
             ansprechpartnerTyp = (List<TblAnsprechpartnerTyp>)crit.List<TblAnsprechpartnerTyp>();
 
-            List<string> anschr = new List<string>();
+            List<string> ansprTyp = new List<string>();
             //Object in String umwandeln
-            foreach (TblAnschreibenTyp an in anschreiben)
+            foreach (TblAnsprechpartnerTyp an in ansprechpartnerTyp)
             {
-                anschr.Add(an.Bezeichnung);
+                ansprTyp.Add(an.Typ);
             }
-            anschreibenNamen = anschr.Cast<object>().ToArray();
+            ansprechpartnerTypNamen = ansprTyp.Cast<object>().ToArray();
 
             closeSession(session, tx);
 

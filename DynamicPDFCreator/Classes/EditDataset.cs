@@ -19,7 +19,7 @@ namespace DynamicPDFCreator
             InitializeComponent();
         }
 
-        public void ReinitializeComponent(TblAnsprechpartner ansprechpartner)
+        public void ReinitializeComponent(TblAnsprechpartner ansprechpartner, object[] ansprechpartnerTypen)
         {
             tb_vorname.Text =       ansprechpartner.AnsprechpartnerVorname;
             tb_nachname.Text =      ansprechpartner.AnsprechpartnerName;
@@ -39,6 +39,8 @@ namespace DynamicPDFCreator
             tb_ptiBereich.Text =    ansprechpartner.PTIBereich;
             tb_bemerkung.Text =     ansprechpartner.Bemerkung;
             this.ansprechpartner =  ansprechpartner;
+            cmb_typ.Items.Clear();
+            cmb_typ.Items.AddRange(ansprechpartnerTypen);
         }
 
         public void ReinitializeComponent(TblWesiTeam wesiTeam)

@@ -354,12 +354,6 @@
             // cmb_typ
             // 
             this.cmb_typ.FormattingEnabled = true;
-            this.cmb_typ.Items.AddRange(new object[] {
-            "Wupfl",
-            "EVU",
-            "Eigentümer",
-            "Berater Gemeinde",
-            "Behörde"});
             this.cmb_typ.Location = new System.Drawing.Point(725, 142);
             this.cmb_typ.Name = "cmb_typ";
             this.cmb_typ.Size = new System.Drawing.Size(121, 21);
