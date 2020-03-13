@@ -85,6 +85,24 @@ namespace DynamicPDFCreator
 
         }
 
+        public PDF(TblAuftraege auftrag, TblAnschreibenTyp anschreibenTyp, TblAnsprechpartner empfaenger, TblBearbeiter absender, DateTime datum, DateTime ausfuehrungszeitraum, DateTime ausfuehrungszeitraumEnde, string ortDerMassnahme, RichTextBox beschreibungMassnahme, bool plansaetze, bool listeBeteiligte, bool techBeschreibung, bool untervollmacht, List<string> zusatzanlagen)
+        {
+            this.auftrag = auftrag;
+            this.anschreibenTyp = anschreibenTyp;
+            this.empfaenger = empfaenger;
+            this.absender = absender;
+            this.datum = datum;
+            this.ausfuehrungszeitraum = ausfuehrungszeitraum;
+            this.ausfuehrungszeitraumEnde = ausfuehrungszeitraumEnde;
+            this.ortDerMassnahme = ortDerMassnahme;
+            this.beschreibungMassnahme = beschreibungMassnahme;
+            this.plansaetze = plansaetze;
+            this.listeBeteiligte = listeBeteiligte;
+            this.techBeschreibung = techBeschreibung;
+            this.untervollmacht = untervollmacht;
+            this.Zusatzanlagen = zusatzanlagen;
+        }
+
         public TblAuftraege auftrag { get; set; } //= new TblAuftraege();
         public TblAnschreibenTyp anschreibenTyp { get; set; } //= new TblAnschreibenTyp();
         public TblAnsprechpartner empfaenger { get; set; } //= new TblAnsprechpartner();

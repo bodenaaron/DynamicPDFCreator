@@ -128,6 +128,14 @@ namespace DynamicPDFCreator
                     pflichtfelder_typ = Pflichtfelder_Klassen.Pflicht_Zustimmungsbescheid.PFLICHTFELDER;
                     break;
                 case 6:
+                    //Abstimmung Naturschutz
+                    enableAll();
+                    rtb_absprachen.Enabled = false;
+                    cmb_ansprechpartnerBau.Enabled = false;
+                    cmb_Ansprechpartner.Enabled = false;
+                    cmb_wesie.Enabled = false;
+                    pdfWriter = new Interfaces.AbstimmungNaturschutz();
+                    pflichtfelder_typ = Pflichtfelder_Klassen.Pflicht_AbstimmungNaturschutz.PFLICHTFELDER;
                     break;
                 case 7:
                     break;
@@ -439,9 +447,7 @@ namespace DynamicPDFCreator
                    datePickerAusfuehrungEnde.Value.Date,
                    DBm.bearbeiter.ElementAt<TblBearbeiter>(cmb_Ansprechpartner.SelectedIndex),
                    tb_ortMassnahme.Text,
-                   //rtb_absprachen.Text,
                    rtb,
-                   //DBm.ansprechpartner.ElementAt<TblAnsprechpartner>(cmb_ansprechpartnerBau.SelectedIndex),
                    DBm.wesiTeam.ElementAt<TblWesiTeam>(cmb_wesie.SelectedIndex),
                    cb_plansaetze.Checked,
                    cb_beteiligte.Checked,
@@ -454,22 +460,27 @@ namespace DynamicPDFCreator
                     DBm.auftrag,
                     DBm.anschreiben.ElementAt<TblAnschreibenTyp>(cmb_anschreibenTyp.SelectedIndex),
                     DBm.ansprechpartner.ElementAt<TblAnsprechpartner>(cmb_empfaenger.SelectedIndex),
-                    //DBm.bearbeiter.ElementAt<TblBearbeiter>(cmb_absender.SelectedIndex),
-                    //datePicker.Value,
-                    //datePickerAusfuehrung.Value,
-                    //datePickerAusfuehrungEnde.Value.Date,
-                    //DBm.bearbeiter.ElementAt<TblBearbeiter>(cmb_Ansprechpartner.SelectedIndex),
                     tb_ortMassnahme.Text,
-                    //rtb_absprachen.Text,
-                    //rtb,
-                    //DBm.ansprechpartner.ElementAt<TblAnsprechpartner>(cmb_ansprechpartnerBau.SelectedIndex),
                     DBm.wesiTeam.ElementAt<TblWesiTeam>(cmb_wesie.SelectedIndex)
-                    //cb_plansaetze.Checked,
-                    //cb_beteiligte.Checked,
-                    //cb_techBeschreibung.Checked,
-                    //cb_untervollmacht.Checked,
-                    //zusatzanlagen
+
                     );
+                    break;
+                case "AbstimmungNaturschutz":
+                    FinalPDF = new PDF(
+                    DBm.auftrag,
+                    DBm.anschreiben.ElementAt<TblAnschreibenTyp>(cmb_anschreibenTyp.SelectedIndex),
+                    DBm.ansprechpartner.ElementAt<TblAnsprechpartner>(cmb_empfaenger.SelectedIndex),
+                    DBm.bearbeiter.ElementAt<TblBearbeiter>(cmb_absender.SelectedIndex),
+                    datePicker.Value,
+                    datePickerAusfuehrung.Value,
+                    datePickerAusfuehrungEnde.Value.Date,
+                    tb_ortMassnahme.Text,
+                    rtb,
+                    cb_plansaetze.Checked,
+                    cb_beteiligte.Checked,
+                    cb_techBeschreibung.Checked,
+                    cb_untervollmacht.Checked,
+                    zusatzanlagen);
                     break;
             }
 

@@ -130,6 +130,7 @@
     <Compile Include="Classes\FatalErrorForm.Designer.cs">
       <DependentUpon>FatalErrorForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\AbstimmungNaturschutz.cs" />
     <Compile Include="Interfaces\Zustimmungsbescheid.cs" />
     <Compile Include="Interfaces\EVU.cs" />
     <Compile Include="Interfaces\IPDFWriter.cs" />
@@ -141,6 +142,7 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\Program.cs" />
+    <Compile Include="Pflichtfelder_Klassen\Pflicht_AbstimmungNaturschutz.cs" />
     <Compile Include="Pflichtfelder_Klassen\Pflichtfelder.cs" />
     <Compile Include="Pflichtfelder_Klassen\Pflicht_EVU.cs" />
     <Compile Include="Pflichtfelder_Klassen\Pflicht_Wupfl.cs" />
