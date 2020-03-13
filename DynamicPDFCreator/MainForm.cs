@@ -534,5 +534,41 @@ namespace DynamicPDFCreator
             func(Controls);
         }
 
+        private void Btn_speichern_auftrag_pfad_Click(object sender, EventArgs e)
+        {
+            
+            error_label.Text = "";
+            List<string> zusatzanlagen = checkInput();
+
+            RichTextBox rtb = new RichTextBox();
+            rtb.Rtf = rtb_BeschreibungMassnahme.Rtf;
+            try
+            {
+                PDF FinalPDF = createPDF(zusatzanlagen, rtb);
+                string pfad = getDynamicPath(FinalPDF);
+                
+                string html = pdfWriter.getHTML(FinalPDF);
+                pdfWriter.writeHTMLtoPDF(html, pfad);
+            }
+            catch (Exception q) { }
+        }
+
+        private string getDynamicPath(PDF finalPDF)
+        {
+            string pfad = $@"C:\Datenbank\Projekte\{DBm.projekt.Projekt}_{DBm.projekt.IdProjekt}\Aufträge\";
+            string[] subdirs = Directory.GetDirectories(pfad);
+            string ordnerName="";
+            foreach (string dir in subdirs)
+            {
+                ordnerName = dir.Substring(dir.LastIndexOf("\\"));
+                if (ordnerName.Contains(finalPDF.auftrag.SMNummer))
+                {
+                    break;
+                }
+            }
+            pfad += ordnerName;
+            pfad += $@"\Wegesicherung\Anschreiben\{finalPDF.auftrag.SMNummer}_{finalPDF.anschreibenTyp.Bezeichnung}.pdf";
+            return pfad;
+        }
     }
     }

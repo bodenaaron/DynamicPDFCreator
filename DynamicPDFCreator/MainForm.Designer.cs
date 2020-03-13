@@ -78,14 +78,15 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btn_bearbeiten = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cb_untervollmacht = new System.Windows.Forms.CheckBox();
+            this.label19 = new System.Windows.Forms.Label();
             this.btn_bearbeiten_wesi = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.cb_untervollmacht = new System.Windows.Forms.CheckBox();
-            this.label19 = new System.Windows.Forms.Label();
+            this.btn_speichern_auftrag_pfad = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -209,9 +210,9 @@
             // 
             // btn_saveDocument
             // 
-            this.btn_saveDocument.Location = new System.Drawing.Point(61, 220);
+            this.btn_saveDocument.Location = new System.Drawing.Point(61, 232);
             this.btn_saveDocument.Name = "btn_saveDocument";
-            this.btn_saveDocument.Size = new System.Drawing.Size(162, 61);
+            this.btn_saveDocument.Size = new System.Drawing.Size(162, 49);
             this.btn_saveDocument.TabIndex = 14;
             this.btn_saveDocument.Text = "Speichern unter";
             this.btn_saveDocument.UseVisualStyleBackColor = true;
@@ -220,9 +221,9 @@
             // btn_printDocument
             // 
             this.btn_printDocument.Enabled = false;
-            this.btn_printDocument.Location = new System.Drawing.Point(61, 153);
+            this.btn_printDocument.Location = new System.Drawing.Point(61, 177);
             this.btn_printDocument.Name = "btn_printDocument";
-            this.btn_printDocument.Size = new System.Drawing.Size(162, 61);
+            this.btn_printDocument.Size = new System.Drawing.Size(162, 49);
             this.btn_printDocument.TabIndex = 15;
             this.btn_printDocument.Text = "Drucken";
             this.btn_printDocument.UseVisualStyleBackColor = true;
@@ -230,9 +231,9 @@
             // btn_sendEmail
             // 
             this.btn_sendEmail.Enabled = false;
-            this.btn_sendEmail.Location = new System.Drawing.Point(61, 86);
+            this.btn_sendEmail.Location = new System.Drawing.Point(61, 122);
             this.btn_sendEmail.Name = "btn_sendEmail";
-            this.btn_sendEmail.Size = new System.Drawing.Size(162, 61);
+            this.btn_sendEmail.Size = new System.Drawing.Size(162, 49);
             this.btn_sendEmail.TabIndex = 16;
             this.btn_sendEmail.Text = "per Email verschicken";
             this.btn_sendEmail.UseVisualStyleBackColor = true;
@@ -517,9 +518,9 @@
             // 
             // btn_vorschau
             // 
-            this.btn_vorschau.Location = new System.Drawing.Point(61, 19);
+            this.btn_vorschau.Location = new System.Drawing.Point(61, 67);
             this.btn_vorschau.Name = "btn_vorschau";
-            this.btn_vorschau.Size = new System.Drawing.Size(162, 61);
+            this.btn_vorschau.Size = new System.Drawing.Size(162, 49);
             this.btn_vorschau.TabIndex = 49;
             this.btn_vorschau.Text = "Vorschau";
             this.btn_vorschau.UseVisualStyleBackColor = true;
@@ -608,6 +609,24 @@
             this.groupBox2.TabIndex = 51;
             this.groupBox2.TabStop = false;
             // 
+            // cb_untervollmacht
+            // 
+            this.cb_untervollmacht.AutoSize = true;
+            this.cb_untervollmacht.Location = new System.Drawing.Point(145, 263);
+            this.cb_untervollmacht.Name = "cb_untervollmacht";
+            this.cb_untervollmacht.Size = new System.Drawing.Size(15, 14);
+            this.cb_untervollmacht.TabIndex = 55;
+            this.cb_untervollmacht.UseVisualStyleBackColor = true;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(11, 263);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(78, 13);
+            this.label19.TabIndex = 56;
+            this.label19.Text = "Untervollmacht";
+            // 
             // btn_bearbeiten_wesi
             // 
             this.btn_bearbeiten_wesi.Location = new System.Drawing.Point(494, 30);
@@ -640,6 +659,7 @@
             // 
             this.groupBox3.AutoSize = true;
             this.groupBox3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.groupBox3.Controls.Add(this.btn_speichern_auftrag_pfad);
             this.groupBox3.Controls.Add(this.btn_vorschau);
             this.groupBox3.Controls.Add(this.btn_saveDocument);
             this.groupBox3.Controls.Add(this.btn_printDocument);
@@ -669,23 +689,15 @@
             this.label16.TabIndex = 54;
             this.label16.Text = "SHIFT+ENTER = Umbruch";
             // 
-            // cb_untervollmacht
+            // btn_speichern_auftrag_pfad
             // 
-            this.cb_untervollmacht.AutoSize = true;
-            this.cb_untervollmacht.Location = new System.Drawing.Point(145, 263);
-            this.cb_untervollmacht.Name = "cb_untervollmacht";
-            this.cb_untervollmacht.Size = new System.Drawing.Size(15, 14);
-            this.cb_untervollmacht.TabIndex = 55;
-            this.cb_untervollmacht.UseVisualStyleBackColor = true;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(11, 263);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(78, 13);
-            this.label19.TabIndex = 56;
-            this.label19.Text = "Untervollmacht";
+            this.btn_speichern_auftrag_pfad.Location = new System.Drawing.Point(61, 12);
+            this.btn_speichern_auftrag_pfad.Name = "btn_speichern_auftrag_pfad";
+            this.btn_speichern_auftrag_pfad.Size = new System.Drawing.Size(162, 49);
+            this.btn_speichern_auftrag_pfad.TabIndex = 50;
+            this.btn_speichern_auftrag_pfad.Text = "Im Auftragsordner speichern";
+            this.btn_speichern_auftrag_pfad.UseVisualStyleBackColor = true;
+            this.btn_speichern_auftrag_pfad.Click += new System.EventHandler(this.Btn_speichern_auftrag_pfad_Click);
             // 
             // MainForm
             // 
@@ -773,6 +785,7 @@
         private System.Windows.Forms.Button btn_bearbeiten_wesi;
         private System.Windows.Forms.CheckBox cb_untervollmacht;
         private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Button btn_speichern_auftrag_pfad;
     }
 }
 
