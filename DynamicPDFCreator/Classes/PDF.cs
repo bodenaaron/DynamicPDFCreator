@@ -75,6 +75,16 @@ namespace DynamicPDFCreator
             this.beschreibungMassnahme = new RichTextBox();
         }
 
+        public PDF(TblAuftraege auftrag, TblAnschreibenTyp anschreibenTyp, TblAnsprechpartner empfaenger, string ortDerMassnahme,TblWesiTeam wesiTeam)
+        {
+            this.auftrag = auftrag;
+            this.anschreibenTyp = anschreibenTyp;
+            this.empfaenger = empfaenger;
+            this.ortDerMassnahme = ortDerMassnahme;
+            this.wesiTeam = wesiTeam;
+
+        }
+
         public TblAuftraege auftrag { get; set; } //= new TblAuftraege();
         public TblAnschreibenTyp anschreibenTyp { get; set; } //= new TblAnschreibenTyp();
         public TblAnsprechpartner empfaenger { get; set; } //= new TblAnsprechpartner();

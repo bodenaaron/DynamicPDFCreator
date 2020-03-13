@@ -114,6 +114,18 @@ namespace DynamicPDFCreator
                 case 4:
                     break;
                 case 5:
+                    //ZUstimmungsbescheid
+                    enableAll();
+                    rtb_absprachen.Enabled = false;
+                    cmb_ansprechpartnerBau.Enabled = false;
+                    rtb_BeschreibungMassnahme.Enabled = false;
+                    cmb_absender.Enabled = false;
+                    cmb_Ansprechpartner.Enabled = false;
+                    datePicker.Enabled = false;
+                    datePickerAusfuehrung.Enabled = false;
+                    datePickerAusfuehrungEnde.Enabled = false;
+                    pdfWriter = new Interfaces.Zustimmungsbescheid();
+                    pflichtfelder_typ = Pflichtfelder_Klassen.Pflicht_Zustimmungsbescheid.PFLICHTFELDER;
                     break;
                 case 6:
                     break;
@@ -436,6 +448,28 @@ namespace DynamicPDFCreator
                    cb_techBeschreibung.Checked,
                    cb_untervollmacht.Checked,
                    zusatzanlagen);
+                    break;
+                case "Zustimmungsbescheid":
+                    FinalPDF = new PDF(
+                    DBm.auftrag,
+                    DBm.anschreiben.ElementAt<TblAnschreibenTyp>(cmb_anschreibenTyp.SelectedIndex),
+                    DBm.ansprechpartner.ElementAt<TblAnsprechpartner>(cmb_empfaenger.SelectedIndex),
+                    //DBm.bearbeiter.ElementAt<TblBearbeiter>(cmb_absender.SelectedIndex),
+                    //datePicker.Value,
+                    //datePickerAusfuehrung.Value,
+                    //datePickerAusfuehrungEnde.Value.Date,
+                    //DBm.bearbeiter.ElementAt<TblBearbeiter>(cmb_Ansprechpartner.SelectedIndex),
+                    tb_ortMassnahme.Text,
+                    //rtb_absprachen.Text,
+                    //rtb,
+                    //DBm.ansprechpartner.ElementAt<TblAnsprechpartner>(cmb_ansprechpartnerBau.SelectedIndex),
+                    DBm.wesiTeam.ElementAt<TblWesiTeam>(cmb_wesie.SelectedIndex)
+                    //cb_plansaetze.Checked,
+                    //cb_beteiligte.Checked,
+                    //cb_techBeschreibung.Checked,
+                    //cb_untervollmacht.Checked,
+                    //zusatzanlagen
+                    );
                     break;
             }
 

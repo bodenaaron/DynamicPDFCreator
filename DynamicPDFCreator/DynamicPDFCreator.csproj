@@ -130,6 +130,7 @@
     <Compile Include="Classes\FatalErrorForm.Designer.cs">
       <DependentUpon>FatalErrorForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\Zustimmungsbescheid.cs" />
     <Compile Include="Interfaces\EVU.cs" />
     <Compile Include="Interfaces\IPDFWriter.cs" />
     <Compile Include="Interfaces\Wupfl.cs" />
@@ -143,6 +144,7 @@
     <Compile Include="Pflichtfelder_Klassen\Pflichtfelder.cs" />
     <Compile Include="Pflichtfelder_Klassen\Pflicht_EVU.cs" />
     <Compile Include="Pflichtfelder_Klassen\Pflicht_Wupfl.cs" />
+    <Compile Include="Pflichtfelder_Klassen\Pflicht_Zustimmungsbescheid.cs" />
     <Compile Include="Properties\Pflichtfelder.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
