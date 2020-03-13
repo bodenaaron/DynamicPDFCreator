@@ -99,7 +99,7 @@ namespace DynamicPDFCreator.Interfaces
             //anschreiben
             html += $@"
             <div id='anschreiben'>
-                <p>
+
                 <p>
                     Sehr geehrte Damen und Herren,
                 </p>
@@ -111,19 +111,18 @@ namespace DynamicPDFCreator.Interfaces
                 </p>
                 <p>
                     Falls bei der Bauausführung Ihre Belange betroffen sind, bitten wir um deren Angabe
-                    und um Beifügung von Plänen der betroffenen Anlagen.
-                </p>
-                <p>
+                    und um Beifügung von Plänen der betroffenen Anlagen.<br/>
+                
+               
                     Sollte zu diesem Bauvorhaben eine Koordinierung mit von Ihnen geplanten Maßnahmen in
                     Betracht kommen, bitten wir um konkrete Angaben, für welchen Bereich aus Ihrer Sicht
                     eine koordinierte Baudurchführung möglich ist.
-                </p>                
-                </p>
+                </p>               
+
             </div>           
             <table style='width:100%; page-break-inside: avoid'>
                 <tr>
                     <td>
-            <p>
             Derzeit ist folgende Ausführungsfrist vorgesehen: {pdf.ausfuehrungszeitraum.ToString("MMMM yyyy")}
             ";
             if (pdf.ausfuehrungszeitraum.Month != pdf.ausfuehrungszeitraumEnde.Month || pdf.ausfuehrungszeitraum.Year != pdf.ausfuehrungszeitraumEnde.Year)
@@ -132,11 +131,11 @@ namespace DynamicPDFCreator.Interfaces
             }
             html += $@"
             <p style='margin-top:30px'>
-                Für Rückfragen stehen wir Ihnen gern zur Verfügung
+                Für Rückfragen stehen wir Ihnen gern zur Verfügung.
             </p>
 
 
-                <p style='margin-top:60px'>
+                <p style='margin-top:40px'>
                     Mit freundlichen Grüßen:
                 </p>
                 <p>
@@ -145,14 +144,13 @@ namespace DynamicPDFCreator.Interfaces
                 </td>
                 </tr>
                 </table>
-                <p>
-                    Anlagen:
-                </p>
+                    Anlagen:<br/>
+
             ";
 
             foreach (string s in pdf.Zusatzanlagen)
             {
-                html += "<p>" + s + "</p>";
+                html += s + "<br/>";
             }
 
 

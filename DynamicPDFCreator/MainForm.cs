@@ -241,9 +241,6 @@ namespace DynamicPDFCreator
                 saveFileDialog.Filter = "PDF|*.pdf";
                 saveFileDialog.Title = "PDF Speichern";
                 saveFileDialog.ShowDialog();
-
-
-
                 string html = pdfWriter.getHTML(FinalPDF);
                 pdfWriter.writeHTMLtoPDF(html, saveFileDialog.FileName);
             }
@@ -412,6 +409,7 @@ namespace DynamicPDFCreator
                    cb_plansaetze.Checked,
                    cb_beteiligte.Checked,
                    cb_techBeschreibung.Checked,
+                   cb_untervollmacht.Checked,
                    zusatzanlagen);
                     break;
                 case "Wupfl":
@@ -432,6 +430,7 @@ namespace DynamicPDFCreator
                    cb_plansaetze.Checked,
                    cb_beteiligte.Checked,
                    cb_techBeschreibung.Checked,
+                   cb_untervollmacht.Checked,
                    zusatzanlagen);
                     break;
             }

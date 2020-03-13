@@ -10,7 +10,7 @@ namespace DynamicPDFCreator
     class PDF
     {
 
-        public PDF(TblAuftraege auftrag, TblAnschreibenTyp anschreibenTyp, TblAnsprechpartner empfaenger, TblBearbeiter absender, DateTime datum, DateTime ausfuehrungszeitraum, DateTime ausfuehrungszeitraumEnde, TblBearbeiter ansprechpartner, string ortDerMassnahme, string abgesprochenMit, RichTextBox beschreibungMassnahme, TblAnsprechpartner ansprechpartnerBau, TblWesiTeam wesiTeam, bool plansaetze, bool listeBeteiligte, bool techBeschreibung, List<string>zusatzanlagen)
+        public PDF(TblAuftraege auftrag, TblAnschreibenTyp anschreibenTyp, TblAnsprechpartner empfaenger, TblBearbeiter absender, DateTime datum, DateTime ausfuehrungszeitraum, DateTime ausfuehrungszeitraumEnde, TblBearbeiter ansprechpartner, string ortDerMassnahme, string abgesprochenMit, RichTextBox beschreibungMassnahme, TblAnsprechpartner ansprechpartnerBau, TblWesiTeam wesiTeam, bool plansaetze, bool listeBeteiligte, bool techBeschreibung, bool untervollmacht,List<string>zusatzanlagen)
         {
             this.auftrag = auftrag;
             this.anschreibenTyp = anschreibenTyp;
@@ -28,10 +28,11 @@ namespace DynamicPDFCreator
             this.plansaetze = plansaetze;
             this.listeBeteiligte = listeBeteiligte;
             this.techBeschreibung = techBeschreibung;
+            this.untervollmacht = untervollmacht;
             this.Zusatzanlagen = zusatzanlagen;
         }
 
-        public PDF(TblAuftraege auftrag, TblAnschreibenTyp anschreibenTyp, TblAnsprechpartner empfaenger, TblBearbeiter absender, DateTime datum, DateTime ausfuehrungszeitraum, DateTime ausfuehrungszeitraumEnde, TblBearbeiter ansprechpartner, string ortDerMassnahme, RichTextBox beschreibungMassnahme,  TblWesiTeam wesiTeam, bool plansaetze, bool listeBeteiligte, bool techBeschreibung, List<string> zusatzanlagen)
+        public PDF(TblAuftraege auftrag, TblAnschreibenTyp anschreibenTyp, TblAnsprechpartner empfaenger, TblBearbeiter absender, DateTime datum, DateTime ausfuehrungszeitraum, DateTime ausfuehrungszeitraumEnde, TblBearbeiter ansprechpartner, string ortDerMassnahme, RichTextBox beschreibungMassnahme,  TblWesiTeam wesiTeam, bool plansaetze, bool listeBeteiligte, bool techBeschreibung, bool untervollmacht, List<string> zusatzanlagen)
         {
             this.auftrag = auftrag;
             this.anschreibenTyp = anschreibenTyp;
@@ -47,10 +48,11 @@ namespace DynamicPDFCreator
             this.plansaetze = plansaetze;
             this.listeBeteiligte = listeBeteiligte;
             this.techBeschreibung = techBeschreibung;
+            this.untervollmacht = untervollmacht;
             this.Zusatzanlagen = zusatzanlagen;
         }
 
-        public PDF(TblAuftraege auftrag, TblAnschreibenTyp anschreibenTyp, TblAnsprechpartner empfaenger, TblBearbeiter absender, DateTime datum, DateTime ausfuehrungszeitraum, DateTime ausfuehrungszeitraumEnde, TblBearbeiter ansprechpartner, string ortDerMassnahme, bool plansaetze, bool listeBeteiligte, bool techBeschreibung, List<string> zusatzanlagen)
+        public PDF(TblAuftraege auftrag, TblAnschreibenTyp anschreibenTyp, TblAnsprechpartner empfaenger, TblBearbeiter absender, DateTime datum, DateTime ausfuehrungszeitraum, DateTime ausfuehrungszeitraumEnde, TblBearbeiter ansprechpartner, string ortDerMassnahme, bool plansaetze, bool listeBeteiligte, bool techBeschreibung, bool untervollmacht, List<string> zusatzanlagen)
         {
             this.auftrag = auftrag;
             this.anschreibenTyp = anschreibenTyp;
@@ -64,6 +66,7 @@ namespace DynamicPDFCreator
             this.plansaetze = plansaetze;
             this.listeBeteiligte = listeBeteiligte;
             this.techBeschreibung = techBeschreibung;
+            this.untervollmacht = untervollmacht;
             this.Zusatzanlagen = zusatzanlagen;
         }
 
@@ -88,10 +91,13 @@ namespace DynamicPDFCreator
         public bool plansaetze { get; set; }
         public bool listeBeteiligte { get; set; }
         public bool techBeschreibung { get; set; }
+        public bool untervollmacht { get; set; }
         public string zusatzAnlage1 { get; set; }
         public string zusatzAnlage2 { get; set; }
         public string zusatzAnlage3 { get; set; }
         public List<string> Zusatzanlagen { get; set; }
+
+
 
 
     }

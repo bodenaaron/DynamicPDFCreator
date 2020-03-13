@@ -84,6 +84,8 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
+            this.cb_untervollmacht = new System.Windows.Forms.CheckBox();
+            this.label19 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -332,7 +334,7 @@
             // cb_plansaetze
             // 
             this.cb_plansaetze.AutoSize = true;
-            this.cb_plansaetze.Location = new System.Drawing.Point(145, 263);
+            this.cb_plansaetze.Location = new System.Drawing.Point(145, 282);
             this.cb_plansaetze.Name = "cb_plansaetze";
             this.cb_plansaetze.Size = new System.Drawing.Size(15, 14);
             this.cb_plansaetze.TabIndex = 29;
@@ -342,7 +344,7 @@
             // cb_beteiligte
             // 
             this.cb_beteiligte.AutoSize = true;
-            this.cb_beteiligte.Location = new System.Drawing.Point(145, 282);
+            this.cb_beteiligte.Location = new System.Drawing.Point(145, 243);
             this.cb_beteiligte.Name = "cb_beteiligte";
             this.cb_beteiligte.Size = new System.Drawing.Size(15, 14);
             this.cb_beteiligte.TabIndex = 30;
@@ -380,7 +382,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(11, 282);
+            this.label9.Location = new System.Drawing.Point(11, 243);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(99, 13);
             this.label9.TabIndex = 34;
@@ -575,6 +577,8 @@
             // 
             this.groupBox2.AutoSize = true;
             this.groupBox2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.groupBox2.Controls.Add(this.cb_untervollmacht);
+            this.groupBox2.Controls.Add(this.label19);
             this.groupBox2.Controls.Add(this.btn_bearbeiten_wesi);
             this.groupBox2.Controls.Add(this.label18);
             this.groupBox2.Controls.Add(this.label17);
@@ -626,7 +630,7 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(11, 263);
+            this.label17.Location = new System.Drawing.Point(11, 282);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(53, 13);
             this.label17.TabIndex = 46;
@@ -664,6 +668,24 @@
             this.label16.Size = new System.Drawing.Size(136, 13);
             this.label16.TabIndex = 54;
             this.label16.Text = "SHIFT+ENTER = Umbruch";
+            // 
+            // cb_untervollmacht
+            // 
+            this.cb_untervollmacht.AutoSize = true;
+            this.cb_untervollmacht.Location = new System.Drawing.Point(145, 263);
+            this.cb_untervollmacht.Name = "cb_untervollmacht";
+            this.cb_untervollmacht.Size = new System.Drawing.Size(15, 14);
+            this.cb_untervollmacht.TabIndex = 55;
+            this.cb_untervollmacht.UseVisualStyleBackColor = true;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(11, 263);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(78, 13);
+            this.label19.TabIndex = 56;
+            this.label19.Text = "Untervollmacht";
             // 
             // MainForm
             // 
@@ -749,6 +771,8 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Button btn_bearbeiten_wesi;
+        private System.Windows.Forms.CheckBox cb_untervollmacht;
+        private System.Windows.Forms.Label label19;
     }
 }
 
