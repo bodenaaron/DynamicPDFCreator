@@ -357,6 +357,10 @@ namespace DynamicPDFCreator
             {
                 zusatzanlagen.Add("- Technische Beschreibung");
             }
+            if (cb_untervollmacht.Checked)
+            {
+                zusatzanlagen.Add("- Untervollmacht");
+            }
             if (tb_ZusatzAnlage1.Text != "")
             {
                 zusatzanlagen.Add("- " + tb_ZusatzAnlage1.Text);
