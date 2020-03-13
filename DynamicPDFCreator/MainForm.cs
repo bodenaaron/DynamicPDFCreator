@@ -80,11 +80,12 @@ namespace DynamicPDFCreator
 
         private void Cmb_anschreibenTyp_SelectedIndexChanged(object sender, EventArgs e)
         {
+            TblAnschreibenTyp anschreiben = new TblAnschreibenTyp();
 
-            
-            TblAnschreibenTyp anschreiben = DBm.anschreiben.ElementAt<TblAnschreibenTyp>(cmb_anschreibenTyp.SelectedIndex);
-            //ReinitializeComponents();
-            //clearAll(false);
+            if (pdf.auftrag!=null)
+            {
+                anschreiben = DBm.anschreiben.ElementAt<TblAnschreibenTyp>(cmb_anschreibenTyp.SelectedIndex);
+            }
 
             switch (anschreiben.Id - 1)
             {
@@ -234,24 +235,7 @@ namespace DynamicPDFCreator
             rtb.Rtf = rtb_BeschreibungMassnahme.Rtf;
             try
             {
-                PDF FinalPDF = new PDF(
-                    DBm.auftrag,
-                    DBm.anschreiben.ElementAt<TblAnschreibenTyp>(cmb_anschreibenTyp.SelectedIndex),
-                    DBm.ansprechpartner.ElementAt<TblAnsprechpartner>(cmb_empfaenger.SelectedIndex),
-                    DBm.bearbeiter.ElementAt<TblBearbeiter>(cmb_absender.SelectedIndex),
-                    datePicker.Value,
-                    datePickerAusfuehrung.Value,
-                    datePickerAusfuehrungEnde.Value.Date,
-                    DBm.bearbeiter.ElementAt<TblBearbeiter>(cmb_Ansprechpartner.SelectedIndex),
-                    tb_ortMassnahme.Text,
-                    //rtb_absprachen.Text,
-                    rtb,
-                    //DBm.ansprechpartner.ElementAt<TblAnsprechpartner>(cmb_ansprechpartnerBau.SelectedIndex),
-                    DBm.wesiTeam.ElementAt<TblWesiTeam>(cmb_wesie.SelectedIndex),
-                    cb_plansaetze.Checked,
-                    cb_beteiligte.Checked,
-                    cb_techBeschreibung.Checked,
-                    zusatzanlagen);
+                PDF FinalPDF = createPDF(zusatzanlagen, rtb);
 
                 SaveFileDialog saveFileDialog = new SaveFileDialog();
                 saveFileDialog.Filter = "PDF|*.pdf";

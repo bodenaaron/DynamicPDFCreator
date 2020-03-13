@@ -363,8 +363,7 @@
             this.cmb_typ.Location = new System.Drawing.Point(725, 142);
             this.cmb_typ.Name = "cmb_typ";
             this.cmb_typ.Size = new System.Drawing.Size(121, 21);
-            this.cmb_typ.TabIndex = 36;
-            this.cmb_typ.SelectedIndexChanged += new System.EventHandler(this.ComboBox1_SelectedIndexChanged);
+            this.cmb_typ.TabIndex = 36;            
             // 
             // EditDataset
             // 
