@@ -102,7 +102,7 @@ namespace DynamicPDFCreator
             //Object in String umwandeln
             foreach (TblAnsprechpartner an in ansprechpartner)
             {
-                if (an.AnsprechpartnerVorname == null && an.AnsprechpartnerName == null)
+                if (an.AnsprechpartnerVorname == null && an.AnsprechpartnerName == null|| an.AnsprechpartnerVorname == "" && an.AnsprechpartnerName == "")
                 {
                     if (an.Firma != "")
                     {
