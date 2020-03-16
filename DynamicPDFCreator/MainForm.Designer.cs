@@ -84,9 +84,9 @@
             this.label18 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btn_speichern_auftrag_pfad = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.btn_speichern_auftrag_pfad = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -282,9 +282,9 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(19, 403);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(95, 13);
+            this.label3.Size = new System.Drawing.Size(38, 13);
             this.label3.TabIndex = 22;
-            this.label3.Text = "Ort der Maßnahme";
+            this.label3.Text = "Betreff";
             // 
             // rtb_absprachen
             // 
@@ -671,6 +671,16 @@
             this.groupBox3.TabIndex = 52;
             this.groupBox3.TabStop = false;
             // 
+            // btn_speichern_auftrag_pfad
+            // 
+            this.btn_speichern_auftrag_pfad.Location = new System.Drawing.Point(61, 12);
+            this.btn_speichern_auftrag_pfad.Name = "btn_speichern_auftrag_pfad";
+            this.btn_speichern_auftrag_pfad.Size = new System.Drawing.Size(162, 49);
+            this.btn_speichern_auftrag_pfad.TabIndex = 50;
+            this.btn_speichern_auftrag_pfad.Text = "Im Auftragsordner speichern";
+            this.btn_speichern_auftrag_pfad.UseVisualStyleBackColor = true;
+            this.btn_speichern_auftrag_pfad.Click += new System.EventHandler(this.Btn_speichern_auftrag_pfad_Click);
+            // 
             // label15
             // 
             this.label15.AutoSize = true;
@@ -688,16 +698,6 @@
             this.label16.Size = new System.Drawing.Size(136, 13);
             this.label16.TabIndex = 54;
             this.label16.Text = "SHIFT+ENTER = Umbruch";
-            // 
-            // btn_speichern_auftrag_pfad
-            // 
-            this.btn_speichern_auftrag_pfad.Location = new System.Drawing.Point(61, 12);
-            this.btn_speichern_auftrag_pfad.Name = "btn_speichern_auftrag_pfad";
-            this.btn_speichern_auftrag_pfad.Size = new System.Drawing.Size(162, 49);
-            this.btn_speichern_auftrag_pfad.TabIndex = 50;
-            this.btn_speichern_auftrag_pfad.Text = "Im Auftragsordner speichern";
-            this.btn_speichern_auftrag_pfad.UseVisualStyleBackColor = true;
-            this.btn_speichern_auftrag_pfad.Click += new System.EventHandler(this.Btn_speichern_auftrag_pfad_Click);
             // 
             // MainForm
             // 

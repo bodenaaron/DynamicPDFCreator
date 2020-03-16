@@ -69,7 +69,7 @@ namespace DynamicPDFCreator.Interfaces
             <table style='margin-top: 30px; '>
                 <tr>
                 	<td valign: top>
-                  	<b>Abstimmung zu einer geplanten Baumaßnahme in {pdf.ortDerMassnahme}</b>
+                  	Abstimmung zu einer geplanten Baumaßnahme in {pdf.ortDerMassnahme}
                   </td>
                 </tr>
                   <tr>
@@ -79,7 +79,7 @@ namespace DynamicPDFCreator.Interfaces
                 </tr>
                   <tr>
                 	<td valign= top>
-                  	<b>SM-Auftragsnummer: {pdf.auftrag.SMNummer} (bei Rückfragen bitte immer angeben)<b/>
+                  	SM-Auftragsnummer: <b>{pdf.auftrag.SMNummer} </b>(bei Rückfragen bitte immer angeben)
                   </td>
                 </tr>
                   <tr>

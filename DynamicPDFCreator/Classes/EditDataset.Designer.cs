@@ -191,7 +191,7 @@
             // 
             this.tb_mail.Location = new System.Drawing.Point(12, 240);
             this.tb_mail.Name = "tb_mail";
-            this.tb_mail.Size = new System.Drawing.Size(172, 20);
+            this.tb_mail.Size = new System.Drawing.Size(350, 20);
             this.tb_mail.TabIndex = 14;
             // 
             // label9
@@ -357,7 +357,7 @@
             this.cmb_typ.Location = new System.Drawing.Point(725, 142);
             this.cmb_typ.Name = "cmb_typ";
             this.cmb_typ.Size = new System.Drawing.Size(121, 21);
-            this.cmb_typ.TabIndex = 36;            
+            this.cmb_typ.TabIndex = 36;
             // 
             // EditDataset
             // 
