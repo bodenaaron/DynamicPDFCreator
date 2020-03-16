@@ -147,6 +147,19 @@ namespace DynamicPDFCreator
                     break;
                 case 11:
                     break;
+                case 12:
+                    //Anschreiben Kampfmittel
+                    enableAll();
+                    cmb_absender.Enabled = false;
+                    datePickerAusfuehrung.Enabled = false;
+                    datePickerAusfuehrungEnde.Enabled = false;
+                    cmb_Ansprechpartner.Enabled = false;
+                    rtb_absprachen.Enabled = false;
+                    rtb_BeschreibungMassnahme.Enabled = false;
+                    cmb_ansprechpartnerBau.Enabled = false;
+                    pdfWriter = new Interfaces.Kampfmittel();
+                    pflichtfelder_typ = Pflichtfelder_Klassen.Pflicht_Kampfmittel.PFLICHTFELDER;
+                    break;
             }
 
 
@@ -481,6 +494,16 @@ namespace DynamicPDFCreator
                     cb_techBeschreibung.Checked,
                     cb_untervollmacht.Checked,
                     zusatzanlagen);
+                    break;
+                case "Kampfmittel":
+                    FinalPDF = new PDF(
+                    DBm.auftrag,
+                    DBm.anschreiben.ElementAt<TblAnschreibenTyp>(cmb_anschreibenTyp.SelectedIndex),
+                    DBm.ansprechpartner.ElementAt<TblAnsprechpartner>(cmb_empfaenger.SelectedIndex),
+                    tb_ortMassnahme.Text,
+                    DBm.wesiTeam.ElementAt<TblWesiTeam>(cmb_wesie.SelectedIndex),
+                    datePicker.Value
+                    );
                     break;
             }
 

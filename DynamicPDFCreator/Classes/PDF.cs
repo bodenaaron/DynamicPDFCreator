@@ -31,7 +31,9 @@ namespace DynamicPDFCreator
             this.untervollmacht = untervollmacht;
             this.Zusatzanlagen = zusatzanlagen;
         }
-
+        /// <summary>
+        /// WUPFL
+        /// </summary>
         public PDF(TblAuftraege auftrag, TblAnschreibenTyp anschreibenTyp, TblAnsprechpartner empfaenger, TblBearbeiter absender, DateTime datum, DateTime ausfuehrungszeitraum, DateTime ausfuehrungszeitraumEnde, TblBearbeiter ansprechpartner, string ortDerMassnahme, RichTextBox beschreibungMassnahme,  TblWesiTeam wesiTeam, bool plansaetze, bool listeBeteiligte, bool techBeschreibung, bool untervollmacht, List<string> zusatzanlagen)
         {
             this.auftrag = auftrag;
@@ -52,6 +54,9 @@ namespace DynamicPDFCreator
             this.Zusatzanlagen = zusatzanlagen;
         }
 
+        /// <summary>
+        /// EVU
+        /// </summary>
         public PDF(TblAuftraege auftrag, TblAnschreibenTyp anschreibenTyp, TblAnsprechpartner empfaenger, TblBearbeiter absender, DateTime datum, DateTime ausfuehrungszeitraum, DateTime ausfuehrungszeitraumEnde, TblBearbeiter ansprechpartner, string ortDerMassnahme, bool plansaetze, bool listeBeteiligte, bool techBeschreibung, bool untervollmacht, List<string> zusatzanlagen)
         {
             this.auftrag = auftrag;
@@ -74,7 +79,9 @@ namespace DynamicPDFCreator
         {
             this.beschreibungMassnahme = new RichTextBox();
         }
-
+        /// <summary>
+        /// Zustimmungsbescheid
+        /// </summary>
         public PDF(TblAuftraege auftrag, TblAnschreibenTyp anschreibenTyp, TblAnsprechpartner empfaenger, string ortDerMassnahme,TblWesiTeam wesiTeam)
         {
             this.auftrag = auftrag;
@@ -85,6 +92,23 @@ namespace DynamicPDFCreator
 
         }
 
+        /// <summary>
+        /// Kampfmittel
+        /// </summary>
+        public PDF(TblAuftraege auftrag, TblAnschreibenTyp anschreibenTyp, TblAnsprechpartner empfaenger, string ortDerMassnahme, TblWesiTeam wesiTeam, DateTime datum)
+        {
+            this.auftrag = auftrag;
+            this.anschreibenTyp = anschreibenTyp;
+            this.empfaenger = empfaenger;
+            this.ortDerMassnahme = ortDerMassnahme;
+            this.wesiTeam = wesiTeam;
+            this.datum = datum;
+
+        }
+
+        /// <summary>
+        /// Abstimmung Naturschutz
+        /// </summary>
         public PDF(TblAuftraege auftrag, TblAnschreibenTyp anschreibenTyp, TblAnsprechpartner empfaenger, TblBearbeiter absender, DateTime datum, DateTime ausfuehrungszeitraum, DateTime ausfuehrungszeitraumEnde, string ortDerMassnahme, RichTextBox beschreibungMassnahme, bool plansaetze, bool listeBeteiligte, bool techBeschreibung, bool untervollmacht, List<string> zusatzanlagen)
         {
             this.auftrag = auftrag;
