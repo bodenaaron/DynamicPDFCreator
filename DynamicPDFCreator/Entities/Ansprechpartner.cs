@@ -18,218 +18,124 @@ using System.Collections.Generic;
 namespace DynamicPDFCreator
 {
 
-    /// <summary>
-    /// There are no comments for DynamicPDFCreator.TblAnsprechpartner, DynamicPDFCreator in the schema.
-    /// </summary>
+    
     public partial class Ansprechpartner {
     
         #region Extensibility Method Definitions
         
-        /// <summary>
-        /// There are no comments for OnCreated in the schema.
-        /// </summary>
+        
         partial void OnCreated();
         
         #endregion
-        /// <summary>
-        /// There are no comments for TblAnsprechpartner constructor in the schema.
-        /// </summary>
+        
         public Ansprechpartner()
         {
             OnCreated();
         }
 
-    
-        /// <summary>
-        /// There are no comments for IdAnsprechpartner in the schema.
-        /// </summary>
-        public virtual int IdAnsprechpartner
+        public virtual int id
         {
             get;
             set;
         }
 
-    
-        /// <summary>
-        /// There are no comments for SSMATimeStamp in the schema.
-        /// </summary>
-        //public virtual byte[] SSMATimeStamp
-        //{
-        //    get;
-        //    set;
-        //}
-
-    
-        /// <summary>
-        /// wird aus tblAnsprechpartnerFunktion ausgewählt
-        /// </summary>
-        public virtual string Funktion
+        public virtual string funktion
         {
             get;
             set;
         }
 
-    
-        /// <summary>
-        /// There are no comments for AnsprechpartnerName in the schema.
-        /// </summary>
-        public virtual string AnsprechpartnerName
+        public virtual string ansprechpartnerName
         {
             get;
             set;
         }
 
-    
-        /// <summary>
-        /// There are no comments for AnsprechpartnerVorname in the schema.
-        /// </summary>
-        public virtual string AnsprechpartnerVorname
+        public virtual string ansprechpartnerVorname
         {
             get;
             set;
         }
 
-    
-        /// <summary>
-        /// There are no comments for Telefon in the schema.
-        /// </summary>
-        public virtual string Telefon
+        public virtual string telefon
         {
             get;
             set;
         }
 
-    
-        /// <summary>
-        /// There are no comments for Mobil in the schema.
-        /// </summary>
-        public virtual string Mobil
+        public virtual string mobil
         {
             get;
             set;
         }
 
-    
-        /// <summary>
-        /// There are no comments for Email in the schema.
-        /// </summary>
-        public virtual string Email
+        public virtual string email
         {
             get;
             set;
         }
 
-    
-        /// <summary>
-        /// wird aus tblAnsprechpartnerFunktion ausgewählt
-        /// </summary>
-        public virtual string Typ
+        public virtual string typ
         {
             get;
             set;
         }
 
-    
-        /// <summary>
-        /// There are no comments for Bereich in the schema.
-        /// </summary>
-        public virtual string Bereich
+        public virtual string bereich
         {
             get;
             set;
         }
 
-    
-        /// <summary>
-        /// There are no comments for Homepage in the schema.
-        /// </summary>
-        public virtual string Homepage
+        public virtual string homepage
         {
             get;
             set;
         }
 
-    
-        /// <summary>
-        /// There are no comments for PLZ in the schema.
-        /// </summary>
-        public virtual string PLZ
+        public virtual string plz
         {
             get;
             set;
         }
 
-    
-        /// <summary>
-        /// There are no comments for Ort in the schema.
-        /// </summary>
-        public virtual string Ort
+        public virtual string ort
         {
             get;
             set;
         }
 
-    
-        /// <summary>
-        /// There are no comments for Straße in the schema.
-        /// </summary>
-        public virtual string Straße
+        public virtual string strasse
         {
             get;
             set;
         }
 
-    
-        /// <summary>
-        /// There are no comments for Niederlassung in the schema.
-        /// </summary>
-        public virtual string Niederlassung
+        public virtual string niederlassung
         {
             get;
             set;
         }
 
-    
-        /// <summary>
-        /// There are no comments for NLAbteilung in the schema.
-        /// </summary>
-        public virtual string NLAbteilung
+        public virtual string nlAbteilung
         {
             get;
             set;
         }
 
-    
-        /// <summary>
-        /// There are no comments for PTIBereich in the schema.
-        /// </summary>
-        public virtual string PTIBereich
+        public virtual string ptiBereich
         {
             get;
             set;
         }
 
-    
-        /// <summary>
-        /// There are no comments for Bemerkung in the schema.
-        /// </summary>
-        public virtual string Bemerkung
+        public virtual string bemerkung
         {
             get;
             set;
         }
 
-    
-        /// <summary>
-        /// There are no comments for Firma in the schema.
-        /// </summary>
-        public virtual string Firma
-        {
-            get;
-            set;
-        }
-
-        public virtual List<Projekt> Projekte
+        public virtual string firma
         {
             get;
             set;

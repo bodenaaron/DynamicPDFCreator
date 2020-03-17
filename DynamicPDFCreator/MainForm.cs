@@ -601,7 +601,7 @@ namespace DynamicPDFCreator
                 }
             }
             pfad += ordnerName;
-            pfad += $@"\Wegesicherung\Anschreiben\{finalPDF.anschreibenTyp.bezeichnung}_{finalPDF.empfaenger.IdAnsprechpartner}.pdf";
+            pfad += $@"\Wegesicherung\Anschreiben\{finalPDF.anschreibenTyp.bezeichnung}_{finalPDF.empfaenger.id}.pdf";
             return pfad;
         }
     }

@@ -26,15 +26,15 @@ namespace DynamicPDFCreator.Interfaces
         public string getHTML(PDF pdf)
         {
             string firma;
-            if (pdf.empfaenger.Firma == "" || pdf.empfaenger.Firma == null)
+            if (pdf.empfaenger.firma == "" || pdf.empfaenger.firma == null)
             {
-                firma = pdf.empfaenger.AnsprechpartnerName;
+                firma = pdf.empfaenger.ansprechpartnerName;
             }
-            else { firma = pdf.empfaenger.Firma; }
+            else { firma = pdf.empfaenger.firma; }
             string html = "";
             html = $@"
             <p style='font-size: 12px; ' >
-                {firma}<br/>{pdf.empfaenger.Straße} {pdf.empfaenger.PLZ} {pdf.empfaenger.Ort}
+                {firma}<br/>{pdf.empfaenger.strasse} {pdf.empfaenger.plz} {pdf.empfaenger.ort}
             </p>
             <table>
                 <tr>

@@ -42,27 +42,27 @@ namespace DynamicPDFCreator.Interfaces
             <table>
                 <tr>
                 	<td valign: top>
-                  	{pdf.empfaenger.AnsprechpartnerVorname} {pdf.empfaenger.AnsprechpartnerName}
+                  	{pdf.empfaenger.ansprechpartnerVorname} {pdf.empfaenger.ansprechpartnerName}
                   </td>
                 </tr>
                   <tr>
                 	<td valign: top>
-                  	{pdf.empfaenger.Firma}  
+                  	{pdf.empfaenger.firma}  
                   </td>
                 </tr>
                   <tr>
                 	<td valign: top>
-                  	{pdf.empfaenger.Bereich}
+                  	{pdf.empfaenger.bereich}
                   </td>
                 </tr>
                   <tr>
                 	<td valign: top>
-                  	{pdf.empfaenger.Straße}
+                  	{pdf.empfaenger.strasse}
                   </td>
                 </tr>
                 <tr>
                 	<td valign: top>
-                  	{pdf.empfaenger.PLZ} {pdf.empfaenger.Ort}
+                  	{pdf.empfaenger.plz} {pdf.empfaenger.ort}
                   </td>
                 </tr>
             </table>

@@ -95,23 +95,23 @@ namespace DynamicPDFCreator
             crit = null;
 
             crit = session.CreateCriteria<Ansprechpartner>();
-            crit.Add(Restrictions.In(nameof(Ansprechpartner.IdAnsprechpartner), i));
+            crit.Add(Restrictions.In(nameof(Ansprechpartner.id), i));
             ansprechpartner = (List<Ansprechpartner>)crit.List<Ansprechpartner>();
 
             List<string> ansp = new List<string>();
             //Object in String umwandeln
             foreach (Ansprechpartner an in ansprechpartner)
             {
-                if (an.AnsprechpartnerVorname == null && an.AnsprechpartnerName == null|| an.AnsprechpartnerVorname == "" && an.AnsprechpartnerName == "")
+                if (an.ansprechpartnerVorname == null && an.ansprechpartnerName == null|| an.ansprechpartnerVorname == "" && an.ansprechpartnerName == "")
                 {
-                    if (an.Firma != "")
+                    if (an.firma != "")
                     {
-                        ansp.Add(an.Firma);
+                        ansp.Add(an.firma);
                     }
                 }
                 else
                 {
-                    ansp.Add(an.AnsprechpartnerVorname + " " + an.AnsprechpartnerName);
+                    ansp.Add(an.ansprechpartnerVorname + " " + an.ansprechpartnerName);
                 }
                 
             }
