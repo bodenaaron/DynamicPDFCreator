@@ -12,17 +12,17 @@ namespace DynamicPDFCreator
 {
     class DBManager
     {
-        public TblAuftraege auftrag;
-        public TblProjekte projekt;
-        public List<TblAnsprechpartner> ansprechpartner;
+        public Auftrag auftrag;
+        public Projekt projekt;
+        public List<Ansprechpartner> ansprechpartner;
         public object[] ansprechpartnerNamen;
-        public List<TblAnschreibenTyp> anschreiben;
+        public List<AnschreibenTyp> anschreiben;
         public object[] anschreibenNamen;
-        public List<TblBearbeiter> bearbeiter;
+        public List<Bearbeiter> bearbeiter;
         public object[] bearbeiterNamen;
-        public List<TblWesiTeam> wesiTeam;
+        public List<WesiTeam> wesiTeam;
         public object[] wesiTeamNamen;
-        public List<TblAnsprechpartnerTyp> ansprechpartnerTyp;
+        public List<AnsprechpartnerTyp> ansprechpartnerTyp;
         public object[] ansprechpartnerTypNamen;
 
         public DBManager()
@@ -53,15 +53,15 @@ namespace DynamicPDFCreator
         //braucht SMNummer
         public void getAuftrag(string smNummer)
         {
-            auftrag = new TblAuftraege();
-            projekt = new TblProjekte();
-            ansprechpartner = new List<TblAnsprechpartner>();;
+            auftrag = new Auftrag();
+            projekt = new Projekt();
+            ansprechpartner = new List<Ansprechpartner>();;
             ISession session = getSession();
             ITransaction tx = session.BeginTransaction();
-            ICriteria crit = session.CreateCriteria<TblAuftraege>();
+            ICriteria crit = session.CreateCriteria<Auftrag>();
             crit.SetMaxResults(1);
-            crit.Add(Restrictions.Like(nameof(TblAuftraege.SMNummer), smNummer));
-            auftrag = crit.List<TblAuftraege>().FirstOrDefault();
+            crit.Add(Restrictions.Like(nameof(Auftrag.SMNummer), smNummer));
+            auftrag = crit.List<Auftrag>().FirstOrDefault();
             tx.Commit();
             closeSession(session,tx);
         }
@@ -71,7 +71,7 @@ namespace DynamicPDFCreator
         {
             ISession session = getSession();
             ITransaction tx = session.BeginTransaction();
-            projekt = session.Get<TblProjekte>(auftrag.IdProjekt);
+            projekt = session.Get<Projekt>(auftrag.IdProjekt);
             closeSession(session, tx);
         }
 
@@ -83,24 +83,24 @@ namespace DynamicPDFCreator
             ITransaction tx = session.BeginTransaction();
 
             //Datensätze mit der Projekt ID
-            ICriteria crit = session.CreateCriteria<TblAnsprechpartner2Projekt>();
-            crit.Add(Restrictions.Like(nameof(TblAnsprechpartner2Projekt.IdProjekt), auftrag.IdProjekt));
-            var a2ps = crit.List<TblAnsprechpartner2Projekt>();
+            ICriteria crit = session.CreateCriteria<Ansprechpartner2Projekt>();
+            crit.Add(Restrictions.Like(nameof(Ansprechpartner2Projekt.IdProjekt), auftrag.IdProjekt));
+            var a2ps = crit.List<Ansprechpartner2Projekt>();
 
             List<int> i=new List<int>();
-            foreach (TblAnsprechpartner2Projekt a2p in a2ps)
+            foreach (Ansprechpartner2Projekt a2p in a2ps)
             {
                 i.Add(a2p.IdAnsprechpartner);
             }
             crit = null;
 
-            crit = session.CreateCriteria<TblAnsprechpartner>();
-            crit.Add(Restrictions.In(nameof(TblAnsprechpartner.IdAnsprechpartner), i));
-            ansprechpartner = (List<TblAnsprechpartner>)crit.List<TblAnsprechpartner>();
+            crit = session.CreateCriteria<Ansprechpartner>();
+            crit.Add(Restrictions.In(nameof(Ansprechpartner.IdAnsprechpartner), i));
+            ansprechpartner = (List<Ansprechpartner>)crit.List<Ansprechpartner>();
 
             List<string> ansp = new List<string>();
             //Object in String umwandeln
-            foreach (TblAnsprechpartner an in ansprechpartner)
+            foreach (Ansprechpartner an in ansprechpartner)
             {
                 if (an.AnsprechpartnerVorname == null && an.AnsprechpartnerName == null|| an.AnsprechpartnerVorname == "" && an.AnsprechpartnerName == "")
                 {
@@ -125,15 +125,15 @@ namespace DynamicPDFCreator
             ISession session = getSession();
             ITransaction tx = session.BeginTransaction();
 
-            ICriteria crit = session.CreateCriteria<TblAnschreibenTyp>();
+            ICriteria crit = session.CreateCriteria<AnschreibenTyp>();
            
-            anschreiben = (List<TblAnschreibenTyp>) crit.List<TblAnschreibenTyp>();
+            anschreiben = (List<AnschreibenTyp>) crit.List<AnschreibenTyp>();
             
             List<string> anschr = new List<string>();
             //Object in String umwandeln
-            foreach (TblAnschreibenTyp an in anschreiben)
+            foreach (AnschreibenTyp an in anschreiben)
             {
-                anschr.Add(an.Bezeichnung);
+                anschr.Add(an.bezeichnung);
             }
             anschreibenNamen = anschr.Cast<object>().ToArray();
 
@@ -145,13 +145,13 @@ namespace DynamicPDFCreator
             ISession session = getSession();
             ITransaction tx = session.BeginTransaction();
 
-            ICriteria crit = session.CreateCriteria<TblAnsprechpartnerTyp>();
+            ICriteria crit = session.CreateCriteria<AnsprechpartnerTyp>();
 
-            ansprechpartnerTyp = (List<TblAnsprechpartnerTyp>)crit.List<TblAnsprechpartnerTyp>();
+            ansprechpartnerTyp = (List<AnsprechpartnerTyp>)crit.List<AnsprechpartnerTyp>();
 
             List<string> ansprTyp = new List<string>();
             //Object in String umwandeln
-            foreach (TblAnsprechpartnerTyp an in ansprechpartnerTyp)
+            foreach (AnsprechpartnerTyp an in ansprechpartnerTyp)
             {
                 ansprTyp.Add(an.Typ);
             }
@@ -167,15 +167,15 @@ namespace DynamicPDFCreator
             ISession session = getSession();
             ITransaction tx = session.BeginTransaction();
 
-            ICriteria crit = session.CreateCriteria<TblBearbeiter>();
+            ICriteria crit = session.CreateCriteria<Bearbeiter>();
             crit.Add(Restrictions.IsNotNull("BearbeiterVorname"));
-            bearbeiter = (List<TblBearbeiter>)crit.List<TblBearbeiter>();
+            bearbeiter = (List<Bearbeiter>)crit.List<Bearbeiter>();
 
             List<string> bearb = new List<string>();
             //Object in String umwandeln
-            foreach (TblBearbeiter an in bearbeiter)
+            foreach (Bearbeiter an in bearbeiter)
             {
-                    bearb.Add(an.BearbeiterVorname + " " + an.BearbeiterName);
+                    bearb.Add(an.bearbeiterVorname + " " + an.bearbeiterName);
             }
             bearbeiterNamen = bearb.Cast<object>().ToArray();
 
@@ -188,12 +188,12 @@ namespace DynamicPDFCreator
             ISession session = getSession();
             ITransaction tx = session.BeginTransaction();
 
-            ICriteria crit = session.CreateCriteria<TblWesiTeam>();
-            wesiTeam = (List<TblWesiTeam>)crit.List<TblWesiTeam>();
+            ICriteria crit = session.CreateCriteria<WesiTeam>();
+            wesiTeam = (List<WesiTeam>)crit.List<WesiTeam>();
 
             List<string> wesi = new List<string>();
             //Object in String umwandeln
-            foreach (TblWesiTeam an in wesiTeam)
+            foreach (WesiTeam an in wesiTeam)
             {
                 wesi.Add($"{an.Firma} {an.Niederlassung}");
             }
@@ -203,7 +203,7 @@ namespace DynamicPDFCreator
             closeSession(session, tx);
         }
 
-        public void set(TblAnsprechpartner a)
+        public void testSave(PDF a)
         {
             ISession session = getSession();
             ITransaction tx = session.BeginTransaction();
@@ -211,7 +211,15 @@ namespace DynamicPDFCreator
             tx.Commit();
             closeSession(session, tx);
         }
-        public void set(TblWesiTeam a)
+        public void set(Ansprechpartner a)
+        {
+            ISession session = getSession();
+            ITransaction tx = session.BeginTransaction();
+            session.SaveOrUpdate(a);
+            tx.Commit();
+            closeSession(session, tx);
+        }
+        public void set(WesiTeam a)
         {
             ISession session = getSession();
             ITransaction tx = session.BeginTransaction();
@@ -236,5 +244,7 @@ namespace DynamicPDFCreator
             tx.Dispose();
         }
         #endregion
+
+
     }
 }

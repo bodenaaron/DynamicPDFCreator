@@ -80,14 +80,14 @@ namespace DynamicPDFCreator
 
         private void Cmb_anschreibenTyp_SelectedIndexChanged(object sender, EventArgs e)
         {
-            TblAnschreibenTyp anschreiben = new TblAnschreibenTyp();
+            AnschreibenTyp anschreiben = new AnschreibenTyp();
 
             if (pdf.auftrag!=null)
             {
-                anschreiben = DBm.anschreiben.ElementAt<TblAnschreibenTyp>(cmb_anschreibenTyp.SelectedIndex);
+                anschreiben = DBm.anschreiben.ElementAt<AnschreibenTyp>(cmb_anschreibenTyp.SelectedIndex);
             }
 
-            switch (anschreiben.Id - 1)
+            switch (anschreiben.id - 1)
             {
                 case 0:
                     //EVU
@@ -168,7 +168,7 @@ namespace DynamicPDFCreator
 
         private void Cmb_empfaenger_SelectedIndexChanged(object sender, EventArgs e)
         {
-            pdf.empfaenger = DBm.ansprechpartner.ElementAt<TblAnsprechpartner>(cmb_empfaenger.SelectedIndex);
+            pdf.empfaenger = DBm.ansprechpartner.ElementAt<Ansprechpartner>(cmb_empfaenger.SelectedIndex);
             btn_bearbeiten.Enabled = true;
 
 
@@ -176,7 +176,7 @@ namespace DynamicPDFCreator
 
         private void Cmb_absender_SelectedIndexChanged(object sender, EventArgs e)
         {
-            pdf.absender = DBm.bearbeiter.ElementAt<TblBearbeiter>(cmb_absender.SelectedIndex);
+            pdf.absender = DBm.bearbeiter.ElementAt<Bearbeiter>(cmb_absender.SelectedIndex);
             cmb_Ansprechpartner.SelectedIndex = cmb_absender.SelectedIndex;
         }
 
@@ -193,7 +193,7 @@ namespace DynamicPDFCreator
 
         private void Cmb_Ansprechpartner_SelectedIndexChanged(object sender, EventArgs e)
         {
-            pdf.ansprechpartner = DBm.bearbeiter.ElementAt<TblBearbeiter>(cmb_Ansprechpartner.SelectedIndex);
+            pdf.ansprechpartner = DBm.bearbeiter.ElementAt<Bearbeiter>(cmb_Ansprechpartner.SelectedIndex);
         }
 
         private void Rtb_absprachen_TextChanged(object sender, EventArgs e)
@@ -208,7 +208,7 @@ namespace DynamicPDFCreator
 
         private void Cmb_ansprechpartnerBau_SelectedIndexChanged(object sender, EventArgs e)
         {
-            pdf.ansprechpartnerBau = DBm.ansprechpartner.ElementAt<TblAnsprechpartner>(cmb_ansprechpartnerBau.SelectedIndex);
+            pdf.ansprechpartnerBau = DBm.ansprechpartner.ElementAt<Ansprechpartner>(cmb_ansprechpartnerBau.SelectedIndex);
         }
 
         private void Rtb_WesiAdresse_TextChanged(object sender, EventArgs e)
@@ -218,8 +218,8 @@ namespace DynamicPDFCreator
 
         private void Cmb_wesie_SelectedIndexChanged(object sender, EventArgs e)
         {
-            pdf.wesiTeam = DBm.wesiTeam.ElementAt<TblWesiTeam>(cmb_wesie.SelectedIndex);
-            TblWesiTeam wesi = DBm.wesiTeam.ElementAt<TblWesiTeam>(cmb_wesie.SelectedIndex);
+            pdf.wesiTeam = DBm.wesiTeam.ElementAt<WesiTeam>(cmb_wesie.SelectedIndex);
+            WesiTeam wesi = DBm.wesiTeam.ElementAt<WesiTeam>(cmb_wesie.SelectedIndex);
             rtb_WesiAdresse.Text = $"{wesi.Firma} {wesi.Niederlassung}" + Environment.NewLine + wesi.Bereich + Environment.NewLine + wesi.Strasse + Environment.NewLine + wesi.PLZ + " " + wesi.Stadt;
             tb_WesiMail.Text = wesi.Email;
         }
@@ -291,7 +291,7 @@ namespace DynamicPDFCreator
             {
                 PDF FinalPDF = createPDF(zusatzanlagen,rtb);
 
-
+                DBm.testSave(pdf);
                 string html = pdfWriter.getHTML(FinalPDF);
                 string hiddenPath = Path.GetTempPath() + @"\testpdf.pdf";
                 this.pdfPreview.Navigate("www.google.de");
@@ -305,7 +305,7 @@ namespace DynamicPDFCreator
         private void Btn_bearbeiten_Click(object sender, EventArgs e)
         {
             EditDataset editDataset = new EditDataset();
-            editDataset.ReinitializeComponent(DBm.ansprechpartner.ElementAt<TblAnsprechpartner>(cmb_empfaenger.SelectedIndex), DBm.ansprechpartnerTypNamen);
+            editDataset.ReinitializeComponent(DBm.ansprechpartner.ElementAt<Ansprechpartner>(cmb_empfaenger.SelectedIndex), DBm.ansprechpartnerTypNamen);
             this.Enabled = false;
             editDataset.ShowDialog();
             this.Enabled = true;
@@ -412,7 +412,7 @@ namespace DynamicPDFCreator
         private void Btn_bearbeiten_wesi_Click(object sender, EventArgs e)
         {
             EditDataset editDataset = new EditDataset();
-            editDataset.ReinitializeComponent(DBm.wesiTeam.ElementAt<TblWesiTeam>(cmb_wesie.SelectedIndex));
+            editDataset.ReinitializeComponent(DBm.wesiTeam.ElementAt<WesiTeam>(cmb_wesie.SelectedIndex));
             this.Enabled = false;
             editDataset.ShowDialog();
             tb_WesiMail.Clear();
@@ -431,13 +431,13 @@ namespace DynamicPDFCreator
                 case "EVU":
                    FinalPDF = new PDF(
                    DBm.auftrag,
-                   DBm.anschreiben.ElementAt<TblAnschreibenTyp>(cmb_anschreibenTyp.SelectedIndex),
-                   DBm.ansprechpartner.ElementAt<TblAnsprechpartner>(cmb_empfaenger.SelectedIndex),
-                   DBm.bearbeiter.ElementAt<TblBearbeiter>(cmb_absender.SelectedIndex),
+                   DBm.anschreiben.ElementAt<AnschreibenTyp>(cmb_anschreibenTyp.SelectedIndex),
+                   DBm.ansprechpartner.ElementAt<Ansprechpartner>(cmb_empfaenger.SelectedIndex),
+                   DBm.bearbeiter.ElementAt<Bearbeiter>(cmb_absender.SelectedIndex),
                    datePicker.Value,
                    datePickerAusfuehrung.Value,
                    datePickerAusfuehrungEnde.Value.Date,
-                   DBm.bearbeiter.ElementAt<TblBearbeiter>(cmb_Ansprechpartner.SelectedIndex),
+                   DBm.bearbeiter.ElementAt<Bearbeiter>(cmb_Ansprechpartner.SelectedIndex),
                    tb_ortMassnahme.Text,
                    //rtb_absprachen.Text,
                    //rtb,
@@ -452,16 +452,16 @@ namespace DynamicPDFCreator
                 case "Wupfl":
                    FinalPDF = new PDF(
                    DBm.auftrag,
-                   DBm.anschreiben.ElementAt<TblAnschreibenTyp>(cmb_anschreibenTyp.SelectedIndex),
-                   DBm.ansprechpartner.ElementAt<TblAnsprechpartner>(cmb_empfaenger.SelectedIndex),
-                   DBm.bearbeiter.ElementAt<TblBearbeiter>(cmb_absender.SelectedIndex),
+                   DBm.anschreiben.ElementAt<AnschreibenTyp>(cmb_anschreibenTyp.SelectedIndex),
+                   DBm.ansprechpartner.ElementAt<Ansprechpartner>(cmb_empfaenger.SelectedIndex),
+                   DBm.bearbeiter.ElementAt<Bearbeiter>(cmb_absender.SelectedIndex),
                    datePicker.Value,
                    datePickerAusfuehrung.Value,
                    datePickerAusfuehrungEnde.Value.Date,
-                   DBm.bearbeiter.ElementAt<TblBearbeiter>(cmb_Ansprechpartner.SelectedIndex),
+                   DBm.bearbeiter.ElementAt<Bearbeiter>(cmb_Ansprechpartner.SelectedIndex),
                    tb_ortMassnahme.Text,
                    rtb,
-                   DBm.wesiTeam.ElementAt<TblWesiTeam>(cmb_wesie.SelectedIndex),
+                   DBm.wesiTeam.ElementAt<WesiTeam>(cmb_wesie.SelectedIndex),
                    cb_plansaetze.Checked,
                    cb_beteiligte.Checked,
                    cb_techBeschreibung.Checked,
@@ -471,19 +471,19 @@ namespace DynamicPDFCreator
                 case "Zustimmungsbescheid":
                     FinalPDF = new PDF(
                     DBm.auftrag,
-                    DBm.anschreiben.ElementAt<TblAnschreibenTyp>(cmb_anschreibenTyp.SelectedIndex),
-                    DBm.ansprechpartner.ElementAt<TblAnsprechpartner>(cmb_empfaenger.SelectedIndex),
+                    DBm.anschreiben.ElementAt<AnschreibenTyp>(cmb_anschreibenTyp.SelectedIndex),
+                    DBm.ansprechpartner.ElementAt<Ansprechpartner>(cmb_empfaenger.SelectedIndex),
                     tb_ortMassnahme.Text,
-                    DBm.wesiTeam.ElementAt<TblWesiTeam>(cmb_wesie.SelectedIndex)
+                    DBm.wesiTeam.ElementAt<WesiTeam>(cmb_wesie.SelectedIndex)
 
                     );
                     break;
                 case "AbstimmungNaturschutz":
                     FinalPDF = new PDF(
                     DBm.auftrag,
-                    DBm.anschreiben.ElementAt<TblAnschreibenTyp>(cmb_anschreibenTyp.SelectedIndex),
-                    DBm.ansprechpartner.ElementAt<TblAnsprechpartner>(cmb_empfaenger.SelectedIndex),
-                    DBm.bearbeiter.ElementAt<TblBearbeiter>(cmb_absender.SelectedIndex),
+                    DBm.anschreiben.ElementAt<AnschreibenTyp>(cmb_anschreibenTyp.SelectedIndex),
+                    DBm.ansprechpartner.ElementAt<Ansprechpartner>(cmb_empfaenger.SelectedIndex),
+                    DBm.bearbeiter.ElementAt<Bearbeiter>(cmb_absender.SelectedIndex),
                     datePicker.Value,
                     datePickerAusfuehrung.Value,
                     datePickerAusfuehrungEnde.Value.Date,
@@ -498,10 +498,10 @@ namespace DynamicPDFCreator
                 case "Kampfmittel":
                     FinalPDF = new PDF(
                     DBm.auftrag,
-                    DBm.anschreiben.ElementAt<TblAnschreibenTyp>(cmb_anschreibenTyp.SelectedIndex),
-                    DBm.ansprechpartner.ElementAt<TblAnsprechpartner>(cmb_empfaenger.SelectedIndex),
+                    DBm.anschreiben.ElementAt<AnschreibenTyp>(cmb_anschreibenTyp.SelectedIndex),
+                    DBm.ansprechpartner.ElementAt<Ansprechpartner>(cmb_empfaenger.SelectedIndex),
                     tb_ortMassnahme.Text,
-                    DBm.wesiTeam.ElementAt<TblWesiTeam>(cmb_wesie.SelectedIndex),
+                    DBm.wesiTeam.ElementAt<WesiTeam>(cmb_wesie.SelectedIndex),
                     datePicker.Value
                     );
                     break;
@@ -601,7 +601,7 @@ namespace DynamicPDFCreator
                 }
             }
             pfad += ordnerName;
-            pfad += $@"\Wegesicherung\Anschreiben\{finalPDF.anschreibenTyp.Bezeichnung}_{finalPDF.empfaenger.IdAnsprechpartner}.pdf";
+            pfad += $@"\Wegesicherung\Anschreiben\{finalPDF.anschreibenTyp.bezeichnung}_{finalPDF.empfaenger.IdAnsprechpartner}.pdf";
             return pfad;
         }
     }

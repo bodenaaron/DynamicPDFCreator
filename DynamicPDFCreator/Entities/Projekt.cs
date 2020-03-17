@@ -21,7 +21,7 @@ namespace DynamicPDFCreator
     /// <summary>
     /// There are no comments for DynamicPDFCreator.TblProjekte, DynamicPDFCreator in the schema.
     /// </summary>
-    public partial class TblProjekte {
+    public partial class Projekt {
     
         #region Extensibility Method Definitions
         
@@ -34,7 +34,7 @@ namespace DynamicPDFCreator
         /// <summary>
         /// There are no comments for TblProjekte constructor in the schema.
         /// </summary>
-        public TblProjekte()
+        public Projekt()
         {
             this.FaktorKNB0 = 0f;
             this.FaktorKNB1 = 0f;
@@ -405,6 +405,12 @@ namespace DynamicPDFCreator
         /// There are no comments for IdAuftraggeber in the schema.
         /// </summary>
         public virtual string IdAuftraggeber
+        {
+            get;
+            set;
+        }
+
+        public virtual List<Ansprechpartner> Ansprechpartner
         {
             get;
             set;

@@ -21,7 +21,7 @@ namespace DynamicPDFCreator
     /// <summary>
     /// There are no comments for DynamicPDFCreator.TblAnsprechpartner, DynamicPDFCreator in the schema.
     /// </summary>
-    public partial class TblAnsprechpartner {
+    public partial class Ansprechpartner {
     
         #region Extensibility Method Definitions
         
@@ -34,7 +34,7 @@ namespace DynamicPDFCreator
         /// <summary>
         /// There are no comments for TblAnsprechpartner constructor in the schema.
         /// </summary>
-        public TblAnsprechpartner()
+        public Ansprechpartner()
         {
             OnCreated();
         }
@@ -228,6 +228,12 @@ namespace DynamicPDFCreator
             get;
             set;
         }
-    }
+
+        public virtual List<Projekt> Projekte
+        {
+            get;
+            set;
+        }
+}
 
 }

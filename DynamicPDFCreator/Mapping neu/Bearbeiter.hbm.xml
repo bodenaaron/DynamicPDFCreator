@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<hibernate-mapping xmlns = "urn:nhibernate-mapping-2.2" assembly="DynamicPDFCreator" namespace="DynamicPDFCreator">
+
+  <class name = "Bearbeiter">
+    <id name = "id" column="idBearbeiter">
+      <generator class = "identity"/>
+    </id>
+    <property name = "email" column="Email"/>
+    <property name = "telefon" column="Telefon"/>
+    <property name = "bearbeiterName" column="Bearbeiter_Name"/>
+    <property name = "bearbeiterVorname" column="Bearbeiter_Vorname"/>
+  </class>
+
+</hibernate-mapping>

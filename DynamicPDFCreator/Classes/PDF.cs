@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FluentNHibernate.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +11,7 @@ namespace DynamicPDFCreator
     class PDF
     {
 
-        public PDF(TblAuftraege auftrag, TblAnschreibenTyp anschreibenTyp, TblAnsprechpartner empfaenger, TblBearbeiter absender, DateTime datum, DateTime ausfuehrungszeitraum, DateTime ausfuehrungszeitraumEnde, TblBearbeiter ansprechpartner, string ortDerMassnahme, string abgesprochenMit, RichTextBox beschreibungMassnahme, TblAnsprechpartner ansprechpartnerBau, TblWesiTeam wesiTeam, bool plansaetze, bool listeBeteiligte, bool techBeschreibung, bool untervollmacht,List<string>zusatzanlagen)
+        public  PDF(Auftrag auftrag, AnschreibenTyp anschreibenTyp, Ansprechpartner empfaenger, Bearbeiter absender, DateTime datum, DateTime ausfuehrungszeitraum, DateTime ausfuehrungszeitraumEnde, Bearbeiter ansprechpartner, string ortDerMassnahme, string abgesprochenMit, RichTextBox beschreibungMassnahme, Ansprechpartner ansprechpartnerBau, WesiTeam wesiTeam, bool plansaetze, bool listeBeteiligte, bool techBeschreibung, bool untervollmacht,List<string>zusatzanlagen)
         {
             this.auftrag = auftrag;
             this.anschreibenTyp = anschreibenTyp;
@@ -34,7 +35,7 @@ namespace DynamicPDFCreator
         /// <summary>
         /// WUPFL
         /// </summary>
-        public PDF(TblAuftraege auftrag, TblAnschreibenTyp anschreibenTyp, TblAnsprechpartner empfaenger, TblBearbeiter absender, DateTime datum, DateTime ausfuehrungszeitraum, DateTime ausfuehrungszeitraumEnde, TblBearbeiter ansprechpartner, string ortDerMassnahme, RichTextBox beschreibungMassnahme,  TblWesiTeam wesiTeam, bool plansaetze, bool listeBeteiligte, bool techBeschreibung, bool untervollmacht, List<string> zusatzanlagen)
+        public  PDF(Auftrag auftrag, AnschreibenTyp anschreibenTyp, Ansprechpartner empfaenger, Bearbeiter absender, DateTime datum, DateTime ausfuehrungszeitraum, DateTime ausfuehrungszeitraumEnde, Bearbeiter ansprechpartner, string ortDerMassnahme, RichTextBox beschreibungMassnahme,  WesiTeam wesiTeam, bool plansaetze, bool listeBeteiligte, bool techBeschreibung, bool untervollmacht, List<string> zusatzanlagen)
         {
             this.auftrag = auftrag;
             this.anschreibenTyp = anschreibenTyp;
@@ -57,7 +58,7 @@ namespace DynamicPDFCreator
         /// <summary>
         /// EVU
         /// </summary>
-        public PDF(TblAuftraege auftrag, TblAnschreibenTyp anschreibenTyp, TblAnsprechpartner empfaenger, TblBearbeiter absender, DateTime datum, DateTime ausfuehrungszeitraum, DateTime ausfuehrungszeitraumEnde, TblBearbeiter ansprechpartner, string ortDerMassnahme, bool plansaetze, bool listeBeteiligte, bool techBeschreibung, bool untervollmacht, List<string> zusatzanlagen)
+        public PDF(Auftrag auftrag, AnschreibenTyp anschreibenTyp, Ansprechpartner empfaenger, Bearbeiter absender, DateTime datum, DateTime ausfuehrungszeitraum, DateTime ausfuehrungszeitraumEnde, Bearbeiter ansprechpartner, string ortDerMassnahme, bool plansaetze, bool listeBeteiligte, bool techBeschreibung, bool untervollmacht, List<string> zusatzanlagen)
         {
             this.auftrag = auftrag;
             this.anschreibenTyp = anschreibenTyp;
@@ -82,7 +83,7 @@ namespace DynamicPDFCreator
         /// <summary>
         /// Zustimmungsbescheid
         /// </summary>
-        public PDF(TblAuftraege auftrag, TblAnschreibenTyp anschreibenTyp, TblAnsprechpartner empfaenger, string ortDerMassnahme,TblWesiTeam wesiTeam)
+        public PDF(Auftrag auftrag, AnschreibenTyp anschreibenTyp, Ansprechpartner empfaenger, string ortDerMassnahme,WesiTeam wesiTeam)
         {
             this.auftrag = auftrag;
             this.anschreibenTyp = anschreibenTyp;
@@ -95,7 +96,7 @@ namespace DynamicPDFCreator
         /// <summary>
         /// Kampfmittel
         /// </summary>
-        public PDF(TblAuftraege auftrag, TblAnschreibenTyp anschreibenTyp, TblAnsprechpartner empfaenger, string ortDerMassnahme, TblWesiTeam wesiTeam, DateTime datum)
+        public PDF(Auftrag auftrag, AnschreibenTyp anschreibenTyp, Ansprechpartner empfaenger, string ortDerMassnahme, WesiTeam wesiTeam, DateTime datum)
         {
             this.auftrag = auftrag;
             this.anschreibenTyp = anschreibenTyp;
@@ -109,7 +110,7 @@ namespace DynamicPDFCreator
         /// <summary>
         /// Abstimmung Naturschutz
         /// </summary>
-        public PDF(TblAuftraege auftrag, TblAnschreibenTyp anschreibenTyp, TblAnsprechpartner empfaenger, TblBearbeiter absender, DateTime datum, DateTime ausfuehrungszeitraum, DateTime ausfuehrungszeitraumEnde, string ortDerMassnahme, RichTextBox beschreibungMassnahme, bool plansaetze, bool listeBeteiligte, bool techBeschreibung, bool untervollmacht, List<string> zusatzanlagen)
+        public PDF(Auftrag auftrag, AnschreibenTyp anschreibenTyp, Ansprechpartner empfaenger, Bearbeiter absender, DateTime datum, DateTime ausfuehrungszeitraum, DateTime ausfuehrungszeitraumEnde, string ortDerMassnahme, RichTextBox beschreibungMassnahme, bool plansaetze, bool listeBeteiligte, bool techBeschreibung, bool untervollmacht, List<string> zusatzanlagen)
         {
             this.auftrag = auftrag;
             this.anschreibenTyp = anschreibenTyp;
@@ -126,28 +127,28 @@ namespace DynamicPDFCreator
             this.untervollmacht = untervollmacht;
             this.Zusatzanlagen = zusatzanlagen;
         }
-
-        public TblAuftraege auftrag { get; set; } //= new TblAuftraege();
-        public TblAnschreibenTyp anschreibenTyp { get; set; } //= new TblAnschreibenTyp();
-        public TblAnsprechpartner empfaenger { get; set; } //= new TblAnsprechpartner();
-        public TblBearbeiter absender { get; set; }
-        public DateTime datum { get; set; }
-        public DateTime ausfuehrungszeitraum { get; set; }
-        public DateTime ausfuehrungszeitraumEnde { get; set; }
-        public TblBearbeiter ansprechpartner { get; set; }
-        public string ortDerMassnahme { get; set; }
-        public string abgesprochenMit { get; set; }
-        public RichTextBox beschreibungMassnahme { get; set; }
-        public TblAnsprechpartner ansprechpartnerBau { get; set; }
-        public TblWesiTeam wesiTeam { get; set; } //= new TblWesiTeam();
-        public bool plansaetze { get; set; }
-        public bool listeBeteiligte { get; set; }
-        public bool techBeschreibung { get; set; }
-        public bool untervollmacht { get; set; }
-        public string zusatzAnlage1 { get; set; }
-        public string zusatzAnlage2 { get; set; }
-        public string zusatzAnlage3 { get; set; }
-        public List<string> Zusatzanlagen { get; set; }
+        public virtual int id { get; set; } //= new TblAuftraege();
+        public virtual Auftrag auftrag { get; set; } //= new TblAuftraege();
+        public virtual AnschreibenTyp anschreibenTyp { get; set; } //= new TblAnschreibenTyp();
+        public virtual Ansprechpartner empfaenger { get; set; } //= new TblAnsprechpartner();
+        public virtual Bearbeiter absender { get; set; }
+        public virtual DateTime datum { get; set; }
+        public virtual DateTime ausfuehrungszeitraum { get; set; }
+        public virtual DateTime ausfuehrungszeitraumEnde { get; set; }
+        public virtual Bearbeiter ansprechpartner { get; set; }
+        public virtual string ortDerMassnahme { get; set; }
+        public virtual string abgesprochenMit { get; set; }
+        public virtual RichTextBox beschreibungMassnahme { get; set; }
+        public virtual Ansprechpartner ansprechpartnerBau { get; set; }
+        public virtual WesiTeam wesiTeam { get; set; } //= new TblWesiTeam();
+        public virtual bool plansaetze { get; set; }
+        public virtual bool untervollmacht { get; set; }
+        public virtual bool listeBeteiligte { get; set; }
+        public virtual bool techBeschreibung { get; set; }
+        public virtual  string zusatzAnlage1 { get; set; }
+        public virtual string zusatzAnlage2 { get; set; }
+        public virtual string zusatzAnlage3 { get; set; }
+        public virtual List<string> Zusatzanlagen { get; set; }
 
 
 

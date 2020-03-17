@@ -18,10 +18,8 @@ using System.Collections.Generic;
 namespace DynamicPDFCreator
 {
 
-    /// <summary>
-    /// There are no comments for DynamicPDFCreator.TblAnschreibenTyp, DynamicPDFCreator in the schema.
-    /// </summary>
-    public partial class TblAnschreibenTyp {
+   
+    public partial class AnschreibenTyp {
     
         #region Extensibility Method Definitions
         
@@ -31,29 +29,17 @@ namespace DynamicPDFCreator
         partial void OnCreated();
         
         #endregion
-        /// <summary>
-        /// There are no comments for TblAnschreibenTyp constructor in the schema.
-        /// </summary>
-        public TblAnschreibenTyp()
+        
+        public AnschreibenTyp()
         {
             OnCreated();
         }
-
-    
-        /// <summary>
-        /// There are no comments for Id in the schema.
-        /// </summary>
-        public virtual short Id
+        public virtual short id
         {
             get;
             set;
         }
-
-    
-        /// <summary>
-        /// There are no comments for Bezeichnung in the schema.
-        /// </summary>
-        public virtual string Bezeichnung
+        public virtual string bezeichnung
         {
             get;
             set;

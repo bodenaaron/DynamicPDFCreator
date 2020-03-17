@@ -21,7 +21,7 @@ namespace DynamicPDFCreator
     /// <summary>
     /// There are no comments for DynamicPDFCreator.TblAnsprechpartner2Projekt, DynamicPDFCreator in the schema.
     /// </summary>
-    public partial class TblAnsprechpartner2Projekt {
+    public partial class Ansprechpartner2Projekt {
     
         #region Extensibility Method Definitions
         
@@ -32,7 +32,7 @@ namespace DynamicPDFCreator
 
         public override bool Equals(object obj)
         {
-          TblAnsprechpartner2Projekt toCompare = obj as TblAnsprechpartner2Projekt;
+          Ansprechpartner2Projekt toCompare = obj as Ansprechpartner2Projekt;
           if (toCompare == null)
           {
             return false;
@@ -58,7 +58,7 @@ namespace DynamicPDFCreator
         /// <summary>
         /// There are no comments for TblAnsprechpartner2Projekt constructor in the schema.
         /// </summary>
-        public TblAnsprechpartner2Projekt()
+        public Ansprechpartner2Projekt()
         {
             this.IdProjekt = 0;
             this.IdAnsprechpartner = 0;

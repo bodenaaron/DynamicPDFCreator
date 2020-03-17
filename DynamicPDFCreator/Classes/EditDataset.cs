@@ -12,14 +12,14 @@ namespace DynamicPDFCreator
 {
     public partial class EditDataset : Form
     {
-        TblAnsprechpartner ansprechpartner = new TblAnsprechpartner();
-        TblWesiTeam wesiTeam = new TblWesiTeam();
+        Ansprechpartner ansprechpartner = new Ansprechpartner();
+        WesiTeam wesiTeam = new WesiTeam();
         public EditDataset()
         {
             InitializeComponent();
         }
 
-        public void ReinitializeComponent(TblAnsprechpartner ansprechpartner, object[] ansprechpartnerTypen)
+        public void ReinitializeComponent(Ansprechpartner ansprechpartner, object[] ansprechpartnerTypen)
         {
             tb_vorname.Text =       ansprechpartner.AnsprechpartnerVorname;
             tb_nachname.Text =      ansprechpartner.AnsprechpartnerName;
@@ -43,7 +43,7 @@ namespace DynamicPDFCreator
             cmb_typ.Items.AddRange(ansprechpartnerTypen);
         }
 
-        public void ReinitializeComponent(TblWesiTeam wesiTeam)
+        public void ReinitializeComponent(WesiTeam wesiTeam)
         {
             tb_strasse.Text =       wesiTeam.Strasse;
             tb_plz.Text =           wesiTeam.PLZ;

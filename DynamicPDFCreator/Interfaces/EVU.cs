@@ -74,7 +74,7 @@ namespace DynamicPDFCreator.Interfaces
                   	Ansprechpartner:    
                   </td>
                   <td>
-                  	{pdf.ansprechpartner.BearbeiterVorname} {pdf.ansprechpartner.BearbeiterName}, {pdf.ansprechpartner.Telefon}, {pdf.ansprechpartner.Email}
+                  	{pdf.ansprechpartner.bearbeiterVorname} {pdf.ansprechpartner.bearbeiterName}, {pdf.ansprechpartner.telefon}, {pdf.ansprechpartner.email}
                   </td>
                 </tr>
                   <tr>
@@ -139,7 +139,7 @@ namespace DynamicPDFCreator.Interfaces
                     Mit freundlichen Grüßen:
                 </p>
                 <p>
-                    i.A. {pdf.ansprechpartner.BearbeiterVorname} {pdf.ansprechpartner.BearbeiterName}
+                    i.A. {pdf.ansprechpartner.bearbeiterVorname} {pdf.ansprechpartner.bearbeiterName}
                 </p>
                 </td>
                 </tr>

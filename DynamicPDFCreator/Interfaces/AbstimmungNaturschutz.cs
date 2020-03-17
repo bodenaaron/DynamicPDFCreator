@@ -108,8 +108,8 @@ namespace DynamicPDFCreator.Interfaces
                     Mit freundlichen Grüßen:
                 </p>
                 <p>
-                    i.A. {pdf.absender.BearbeiterVorname} {pdf.absender.BearbeiterName}<br/>
-                        {pdf.absender.Telefon}<br/>{pdf.absender.Email}
+                    i.A. {pdf.absender.bearbeiterVorname} {pdf.absender.bearbeiterName}<br/>
+                        {pdf.absender.telefon}<br/>{pdf.absender.email}
                 </p>
                 </td>
                 </tr>

@@ -18,23 +18,23 @@ using System.Collections.Generic;
 namespace DynamicPDFCreator
 {
 
-    /// <summary>
+    
     /// There are no comments for DynamicPDFCreator.TblAuftraege, DynamicPDFCreator in the schema.
-    /// </summary>
-    public partial class TblAuftraege {
+    
+    public partial class Auftrag {
     
         #region Extensibility Method Definitions
         
-        /// <summary>
+        
         /// There are no comments for OnCreated in the schema.
-        /// </summary>
+        
         partial void OnCreated();
         
         #endregion
-        /// <summary>
+        
         /// There are no comments for TblAuftraege constructor in the schema.
-        /// </summary>
-        public TblAuftraege()
+        
+        public Auftrag()
         {
             this.IdWMSTIStatus = @"ohne WMSTI";
             this.InternWMSTIAbschliessbar = false;
@@ -57,9 +57,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
-        /// There are no comments for IdAuftrag in the schema.
-        /// </summary>
+        
+        
+        
         public virtual int IdAuftrag
         {
             get;
@@ -67,9 +67,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for SSMATimeStamp in the schema.
-        /// </summary>
+        
         public virtual byte[] SSMATimeStamp
         {
             get;
@@ -77,9 +77,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for SMNummer in the schema.
-        /// </summary>
+        
         public virtual string SMNummer
         {
             get;
@@ -87,9 +87,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for Requestnummer in the schema.
-        /// </summary>
+        
         public virtual string Requestnummer
         {
             get;
@@ -97,9 +97,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for IdWMSTIStatus in the schema.
-        /// </summary>
+        
         public virtual string IdWMSTIStatus
         {
             get;
@@ -107,9 +107,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for IdBearbeiter in the schema.
-        /// </summary>
+        
         public virtual string IdBearbeiter
         {
             get;
@@ -117,9 +117,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for Bezeichnung in the schema.
-        /// </summary>
+        
         public virtual string Bezeichnung
         {
             get;
@@ -127,9 +127,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for Auftragseingang in the schema.
-        /// </summary>
+        
         public virtual System.DateTime Auftragseingang
         {
             get;
@@ -137,9 +137,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for BAFAKorrigiert in the schema.
-        /// </summary>
+        
         public virtual System.DateTime? BAFAKorrigiert
         {
             get;
@@ -147,9 +147,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for Bemerkung in the schema.
-        /// </summary>
+        
         public virtual string Bemerkung
         {
             get;
@@ -157,9 +157,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for Baubeschreibung in the schema.
-        /// </summary>
+        
         public virtual string Baubeschreibung
         {
             get;
@@ -167,9 +167,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for InternWMSTIAbschliessbar in the schema.
-        /// </summary>
+        
         public virtual bool? InternWMSTIAbschliessbar
         {
             get;
@@ -177,9 +177,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for Selektiert in the schema.
-        /// </summary>
+        
         public virtual bool? Selektiert
         {
             get;
@@ -187,9 +187,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for CreateDate in the schema.
-        /// </summary>
+        
         public virtual System.DateTime? CreateDate
         {
             get;
@@ -197,9 +197,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for UpdateDate in the schema.
-        /// </summary>
+        
         public virtual System.DateTime? UpdateDate
         {
             get;
@@ -207,9 +207,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for IdAuftragnehmerTiefbau in the schema.
-        /// </summary>
+        
         public virtual string IdAuftragnehmerTiefbau
         {
             get;
@@ -217,9 +217,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for IdAuftragnehmerMontage in the schema.
-        /// </summary>
+        
         public virtual string IdAuftragnehmerMontage
         {
             get;
@@ -227,9 +227,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for IdAuftragnehmerPlanung in the schema.
-        /// </summary>
+        
         public virtual string IdAuftragnehmerPlanung
         {
             get;
@@ -237,9 +237,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for IdAuftragnehmerBaubegleitung in the schema.
-        /// </summary>
+        
         public virtual string IdAuftragnehmerBaubegleitung
         {
             get;
@@ -247,9 +247,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for IdAuftragnehmerDokumentation in the schema.
-        /// </summary>
+        
         public virtual string IdAuftragnehmerDokumentation
         {
             get;
@@ -257,9 +257,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for IdAuftraggeber in the schema.
-        /// </summary>
+        
         public virtual string IdAuftraggeber
         {
             get;
@@ -267,9 +267,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for ExportiertAm in the schema.
-        /// </summary>
+        
         public virtual System.DateTime? ExportiertAm
         {
             get;
@@ -277,9 +277,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for Gemerkt in the schema.
-        /// </summary>
+        
         public virtual bool? Gemerkt
         {
             get;
@@ -287,9 +287,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for WMSTIStatusDatum in the schema.
-        /// </summary>
+        
         public virtual System.DateTime? WMSTIStatusDatum
         {
             get;
@@ -297,9 +297,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for PlanungsNummer in the schema.
-        /// </summary>
+        
         public virtual string PlanungsNummer
         {
             get;
@@ -307,9 +307,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for IdProjekt in the schema.
-        /// </summary>
+        
         public virtual int? IdProjekt
         {
             get;
@@ -317,9 +317,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for Postleitzahl in the schema.
-        /// </summary>
+        
         public virtual string Postleitzahl
         {
             get;
@@ -327,9 +327,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for Ort in the schema.
-        /// </summary>
+        
         public virtual string Ort
         {
             get;
@@ -337,9 +337,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for MontAOrtsteil in the schema.
-        /// </summary>
+        
         public virtual string MontAOrtsteil
         {
             get;
@@ -347,9 +347,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for Strasse in the schema.
-        /// </summary>
+        
         public virtual string Strasse
         {
             get;
@@ -357,9 +357,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for Hausnummer in the schema.
-        /// </summary>
+        
         public virtual string Hausnummer
         {
             get;
@@ -367,9 +367,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for MontAZusatzStr in the schema.
-        /// </summary>
+        
         public virtual string MontAZusatzStr
         {
             get;
@@ -377,9 +377,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// wird importiert, kann aber geändert werden
-        /// </summary>
+        
         public virtual string Ortsnetz
         {
             get;
@@ -387,9 +387,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// wird importiert, kann aber geändert werden
-        /// </summary>
+        
         public virtual string ASB
         {
             get;
@@ -397,9 +397,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// muss eingetragen werden - danach kann man mit dem ON + ASB + KVZ  auf die TblKvz zugreifen
-        /// </summary>
+        
         public virtual string KVZ
         {
             get;
@@ -407,9 +407,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for ZusatzMaterial in the schema.
-        /// </summary>
+        
         public virtual int? ZusatzMaterial
         {
             get;
@@ -417,9 +417,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for Langtext in the schema.
-        /// </summary>
+        
         public virtual string Langtext
         {
             get;
@@ -427,9 +427,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for AbrechnungMitidAuftrag in the schema.
-        /// </summary>
+        
         public virtual int? AbrechnungMitidAuftrag
         {
             get;
@@ -437,9 +437,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for WegesicherungErforderlich in the schema.
-        /// </summary>
+        
         public virtual int WegesicherungErforderlich
         {
             get;
@@ -447,9 +447,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for DatenblattErforderlich in the schema.
-        /// </summary>
+        
         public virtual int DatenblattErforderlich
         {
             get;
@@ -457,9 +457,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for WegesicherungErledigt in the schema.
-        /// </summary>
+        
         public virtual int WegesicherungErledigt
         {
             get;
@@ -467,9 +467,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for DatenblattErledigt in the schema.
-        /// </summary>
+        
         public virtual int DatenblattErledigt
         {
             get;
@@ -477,9 +477,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// Zeitpunkt an dem der Auftrag begonnen wird.
-        /// </summary>
+        
         public virtual System.DateTime? SollBeginnPlanung
         {
             get;
@@ -487,9 +487,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// Geschätzte Bearbeitungszeit
-        /// </summary>
+        
         public virtual float? SollDauerPlanung
         {
             get;
@@ -497,9 +497,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for SollEndePlanung in the schema.
-        /// </summary>
+        
         public virtual System.DateTime? SollEndePlanung
         {
             get;
@@ -507,9 +507,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for IstEndePlanung in the schema.
-        /// </summary>
+        
         public virtual System.DateTime? IstEndePlanung
         {
             get;
@@ -517,9 +517,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for MegaplanDatenbank in the schema.
-        /// </summary>
+        
         public virtual string MegaplanDatenbank
         {
             get;
@@ -527,9 +527,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for SollDauerDoku in the schema.
-        /// </summary>
+        
         public virtual int? SollDauerDoku
         {
             get;
@@ -537,9 +537,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for IstEndeDoku in the schema.
-        /// </summary>
+        
         public virtual System.DateTime? IstEndeDoku
         {
             get;
@@ -547,9 +547,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for MegaplanAnsprechpartner in the schema.
-        /// </summary>
+        
         public virtual string MegaplanAnsprechpartner
         {
             get;
@@ -557,9 +557,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for MBfDVertragsnummer in the schema.
-        /// </summary>
+        
         public virtual string MBfDVertragsnummer
         {
             get;
@@ -567,9 +567,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for IdAuftragVeranschlagungshilfe in the schema.
-        /// </summary>
+        
         public virtual int? IdAuftragVeranschlagungshilfe
         {
             get;
@@ -577,9 +577,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for EsassNR in the schema.
-        /// </summary>
+        
         public virtual string EsassNR
         {
             get;
@@ -587,9 +587,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for WegesicherungThema in the schema.
-        /// </summary>
+        
         public virtual string WegesicherungThema
         {
             get;
@@ -597,9 +597,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for WegesicherungErgebnis in the schema.
-        /// </summary>
+        
         public virtual string WegesicherungErgebnis
         {
             get;
@@ -607,9 +607,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for WegesicherungVerschickt in the schema.
-        /// </summary>
+        
         public virtual System.DateTime? WegesicherungVerschickt
         {
             get;
@@ -617,9 +617,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for WegesicherungBestätigt in the schema.
-        /// </summary>
+        
         public virtual System.DateTime? WegesicherungBestätigt
         {
             get;
@@ -627,9 +627,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for WegesicherungUhrzeitvon in the schema.
-        /// </summary>
+        
         public virtual System.DateTime? WegesicherungUhrzeitvon
         {
             get;
@@ -637,9 +637,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for WegesicherungUhrzeitbis in the schema.
-        /// </summary>
+        
         public virtual System.DateTime? WegesicherungUhrzeitbis
         {
             get;
@@ -647,9 +647,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for WegesicherungAnspreichpartner in the schema.
-        /// </summary>
+        
         public virtual string WegesicherungAnspreichpartner
         {
             get;
@@ -657,9 +657,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for WegesicherungTextbox1 in the schema.
-        /// </summary>
+        
         public virtual string WegesicherungTextbox1
         {
             get;
@@ -667,9 +667,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for WegesicherungTextbox2 in the schema.
-        /// </summary>
+        
         public virtual string WegesicherungTextbox2
         {
             get;
@@ -677,9 +677,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for WegesicherungTextbox3 in the schema.
-        /// </summary>
+        
         public virtual string WegesicherungTextbox3
         {
             get;
@@ -687,9 +687,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for WegesicherungAusführungszeitraum in the schema.
-        /// </summary>
+        
         public virtual string WegesicherungAusführungszeitraum
         {
             get;
@@ -697,9 +697,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for WegesicherungBemerkung in the schema.
-        /// </summary>
+        
         public virtual string WegesicherungBemerkung
         {
             get;
@@ -707,9 +707,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for KDName in the schema.
-        /// </summary>
+        
         public virtual string KDName
         {
             get;
@@ -717,9 +717,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for KDVorname in the schema.
-        /// </summary>
+        
         public virtual string KDVorname
         {
             get;
@@ -727,9 +727,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for KDPLZ in the schema.
-        /// </summary>
+        
         public virtual string KDPLZ
         {
             get;
@@ -737,9 +737,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for KDOrt in the schema.
-        /// </summary>
+        
         public virtual string KDOrt
         {
             get;
@@ -747,9 +747,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for KDOrtsteil in the schema.
-        /// </summary>
+        
         public virtual string KDOrtsteil
         {
             get;
@@ -757,9 +757,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for KDStraße in the schema.
-        /// </summary>
+        
         public virtual string KDStraße
         {
             get;
@@ -767,9 +767,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for KDHsNr in the schema.
-        /// </summary>
+        
         public virtual string KDHsNr
         {
             get;
@@ -777,9 +777,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for KDZusatz in the schema.
-        /// </summary>
+        
         public virtual string KDZusatz
         {
             get;
@@ -787,9 +787,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for KDAnsprechpartner in the schema.
-        /// </summary>
+        
         public virtual string KDAnsprechpartner
         {
             get;
@@ -797,9 +797,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for KDTelAnsprechpartner in the schema.
-        /// </summary>
+        
         public virtual string KDTelAnsprechpartner
         {
             get;
@@ -807,9 +807,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for AuftragsfallTI in the schema.
-        /// </summary>
+        
         public virtual string AuftragsfallTI
         {
             get;
@@ -817,9 +817,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// Hier wird f+r dei APL-Aufträge der APL eingetragen
-        /// </summary>
+        
         public virtual string APL
         {
             get;
@@ -827,9 +827,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// Anzahl der Wohneinheiten
-        /// </summary>
+        
         public virtual string AnzahlWE
         {
             get;
@@ -837,9 +837,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// Anzahl der Geschäftseinheiten
-        /// </summary>
+        
         public virtual string AnzahlGE
         {
             get;
@@ -847,9 +847,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// APL innen oder außen
-        /// </summary>
+        
         public virtual string Bauweise
         {
             get;
@@ -857,9 +857,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for IdBaugebiet in the schema.
-        /// </summary>
+        
         public virtual int? IdBaugebiet
         {
             get;
@@ -867,9 +867,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for IdKVZBaugebiet in the schema.
-        /// </summary>
+        
         public virtual string IdKVZBaugebiet
         {
             get;
@@ -877,9 +877,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for BaubeschreibungAPL in the schema.
-        /// </summary>
+        
         public virtual string BaubeschreibungAPL
         {
             get;
@@ -887,9 +887,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for ÜbergeordneteRequestIDAusImport in the schema.
-        /// </summary>
+        
         public virtual string ÜbergeordneteRequestIDAusImport
         {
             get;
@@ -897,9 +897,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for Verzögerungsgrund in the schema.
-        /// </summary>
+        
         public virtual string Verzögerungsgrund
         {
             get;
@@ -907,9 +907,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for CSAuftrag in the schema.
-        /// </summary>
+        
         public virtual string CSAuftrag
         {
             get;
@@ -917,9 +917,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for PlanungsLeistungenInHauptauftrag in the schema.
-        /// </summary>
+        
         public virtual bool? PlanungsLeistungenInHauptauftrag
         {
             get;
@@ -927,9 +927,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for Markiert in the schema.
-        /// </summary>
+        
         public virtual bool? Markiert
         {
             get;
@@ -937,9 +937,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for ErstVon in the schema.
-        /// </summary>
+        
         public virtual string ErstVon
         {
             get;
@@ -947,9 +947,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for ErstAm in the schema.
-        /// </summary>
+        
         public virtual System.DateTime? ErstAm
         {
             get;
@@ -957,9 +957,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for AendVon in the schema.
-        /// </summary>
+        
         public virtual string AendVon
         {
             get;
@@ -967,9 +967,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for AendAm in the schema.
-        /// </summary>
+        
         public virtual System.DateTime? AendAm
         {
             get;
@@ -977,9 +977,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for IDStatusWegesicherung in the schema.
-        /// </summary>
+        
         public virtual int? IDStatusWegesicherung
         {
             get;
@@ -987,9 +987,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for IDStatusBauablauf in the schema.
-        /// </summary>
+        
         public virtual int? IDStatusBauablauf
         {
             get;
@@ -997,9 +997,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for IDStatusQgis in the schema.
-        /// </summary>
+        
         public virtual int? IDStatusQgis
         {
             get;
@@ -1007,9 +1007,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for IDStatusVeranschlagung in the schema.
-        /// </summary>
+        
         public virtual int? IDStatusVeranschlagung
         {
             get;
@@ -1017,9 +1017,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for IDStatusBauakte in the schema.
-        /// </summary>
+        
         public virtual int? IDStatusBauakte
         {
             get;
@@ -1027,9 +1027,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for IDStatusMegaplan in the schema.
-        /// </summary>
+        
         public virtual int? IDStatusMegaplan
         {
             get;
@@ -1037,9 +1037,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for IDStatusDokumentation in the schema.
-        /// </summary>
+        
         public virtual int? IDStatusDokumentation
         {
             get;
@@ -1047,9 +1047,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for StatusWegesicherungBemerkung in the schema.
-        /// </summary>
+        
         public virtual string StatusWegesicherungBemerkung
         {
             get;
@@ -1057,9 +1057,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for StatusBauablaufBemerkung in the schema.
-        /// </summary>
+        
         public virtual string StatusBauablaufBemerkung
         {
             get;
@@ -1067,9 +1067,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for StatusQgisBemerkung in the schema.
-        /// </summary>
+        
         public virtual string StatusQgisBemerkung
         {
             get;
@@ -1077,9 +1077,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for StatusVeranschlagungBemerkung in the schema.
-        /// </summary>
+        
         public virtual string StatusVeranschlagungBemerkung
         {
             get;
@@ -1087,9 +1087,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for StatusBauakteBemerkung in the schema.
-        /// </summary>
+        
         public virtual string StatusBauakteBemerkung
         {
             get;
@@ -1097,9 +1097,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for StatusMegaplanBemerkung in the schema.
-        /// </summary>
+        
         public virtual string StatusMegaplanBemerkung
         {
             get;
@@ -1107,9 +1107,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for StatusDokumentationBemerkung in the schema.
-        /// </summary>
+        
         public virtual string StatusDokumentationBemerkung
         {
             get;
@@ -1117,9 +1117,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for StatusWegesicherungAendVon in the schema.
-        /// </summary>
+        
         public virtual string StatusWegesicherungAendVon
         {
             get;
@@ -1127,9 +1127,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for StatusWegesicherungZeitpunkt in the schema.
-        /// </summary>
+        
         public virtual System.DateTime? StatusWegesicherungZeitpunkt
         {
             get;
@@ -1137,9 +1137,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for StatusBauablaufAendVon in the schema.
-        /// </summary>
+        
         public virtual string StatusBauablaufAendVon
         {
             get;
@@ -1147,9 +1147,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for StatusBauablaufAendAm in the schema.
-        /// </summary>
+        
         public virtual System.DateTime? StatusBauablaufAendAm
         {
             get;
@@ -1157,9 +1157,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for StatusQgisAendVon in the schema.
-        /// </summary>
+        
         public virtual string StatusQgisAendVon
         {
             get;
@@ -1167,9 +1167,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for StatusQgisAendAm in the schema.
-        /// </summary>
+        
         public virtual System.DateTime? StatusQgisAendAm
         {
             get;
@@ -1177,9 +1177,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for StatusVeranschlagungAendVon in the schema.
-        /// </summary>
+        
         public virtual string StatusVeranschlagungAendVon
         {
             get;
@@ -1187,9 +1187,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for StatusVeranschlagungAendAm in the schema.
-        /// </summary>
+        
         public virtual System.DateTime? StatusVeranschlagungAendAm
         {
             get;
@@ -1197,9 +1197,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for StatusBauakteAendVon in the schema.
-        /// </summary>
+        
         public virtual string StatusBauakteAendVon
         {
             get;
@@ -1207,9 +1207,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for StatusBauakteAendAm in the schema.
-        /// </summary>
+        
         public virtual System.DateTime? StatusBauakteAendAm
         {
             get;
@@ -1217,9 +1217,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for StatusMegaplanAendVon in the schema.
-        /// </summary>
+        
         public virtual string StatusMegaplanAendVon
         {
             get;
@@ -1227,9 +1227,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for StatusMegaplanAendAm in the schema.
-        /// </summary>
+        
         public virtual System.DateTime? StatusMegaplanAendAm
         {
             get;
@@ -1237,9 +1237,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for StatusDokumentationAendVon in the schema.
-        /// </summary>
+        
         public virtual string StatusDokumentationAendVon
         {
             get;
@@ -1247,9 +1247,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for StatusDokumentationAendAm in the schema.
-        /// </summary>
+        
         public virtual System.DateTime? StatusDokumentationAendAm
         {
             get;
@@ -1257,9 +1257,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for Wunschtermin in the schema.
-        /// </summary>
+        
         public virtual System.DateTime? Wunschtermin
         {
             get;
@@ -1267,9 +1267,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for Wunschbearbeiter in the schema.
-        /// </summary>
+        
         public virtual string Wunschbearbeiter
         {
             get;
@@ -1277,9 +1277,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for IDStatusNacharbeiten in the schema.
-        /// </summary>
+        
         public virtual int? IDStatusNacharbeiten
         {
             get;
@@ -1287,9 +1287,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for StatusNacharbeitenAendAm in the schema.
-        /// </summary>
+        
         public virtual System.DateTime? StatusNacharbeitenAendAm
         {
             get;
@@ -1297,9 +1297,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for StatusNacharbeitenAendVon in the schema.
-        /// </summary>
+        
         public virtual string StatusNacharbeitenAendVon
         {
             get;
@@ -1307,9 +1307,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for IDStatusQgisHausanschluesse in the schema.
-        /// </summary>
+        
         public virtual int? IDStatusQgisHausanschluesse
         {
             get;
@@ -1317,9 +1317,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for StatusQgisHausanschluesseAendAm in the schema.
-        /// </summary>
+        
         public virtual System.DateTime? StatusQgisHausanschluesseAendAm
         {
             get;
@@ -1327,9 +1327,9 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for StatusQgisHausanschluesseAendVon in the schema.
-        /// </summary>
+        
         public virtual string StatusQgisHausanschluesseAendVon
         {
             get;
@@ -1337,14 +1337,16 @@ namespace DynamicPDFCreator
         }
 
     
-        /// <summary>
+        
         /// There are no comments for StatusNacharbeitenBemerkung in the schema.
-        /// </summary>
+        
         public virtual string StatusNacharbeitenBemerkung
         {
             get;
             set;
         }
+
+        
     }
 
 }
