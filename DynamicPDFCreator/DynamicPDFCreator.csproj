@@ -222,6 +222,7 @@
     <EmbeddedResource Include="Mapping neu\Bearbeiter.hbm.xml" />
     <EmbeddedResource Include="Mapping neu\AnschreibenTyp.hbm.xml" />
     <EmbeddedResource Include="Mapping neu\Ansprechpartner.hbm.xml" />
+    <EmbeddedResource Include="Mapping neu\Auftrag.hbm.xml" />
     <Content Include="Mapping\PDF.hbm.xml" />
     <None Include="Mapping\PDFCreatorModels3.TblAnsprechpartnerTyp.hbm.xml" />
     <None Include="Mapping\PDFCreatorModels3.TblWesiTeam.hbm.xml" />
