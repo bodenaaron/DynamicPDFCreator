@@ -601,14 +601,104 @@ namespace DynamicPDFCreator
             return pfad;
         }
 
-        private void ListBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void Listb_vorherige_PDF_SelectedIndexChanged(object sender, EventArgs e)
         {
+            clearAll(false);
+            loadPDF();
+        }
 
+        private void loadPDF()
+        {
+            PDF pdf = DBm.dbPDF.auftrag.pdfs.ElementAt<PDF>(listb_vorherige_PDF.SelectedIndex);
+
+            cmb_anschreibenTyp.SelectedIndex=pdf.anschreibenTyp.id-1;
+            cmb_empfaenger.SelectedIndex=DBm.dbPDF.empfaenger.ElementAt<Ansprechpartner>(pdf.em));
+            cmb_absender.SelectedIndex();
+            datePicker
+            datePickerAusfuehrung
+            datePickerAusfuehrungEnde
+            cmb_Ansprechpartner.SelectedIndex();
+            tb_ortMassnahme
+            rtb_absprachen
+            rtb_BeschreibungMassnahme
+            cmb_wesie.SelectedIndex();
+            cmb_ansprechpartnerBau.SelectedIndex();
+            cb_beteiligte
+            cb_untervollmacht
+            cb_plansaetze
+            cb_techBeschreibung
+            tb_ZusatzAnlage2
+            tb_ZusatzAnlage1
+
+
+            /*tb_smNummer
+            cmb_anschreibenTyp
+            cmb_empfaenger
+            cmb_absender
+            datePicker
+
+            datePickerAusfuehrung
+            datePickerAusfuehrungEnde
+            cmb_Ansprechpartner
+            tb_ortMassnahme
+            rtb_absprachen
+            rtb_BeschreibungMassnahme
+            cmb_wesie
+            cmb_ansprechpartnerBau
+            cb_beteiligte
+            cb_untervollmacht
+            cb_plansaetze              
+            cb_techBeschreibung                                       
+            tb_ZusatzAnlage2 
+            tb_ZusatzAnlage1 
+            
+            
+            switch (pdf.anschreibenTyp.id)
+            {
+                //Anschreiben EVU
+                case 1:
+                    cmb_Ansprechpartner
+                    tb_ortMassnahme
+
+                    break;
+                    //Anschreiben Mitbenutzung
+                case 2:
+                    break;
+                    //Antrag Wupfl
+                case 3:
+                    break;
+                    //Bördliche Genehmigung
+                case 4:
+                    break;
+                    //Erläuterungsbericht
+                case 5:
+                    break;
+                    //Zustimmungsbescheid
+                case 6:
+                    break;
+                    //Abstimmung Naturschutz
+                case 7:
+                    break;
+                    //SOS Zustimmungsbescheid
+                case 8:
+                    break;
+                    //SOS Antrag
+                case 9:
+                    break;
+                    //Anschreibe Kommune
+                case 10:
+                    break;
+                    //Anschreiben Datenblatt
+                case 11:
+                    break;
+                    //Amschreiben Kommune Trenching
+                case 12:
+                    break;
+                    //Anschreiben Kampfmitte
+                case 13:
+                    break;*/
+            }
+            
         }
     }
     }
