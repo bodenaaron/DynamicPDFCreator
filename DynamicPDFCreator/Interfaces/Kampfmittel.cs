@@ -105,7 +105,7 @@ namespace DynamicPDFCreator.Interfaces
                    		SM-Auftrag Nr.:
                        </td>
                        <td>
-                         <b>{pdf.auftrag.SMNummer}</b>
+                         <b>{pdf.auftrag.smNummer}</b>
                          </td>
                        </tr>
                      </table>

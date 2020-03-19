@@ -28,7 +28,6 @@ namespace DynamicPDFCreator
         #endregion
         public Bearbeiter()
         {
-            this.CreateDate = DateTime.Now;
             OnCreated();
         }
         public virtual string id

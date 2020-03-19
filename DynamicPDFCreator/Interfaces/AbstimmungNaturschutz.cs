@@ -79,7 +79,7 @@ namespace DynamicPDFCreator.Interfaces
                 </tr>
                   <tr>
                 	<td valign= top>
-                  	SM-Auftragsnummer: <b>{pdf.auftrag.SMNummer} </b>(bei Rückfragen bitte immer angeben)
+                  	SM-Auftragsnummer: <b>{pdf.auftrag.smNummer} </b>(bei Rückfragen bitte immer angeben)
                   </td>
                 </tr>
                   <tr>

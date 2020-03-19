@@ -2,26 +2,30 @@
 
 <hibernate-mapping xmlns = "urn:nhibernate-mapping-2.2" assembly="DynamicPDFCreator" namespace="DynamicPDFCreator">
 
-  <class name = "Ansprechpartner">
+  <class name = "Ansprechpartner" table="tblAnsprechpartner">
     <id name = "id" column="idAnsprechpartner">
       <generator class = "identity"/>
     </id>
-    <property name = "funktion" column="Funktion"/>
-    <property name = "ansprechpartnerName" column="Ansprechpartner_Name"/>
-    <property name = "ansprechpartnerVorname" column="Ansprechpartner_Vorname"/>
-    <property name = "telefon" column="Telefon"/>
-    <property name = "mobil" column="Mobil"/>
-    <property name = "email" column="Email"/>
-    <property name = "typ" column="Typ"/>
-    <property name = "bereich" column="Bereich"/>
-    <property name = "homepage" column="Homepage"/>
-    <property name = "plz" column="PLZ"/>
-    <property name = "strasse" column="Straße"/>
-    <property name = "niederlassung" column="Niederlassung"/>
-    <property name = "nlAbteilung" column="NL-Abteilung"/>
-    <property name = "ptiBereich" column="PTI-Bereich"/>
+    <property name = "funktion" column="`Funktion´"/>
+    <property name = "ansprechpartnerName" column="`Ansprechpartner_Name´"/>
+    <property name = "ansprechpartnerVorname" column="`Ansprechpartner_Vorname´"/>
+    <property name = "telefon" column="`Telefon´"/>
+    <property name = "mobil" column="`Mobil´"/>
+    <property name = "email" column="`Email´"/>
+    <property name = "typ" column="`Typ´"/>
+    <property name = "bereich" column="`Bereich´"/>
+    <property name = "homepage" column="`Homepage´"/>
+    <property name = "plz" column="`PLZ´"/>
+    <property name = "strasse" column="`Straße´"/>
+    <property name = "niederlassung" column="`Niederlassung´"/>
+    <property name = "nlAbteilung" column="`NL-Abteilung´"/>
+    <property name = "ptiBereich" column="`PTI-Bereich´"/>
     <property name = "bemerkung" column="Bemerkung"/>
-    <property name = "firma" column="Firma"/>
+    <property name = "firma" column="`Firma´"/>
+    <set name = "projekte" table = "tblAnsprechpartner2Projekt">
+      <key column = "`idAnsprechpartner´"/>
+      <many-to-many class = "Projekt" column="idProjekt"/>
+    </set>
   </class>
 
 </hibernate-mapping>

@@ -21,6 +21,7 @@ namespace DynamicPDFCreator
         PDF pdf = new PDF();
         public MainForm()
         {
+           //DBm.sqlSchema();
             InitializeComponent();
             ReinitializeComponents();
 
@@ -589,13 +590,13 @@ namespace DynamicPDFCreator
 
         private string getDynamicPath(PDF finalPDF)
         {
-            string pfad = $@"C:\Datenbank\Projekte\{DBm.projekt.Projekt}_{DBm.projekt.IdProjekt}\Aufträge\";
+            string pfad = $@"C:\Datenbank\Projekte\{DBm.projekt.projektbezeichnung}_{DBm.projekt.id}\Aufträge\";
             string[] subdirs = Directory.GetDirectories(pfad);
             string ordnerName="";
             foreach (string dir in subdirs)
             {
                 ordnerName = dir.Substring(dir.LastIndexOf("\\"));
-                if (ordnerName.Contains(finalPDF.auftrag.SMNummer))
+                if (ordnerName.Contains(finalPDF.auftrag.smNummer))
                 {
                     break;
                 }

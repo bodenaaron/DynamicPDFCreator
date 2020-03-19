@@ -1,8 +1,15 @@
-﻿using NHibernate;
+﻿using log4net;
+using log4net.Appender;
+using log4net.Core;
+using log4net.Layout;
+using log4net.Repository.Hierarchy;
+using NHibernate;
 using NHibernate.Cfg;
 using NHibernate.Criterion;
+using NHibernate.Tool.hbm2ddl;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,8 +19,7 @@ namespace DynamicPDFCreator
 {
     class DBManager
     {
-        public Auftrag auftrag;
-        public Projekt projekt;
+        public Auftrag auftrag;        
         public List<Ansprechpartner> ansprechpartner;
         public object[] ansprechpartnerNamen;
         public List<AnschreibenTyp> anschreiben;
@@ -25,53 +31,66 @@ namespace DynamicPDFCreator
         public List<AnsprechpartnerTyp> ansprechpartnerTyp;
         public object[] ansprechpartnerTypNamen;
 
+
         public DBManager()
         {
             getAnschreibenTyp();
             getAnsprechpartnerTyp();
             getBearbeiter();
             getWesiTeam();
+
+            var hierarchy = (Hierarchy)LogManager.GetRepository();
+            var logger = (Logger)hierarchy.GetLogger("NHibernate.SQL");
+            logger.AddAppender(new TraceAppender { Layout = new SimpleLayout() });
+            hierarchy.Configured = true;
+            logger.Level = Level.Debug;
         }
         public DBManager(string smNummer)
         {
+            var hierarchy = (Hierarchy)LogManager.GetRepository();
+            var logger = (Logger)hierarchy.GetLogger("NHibernate.SQL");
+            logger.AddAppender(new TraceAppender { Layout = new SimpleLayout() });
+            hierarchy.Configured = true;
+            logger.Level = Level.Debug;
             try
             {
                 getAuftrag(smNummer);
                 if (auftrag!=null)
                 {
                     getAnsprechpartnerTyp();
-                    getProjekt();
-                    getAnsprechpartner();
+                    //getProjekt();
+                    //getAnsprechpartner();
                     getAnschreibenTyp();
                     getBearbeiter();
                     getWesiTeam();
                 }
             }
-            catch (Exception e) { }
+            catch (Exception e) { Debug.WriteLine("\n\n\n"+smNummer+ "\n\n\n"); }
         }
 
         //braucht SMNummer
         public void getAuftrag(string smNummer)
         {
             auftrag = new Auftrag();
-            projekt = new Projekt();
             ansprechpartner = new List<Ansprechpartner>();;
             ISession session = getSession();
             ITransaction tx = session.BeginTransaction();
-            ICriteria crit = session.CreateCriteria<Auftrag>();
-            crit.SetMaxResults(1);
-            crit.Add(Restrictions.Like(nameof(Auftrag.SMNummer), smNummer));
+            ICriteria crit = session.CreateCriteria<Auftrag>();            
+            crit.Add(Expression.Like(nameof(Auftrag.smNummer), "%"+smNummer+"%"));
             auftrag = crit.List<Auftrag>().FirstOrDefault();
+            Debug.WriteLine(session.Connection.ConnectionString);
+            Debug.WriteLine("\n\n\n"+smNummer +" JA "+auftrag.smNummer+ "\n\n\n");
             tx.Commit();
-            closeSession(session,tx);
+            //closeSession(session,tx);
         }
 
+        #region altlasten
         //braucht Auftrag
-        private void getProjekt()
+        /*private void getProjekt()
         {
             ISession session = getSession();
             ITransaction tx = session.BeginTransaction();
-            projekt = session.Get<Projekt>(auftrag.IdProjekt);
+            projekt = session.Get<Projekt>(auftrag.projekt.id);
             closeSession(session, tx);
         }
 
@@ -84,7 +103,7 @@ namespace DynamicPDFCreator
 
             //Datensätze mit der Projekt ID
             ICriteria crit = session.CreateCriteria<Ansprechpartner2Projekt>();
-            crit.Add(Restrictions.Like(nameof(Ansprechpartner2Projekt.IdProjekt), auftrag.IdProjekt));
+            crit.Add(Restrictions.Like(nameof(Ansprechpartner2Projekt.IdProjekt), auftrag.projekt.id));
             var a2ps = crit.List<Ansprechpartner2Projekt>();
 
             List<int> i=new List<int>();
@@ -139,7 +158,10 @@ namespace DynamicPDFCreator
 
             closeSession(session, tx);
 
-        }
+        }*/
+        #endregion
+
+
         private void getAnsprechpartnerTyp()
         {
             ISession session = getSession();
@@ -168,7 +190,7 @@ namespace DynamicPDFCreator
             ITransaction tx = session.BeginTransaction();
 
             ICriteria crit = session.CreateCriteria<Bearbeiter>();
-            crit.Add(Restrictions.IsNotNull("BearbeiterVorname"));
+            //crit.Add(Restrictions.IsNotNull("Bearbeiter_Vorname"));
             bearbeiter = (List<Bearbeiter>)crit.List<Bearbeiter>();
 
             List<string> bearb = new List<string>();
@@ -232,7 +254,6 @@ namespace DynamicPDFCreator
         {
             var nhConfig = new Configuration().Configure();
             var sessionFactory = nhConfig.BuildSessionFactory();
-
             ISession session = sessionFactory.OpenSession();
             sessionFactory.Close();
             return session;
@@ -245,6 +266,11 @@ namespace DynamicPDFCreator
         }
         #endregion
 
-
+        public void sqlSchema()
+        {
+            
+            new SchemaExport(new Configuration().Configure()).SetOutputFile(@"C:\Users\Boden_Aaron\source\repos\DynamicPDFCreator\DynamicPDFCreator\schema.sql").Execute(true, false, false);
+            
+        }
     }
 }

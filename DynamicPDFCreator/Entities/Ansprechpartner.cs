@@ -140,6 +140,12 @@ namespace DynamicPDFCreator
             get;
             set;
         }
-}
+
+        public virtual ISet<Projekt> projekte
+        {
+            get;
+            set;
+        }
+    }
 
 }

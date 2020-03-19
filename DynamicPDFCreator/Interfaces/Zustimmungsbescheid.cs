@@ -76,7 +76,7 @@ namespace DynamicPDFCreator.Interfaces
                 	<td valign: top>
                   	Sehr geehrte Damen und Herren,<br/><br/>
                     Ihrem Antrag auf Zustimmung für die Durchführung einer Baumaßnahme in:<br/>
-                    {pdf.ortDerMassnahme} (SM-Auftragsnummer: {pdf.auftrag.SMNummer})    
+                    {pdf.ortDerMassnahme} (SM-Auftragsnummer: {pdf.auftrag.smNummer})    
                   </td>
                 </tr>
             </table>

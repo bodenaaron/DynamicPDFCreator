@@ -66,7 +66,7 @@ namespace DynamicPDFCreator.Interfaces
                   	Aufragsnummer:
                   </td>
                   <td>
-                  	<b>{pdf.auftrag.SMNummer}</b> (bei Rückfragen bitte immer angeben)
+                  	<b>{pdf.auftrag.smNummer}</b> (bei Rückfragen bitte immer angeben)
                   </td>
                 </tr>
                   <tr>

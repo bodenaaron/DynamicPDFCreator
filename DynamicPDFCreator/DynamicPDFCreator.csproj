@@ -67,6 +67,9 @@
     <Reference Include="Iesi.Collections, Version=4.0.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
       <HintPath>..\packages\Iesi.Collections.4.0.4\lib\net461\Iesi.Collections.dll</HintPath>
     </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="NHibernate, Version=5.2.0.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
       <HintPath>..\packages\NHibernate.5.2.7\lib\net461\NHibernate.dll</HintPath>
     </Reference>
@@ -122,6 +125,7 @@
     <Compile Include="Entities\AnschreibenTyp.cs" />
     <Compile Include="Entities\Ansprechpartner.cs" />
     <Compile Include="Entities\Auftrag.cs" />
+    <Compile Include="Entities\Auftrag.loeschen.cs" />
     <Compile Include="Entities\Ansprechpartner2Projekt.cs" />
     <Compile Include="Entities\Projekt.cs" />
     <Compile Include="Entities\Bearbeiter.cs" />
@@ -214,15 +218,16 @@
     <None Include="Mapping\PDFCreatorModels.TblAuftraege.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="hibernate.cfg.xml">
+    <EmbeddedResource Include="hibernate.cfg.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    </EmbeddedResource>
     <Content Include="HTML\Wupfl.txt" />
     <EmbeddedResource Include="Mapping neu\WesiTeam.hbm.xml" />
     <EmbeddedResource Include="Mapping neu\Bearbeiter.hbm.xml" />
     <EmbeddedResource Include="Mapping neu\AnschreibenTyp.hbm.xml" />
     <EmbeddedResource Include="Mapping neu\Ansprechpartner.hbm.xml" />
     <EmbeddedResource Include="Mapping neu\Auftrag.hbm.xml" />
+    <EmbeddedResource Include="Mapping neu\Projekt.hbm.xml" />
     <Content Include="Mapping\PDF.hbm.xml" />
     <None Include="Mapping\PDFCreatorModels3.TblAnsprechpartnerTyp.hbm.xml" />
     <None Include="Mapping\PDFCreatorModels3.TblWesiTeam.hbm.xml" />
