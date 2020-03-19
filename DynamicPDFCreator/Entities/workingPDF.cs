@@ -155,6 +155,7 @@ namespace DynamicPDFCreator
         public object[] wesiTeamStringList { get; set; }
         public object[] ansprechpartnerTypStringList { get; set; }
         public List<AnschreibenTyp> anschreiben { get; set; }
+        public List<AnsprechpartnerTyp> ansprechpartnerTypen { get; set; }
         public List<Bearbeiter> bearbeiter { get; set; }
         public List<WesiTeam> wesiTeams { get; set; }
 

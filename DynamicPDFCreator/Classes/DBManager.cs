@@ -57,7 +57,7 @@ namespace DynamicPDFCreator
             crit.Add(Expression.Like(nameof(Auftrag.smNummer), "%"+smNummer+"%"));
             dbPDF.auftrag = crit.List<Auftrag>().FirstOrDefault();
             tx.Commit();
-            //closeSession(session,tx);
+            
 
             List<string> ansp = new List<string>();
             //Object in String umwandeln
@@ -77,6 +77,8 @@ namespace DynamicPDFCreator
 
             }
             dbPDF.ansprechpartnerStringList = ansp.Cast<object>().ToArray();
+            getAnsprechpartnerTyp();
+            closeSession(session, tx);
         }
 
         #region altlasten
@@ -285,6 +287,28 @@ namespace DynamicPDFCreator
             getAnschreibenTyp();
             getBearbeiter();
             getWesiTeam();
+        }
+
+
+        private void getAnsprechpartnerTyp()
+        {
+            ISession session = getSession();
+            ITransaction tx = session.BeginTransaction();
+            Debug.WriteLine("\n\n\n\n"+session.Connection.ConnectionString);
+            ICriteria crit = session.CreateCriteria<AnsprechpartnerTyp>();
+            dbPDF.ansprechpartnerTypen = (List<AnsprechpartnerTyp>)session.CreateCriteria<AnsprechpartnerTyp>().List<AnsprechpartnerTyp>();
+
+
+            List<string> ansprTyp = new List<string>();
+            //Object in String umwandeln
+            foreach (AnsprechpartnerTyp an in dbPDF.ansprechpartnerTypen)
+            {
+                ansprTyp.Add(an.id.ToString());
+            }
+            dbPDF.ansprechpartnerTypStringList = ansprTyp.Cast<object>().ToArray();
+
+            closeSession(session, tx);
+
         }
     }
 }

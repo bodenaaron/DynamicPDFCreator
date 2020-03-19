@@ -38,32 +38,16 @@ namespace DynamicPDFCreator
         {
             OnCreated();
         }
-
-    
-        /// <summary>
-        /// There are no comments for IdAnsprechpartnerTyp in the schema.
-        /// </summary>
-        public virtual short IdAnsprechpartnerTyp
+        public virtual string id
         {
             get;
             set;
         }
-
-    
-        /// <summary>
-        /// There are no comments for Typ in the schema.
-        /// </summary>
-        public virtual string Typ
+        public virtual string bezeichnung
         {
             get;
             set;
         }
-
-        /*public virtual ISet<PDF> pdfs
-        {
-            get;
-            set;
-        }*/
     }
 
 }
