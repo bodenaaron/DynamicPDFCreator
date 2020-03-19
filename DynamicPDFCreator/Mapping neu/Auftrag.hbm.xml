@@ -10,10 +10,10 @@
 
     <many-to-one name = "projekt" column = "idProjekt"/>
 
-    <!--<set name = "pdfs" table = "tblPDFs">
-      <key column = "`id´"/>
+    <set name = "pdfs" table = "tblPDFs" lazy="false">
+      <key column = "`auftrag´"/>
       <one-to-many class = "PDF" />
-    </set>-->
+    </set>
   </class>
 
 </hibernate-mapping>

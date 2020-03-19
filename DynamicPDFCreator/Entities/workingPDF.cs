@@ -158,6 +158,8 @@ namespace DynamicPDFCreator
         public List<AnsprechpartnerTyp> ansprechpartnerTypen { get; set; }
         public List<Bearbeiter> bearbeiter { get; set; }
         public List<WesiTeam> wesiTeams { get; set; }
+        public object[] pdfsTitel { get; set; }
+
 
 
 

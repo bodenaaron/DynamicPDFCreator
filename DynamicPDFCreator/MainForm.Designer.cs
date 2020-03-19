@@ -87,6 +87,7 @@
             this.btn_speichern_auftrag_pfad = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
+            this.listb_vorherige_PDF = new System.Windows.Forms.ListBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -194,7 +195,7 @@
             // 
             this.rtb_BeschreibungMassnahme.Location = new System.Drawing.Point(12, 701);
             this.rtb_BeschreibungMassnahme.Name = "rtb_BeschreibungMassnahme";
-            this.rtb_BeschreibungMassnahme.Size = new System.Drawing.Size(504, 185);
+            this.rtb_BeschreibungMassnahme.Size = new System.Drawing.Size(411, 185);
             this.rtb_BeschreibungMassnahme.TabIndex = 11;
             this.rtb_BeschreibungMassnahme.Text = "";
             this.rtb_BeschreibungMassnahme.TextChanged += new System.EventHandler(this.Rtb_BeschreibungMassnahme_TextChanged);
@@ -665,7 +666,7 @@
             this.groupBox3.Controls.Add(this.btn_printDocument);
             this.groupBox3.Controls.Add(this.btn_sendEmail);
             this.groupBox3.Controls.Add(this.error_label);
-            this.groupBox3.Location = new System.Drawing.Point(522, 586);
+            this.groupBox3.Location = new System.Drawing.Point(458, 586);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(229, 300);
             this.groupBox3.TabIndex = 52;
@@ -699,11 +700,21 @@
             this.label16.TabIndex = 54;
             this.label16.Text = "SHIFT+ENTER = Umbruch";
             // 
+            // listb_vorherige_PDF
+            // 
+            this.listb_vorherige_PDF.FormattingEnabled = true;
+            this.listb_vorherige_PDF.Location = new System.Drawing.Point(693, 552);
+            this.listb_vorherige_PDF.Name = "listb_vorherige_PDF";
+            this.listb_vorherige_PDF.Size = new System.Drawing.Size(370, 329);
+            this.listb_vorherige_PDF.TabIndex = 55;
+            this.listb_vorherige_PDF.SelectedIndexChanged += new System.EventHandler(this.Listb_vorherige_PDF_SelectedIndexChanged);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1851, 898);
+            this.Controls.Add(this.listb_vorherige_PDF);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.groupBox3);
@@ -786,6 +797,7 @@
         private System.Windows.Forms.CheckBox cb_untervollmacht;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Button btn_speichern_auftrag_pfad;
+        private System.Windows.Forms.ListBox listb_vorherige_PDF;
     }
 }
 

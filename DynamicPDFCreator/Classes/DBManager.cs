@@ -78,6 +78,7 @@ namespace DynamicPDFCreator
             }
             dbPDF.ansprechpartnerStringList = ansp.Cast<object>().ToArray();
             getAnsprechpartnerTyp();
+            getPDFs();
             closeSession(session, tx);
         }
 
@@ -229,7 +230,7 @@ namespace DynamicPDFCreator
 
         public void savePDF(PDF a)
         {
-            a.id = a.auftrag.smNummer + a.anschreibenTyp.id + a.empfaenger.id;
+            a.id =a.anschreibenTyp.id.ToString()+ a.empfaenger.id.ToString();
             ISession session = getSession();
             ITransaction tx = session.BeginTransaction();
             session.SaveOrUpdate(a);
@@ -309,6 +310,22 @@ namespace DynamicPDFCreator
 
             closeSession(session, tx);
 
+        }
+
+        private void getPDFs()
+        {
+            ISession session = getSession();
+            ITransaction tx = session.BeginTransaction();
+
+            List<string> pdfTitel = new List<string>();
+            //Object in String umwandeln
+            foreach (PDF pdf in dbPDF.auftrag.pdfs)
+            {
+                pdfTitel.Add($@"{pdf.anschreibenTyp.bezeichnung} {pdf.empfaenger.ansprechpartnerName} {pdf.empfaenger.firma}");
+            }
+            dbPDF.pdfsTitel = pdfTitel.Cast<object>().ToArray();
+
+            closeSession(session, tx);
         }
     }
 }

@@ -48,6 +48,8 @@ namespace DynamicPDFCreator
                 cmb_wesie.Items.AddRange(DBm.dbPDF.wesiTeamStringList);
                 workingPDF.auftrag = DBm.dbPDF.auftrag;
                 //btn_hinzufuegen.Enabled = true;
+                listb_vorherige_PDF.Items.Clear();
+                listb_vorherige_PDF.Items.AddRange(DBm.dbPDF.pdfsTitel);
             }
             catch (Exception fe) { }
         }
@@ -595,8 +597,18 @@ namespace DynamicPDFCreator
                 }
             }
             pfad += ordnerName;
-            pfad += $@"\Wegesicherung\Anschreiben\{finalPDF.anschreibenTyp.bezeichnung}_{finalPDF.empfaenger.ansprechpartnerName}.pdf";
+            pfad += $@"\Wegesicherung\Anschreiben\{finalPDF.anschreibenTyp.bezeichnung}_{finalPDF.empfaenger.ansprechpartnerName}_{finalPDF.empfaenger.firma}.pdf";
             return pfad;
+        }
+
+        private void ListBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Listb_vorherige_PDF_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
     }
