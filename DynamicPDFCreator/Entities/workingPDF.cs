@@ -8,10 +8,10 @@ using System.Windows.Forms;
 
 namespace DynamicPDFCreator
 {
-    public class PDF
+    public class WorkingPDF
     {
 
-        public  PDF(Auftrag auftrag, AnschreibenTyp anschreibenTyp, Ansprechpartner empfaenger, Bearbeiter absender, DateTime datum, DateTime ausfuehrungszeitraum, DateTime ausfuehrungszeitraumEnde, Bearbeiter ansprechpartner, string ortDerMassnahme, string abgesprochenMit, string beschreibungMassnahme, Ansprechpartner ansprechpartnerBau, WesiTeam wesiTeam, bool plansaetze, bool listeBeteiligte, bool techBeschreibung, bool untervollmacht,List<string>zusatzanlagen)
+        public WorkingPDF(Auftrag auftrag, AnschreibenTyp anschreibenTyp, Ansprechpartner empfaenger, Bearbeiter absender, DateTime datum, DateTime ausfuehrungszeitraum, DateTime ausfuehrungszeitraumEnde, Bearbeiter ansprechpartner, string ortDerMassnahme, string abgesprochenMit, string beschreibungMassnahme, Ansprechpartner ansprechpartnerBau, WesiTeam wesiTeam, bool plansaetze, bool listeBeteiligte, bool techBeschreibung, bool untervollmacht,List<string>zusatzanlagen)
         {
             this.auftrag = auftrag;
             this.anschreibenTyp = anschreibenTyp;
@@ -35,7 +35,7 @@ namespace DynamicPDFCreator
         /// <summary>
         /// WUPFL
         /// </summary>
-        public  PDF(Auftrag auftrag, AnschreibenTyp anschreibenTyp, Ansprechpartner empfaenger, Bearbeiter absender, DateTime datum, DateTime ausfuehrungszeitraum, DateTime ausfuehrungszeitraumEnde, Bearbeiter ansprechpartner, string ortDerMassnahme, string beschreibungMassnahme,  WesiTeam wesiTeam, bool plansaetze, bool listeBeteiligte, bool techBeschreibung, bool untervollmacht, List<string> zusatzanlagen)
+        public WorkingPDF(Auftrag auftrag, AnschreibenTyp anschreibenTyp, Ansprechpartner empfaenger, Bearbeiter absender, DateTime datum, DateTime ausfuehrungszeitraum, DateTime ausfuehrungszeitraumEnde, Bearbeiter ansprechpartner, string ortDerMassnahme, string beschreibungMassnahme,  WesiTeam wesiTeam, bool plansaetze, bool listeBeteiligte, bool techBeschreibung, bool untervollmacht, List<string> zusatzanlagen)
         {
             this.auftrag = auftrag;
             this.anschreibenTyp = anschreibenTyp;
@@ -58,7 +58,7 @@ namespace DynamicPDFCreator
         /// <summary>
         /// EVU
         /// </summary>
-        public PDF(Auftrag auftrag, AnschreibenTyp anschreibenTyp, Ansprechpartner empfaenger, Bearbeiter absender, DateTime datum, DateTime ausfuehrungszeitraum, DateTime ausfuehrungszeitraumEnde, Bearbeiter ansprechpartner, string ortDerMassnahme, bool plansaetze, bool listeBeteiligte, bool techBeschreibung, bool untervollmacht, List<string> zusatzanlagen)
+        public WorkingPDF(Auftrag auftrag, AnschreibenTyp anschreibenTyp, Ansprechpartner empfaenger, Bearbeiter absender, DateTime datum, DateTime ausfuehrungszeitraum, DateTime ausfuehrungszeitraumEnde, Bearbeiter ansprechpartner, string ortDerMassnahme, bool plansaetze, bool listeBeteiligte, bool techBeschreibung, bool untervollmacht, List<string> zusatzanlagen)
         {
             this.auftrag = auftrag;
             this.anschreibenTyp = anschreibenTyp;
@@ -76,14 +76,14 @@ namespace DynamicPDFCreator
             this.Zusatzanlagen = zusatzanlagen;
         }
 
-        public PDF()
+        public WorkingPDF()
         {
             
         }
         /// <summary>
         /// Zustimmungsbescheid
         /// </summary>
-        public PDF(Auftrag auftrag, AnschreibenTyp anschreibenTyp, Ansprechpartner empfaenger, string ortDerMassnahme,WesiTeam wesiTeam)
+        public WorkingPDF(Auftrag auftrag, AnschreibenTyp anschreibenTyp, Ansprechpartner empfaenger, string ortDerMassnahme,WesiTeam wesiTeam)
         {
             this.auftrag = auftrag;
             this.anschreibenTyp = anschreibenTyp;
@@ -96,7 +96,7 @@ namespace DynamicPDFCreator
         /// <summary>
         /// Kampfmittel
         /// </summary>
-        public PDF(Auftrag auftrag, AnschreibenTyp anschreibenTyp, Ansprechpartner empfaenger, string ortDerMassnahme, WesiTeam wesiTeam, DateTime datum)
+        public WorkingPDF(Auftrag auftrag, AnschreibenTyp anschreibenTyp, Ansprechpartner empfaenger, string ortDerMassnahme, WesiTeam wesiTeam, DateTime datum)
         {
             this.auftrag = auftrag;
             this.anschreibenTyp = anschreibenTyp;
@@ -110,7 +110,7 @@ namespace DynamicPDFCreator
         /// <summary>
         /// Abstimmung Naturschutz
         /// </summary>
-        public PDF(Auftrag auftrag, AnschreibenTyp anschreibenTyp, Ansprechpartner empfaenger, Bearbeiter absender, DateTime datum, DateTime ausfuehrungszeitraum, DateTime ausfuehrungszeitraumEnde, string ortDerMassnahme, string beschreibungMassnahme, bool plansaetze, bool listeBeteiligte, bool techBeschreibung, bool untervollmacht, List<string> zusatzanlagen)
+        public WorkingPDF(Auftrag auftrag, AnschreibenTyp anschreibenTyp, Ansprechpartner empfaenger, Bearbeiter absender, DateTime datum, DateTime ausfuehrungszeitraum, DateTime ausfuehrungszeitraumEnde, string ortDerMassnahme, string beschreibungMassnahme, bool plansaetze, bool listeBeteiligte, bool techBeschreibung, bool untervollmacht, List<string> zusatzanlagen)
         {
             this.auftrag = auftrag;
             this.anschreibenTyp = anschreibenTyp;
@@ -127,29 +127,36 @@ namespace DynamicPDFCreator
             this.untervollmacht = untervollmacht;
             this.Zusatzanlagen = zusatzanlagen;
         }
-        public virtual string id { get; set; } //= new TblAuftraege();
-        public virtual Auftrag auftrag { get; set; } //= new TblAuftraege();
-        public virtual AnschreibenTyp anschreibenTyp { get; set; } //= new TblAnschreibenTyp();
-        public virtual Ansprechpartner empfaenger { get; set; } //= new TblAnsprechpartner();
-        public virtual Bearbeiter absender { get; set; }
-        public virtual DateTime datum { get; set; }
-        public virtual DateTime ausfuehrungszeitraum { get; set; }
-        public virtual DateTime ausfuehrungszeitraumEnde { get; set; }
-        public virtual Bearbeiter ansprechpartner { get; set; }
-        public virtual string ortDerMassnahme { get; set; }
-        public virtual string abgesprochenMit { get; set; }
-        public virtual string beschreibungMassnahme { get; set; }
-        public virtual Ansprechpartner ansprechpartnerBau { get; set; }
-        public virtual WesiTeam wesiTeam { get; set; } //= new TblWesiTeam();
-        public virtual bool plansaetze { get; set; }
-        public virtual bool untervollmacht { get; set; }
-        public virtual bool listeBeteiligte { get; set; }
-        public virtual bool techBeschreibung { get; set; }
-        public virtual  string zusatzAnlage1 { get; set; }
-        public virtual string zusatzAnlage2 { get; set; }
-        public virtual string zusatzAnlage3 { get; set; }
-        public virtual List<string> Zusatzanlagen { get; set; }
-
+        public string id { get; set; } 
+        public Auftrag auftrag { get; set; } 
+        public AnschreibenTyp anschreibenTyp { get; set; } 
+        public Ansprechpartner empfaenger { get; set; } 
+        public Bearbeiter absender { get; set; }
+        public DateTime datum { get; set; }
+        public DateTime ausfuehrungszeitraum { get; set; }
+        public DateTime ausfuehrungszeitraumEnde { get; set; }
+        public Bearbeiter ansprechpartner { get; set; }
+        public string ortDerMassnahme { get; set; }
+        public string abgesprochenMit { get; set; }
+        public string beschreibungMassnahme { get; set; }
+        public Ansprechpartner ansprechpartnerBau { get; set; }
+        public WesiTeam wesiTeam { get; set; } 
+        public bool plansaetze { get; set; }
+        public bool untervollmacht { get; set; }
+        public bool listeBeteiligte { get; set; }
+        public bool techBeschreibung { get; set; }
+        public  string zusatzAnlage1 { get; set; }
+        public string zusatzAnlage2 { get; set; }
+        public string zusatzAnlage3 { get; set; }
+        public List<string> Zusatzanlagen { get; set; }
+        public object[] ansprechpartnerStringList { get; set; }
+        public object[] anschreibenStringList { get; set; }
+        public object[] bearbeiterStringList { get; set; }
+        public object[] wesiTeamStringList { get; set; }
+        public object[] ansprechpartnerTypStringList { get; set; }
+        public List<AnschreibenTyp> anschreiben { get; set; }
+        public List<Bearbeiter> bearbeiter { get; set; }
+        public List<WesiTeam> wesiTeams { get; set; }
 
 
 

@@ -127,6 +127,7 @@
     <Compile Include="Entities\Auftrag.cs" />
     <Compile Include="Entities\Auftrag.loeschen.cs" />
     <Compile Include="Entities\Ansprechpartner2Projekt.cs" />
+    <Compile Include="Entities\workingPDF.cs" />
     <Compile Include="Entities\Projekt.cs" />
     <Compile Include="Entities\Bearbeiter.cs" />
     <Compile Include="Entities\AnsprechpartnerTyp.cs" />
