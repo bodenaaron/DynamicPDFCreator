@@ -45,13 +45,13 @@ namespace DynamicPDFCreator
 
         public void ReinitializeComponent(WesiTeam wesiTeam)
         {
-            tb_strasse.Text =       wesiTeam.Strasse;
-            tb_plz.Text =           wesiTeam.PLZ;
-            tb_ort.Text =           wesiTeam.Stadt;
-            tb_mail.Text =          wesiTeam.Email;
-            tb_firma.Text =         wesiTeam.Firma;
-            tb_bereich.Text =       wesiTeam.Bereich;
-            tb_niederlassung.Text = wesiTeam.Niederlassung;
+            tb_strasse.Text =       wesiTeam.strasse;
+            tb_plz.Text =           wesiTeam.plz;
+            tb_ort.Text =           wesiTeam.stadt;
+            tb_mail.Text =          wesiTeam.email;
+            tb_firma.Text =         wesiTeam.firma;
+            tb_bereich.Text =       wesiTeam.bereich;
+            tb_niederlassung.Text = wesiTeam.niederlassung;
             //tb_ptiBereich.Text =  ansprechpartner.PTIBereich;
 
             tb_vorname.Enabled = false;
@@ -69,15 +69,15 @@ namespace DynamicPDFCreator
 
         private void Btn_speichern_Click(object sender, EventArgs e)
         {
-            if (wesiTeam.Id!=0)
+            if (wesiTeam.id!=0)
             {
-                wesiTeam.Strasse =        tb_strasse.Text;
-                wesiTeam.PLZ =           tb_plz.Text;
-                wesiTeam.Stadt =           tb_ort.Text;
-                wesiTeam.Email =         tb_mail.Text;
-                wesiTeam.Firma =         tb_firma.Text;
-                wesiTeam.Bereich =       tb_bereich.Text;   
-                wesiTeam.Niederlassung = tb_niederlassung.Text;
+                wesiTeam.strasse =        tb_strasse.Text;
+                wesiTeam.plz =           tb_plz.Text;
+                wesiTeam.stadt =           tb_ort.Text;
+                wesiTeam.email =         tb_mail.Text;
+                wesiTeam.firma =         tb_firma.Text;
+                wesiTeam.bereich =       tb_bereich.Text;   
+                wesiTeam.niederlassung = tb_niederlassung.Text;
                 DBManager dbm = new DBManager();
                 dbm.set(wesiTeam);
             }

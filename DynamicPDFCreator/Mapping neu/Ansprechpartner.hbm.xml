@@ -26,6 +26,11 @@
       <key column = "`idAnsprechpartner´"/>
       <many-to-many class = "Projekt" column="idProjekt"/>
     </set>
+    <!--<set name = "pdfs" table = "tblPDFs">
+      <key column = "`id´"/>
+      <one-to-many class = "PDF" />
+    </set>-->
+
   </class>
 
 </hibernate-mapping>

@@ -7,6 +7,11 @@
       <generator class = "identity"/>
     </id>
     <property name = "bezeichnung" column="Bezeichnung"/>
+
+    <!--<set name = "pdfs" table = "tblPDFs">
+      <key column = "`id´"/>
+      <one-to-many class = "PDF" />
+    </set>-->
     
   </class>
 

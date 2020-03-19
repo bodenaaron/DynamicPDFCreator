@@ -9,7 +9,11 @@
     <property name = "smNummer" column="SM_Nummer"/>
 
     <many-to-one name = "projekt" column = "idProjekt"/>
-    
+
+    <!--<set name = "pdfs" table = "tblPDFs">
+      <key column = "`id´"/>
+      <one-to-many class = "PDF" />
+    </set>-->
   </class>
 
 </hibernate-mapping>

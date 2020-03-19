@@ -1,51 +1,81 @@
 
-    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FK_88062DE]') and parent_object_id = OBJECT_ID(N'Ansprechpartner2Projekt'))
-alter table Ansprechpartner2Projekt  drop constraint FK_88062DE
+    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FK_2D4F8B40]') and parent_object_id = OBJECT_ID(N'tblAnsprechpartner2Projekt'))
+alter table tblAnsprechpartner2Projekt  drop constraint FK_2D4F8B40
 
 
-    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FK_2167DE0F]') and parent_object_id = OBJECT_ID(N'Ansprechpartner2Projekt'))
-alter table Ansprechpartner2Projekt  drop constraint FK_2167DE0F
+    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FK_2F850803]') and parent_object_id = OBJECT_ID(N'tblAnsprechpartner2Projekt'))
+alter table tblAnsprechpartner2Projekt  drop constraint FK_2F850803
 
 
-    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FK_731C7101]') and parent_object_id = OBJECT_ID(N'Ansprechpartner2Projekt'))
-alter table Ansprechpartner2Projekt  drop constraint FK_731C7101
+    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FK_A84EFCA2]') and parent_object_id = OBJECT_ID(N'tblAnsprechpartner2Projekt'))
+alter table tblAnsprechpartner2Projekt  drop constraint FK_A84EFCA2
 
 
-    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FK_A0D4BBC7]') and parent_object_id = OBJECT_ID(N'Auftrag'))
-alter table Auftrag  drop constraint FK_A0D4BBC7
+    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FK_CA96A8D4]') and parent_object_id = OBJECT_ID(N'tblAnsprechpartner2Projekt'))
+alter table tblAnsprechpartner2Projekt  drop constraint FK_CA96A8D4
 
 
-    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FK_A234C863]') and parent_object_id = OBJECT_ID(N'Auftrag'))
-alter table Auftrag  drop constraint FK_A234C863
+    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FK_97EA931B]') and parent_object_id = OBJECT_ID(N'tblAuftraege'))
+alter table tblAuftraege  drop constraint FK_97EA931B
 
 
-    if exists (select * from dbo.sysobjects where id = object_id(N'WesiTeam') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table WesiTeam
+    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FK_AF26A49A]') and parent_object_id = OBJECT_ID(N'tblAuftraege'))
+alter table tblAuftraege  drop constraint FK_AF26A49A
 
-    if exists (select * from dbo.sysobjects where id = object_id(N'Bearbeiter') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table Bearbeiter
 
-    if exists (select * from dbo.sysobjects where id = object_id(N'AnschreibenTyp') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table AnschreibenTyp
+    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FK_B7D36CB2]') and parent_object_id = OBJECT_ID(N'tblPDFs'))
+alter table tblPDFs  drop constraint FK_B7D36CB2
 
-    if exists (select * from dbo.sysobjects where id = object_id(N'Ansprechpartner') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table Ansprechpartner
 
-    if exists (select * from dbo.sysobjects where id = object_id(N'Ansprechpartner2Projekt') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table Ansprechpartner2Projekt
+    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FK_BD12165A]') and parent_object_id = OBJECT_ID(N'tblPDFs'))
+alter table tblPDFs  drop constraint FK_BD12165A
 
-    if exists (select * from dbo.sysobjects where id = object_id(N'Auftrag') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table Auftrag
 
-    if exists (select * from dbo.sysobjects where id = object_id(N'Projekt') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table Projekt
+    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FK_E422AE6E]') and parent_object_id = OBJECT_ID(N'tblPDFs'))
+alter table tblPDFs  drop constraint FK_E422AE6E
 
-    create table WesiTeam (
+
+    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FK_D8AD87AD]') and parent_object_id = OBJECT_ID(N'tblPDFs'))
+alter table tblPDFs  drop constraint FK_D8AD87AD
+
+
+    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FK_15595A9A]') and parent_object_id = OBJECT_ID(N'tblPDFs'))
+alter table tblPDFs  drop constraint FK_15595A9A
+
+
+    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FK_419D9A5C]') and parent_object_id = OBJECT_ID(N'tblPDFs'))
+alter table tblPDFs  drop constraint FK_419D9A5C
+
+
+    if exists (select * from dbo.sysobjects where id = object_id(N'tblWesiTeam') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table tblWesiTeam
+
+    if exists (select * from dbo.sysobjects where id = object_id(N'tblBearbeiter') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table tblBearbeiter
+
+    if exists (select * from dbo.sysobjects where id = object_id(N'tblAnschreibenTyp') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table tblAnschreibenTyp
+
+    if exists (select * from dbo.sysobjects where id = object_id(N'tblAnsprechpartner') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table tblAnsprechpartner
+
+    if exists (select * from dbo.sysobjects where id = object_id(N'tblAnsprechpartner2Projekt') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table tblAnsprechpartner2Projekt
+
+    if exists (select * from dbo.sysobjects where id = object_id(N'tblAuftraege') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table tblAuftraege
+
+    if exists (select * from dbo.sysobjects where id = object_id(N'tblProjekte') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table tblProjekte
+
+    if exists (select * from dbo.sysobjects where id = object_id(N'tblPDFs') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table tblPDFs
+
+    create table tblWesiTeam (
         id SMALLINT IDENTITY NOT NULL,
-       Firma NVARCHAR(255) null,
-       Stadt NVARCHAR(255) null,
-       PLZ NVARCHAR(255) null,
-       Strasse NVARCHAR(255) null,
-       Bereich NVARCHAR(255) null,
-       Email NVARCHAR(255) null,
-       Niederlassung NVARCHAR(255) null,
+       firma NVARCHAR(255) null,
+       stadt NVARCHAR(255) null,
+       plz NVARCHAR(255) null,
+       strasse NVARCHAR(255) null,
+       bereich NVARCHAR(255) null,
+       email NVARCHAR(255) null,
+       niederlassung NVARCHAR(255) null,
        primary key (id)
     )
 
-    create table Bearbeiter (
+    create table tblBearbeiter (
         idBearbeiter NVARCHAR(255) IDENTITY NOT NULL,
        Email NVARCHAR(255) null,
        Telefon NVARCHAR(255) null,
@@ -54,75 +84,137 @@ alter table Auftrag  drop constraint FK_A234C863
        primary key (idBearbeiter)
     )
 
-    create table AnschreibenTyp (
-        idBearbeiter SMALLINT IDENTITY NOT NULL,
+    create table tblAnschreibenTyp (
+        id SMALLINT IDENTITY NOT NULL,
        Bezeichnung NVARCHAR(255) null,
-       primary key (idBearbeiter)
+       primary key (id)
     )
 
-    create table Ansprechpartner (
+    create table tblAnsprechpartner (
         idAnsprechpartner INT IDENTITY NOT NULL,
-       Funktion NVARCHAR(255) null,
-       Ansprechpartner_Name NVARCHAR(255) null,
-       Ansprechpartner_Vorname NVARCHAR(255) null,
-       Telefon NVARCHAR(255) null,
-       Mobil NVARCHAR(255) null,
-       Email NVARCHAR(255) null,
-       Typ NVARCHAR(255) null,
-       Bereich NVARCHAR(255) null,
-       Homepage NVARCHAR(255) null,
-       PLZ NVARCHAR(255) null,
-       Straße NVARCHAR(255) null,
-       Niederlassung NVARCHAR(255) null,
-       NL-Abteilung NVARCHAR(255) null,
-       PTI-Bereich NVARCHAR(255) null,
+       [Funktion] NVARCHAR(255) null,
+       [Ansprechpartner_Name] NVARCHAR(255) null,
+       [Ansprechpartner_Vorname] NVARCHAR(255) null,
+       [Telefon] NVARCHAR(255) null,
+       [Mobil] NVARCHAR(255) null,
+       [Email] NVARCHAR(255) null,
+       [Typ] NVARCHAR(255) null,
+       [Bereich] NVARCHAR(255) null,
+       [Homepage] NVARCHAR(255) null,
+       [PLZ] NVARCHAR(255) null,
+       [Straße] NVARCHAR(255) null,
+       [Niederlassung] NVARCHAR(255) null,
+       [NL-Abteilung] NVARCHAR(255) null,
+       [PTI-Bereich] NVARCHAR(255) null,
        Bemerkung NVARCHAR(255) null,
-       Firma NVARCHAR(255) null,
+       [Firma] NVARCHAR(255) null,
        primary key (idAnsprechpartner)
     )
 
-    create table Ansprechpartner2Projekt (
-        idProjekt INT not null,
-       elt INT not null,
+    create table tblAnsprechpartner2Projekt (
+        [idAnsprechpartner] INT not null,
+       idProjekt INT not null,
+       [idProjekt] INT not null,
        idAnsprechpartner INT not null,
-       primary key (idAnsprechpartner, elt)
+       primary key ([idProjekt], idAnsprechpartner)
     )
 
-    create table Auftrag (
+    create table tblAuftraege (
         idAuftrag INT IDENTITY NOT NULL,
        SM_Nummer NVARCHAR(255) null,
        idProjekt INT null,
+       [idAuftrag] INT null,
        primary key (idAuftrag)
     )
 
-    create table Projekt (
-        idProjekt INT IDENTITY NOT NULL,
-       Projekt NVARCHAR(255) null,
-       Bemerkung_Projekt NVARCHAR(255) null,
-       primary key (idProjekt)
+    create table tblProjekte (
+        [idProjekt] INT IDENTITY NOT NULL,
+       [Projekt] NVARCHAR(255) null,
+       [Bemerkung_Projekt] NVARCHAR(255) null,
+       primary key ([idProjekt])
     )
 
-    alter table Ansprechpartner2Projekt 
-        add constraint FK_88062DE 
-        foreign key (elt) 
-        references Projekt
+    create table tblPDFs (
+        id NVARCHAR(255) not null,
+       auftrag NVARCHAR(255) null,
+       anschreibenTyp SMALLINT null,
+       empfaenger INT null,
+       absender NVARCHAR(255) null,
+       ansprechpartner NVARCHAR(255) null,
+       ansprechpartnerBau INT null,
+       wesiTeam SMALLINT null,
+       datum DateTime not null,
+       ausfuehrungszeitraum DateTime not null,
+       ausfuehrungszeitraumEnde DateTime not null,
+       ortDerMassnahme NVARCHAR(255) null,
+       abgesprochenMit NVARCHAR(255) null,
+       beschreibungMassnahme NVARCHAR(255) null,
+       plansaetze BIT null,
+       untervollmacht BIT null,
+       listeBeteiligte BIT null,
+       techBeschreibung BIT null,
+       zusatzAnlage1 NVARCHAR(255) null,
+       zusatzAnlage2 NVARCHAR(255) null,
+       zusatzAnlage3 NVARCHAR(255) null,
+       primary key (id)
+    )
 
-    alter table Ansprechpartner2Projekt 
-        add constraint FK_2167DE0F 
+    alter table tblAnsprechpartner2Projekt 
+        add constraint FK_2D4F8B40 
         foreign key (idProjekt) 
-        references Ansprechpartner
+        references tblProjekte
 
-    alter table Ansprechpartner2Projekt 
-        add constraint FK_731C7101 
+    alter table tblAnsprechpartner2Projekt 
+        add constraint FK_2F850803 
+        foreign key ([idAnsprechpartner]) 
+        references tblAnsprechpartner
+
+    alter table tblAnsprechpartner2Projekt 
+        add constraint FK_A84EFCA2 
         foreign key (idAnsprechpartner) 
-        references Projekt
+        references tblAnsprechpartner
 
-    alter table Auftrag 
-        add constraint FK_A0D4BBC7 
+    alter table tblAnsprechpartner2Projekt 
+        add constraint FK_CA96A8D4 
+        foreign key ([idProjekt]) 
+        references tblProjekte
+
+    alter table tblAuftraege 
+        add constraint FK_97EA931B 
         foreign key (idProjekt) 
-        references Projekt
+        references tblProjekte
 
-    alter table Auftrag 
-        add constraint FK_A234C863 
-        foreign key (idAuftrag) 
-        references Projekt
+    alter table tblAuftraege 
+        add constraint FK_AF26A49A 
+        foreign key ([idAuftrag]) 
+        references tblProjekte
+
+    alter table tblPDFs 
+        add constraint FK_B7D36CB2 
+        foreign key (anschreibenTyp) 
+        references tblAnschreibenTyp
+
+    alter table tblPDFs 
+        add constraint FK_BD12165A 
+        foreign key (empfaenger) 
+        references tblAnsprechpartner
+
+    alter table tblPDFs 
+        add constraint FK_E422AE6E 
+        foreign key (absender) 
+        references tblBearbeiter
+
+    alter table tblPDFs 
+        add constraint FK_D8AD87AD 
+        foreign key (ansprechpartner) 
+        references tblBearbeiter
+
+    alter table tblPDFs 
+        add constraint FK_15595A9A 
+        foreign key (ansprechpartnerBau) 
+        references tblAnsprechpartner
+
+    alter table tblPDFs 
+        add constraint FK_419D9A5C 
+        foreign key (wesiTeam) 
+        references tblWesiTeam

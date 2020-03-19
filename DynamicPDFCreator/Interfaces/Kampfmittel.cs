@@ -40,27 +40,27 @@ namespace DynamicPDFCreator.Interfaces
             <table>
                 <tr>
                 	<td valign= top>
-                  	{pdf.wesiTeam.Firma}
+                  	{pdf.wesiTeam.firma}
                   </td>
                 </tr>
                   <tr>
                 	<td valign= top>
-                  	{pdf.wesiTeam.Niederlassung}
+                  	{pdf.wesiTeam.niederlassung}
                   </td>
                 </tr>
                   <tr>
                 	<td valign= top>
-                  	{pdf.wesiTeam.Bereich}
+                  	{pdf.wesiTeam.bereich}
                   </td>
                 </tr>
                   <tr>
                 	<td valign= top>
-                  	{pdf.wesiTeam.Strasse}
+                  	{pdf.wesiTeam.strasse}
                   </td>
                 </tr>
                 <tr>
                 	<td valign= top>
-                  	{pdf.wesiTeam.PLZ} {pdf.wesiTeam.Stadt}
+                  	{pdf.wesiTeam.plz} {pdf.wesiTeam.stadt}
                   </td>
                 </tr>
             </table>
@@ -70,7 +70,7 @@ namespace DynamicPDFCreator.Interfaces
                     Ihre Referenzen
                   </td>
                    <td>
-                    {pdf.wesiTeam.Bereich}
+                    {pdf.wesiTeam.bereich}
                   </td>
                 </tr>
                   <tr>
@@ -193,6 +193,33 @@ namespace DynamicPDFCreator.Interfaces
         public string writeHTMLtoPDF(string html, string pfad)
         {
             PdfDocument pdf1 = PdfGenerator.GeneratePdf(html, config);
+            pfad = checkSlash(pfad);
+            string alternativerPfad = pfad.Remove(pfad.Length - 5, 1);
+            try
+            {
+                pdf1.Save(pfad);
+                return checkSlash(pfad);
+            }
+            catch (Exception ef)
+            {
+            }
+            try
+            {
+                pdf1.Save(alternativerPfad);
+                return checkSlash(alternativerPfad);
+            }
+
+            catch (Exception e)
+            {
+            }
+
+
+            return pfad;
+        }
+
+        public string writeHTMLtoPDF(PDF pdf, string pfad)
+        {
+            PdfDocument pdf1 = PdfGenerator.GeneratePdf(getHTML(pdf), config);
             pfad = checkSlash(pfad);
             string alternativerPfad = pfad.Remove(pfad.Length - 5, 1);
             try

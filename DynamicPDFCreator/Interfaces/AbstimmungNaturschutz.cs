@@ -28,7 +28,7 @@ namespace DynamicPDFCreator.Interfaces
 
         public string getHTML(PDF pdf)
         {
-            string htmlMassnahmen = Rtf.ToHtml(pdf.beschreibungMassnahme.Rtf);
+            string htmlMassnahmen = Rtf.ToHtml(pdf.beschreibungMassnahme);
             htmlMassnahmen = reduceRtfFormatting(htmlMassnahmen);
             
             string html="";
@@ -155,6 +155,32 @@ namespace DynamicPDFCreator.Interfaces
             return pfad;
         }
 
+        public string writeHTMLtoPDF(PDF pdf, string pfad)
+        {
+            PdfDocument pdf1 = PdfGenerator.GeneratePdf(getHTML(pdf), config);
+            pfad = checkSlash(pfad);
+            string alternativerPfad = pfad.Remove(pfad.Length - 5, 1);
+            try
+            {
+                pdf1.Save(pfad);
+                return checkSlash(pfad);
+            }
+            catch (Exception ef)
+            {
+            }
+            try
+            {
+                pdf1.Save(alternativerPfad);
+                return checkSlash(alternativerPfad);
+            }
+
+            catch (Exception e)
+            {
+            }
+
+
+            return pfad;
+        }
         public string checkSlash(string input) {
             try
             {

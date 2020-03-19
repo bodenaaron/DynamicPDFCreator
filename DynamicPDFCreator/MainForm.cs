@@ -38,16 +38,14 @@ namespace DynamicPDFCreator
             {
                 DBm = new DBManager(tb_smNummer.Text);
                 cmb_Ansprechpartner.Items.Clear();
-                cmb_Ansprechpartner.Items.AddRange(DBm.bearbeiterNamen);
+                cmb_Ansprechpartner.Items.AddRange(DBm.pdf.bearbeiterStringList);
                 cmb_Ansprechpartner.SelectedIndex = 0;
-                cmb_ansprechpartnerBau.Items.Clear();
-                cmb_ansprechpartnerBau.Items.AddRange(DBm.ansprechpartnerNamen);
                 cmb_empfaenger.Items.Clear();
-                cmb_empfaenger.Items.AddRange(DBm.ansprechpartnerNamen);
+                cmb_empfaenger.Items.AddRange(DBm.pdf.ansprechpartnerStringList);
                 cmb_absender.Items.Clear();
-                cmb_absender.Items.AddRange(DBm.bearbeiterNamen);
+                cmb_absender.Items.AddRange(DBm.pdf.bearbeiterStringList);
                 cmb_wesie.Items.Clear();
-                cmb_wesie.Items.AddRange(DBm.wesiTeamNamen);
+                cmb_wesie.Items.AddRange(DBm.pdf.wesiTeamStringList);
                 pdf.auftrag = DBm.auftrag;
                 //btn_hinzufuegen.Enabled = true;
             }
@@ -59,13 +57,13 @@ namespace DynamicPDFCreator
             this.WindowState = FormWindowState.Maximized;
             //Combobox Anschreiben Typ
             cmb_anschreibenTyp.Items.Clear();
-            cmb_anschreibenTyp.Items.AddRange(DBm.anschreibenNamen);
-            cmb_wesie.Items.AddRange(DBm.wesiTeamNamen);
+            cmb_anschreibenTyp.Items.AddRange(DBm.pdf.anschreibenStringList);
+            cmb_wesie.Items.AddRange(DBm.pdf.wesiTeamStringList);
             //cmb_anschreibenTyp.SelectedIndex = 2;
             cmb_Ansprechpartner.Items.Clear();
-            cmb_Ansprechpartner.Items.AddRange(DBm.bearbeiterNamen);
+            cmb_Ansprechpartner.Items.AddRange(DBm.pdf.bearbeiterStringList);
             cmb_absender.Items.Clear();
-            cmb_absender.Items.AddRange(DBm.bearbeiterNamen);
+            cmb_absender.Items.AddRange(DBm.pdf.bearbeiterStringList);
             //Datepicker custom form
 
             datePickerAusfuehrung.Format = DateTimePickerFormat.Custom;
@@ -169,7 +167,7 @@ namespace DynamicPDFCreator
 
         private void Cmb_empfaenger_SelectedIndexChanged(object sender, EventArgs e)
         {
-            pdf.empfaenger = DBm.ansprechpartner.ElementAt<Ansprechpartner>(cmb_empfaenger.SelectedIndex);
+            pdf.empfaenger = DBm.auftrag.projekt.ansprechpartner.ElementAt<Ansprechpartner>(cmb_empfaenger.SelectedIndex);
             btn_bearbeiten.Enabled = true;
 
 
@@ -204,12 +202,12 @@ namespace DynamicPDFCreator
 
         private void Rtb_BeschreibungMassnahme_TextChanged(object sender, EventArgs e)
         {
-            pdf.beschreibungMassnahme.Text = rtb_BeschreibungMassnahme.Rtf;
+            pdf.beschreibungMassnahme = rtb_BeschreibungMassnahme.Rtf;
         }
 
         private void Cmb_ansprechpartnerBau_SelectedIndexChanged(object sender, EventArgs e)
         {
-            pdf.ansprechpartnerBau = DBm.ansprechpartner.ElementAt<Ansprechpartner>(cmb_ansprechpartnerBau.SelectedIndex);
+            pdf.ansprechpartnerBau = DBm.auftrag.projekt.ansprechpartner.ElementAt<Ansprechpartner>(cmb_ansprechpartnerBau.SelectedIndex);
         }
 
         private void Rtb_WesiAdresse_TextChanged(object sender, EventArgs e)
@@ -221,8 +219,8 @@ namespace DynamicPDFCreator
         {
             pdf.wesiTeam = DBm.wesiTeam.ElementAt<WesiTeam>(cmb_wesie.SelectedIndex);
             WesiTeam wesi = DBm.wesiTeam.ElementAt<WesiTeam>(cmb_wesie.SelectedIndex);
-            rtb_WesiAdresse.Text = $"{wesi.Firma} {wesi.Niederlassung}" + Environment.NewLine + wesi.Bereich + Environment.NewLine + wesi.Strasse + Environment.NewLine + wesi.PLZ + " " + wesi.Stadt;
-            tb_WesiMail.Text = wesi.Email;
+            rtb_WesiAdresse.Text = $"{wesi.firma} {wesi.niederlassung}" + Environment.NewLine + wesi.bereich + Environment.NewLine + wesi.strasse + Environment.NewLine + wesi.plz + " " + wesi.stadt;
+            tb_WesiMail.Text = wesi.email;
         }
 
         private void Cb_plansaetze_CheckedChanged(object sender, EventArgs e)
@@ -269,14 +267,13 @@ namespace DynamicPDFCreator
             rtb.Rtf = rtb_BeschreibungMassnahme.Rtf;
             try
             {
-                PDF FinalPDF = createPDF(zusatzanlagen, rtb);
+                PDF FinalPDF = createPDF(zusatzanlagen, rtb.Text);
 
                 SaveFileDialog saveFileDialog = new SaveFileDialog();
                 saveFileDialog.Filter = "PDF|*.pdf";
                 saveFileDialog.Title = "PDF Speichern";
                 saveFileDialog.ShowDialog();
-                string html = pdfWriter.getHTML(FinalPDF);
-                pdfWriter.writeHTMLtoPDF(html, saveFileDialog.FileName);
+                pdfWriter.writeHTMLtoPDF(FinalPDF, saveFileDialog.FileName);
             }
             catch (Exception q) { }
         }
@@ -290,14 +287,13 @@ namespace DynamicPDFCreator
             rtb.Rtf = rtb_BeschreibungMassnahme.Rtf;
             try
             {
-                PDF FinalPDF = createPDF(zusatzanlagen,rtb);
+                PDF FinalPDF = createPDF(zusatzanlagen,rtb.Text);
 
-                DBm.testSave(pdf);
-                string html = pdfWriter.getHTML(FinalPDF);
+                //DBm.testSave(pdf);
                 string hiddenPath = Path.GetTempPath() + @"\testpdf.pdf";
                 this.pdfPreview.Navigate("www.google.de");
 
-                pdfPreview.Navigate(pdfWriter.writeHTMLtoPDF(html, hiddenPath));
+                pdfPreview.Navigate(pdfWriter.writeHTMLtoPDF(FinalPDF, hiddenPath));
             }
             catch (Exception ef) { }
 
@@ -306,7 +302,7 @@ namespace DynamicPDFCreator
         private void Btn_bearbeiten_Click(object sender, EventArgs e)
         {
             EditDataset editDataset = new EditDataset();
-            editDataset.ReinitializeComponent(DBm.ansprechpartner.ElementAt<Ansprechpartner>(cmb_empfaenger.SelectedIndex), DBm.ansprechpartnerTypNamen);
+            editDataset.ReinitializeComponent(DBm.auftrag.projekt.ansprechpartner.ElementAt<Ansprechpartner>(cmb_empfaenger.SelectedIndex), DBm.pdf.ansprechpartnerTypStringList);
             this.Enabled = false;
             editDataset.ShowDialog();
             this.Enabled = true;
@@ -419,11 +415,11 @@ namespace DynamicPDFCreator
             tb_WesiMail.Clear();
             rtb_WesiAdresse.Clear();
             cmb_wesie.Items.Clear();
-            cmb_wesie.Items.AddRange(DBm.wesiTeamNamen);
+            cmb_wesie.Items.AddRange(DBm.pdf.wesiTeamStringList);
             this.Enabled = true;
         }
 
-        private PDF createPDF(List<string>zusatzanlagen, RichTextBox rtb)
+        private PDF createPDF(List<string>zusatzanlagen, string rtb)
         {
             PDF FinalPDF = new PDF();
 
@@ -433,17 +429,13 @@ namespace DynamicPDFCreator
                    FinalPDF = new PDF(
                    DBm.auftrag,
                    DBm.anschreiben.ElementAt<AnschreibenTyp>(cmb_anschreibenTyp.SelectedIndex),
-                   DBm.ansprechpartner.ElementAt<Ansprechpartner>(cmb_empfaenger.SelectedIndex),
+                   DBm.auftrag.projekt.ansprechpartner.ElementAt<Ansprechpartner>(cmb_empfaenger.SelectedIndex),
                    DBm.bearbeiter.ElementAt<Bearbeiter>(cmb_absender.SelectedIndex),
                    datePicker.Value,
                    datePickerAusfuehrung.Value,
                    datePickerAusfuehrungEnde.Value.Date,
                    DBm.bearbeiter.ElementAt<Bearbeiter>(cmb_Ansprechpartner.SelectedIndex),
                    tb_ortMassnahme.Text,
-                   //rtb_absprachen.Text,
-                   //rtb,
-                   //DBm.ansprechpartner.ElementAt<TblAnsprechpartner>(cmb_ansprechpartnerBau.SelectedIndex),
-                   //DBm.wesiTeam.ElementAt<TblWesiTeam>(cmb_wesie.SelectedIndex),
                    cb_plansaetze.Checked,
                    cb_beteiligte.Checked,
                    cb_techBeschreibung.Checked,
@@ -454,7 +446,7 @@ namespace DynamicPDFCreator
                    FinalPDF = new PDF(
                    DBm.auftrag,
                    DBm.anschreiben.ElementAt<AnschreibenTyp>(cmb_anschreibenTyp.SelectedIndex),
-                   DBm.ansprechpartner.ElementAt<Ansprechpartner>(cmb_empfaenger.SelectedIndex),
+                   DBm.auftrag.projekt.ansprechpartner.ElementAt<Ansprechpartner>(cmb_empfaenger.SelectedIndex),
                    DBm.bearbeiter.ElementAt<Bearbeiter>(cmb_absender.SelectedIndex),
                    datePicker.Value,
                    datePickerAusfuehrung.Value,
@@ -473,7 +465,7 @@ namespace DynamicPDFCreator
                     FinalPDF = new PDF(
                     DBm.auftrag,
                     DBm.anschreiben.ElementAt<AnschreibenTyp>(cmb_anschreibenTyp.SelectedIndex),
-                    DBm.ansprechpartner.ElementAt<Ansprechpartner>(cmb_empfaenger.SelectedIndex),
+                    DBm.auftrag.projekt.ansprechpartner.ElementAt<Ansprechpartner>(cmb_empfaenger.SelectedIndex),
                     tb_ortMassnahme.Text,
                     DBm.wesiTeam.ElementAt<WesiTeam>(cmb_wesie.SelectedIndex)
 
@@ -483,7 +475,7 @@ namespace DynamicPDFCreator
                     FinalPDF = new PDF(
                     DBm.auftrag,
                     DBm.anschreiben.ElementAt<AnschreibenTyp>(cmb_anschreibenTyp.SelectedIndex),
-                    DBm.ansprechpartner.ElementAt<Ansprechpartner>(cmb_empfaenger.SelectedIndex),
+                    DBm.auftrag.projekt.ansprechpartner.ElementAt<Ansprechpartner>(cmb_empfaenger.SelectedIndex),
                     DBm.bearbeiter.ElementAt<Bearbeiter>(cmb_absender.SelectedIndex),
                     datePicker.Value,
                     datePickerAusfuehrung.Value,
@@ -500,7 +492,7 @@ namespace DynamicPDFCreator
                     FinalPDF = new PDF(
                     DBm.auftrag,
                     DBm.anschreiben.ElementAt<AnschreibenTyp>(cmb_anschreibenTyp.SelectedIndex),
-                    DBm.ansprechpartner.ElementAt<Ansprechpartner>(cmb_empfaenger.SelectedIndex),
+                    DBm.auftrag.projekt.ansprechpartner.ElementAt<Ansprechpartner>(cmb_empfaenger.SelectedIndex),
                     tb_ortMassnahme.Text,
                     DBm.wesiTeam.ElementAt<WesiTeam>(cmb_wesie.SelectedIndex),
                     datePicker.Value
@@ -579,18 +571,18 @@ namespace DynamicPDFCreator
             rtb.Rtf = rtb_BeschreibungMassnahme.Rtf;
             try
             {
-                PDF FinalPDF = createPDF(zusatzanlagen, rtb);
+                PDF FinalPDF = createPDF(zusatzanlagen, rtb.Text);
                 string pfad = getDynamicPath(FinalPDF);
                 
-                string html = pdfWriter.getHTML(FinalPDF);
-                pdfWriter.writeHTMLtoPDF(html, pfad);
+                pdfWriter.writeHTMLtoPDF(FinalPDF, pfad);
+                DBm.savePDF(FinalPDF);
             }
             catch (Exception q) { }
         }
 
         private string getDynamicPath(PDF finalPDF)
         {
-            string pfad = $@"C:\Datenbank\Projekte\{DBm.projekt.projektbezeichnung}_{DBm.projekt.id}\Aufträge\";
+            string pfad = $@"C:\Datenbank\Projekte\{finalPDF.auftrag.projekt.projektbezeichnung}_{finalPDF.auftrag.projekt.id}\Aufträge\";
             string[] subdirs = Directory.GetDirectories(pfad);
             string ordnerName="";
             foreach (string dir in subdirs)

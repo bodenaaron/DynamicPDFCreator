@@ -8,10 +8,10 @@ using System.Windows.Forms;
 
 namespace DynamicPDFCreator
 {
-    class PDF
+    public class PDF
     {
 
-        public  PDF(Auftrag auftrag, AnschreibenTyp anschreibenTyp, Ansprechpartner empfaenger, Bearbeiter absender, DateTime datum, DateTime ausfuehrungszeitraum, DateTime ausfuehrungszeitraumEnde, Bearbeiter ansprechpartner, string ortDerMassnahme, string abgesprochenMit, RichTextBox beschreibungMassnahme, Ansprechpartner ansprechpartnerBau, WesiTeam wesiTeam, bool plansaetze, bool listeBeteiligte, bool techBeschreibung, bool untervollmacht,List<string>zusatzanlagen)
+        public  PDF(Auftrag auftrag, AnschreibenTyp anschreibenTyp, Ansprechpartner empfaenger, Bearbeiter absender, DateTime datum, DateTime ausfuehrungszeitraum, DateTime ausfuehrungszeitraumEnde, Bearbeiter ansprechpartner, string ortDerMassnahme, string abgesprochenMit, string beschreibungMassnahme, Ansprechpartner ansprechpartnerBau, WesiTeam wesiTeam, bool plansaetze, bool listeBeteiligte, bool techBeschreibung, bool untervollmacht,List<string>zusatzanlagen)
         {
             this.auftrag = auftrag;
             this.anschreibenTyp = anschreibenTyp;
@@ -35,7 +35,7 @@ namespace DynamicPDFCreator
         /// <summary>
         /// WUPFL
         /// </summary>
-        public  PDF(Auftrag auftrag, AnschreibenTyp anschreibenTyp, Ansprechpartner empfaenger, Bearbeiter absender, DateTime datum, DateTime ausfuehrungszeitraum, DateTime ausfuehrungszeitraumEnde, Bearbeiter ansprechpartner, string ortDerMassnahme, RichTextBox beschreibungMassnahme,  WesiTeam wesiTeam, bool plansaetze, bool listeBeteiligte, bool techBeschreibung, bool untervollmacht, List<string> zusatzanlagen)
+        public  PDF(Auftrag auftrag, AnschreibenTyp anschreibenTyp, Ansprechpartner empfaenger, Bearbeiter absender, DateTime datum, DateTime ausfuehrungszeitraum, DateTime ausfuehrungszeitraumEnde, Bearbeiter ansprechpartner, string ortDerMassnahme, string beschreibungMassnahme,  WesiTeam wesiTeam, bool plansaetze, bool listeBeteiligte, bool techBeschreibung, bool untervollmacht, List<string> zusatzanlagen)
         {
             this.auftrag = auftrag;
             this.anschreibenTyp = anschreibenTyp;
@@ -78,7 +78,7 @@ namespace DynamicPDFCreator
 
         public PDF()
         {
-            this.beschreibungMassnahme = new RichTextBox();
+            
         }
         /// <summary>
         /// Zustimmungsbescheid
@@ -110,7 +110,7 @@ namespace DynamicPDFCreator
         /// <summary>
         /// Abstimmung Naturschutz
         /// </summary>
-        public PDF(Auftrag auftrag, AnschreibenTyp anschreibenTyp, Ansprechpartner empfaenger, Bearbeiter absender, DateTime datum, DateTime ausfuehrungszeitraum, DateTime ausfuehrungszeitraumEnde, string ortDerMassnahme, RichTextBox beschreibungMassnahme, bool plansaetze, bool listeBeteiligte, bool techBeschreibung, bool untervollmacht, List<string> zusatzanlagen)
+        public PDF(Auftrag auftrag, AnschreibenTyp anschreibenTyp, Ansprechpartner empfaenger, Bearbeiter absender, DateTime datum, DateTime ausfuehrungszeitraum, DateTime ausfuehrungszeitraumEnde, string ortDerMassnahme, string beschreibungMassnahme, bool plansaetze, bool listeBeteiligte, bool techBeschreibung, bool untervollmacht, List<string> zusatzanlagen)
         {
             this.auftrag = auftrag;
             this.anschreibenTyp = anschreibenTyp;
@@ -127,7 +127,7 @@ namespace DynamicPDFCreator
             this.untervollmacht = untervollmacht;
             this.Zusatzanlagen = zusatzanlagen;
         }
-        public virtual int id { get; set; } //= new TblAuftraege();
+        public virtual string id { get; set; } //= new TblAuftraege();
         public virtual Auftrag auftrag { get; set; } //= new TblAuftraege();
         public virtual AnschreibenTyp anschreibenTyp { get; set; } //= new TblAnschreibenTyp();
         public virtual Ansprechpartner empfaenger { get; set; } //= new TblAnsprechpartner();
@@ -138,7 +138,7 @@ namespace DynamicPDFCreator
         public virtual Bearbeiter ansprechpartner { get; set; }
         public virtual string ortDerMassnahme { get; set; }
         public virtual string abgesprochenMit { get; set; }
-        public virtual RichTextBox beschreibungMassnahme { get; set; }
+        public virtual string beschreibungMassnahme { get; set; }
         public virtual Ansprechpartner ansprechpartnerBau { get; set; }
         public virtual WesiTeam wesiTeam { get; set; } //= new TblWesiTeam();
         public virtual bool plansaetze { get; set; }
@@ -149,6 +149,11 @@ namespace DynamicPDFCreator
         public virtual string zusatzAnlage2 { get; set; }
         public virtual string zusatzAnlage3 { get; set; }
         public virtual List<string> Zusatzanlagen { get; set; }
+        public virtual object[] ansprechpartnerStringList { get; set; }
+        public virtual object[] anschreibenStringList { get; set; }
+        public virtual object[] bearbeiterStringList { get; set; }
+        public virtual object[] wesiTeamStringList { get; set; }
+        public virtual object[] ansprechpartnerTypStringList { get; set; }
 
 
 

@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<hibernate-mapping xmlns = "urn:nhibernate-mapping-2.2" assembly="DynamicPDFCreator" namespace="DynamicPDFCreator">
+
+  <class name = "PDF" table="tblPDFs">
+    <id name = "id" column="id"/>
+
+
+    <many-to-one name = "auftrag"/>
+    
+    <many-to-one name = "anschreibenTyp"/>
+    <many-to-one name = "empfaenger"/>
+    <many-to-one name = "absender"/>
+    <many-to-one name = "ansprechpartner"/>
+    <many-to-one name = "ansprechpartnerBau"/>
+    <many-to-one name = "wesiTeam"/>
+    
+    <property name="datum" type="DateTime">
+      <column name="datum" not-null="true" sql-type="DateTime" />
+    </property>
+    <property name="ausfuehrungszeitraum" type="DateTime">
+      <column name="ausfuehrungszeitraum" not-null="true" sql-type="DateTime" />
+    </property>
+    <property name="ausfuehrungszeitraumEnde" type="DateTime">
+      <column name="ausfuehrungszeitraumEnde" not-null="true" sql-type="DateTime" />
+    </property>
+    <property name = "ortDerMassnahme"/>
+    <property name = "abgesprochenMit"/>
+    <property name = "beschreibungMassnahme"/>
+    <property name = "plansaetze"/>
+    <property name = "untervollmacht"/>
+    <property name = "listeBeteiligte"/>
+    <property name = "techBeschreibung"/>
+    <property name = "zusatzAnlage1"/>
+    <property name = "zusatzAnlage2"/>
+    <property name = "zusatzAnlage3"/>
+    
+    
+  </class>
+
+</hibernate-mapping>

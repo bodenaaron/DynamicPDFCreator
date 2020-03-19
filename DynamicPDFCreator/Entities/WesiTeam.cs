@@ -43,7 +43,7 @@ namespace DynamicPDFCreator
         /// <summary>
         /// There are no comments for Id in the schema.
         /// </summary>
-        public virtual short Id
+        public virtual short id
         {
             get;
             set;
@@ -53,7 +53,7 @@ namespace DynamicPDFCreator
         /// <summary>
         /// There are no comments for Firma in the schema.
         /// </summary>
-        public virtual string Firma
+        public virtual string firma
         {
             get;
             set;
@@ -63,7 +63,7 @@ namespace DynamicPDFCreator
         /// <summary>
         /// There are no comments for Stadt in the schema.
         /// </summary>
-        public virtual string Stadt
+        public virtual string stadt
         {
             get;
             set;
@@ -73,7 +73,7 @@ namespace DynamicPDFCreator
         /// <summary>
         /// There are no comments for PLZ in the schema.
         /// </summary>
-        public virtual string PLZ
+        public virtual string plz
         {
             get;
             set;
@@ -83,7 +83,7 @@ namespace DynamicPDFCreator
         /// <summary>
         /// There are no comments for Strasse in the schema.
         /// </summary>
-        public virtual string Strasse
+        public virtual string strasse
         {
             get;
             set;
@@ -92,21 +92,26 @@ namespace DynamicPDFCreator
         /// <summary>
         /// There are no comments for Bereich in the schema.
         /// </summary>
-        public virtual string Bereich
+        public virtual string bereich
         {
             get;
             set;
         }
-        public virtual string Email
+        public virtual string email
         {
             get;
             set;
         }
-        public virtual string Niederlassung
+        public virtual string niederlassung
         {
             get;
             set;
         }
+        /* public virtual ISet<PDF> pdfs
+         {
+             get;
+             set;
+         }*/
     }
 
 }

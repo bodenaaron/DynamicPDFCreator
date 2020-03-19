@@ -25,5 +25,10 @@ namespace DynamicPDFCreator
             set;
         }
 
+        /*public virtual ISet<PDF> pdfs
+        {
+            get;
+            set;
+        }*/
     }
 }

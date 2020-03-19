@@ -10,6 +10,11 @@
     <property name = "telefon" column="Telefon"/>
     <property name = "bearbeiterName" column="Bearbeiter_Name"/>
     <property name = "bearbeiterVorname" column="Bearbeiter_Vorname"/>
+    <!--<set name = "pdfs" table = "tblPDFs">
+      <key column = "`id´"/>
+      <one-to-many class = "PDF" />
+    </set>-->
+
   </class>
 
 </hibernate-mapping>

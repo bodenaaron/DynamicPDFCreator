@@ -20,22 +20,17 @@ namespace DynamicPDFCreator
     class DBManager
     {
         public Auftrag auftrag;        
-        public List<Ansprechpartner> ansprechpartner;
-        public object[] ansprechpartnerNamen;
-        public List<AnschreibenTyp> anschreiben;
-        public object[] anschreibenNamen;
-        public List<Bearbeiter> bearbeiter;
-        public object[] bearbeiterNamen;
-        public List<WesiTeam> wesiTeam;
-        public object[] wesiTeamNamen;
-        public List<AnsprechpartnerTyp> ansprechpartnerTyp;
-        public object[] ansprechpartnerTypNamen;
-
+        public List<AnschreibenTyp> anschreiben;        
+        public List<Bearbeiter> bearbeiter;        
+        public List<WesiTeam> wesiTeam;        
+        //public List<AnsprechpartnerTyp> ansprechpartnerTyp;        
+        public PDF pdf;
 
         public DBManager()
         {
+            pdf = new PDF();
             getAnschreibenTyp();
-            getAnsprechpartnerTyp();
+            //getAnsprechpartnerTyp();
             getBearbeiter();
             getWesiTeam();
 
@@ -47,6 +42,7 @@ namespace DynamicPDFCreator
         }
         public DBManager(string smNummer)
         {
+            pdf = new PDF();
             var hierarchy = (Hierarchy)LogManager.GetRepository();
             var logger = (Logger)hierarchy.GetLogger("NHibernate.SQL");
             logger.AddAppender(new TraceAppender { Layout = new SimpleLayout() });
@@ -57,7 +53,7 @@ namespace DynamicPDFCreator
                 getAuftrag(smNummer);
                 if (auftrag!=null)
                 {
-                    getAnsprechpartnerTyp();
+                    //getAnsprechpartnerTyp();
                     //getProjekt();
                     //getAnsprechpartner();
                     getAnschreibenTyp();
@@ -71,8 +67,7 @@ namespace DynamicPDFCreator
         //braucht SMNummer
         public void getAuftrag(string smNummer)
         {
-            auftrag = new Auftrag();
-            ansprechpartner = new List<Ansprechpartner>();;
+            auftrag = new Auftrag();            
             ISession session = getSession();
             ITransaction tx = session.BeginTransaction();
             ICriteria crit = session.CreateCriteria<Auftrag>();            
@@ -82,6 +77,25 @@ namespace DynamicPDFCreator
             Debug.WriteLine("\n\n\n"+smNummer +" JA "+auftrag.smNummer+ "\n\n\n");
             tx.Commit();
             //closeSession(session,tx);
+
+            List<string> ansp = new List<string>();
+            //Object in String umwandeln
+            foreach (Ansprechpartner an in auftrag.projekt.ansprechpartner)
+            {
+                if (an.ansprechpartnerVorname == null && an.ansprechpartnerName == null || an.ansprechpartnerVorname == "" && an.ansprechpartnerName == "")
+                {
+                    if (an.firma != "")
+                    {
+                        ansp.Add(an.firma);
+                    }
+                }
+                else
+                {
+                    ansp.Add(an.ansprechpartnerVorname + " " + an.ansprechpartnerName);
+                }
+
+            }
+            pdf.ansprechpartnerStringList = ansp.Cast<object>().ToArray();
         }
 
         #region altlasten
@@ -138,6 +152,34 @@ namespace DynamicPDFCreator
             closeSession(session, tx);
         }
 
+            private void getAnsprechpartnerTyp()
+        {
+            ISession session = getSession();
+            ITransaction tx = session.BeginTransaction();
+
+            ICriteria crit = session.CreateCriteria<AnsprechpartnerTyp>();
+
+            ansprechpartnerTyp = (List<AnsprechpartnerTyp>)crit.List<AnsprechpartnerTyp>();
+
+            List<string> ansprTyp = new List<string>();
+            //Object in String umwandeln
+            foreach (AnsprechpartnerTyp an in ansprechpartnerTyp)
+            {
+                ansprTyp.Add(an.Typ);
+            }
+            pdf.ansprechpartnerStringList = ansprTyp.Cast<object>().ToArray();
+
+            closeSession(session, tx);
+
+        }
+        public void sqlSchema()
+        {
+            
+            new SchemaExport(new Configuration().Configure()).SetOutputFile(@"C:\Users\Boden_Aaron\source\repos\DynamicPDFCreator\DynamicPDFCreator\schema.sql").Execute(true, false, false);
+            
+        }
+        */
+        #endregion
         //immer verfügbar
         private void getAnschreibenTyp()
         {
@@ -154,30 +196,7 @@ namespace DynamicPDFCreator
             {
                 anschr.Add(an.bezeichnung);
             }
-            anschreibenNamen = anschr.Cast<object>().ToArray();
-
-            closeSession(session, tx);
-
-        }*/
-        #endregion
-
-
-        private void getAnsprechpartnerTyp()
-        {
-            ISession session = getSession();
-            ITransaction tx = session.BeginTransaction();
-
-            ICriteria crit = session.CreateCriteria<AnsprechpartnerTyp>();
-
-            ansprechpartnerTyp = (List<AnsprechpartnerTyp>)crit.List<AnsprechpartnerTyp>();
-
-            List<string> ansprTyp = new List<string>();
-            //Object in String umwandeln
-            foreach (AnsprechpartnerTyp an in ansprechpartnerTyp)
-            {
-                ansprTyp.Add(an.Typ);
-            }
-            ansprechpartnerTypNamen = ansprTyp.Cast<object>().ToArray();
+            pdf.anschreibenStringList = anschr.Cast<object>().ToArray();
 
             closeSession(session, tx);
 
@@ -199,7 +218,7 @@ namespace DynamicPDFCreator
             {
                     bearb.Add(an.bearbeiterVorname + " " + an.bearbeiterName);
             }
-            bearbeiterNamen = bearb.Cast<object>().ToArray();
+            pdf.bearbeiterStringList = bearb.Cast<object>().ToArray();
 
             closeSession(session, tx);
         }
@@ -217,16 +236,17 @@ namespace DynamicPDFCreator
             //Object in String umwandeln
             foreach (WesiTeam an in wesiTeam)
             {
-                wesi.Add($"{an.Firma} {an.Niederlassung}");
+                wesi.Add($"{an.firma} {an.niederlassung}");
             }
-            wesiTeamNamen = wesi.Cast<object>().ToArray();
+            pdf.wesiTeamStringList = wesi.Cast<object>().ToArray();
 
 
             closeSession(session, tx);
         }
 
-        public void testSave(PDF a)
+        public void savePDF(PDF a)
         {
+            a.id = a.auftrag.smNummer + a.anschreibenTyp.id + a.empfaenger.id;
             ISession session = getSession();
             ITransaction tx = session.BeginTransaction();
             session.SaveOrUpdate(a);
@@ -268,9 +288,9 @@ namespace DynamicPDFCreator
 
         public void sqlSchema()
         {
-            
+
             new SchemaExport(new Configuration().Configure()).SetOutputFile(@"C:\Users\Boden_Aaron\source\repos\DynamicPDFCreator\DynamicPDFCreator\schema.sql").Execute(true, false, false);
-            
+
         }
     }
 }

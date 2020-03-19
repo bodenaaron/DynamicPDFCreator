@@ -6,7 +6,7 @@
     </property>
     <property name="connection.connection_string">
       Data Source=WIN-M0M11N9GCQJ\SQLEXPRESS;
-      Initial Catalog=Eictronic_V1_1;
+      Initial Catalog=Eictronic_PDF_Creator;
       Integrated Security=False;
       Persist Security Info=True;
       User ID=Boden;
