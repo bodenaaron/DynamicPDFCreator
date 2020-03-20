@@ -16,7 +16,7 @@
     <many-to-one name = "wesiTeam"/>
     
     <property name="datum" type="DateTime">
-      <column name="datum" not-null="true" sql-type="DateTime" />
+      <column name="erstellungsZeitpunkt" not-null="true" sql-type="DateTime" />
     </property>
     <property name="ausfuehrungszeitraum" type="DateTime">
       <column name="ausfuehrungszeitraum" not-null="true" sql-type="DateTime" />
