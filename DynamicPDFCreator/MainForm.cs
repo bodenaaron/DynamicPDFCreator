@@ -21,7 +21,7 @@ namespace DynamicPDFCreator
         WorkingPDF workingPDF = new WorkingPDF();
         public MainForm()
         {
-           //DBm.sqlSchema();
+           DBm.sqlSchema();
             InitializeComponent();
             ReinitializeComponents();
 
@@ -604,6 +604,8 @@ namespace DynamicPDFCreator
         private void Listb_vorherige_PDF_SelectedIndexChanged(object sender, EventArgs e)
         {
             clearAll(false);
+
+
             loadPDF();
         }
 
@@ -612,93 +614,44 @@ namespace DynamicPDFCreator
             PDF pdf = DBm.dbPDF.auftrag.pdfs.ElementAt<PDF>(listb_vorherige_PDF.SelectedIndex);
 
             cmb_anschreibenTyp.SelectedIndex=pdf.anschreibenTyp.id-1;
-            cmb_empfaenger.SelectedIndex=DBm.dbPDF.empfaenger.ElementAt<Ansprechpartner>(pdf.em));
-            cmb_absender.SelectedIndex();
-            datePicker
-            datePickerAusfuehrung
-            datePickerAusfuehrungEnde
-            cmb_Ansprechpartner.SelectedIndex();
-            tb_ortMassnahme
-            rtb_absprachen
-            rtb_BeschreibungMassnahme
-            cmb_wesie.SelectedIndex();
-            cmb_ansprechpartnerBau.SelectedIndex();
-            cb_beteiligte
-            cb_untervollmacht
-            cb_plansaetze
-            cb_techBeschreibung
-            tb_ZusatzAnlage2
-            tb_ZusatzAnlage1
-
-
-            /*tb_smNummer
-            cmb_anschreibenTyp
-            cmb_empfaenger
-            cmb_absender
-            datePicker
-
-            datePickerAusfuehrung
-            datePickerAusfuehrungEnde
-            cmb_Ansprechpartner
-            tb_ortMassnahme
-            rtb_absprachen
-            rtb_BeschreibungMassnahme
-            cmb_wesie
-            cmb_ansprechpartnerBau
-            cb_beteiligte
-            cb_untervollmacht
-            cb_plansaetze              
-            cb_techBeschreibung                                       
-            tb_ZusatzAnlage2 
-            tb_ZusatzAnlage1 
+            cmb_empfaenger.SelectedIndex = pdf.empfaenger.id - 1;
             
+            datePicker.Value = pdf.datum;
+            datePickerAusfuehrung.Value = pdf.ausfuehrungszeitraum;
+            datePickerAusfuehrungEnde.Value = pdf.ausfuehrungszeitraumEnde;
             
-            switch (pdf.anschreibenTyp.id)
+            tb_ortMassnahme.Text = pdf.ortDerMassnahme;
+            rtb_absprachen.Text = pdf.abgesprochenMit;
+            rtb_BeschreibungMassnahme.Text = pdf.beschreibungMassnahme;
+            cmb_wesie.SelectedIndex = pdf.wesiTeam.id - 1;
+            cmb_ansprechpartnerBau.SelectedIndex = pdf.ansprechpartnerBau.id - 1;
+            cb_beteiligte.Checked = pdf.listeBeteiligte;
+            cb_untervollmacht.Checked = pdf.untervollmacht;
+            cb_plansaetze.Checked = pdf.plansaetze;
+            cb_techBeschreibung.Checked = pdf.techBeschreibung;
+            tb_ZusatzAnlage2.Text = pdf.zusatzAnlage2;
+            tb_ZusatzAnlage1.Text = pdf.zusatzAnlage1;
+            tb_ZusatzAnlage3.Text = pdf.zusatzAnlage3;                                                      
+        
+            int i = 0;
+            foreach (string s in cmb_Ansprechpartner.Items)
             {
-                //Anschreiben EVU
-                case 1:
-                    cmb_Ansprechpartner
-                    tb_ortMassnahme
-
-                    break;
-                    //Anschreiben Mitbenutzung
-                case 2:
-                    break;
-                    //Antrag Wupfl
-                case 3:
-                    break;
-                    //Bördliche Genehmigung
-                case 4:
-                    break;
-                    //Erläuterungsbericht
-                case 5:
-                    break;
-                    //Zustimmungsbescheid
-                case 6:
-                    break;
-                    //Abstimmung Naturschutz
-                case 7:
-                    break;
-                    //SOS Zustimmungsbescheid
-                case 8:
-                    break;
-                    //SOS Antrag
-                case 9:
-                    break;
-                    //Anschreibe Kommune
-                case 10:
-                    break;
-                    //Anschreiben Datenblatt
-                case 11:
-                    break;
-                    //Amschreiben Kommune Trenching
-                case 12:
-                    break;
-                    //Anschreiben Kampfmitte
-                case 13:
-                    break;*/
+                i++;
+                if (s==(pdf.ansprechpartner.bearbeiterVorname + " " + pdf.ansprechpartner.bearbeiterName))
+                {
+                    cmb_Ansprechpartner.SelectedIndex = i;
+                }
             }
-            
+            i = 0;
+            foreach (string s in cmb_absender.Items)
+            {
+                i++;
+                if (s == (pdf.absender.bearbeiterVorname + " " + pdf.absender.bearbeiterName))
+                {
+                    cmb_absender.SelectedIndex = i;
+                }
+            }            
         }
     }
     }
+    

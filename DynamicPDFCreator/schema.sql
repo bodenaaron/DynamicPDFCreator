@@ -23,6 +23,10 @@ alter table tblAuftraege  drop constraint FK_97EA931B
 alter table tblAuftraege  drop constraint FK_AF26A49A
 
 
+    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FK_515AFA3C]') and parent_object_id = OBJECT_ID(N'tblPDFs'))
+alter table tblPDFs  drop constraint FK_515AFA3C
+
+
     if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FK_B7D36CB2]') and parent_object_id = OBJECT_ID(N'tblPDFs'))
 alter table tblPDFs  drop constraint FK_B7D36CB2
 
@@ -62,6 +66,8 @@ alter table tblPDFs  drop constraint FK_419D9A5C
     if exists (select * from dbo.sysobjects where id = object_id(N'tblProjekte') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table tblProjekte
 
     if exists (select * from dbo.sysobjects where id = object_id(N'tblPDFs') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table tblPDFs
+
+    if exists (select * from dbo.sysobjects where id = object_id(N'tblAnsprechpartnerTyp') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table tblAnsprechpartnerTyp
 
     create table tblWesiTeam (
         id SMALLINT IDENTITY NOT NULL,
@@ -136,14 +142,14 @@ alter table tblPDFs  drop constraint FK_419D9A5C
 
     create table tblPDFs (
         id NVARCHAR(255) not null,
-       auftrag NVARCHAR(255) null,
+       auftrag INT null,
        anschreibenTyp SMALLINT null,
        empfaenger INT null,
        absender NVARCHAR(255) null,
        ansprechpartner NVARCHAR(255) null,
        ansprechpartnerBau INT null,
        wesiTeam SMALLINT null,
-       datum DateTime not null,
+       zeitpunktErstellung DateTime not null,
        ausfuehrungszeitraum DateTime not null,
        ausfuehrungszeitraumEnde DateTime not null,
        ortDerMassnahme NVARCHAR(255) null,
@@ -157,6 +163,12 @@ alter table tblPDFs  drop constraint FK_419D9A5C
        zusatzAnlage2 NVARCHAR(255) null,
        zusatzAnlage3 NVARCHAR(255) null,
        primary key (id)
+    )
+
+    create table tblAnsprechpartnerTyp (
+        idAnsprechpartnerTyp NVARCHAR(255) IDENTITY NOT NULL,
+       Bezeichnung NVARCHAR(255) null,
+       primary key (idAnsprechpartnerTyp)
     )
 
     alter table tblAnsprechpartner2Projekt 
@@ -188,6 +200,11 @@ alter table tblPDFs  drop constraint FK_419D9A5C
         add constraint FK_AF26A49A 
         foreign key ([idAuftrag]) 
         references tblProjekte
+
+    alter table tblPDFs 
+        add constraint FK_515AFA3C 
+        foreign key (auftrag) 
+        references tblAuftraege
 
     alter table tblPDFs 
         add constraint FK_B7D36CB2 
