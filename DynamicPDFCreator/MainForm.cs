@@ -21,7 +21,7 @@ namespace DynamicPDFCreator
         WorkingPDF workingPDF = new WorkingPDF();
         public MainForm()
         {
-           DBm.sqlSchema();
+           //DBm.sqlSchema();
             InitializeComponent();
             ReinitializeComponents();
 
@@ -248,7 +248,7 @@ namespace DynamicPDFCreator
         private void Btn_saveDocument_Click(object sender, EventArgs e)
         {
             error_label.Text = "";
-            List<string> zusatzanlagen = checkInput();
+            List<Zusatzanlage> zusatzanlagen = checkInput();
 
             RichTextBox rtb = new RichTextBox();
             rtb.Rtf = rtb_BeschreibungMassnahme.Rtf;
@@ -269,7 +269,7 @@ namespace DynamicPDFCreator
         private void Btn_vorschau_Click(object sender, EventArgs e)
         {
             error_label.Text = "";
-            List<string> zusatzanlagen = checkInput();
+            List<Zusatzanlage> zusatzanlagen = checkInput();
 
             RichTextBox rtb = new RichTextBox();
             rtb.Rtf = rtb_BeschreibungMassnahme.Rtf;
@@ -297,7 +297,7 @@ namespace DynamicPDFCreator
         }
 
         //noch falsche reihenfolge beim checken
-        private List<string> checkInput()
+        private List<Zusatzanlage> checkInput()
         {
             if (workingPDF.auftrag == null)
             {
@@ -361,28 +361,31 @@ namespace DynamicPDFCreator
                     case Pflichtfelder_Klassen.Pflichtfelder.ANSPRECHPARTNER_BAU:
                         break;
                 }
-            }
-            List<string> zusatzanlagen = new List<string>();
+            }            
+            List<Zusatzanlage> zusatzanlagen = new List<Zusatzanlage>();
             if (cb_plansaetze.Checked)
             {
-                zusatzanlagen.Add("- Plansatz");
+                zusatzanlagen.Add(new Zusatzanlage("- Plansatz"));
             }
             if (cb_beteiligte.Checked)
             {
-                zusatzanlagen.Add("- Liste der Beteiligten");
+                zusatzanlagen.Add(new Zusatzanlage("- Liste der Beteiligten"));
             }
             if (cb_techBeschreibung.Checked)
             {
-                zusatzanlagen.Add("- Technische Beschreibung");
+                zusatzanlagen.Add(new Zusatzanlage("- Technische Beschreibung"));
             }
             if (cb_untervollmacht.Checked)
             {
-                zusatzanlagen.Add("- Untervollmacht");
+
+                zusatzanlagen.Add(new Zusatzanlage("- Untervollmacht"));
             }
+            
             foreach (object i in listb_zusatzanlagen.Items)
             {
                 zusatzanlagen.Add(i.ToString());
             }
+            
             return zusatzanlagen;
         }
         private void Btn_bearbeiten_wesi_Click(object sender, EventArgs e)
@@ -398,7 +401,7 @@ namespace DynamicPDFCreator
             this.Enabled = true;
         }
 
-        private PDF createPDF(List<string>zusatzanlagen, string rtb)
+        private PDF createPDF(List<Zusatzanlage> zusatzanlagen, string rtb)
         {
             PDF FinalPDF = new PDF();
 
@@ -544,7 +547,7 @@ namespace DynamicPDFCreator
         {
             
             error_label.Text = "";
-            List<string> zusatzanlagen = checkInput();
+            List<Zusatzanlage> zusatzanlagen = checkInput();
 
             RichTextBox rtb = new RichTextBox();
             rtb.Rtf = rtb_BeschreibungMassnahme.Rtf;
@@ -605,6 +608,7 @@ namespace DynamicPDFCreator
             cb_untervollmacht.Checked = pdf.untervollmacht;
             cb_plansaetze.Checked = pdf.plansaetze;
             cb_techBeschreibung.Checked = pdf.techBeschreibung;                                                   
+
         
             int i = 0;
             foreach (string s in cmb_Ansprechpartner.Items)

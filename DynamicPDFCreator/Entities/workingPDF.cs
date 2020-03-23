@@ -1,17 +1,12 @@
-﻿using FluentNHibernate.Data;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace DynamicPDFCreator
 {
     public class WorkingPDF
     {
 
-        public WorkingPDF(Auftrag auftrag, AnschreibenTyp anschreibenTyp, Ansprechpartner empfaenger, Bearbeiter absender, DateTime datum, DateTime ausfuehrungszeitraum, DateTime ausfuehrungszeitraumEnde, Bearbeiter ansprechpartner, string ortDerMassnahme, string abgesprochenMit, string beschreibungMassnahme, Ansprechpartner ansprechpartnerBau, WesiTeam wesiTeam, bool plansaetze, bool listeBeteiligte, bool techBeschreibung, bool untervollmacht,List<string>zusatzanlagen)
+        public WorkingPDF(Auftrag auftrag, AnschreibenTyp anschreibenTyp, Ansprechpartner empfaenger, Bearbeiter absender, DateTime datum, DateTime ausfuehrungszeitraum, DateTime ausfuehrungszeitraumEnde, Bearbeiter ansprechpartner, string ortDerMassnahme, string abgesprochenMit, string beschreibungMassnahme, Ansprechpartner ansprechpartnerBau, WesiTeam wesiTeam, bool plansaetze, bool listeBeteiligte, bool techBeschreibung, bool untervollmacht, List<string> zusatzanlagen)
         {
             this.auftrag = auftrag;
             this.anschreibenTyp = anschreibenTyp;
@@ -35,7 +30,7 @@ namespace DynamicPDFCreator
         /// <summary>
         /// WUPFL
         /// </summary>
-        public WorkingPDF(Auftrag auftrag, AnschreibenTyp anschreibenTyp, Ansprechpartner empfaenger, Bearbeiter absender, DateTime datum, DateTime ausfuehrungszeitraum, DateTime ausfuehrungszeitraumEnde, Bearbeiter ansprechpartner, string ortDerMassnahme, string beschreibungMassnahme,  WesiTeam wesiTeam, bool plansaetze, bool listeBeteiligte, bool techBeschreibung, bool untervollmacht, List<string> zusatzanlagen)
+        public WorkingPDF(Auftrag auftrag, AnschreibenTyp anschreibenTyp, Ansprechpartner empfaenger, Bearbeiter absender, DateTime datum, DateTime ausfuehrungszeitraum, DateTime ausfuehrungszeitraumEnde, Bearbeiter ansprechpartner, string ortDerMassnahme, string beschreibungMassnahme, WesiTeam wesiTeam, bool plansaetze, bool listeBeteiligte, bool techBeschreibung, bool untervollmacht, List<string> zusatzanlagen)
         {
             this.auftrag = auftrag;
             this.anschreibenTyp = anschreibenTyp;
@@ -78,12 +73,12 @@ namespace DynamicPDFCreator
 
         public WorkingPDF()
         {
-            
+
         }
         /// <summary>
         /// Zustimmungsbescheid
         /// </summary>
-        public WorkingPDF(Auftrag auftrag, AnschreibenTyp anschreibenTyp, Ansprechpartner empfaenger, string ortDerMassnahme,WesiTeam wesiTeam)
+        public WorkingPDF(Auftrag auftrag, AnschreibenTyp anschreibenTyp, Ansprechpartner empfaenger, string ortDerMassnahme, WesiTeam wesiTeam)
         {
             this.auftrag = auftrag;
             this.anschreibenTyp = anschreibenTyp;
@@ -127,10 +122,10 @@ namespace DynamicPDFCreator
             this.untervollmacht = untervollmacht;
             this.Zusatzanlagen = zusatzanlagen;
         }
-        public string id { get; set; } 
-        public Auftrag auftrag { get; set; } 
-        public AnschreibenTyp anschreibenTyp { get; set; } 
-        public Ansprechpartner empfaenger { get; set; } 
+        public string id { get; set; }
+        public Auftrag auftrag { get; set; }
+        public AnschreibenTyp anschreibenTyp { get; set; }
+        public Ansprechpartner empfaenger { get; set; }
         public Bearbeiter absender { get; set; }
         public DateTime datum { get; set; }
         public DateTime ausfuehrungszeitraum { get; set; }
@@ -140,12 +135,12 @@ namespace DynamicPDFCreator
         public string abgesprochenMit { get; set; }
         public string beschreibungMassnahme { get; set; }
         public Ansprechpartner ansprechpartnerBau { get; set; }
-        public WesiTeam wesiTeam { get; set; } 
+        public WesiTeam wesiTeam { get; set; }
         public bool plansaetze { get; set; }
         public bool untervollmacht { get; set; }
         public bool listeBeteiligte { get; set; }
         public bool techBeschreibung { get; set; }
-        public  string zusatzAnlage1 { get; set; }
+        public string zusatzAnlage1 { get; set; }
         public string zusatzAnlage2 { get; set; }
         public string zusatzAnlage3 { get; set; }
         public List<string> Zusatzanlagen { get; set; }
