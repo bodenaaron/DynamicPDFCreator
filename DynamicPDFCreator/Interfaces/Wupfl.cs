@@ -211,7 +211,7 @@ namespace DynamicPDFCreator.Interfaces
                 </p>
             ";
 
-            foreach (string s in pdf.Zusatzanlagen)
+            foreach (Zusatzanlage s in pdf.zusatzanlagen)
             {
                 html += "<p>"+s+"</p>";
             }

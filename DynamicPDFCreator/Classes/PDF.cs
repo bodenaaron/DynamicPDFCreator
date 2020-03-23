@@ -11,7 +11,7 @@ namespace DynamicPDFCreator
     public class PDF
     {
 
-        public  PDF(Auftrag auftrag, AnschreibenTyp anschreibenTyp, Ansprechpartner empfaenger, Bearbeiter absender, DateTime datum, DateTime ausfuehrungszeitraum, DateTime ausfuehrungszeitraumEnde, Bearbeiter ansprechpartner, string ortDerMassnahme, string abgesprochenMit, string beschreibungMassnahme, Ansprechpartner ansprechpartnerBau, WesiTeam wesiTeam, bool plansaetze, bool listeBeteiligte, bool techBeschreibung, bool untervollmacht,List<string>zusatzanlagen)
+        public  PDF(Auftrag auftrag, AnschreibenTyp anschreibenTyp, Ansprechpartner empfaenger, Bearbeiter absender, DateTime datum, DateTime ausfuehrungszeitraum, DateTime ausfuehrungszeitraumEnde, Bearbeiter ansprechpartner, string ortDerMassnahme, string abgesprochenMit, string beschreibungMassnahme, Ansprechpartner ansprechpartnerBau, WesiTeam wesiTeam, bool plansaetze, bool listeBeteiligte, bool techBeschreibung, bool untervollmacht,List<Zusatzanlage>zusatzanlagen)
         {
             this.auftrag = auftrag;
             this.anschreibenTyp = anschreibenTyp;
@@ -30,12 +30,12 @@ namespace DynamicPDFCreator
             this.listeBeteiligte = listeBeteiligte;
             this.techBeschreibung = techBeschreibung;
             this.untervollmacht = untervollmacht;
-            this.Zusatzanlagen = zusatzanlagen;
+            this.zusatzanlagen = zusatzanlagen;
         }
         /// <summary>
         /// WUPFL
         /// </summary>
-        public  PDF(Auftrag auftrag, AnschreibenTyp anschreibenTyp, Ansprechpartner empfaenger, Bearbeiter absender, DateTime datum, DateTime ausfuehrungszeitraum, DateTime ausfuehrungszeitraumEnde, Bearbeiter ansprechpartner, string ortDerMassnahme, string beschreibungMassnahme,  WesiTeam wesiTeam, bool plansaetze, bool listeBeteiligte, bool techBeschreibung, bool untervollmacht, List<string> zusatzanlagen)
+        public  PDF(Auftrag auftrag, AnschreibenTyp anschreibenTyp, Ansprechpartner empfaenger, Bearbeiter absender, DateTime datum, DateTime ausfuehrungszeitraum, DateTime ausfuehrungszeitraumEnde, Bearbeiter ansprechpartner, string ortDerMassnahme, string beschreibungMassnahme,  WesiTeam wesiTeam, bool plansaetze, bool listeBeteiligte, bool techBeschreibung, bool untervollmacht, List<Zusatzanlage> zusatzanlagen)
         {
             this.auftrag = auftrag;
             this.anschreibenTyp = anschreibenTyp;
@@ -52,13 +52,13 @@ namespace DynamicPDFCreator
             this.listeBeteiligte = listeBeteiligte;
             this.techBeschreibung = techBeschreibung;
             this.untervollmacht = untervollmacht;
-            this.Zusatzanlagen = zusatzanlagen;
+            this.zusatzanlagen = zusatzanlagen;
         }
 
         /// <summary>
         /// EVU
         /// </summary>
-        public PDF(Auftrag auftrag, AnschreibenTyp anschreibenTyp, Ansprechpartner empfaenger, Bearbeiter absender, DateTime datum, DateTime ausfuehrungszeitraum, DateTime ausfuehrungszeitraumEnde, Bearbeiter ansprechpartner, string ortDerMassnahme, bool plansaetze, bool listeBeteiligte, bool techBeschreibung, bool untervollmacht, List<string> zusatzanlagen)
+        public PDF(Auftrag auftrag, AnschreibenTyp anschreibenTyp, Ansprechpartner empfaenger, Bearbeiter absender, DateTime datum, DateTime ausfuehrungszeitraum, DateTime ausfuehrungszeitraumEnde, Bearbeiter ansprechpartner, string ortDerMassnahme, bool plansaetze, bool listeBeteiligte, bool techBeschreibung, bool untervollmacht, List<Zusatzanlage> zusatzanlagen)
         {
             this.auftrag = auftrag;
             this.anschreibenTyp = anschreibenTyp;
@@ -73,7 +73,7 @@ namespace DynamicPDFCreator
             this.listeBeteiligte = listeBeteiligte;
             this.techBeschreibung = techBeschreibung;
             this.untervollmacht = untervollmacht;
-            this.Zusatzanlagen = zusatzanlagen;
+            this.zusatzanlagen = zusatzanlagen;
         }
 
         public PDF()
@@ -110,7 +110,7 @@ namespace DynamicPDFCreator
         /// <summary>
         /// Abstimmung Naturschutz
         /// </summary>
-        public PDF(Auftrag auftrag, AnschreibenTyp anschreibenTyp, Ansprechpartner empfaenger, Bearbeiter absender, DateTime datum, DateTime ausfuehrungszeitraum, DateTime ausfuehrungszeitraumEnde, string ortDerMassnahme, string beschreibungMassnahme, bool plansaetze, bool listeBeteiligte, bool techBeschreibung, bool untervollmacht, List<string> zusatzanlagen)
+        public PDF(Auftrag auftrag, AnschreibenTyp anschreibenTyp, Ansprechpartner empfaenger, Bearbeiter absender, DateTime datum, DateTime ausfuehrungszeitraum, DateTime ausfuehrungszeitraumEnde, string ortDerMassnahme, string beschreibungMassnahme, bool plansaetze, bool listeBeteiligte, bool techBeschreibung, bool untervollmacht, List<Zusatzanlage> zusatzanlagen)
         {
             this.auftrag = auftrag;
             this.anschreibenTyp = anschreibenTyp;
@@ -125,7 +125,7 @@ namespace DynamicPDFCreator
             this.listeBeteiligte = listeBeteiligte;
             this.techBeschreibung = techBeschreibung;
             this.untervollmacht = untervollmacht;
-            this.Zusatzanlagen = zusatzanlagen;
+            this.zusatzanlagen = zusatzanlagen;
         }
         public virtual string id { get; set; } //= new TblAuftraege();
         public virtual Auftrag auftrag { get; set; } //= new TblAuftraege();
@@ -145,10 +145,7 @@ namespace DynamicPDFCreator
         public virtual bool untervollmacht { get; set; }
         public virtual bool listeBeteiligte { get; set; }
         public virtual bool techBeschreibung { get; set; }
-        public virtual  string zusatzAnlage1 { get; set; }
-        public virtual string zusatzAnlage2 { get; set; }
-        public virtual string zusatzAnlage3 { get; set; }
-        public virtual List<string> Zusatzanlagen { get; set; }
+        public virtual IList<Zusatzanlage> zusatzanlagen { get; set; }
 
 
 

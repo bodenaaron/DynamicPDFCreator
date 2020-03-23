@@ -31,9 +31,10 @@
     <property name = "untervollmacht"/>
     <property name = "listeBeteiligte"/>
     <property name = "techBeschreibung"/>
-    <property name = "zusatzAnlage1"/>
-    <property name = "zusatzAnlage2"/>
-    <property name = "zusatzAnlage3"/>
+    <bag name = "zusatzanlagen" table = "tblZusatzanlagen">
+      <key column = "`id´"/>
+      <one-to-many class = "Zusatzanlage" />
+    </bag>
     
     
   </class>
