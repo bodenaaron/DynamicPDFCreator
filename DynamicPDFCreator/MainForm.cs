@@ -383,7 +383,7 @@ namespace DynamicPDFCreator
             
             foreach (object i in listb_zusatzanlagen.Items)
             {
-                zusatzanlagen.Add(i.ToString());
+                zusatzanlagen.Add(new Zusatzanlage(i.ToString()));
             }
             
             return zusatzanlagen;

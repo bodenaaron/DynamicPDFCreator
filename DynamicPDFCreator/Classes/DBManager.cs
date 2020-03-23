@@ -231,6 +231,10 @@ namespace DynamicPDFCreator
         public void savePDF(PDF a)
         {
             a.id =a.anschreibenTyp.id.ToString()+ a.empfaenger.id.ToString();
+            foreach (Zusatzanlage z in a.tblZusatzanlagen)
+            {
+                z.idPDF = a.id;
+            }
             ISession session = getSession();
             ITransaction tx = session.BeginTransaction();
             session.SaveOrUpdate(a);

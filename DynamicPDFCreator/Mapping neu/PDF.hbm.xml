@@ -31,12 +31,14 @@
     <property name = "untervollmacht"/>
     <property name = "listeBeteiligte"/>
     <property name = "techBeschreibung"/>
-    <bag name = "zusatzanlagen" table = "tblZusatzanlagen">
-      <key column = "`id´"/>
-      <one-to-many class = "Zusatzanlage" />
-    </bag>
-    
-    
+
+    <bag name = "tblZusatzanlagen" >
+      <key column="idPDF"/>
+      
+      <composite-element class="Zusatzanlage">
+        <property name = "anlage"/>        
+      </composite-element>
+    </bag>        
   </class>
 
 </hibernate-mapping>

@@ -9,7 +9,7 @@
     <property name="anlage" type="string">
       <column name="anlage" sql-type="NVARCHAR(255)" />
     </property>
-    <many-to-one name = "idPDF" class="PDF"/>
+    <!--<many-to-one name = "idPDF" class="PDF"/>-->
 
   </class>
 </hibernate-mapping>

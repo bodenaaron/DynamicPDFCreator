@@ -20,6 +20,11 @@ namespace DynamicPDFCreator
         {
             this.anlage = s;
         }
+        public Zusatzanlage(string s, string idPDF)
+        {
+            this.anlage = s;
+            this.idPDF = idPDF;
+        }
         public Zusatzanlage()
         {
 
