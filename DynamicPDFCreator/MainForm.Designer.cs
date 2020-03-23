@@ -72,6 +72,9 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btn_bearbeiten = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btn_remove_all = new System.Windows.Forms.Button();
+            this.btn_remove_selected = new System.Windows.Forms.Button();
+            this.tb_zusatzanlage = new System.Windows.Forms.TextBox();
             this.btn_add_zusatzanlagen = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.listb_zusatzanlagen = new System.Windows.Forms.ListBox();
@@ -85,9 +88,6 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.listb_vorherige_PDF = new System.Windows.Forms.ListBox();
-            this.tb_zusatzanlage = new System.Windows.Forms.TextBox();
-            this.btn_remove_selected = new System.Windows.Forms.Button();
-            this.btn_remove_all = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -130,7 +130,6 @@
             this.cmb_anschreibenTyp.Name = "cmb_anschreibenTyp";
             this.cmb_anschreibenTyp.Size = new System.Drawing.Size(194, 21);
             this.cmb_anschreibenTyp.TabIndex = 4;
-            this.cmb_anschreibenTyp.SelectedIndexChanged += new System.EventHandler(this.Cmb_anschreibenTyp_SelectedIndexChanged);
             // 
             // cmb_empfaenger
             // 
@@ -430,7 +429,7 @@
             this.cmb_wesie.Name = "cmb_wesie";
             this.cmb_wesie.Size = new System.Drawing.Size(343, 21);
             this.cmb_wesie.TabIndex = 44;
-            this.cmb_wesie.SelectedIndexChanged += new System.EventHandler(this.Cmb_wesie_SelectedIndexChanged);
+            
             // 
             // label14
             // 
@@ -559,6 +558,35 @@
             this.groupBox2.TabIndex = 51;
             this.groupBox2.TabStop = false;
             // 
+            // btn_remove_all
+            // 
+            this.btn_remove_all.Enabled = false;
+            this.btn_remove_all.Location = new System.Drawing.Point(486, 434);
+            this.btn_remove_all.Name = "btn_remove_all";
+            this.btn_remove_all.Size = new System.Drawing.Size(89, 25);
+            this.btn_remove_all.TabIndex = 61;
+            this.btn_remove_all.Text = "Alle Entfernen";
+            this.btn_remove_all.UseVisualStyleBackColor = true;
+            this.btn_remove_all.Click += new System.EventHandler(this.Btn_remove_all_Click);
+            // 
+            // btn_remove_selected
+            // 
+            this.btn_remove_selected.Enabled = false;
+            this.btn_remove_selected.Location = new System.Drawing.Point(494, 365);
+            this.btn_remove_selected.Name = "btn_remove_selected";
+            this.btn_remove_selected.Size = new System.Drawing.Size(75, 25);
+            this.btn_remove_selected.TabIndex = 60;
+            this.btn_remove_selected.Text = "Entfernen";
+            this.btn_remove_selected.UseVisualStyleBackColor = true;
+            this.btn_remove_selected.Click += new System.EventHandler(this.Btn_remove_selected_Click);
+            // 
+            // tb_zusatzanlage
+            // 
+            this.tb_zusatzanlage.Location = new System.Drawing.Point(145, 330);
+            this.tb_zusatzanlage.Name = "tb_zusatzanlage";
+            this.tb_zusatzanlage.Size = new System.Drawing.Size(335, 20);
+            this.tb_zusatzanlage.TabIndex = 54;
+            // 
             // btn_add_zusatzanlagen
             // 
             this.btn_add_zusatzanlagen.Location = new System.Drawing.Point(494, 328);
@@ -685,35 +713,6 @@
             this.listb_vorherige_PDF.Size = new System.Drawing.Size(370, 290);
             this.listb_vorherige_PDF.TabIndex = 55;
             this.listb_vorherige_PDF.SelectedIndexChanged += new System.EventHandler(this.Listb_vorherige_PDF_SelectedIndexChanged);
-            // 
-            // tb_zusatzanlage
-            // 
-            this.tb_zusatzanlage.Location = new System.Drawing.Point(145, 330);
-            this.tb_zusatzanlage.Name = "tb_zusatzanlage";
-            this.tb_zusatzanlage.Size = new System.Drawing.Size(335, 20);
-            this.tb_zusatzanlage.TabIndex = 54;
-            // 
-            // btn_remove_selected
-            // 
-            this.btn_remove_selected.Enabled = false;
-            this.btn_remove_selected.Location = new System.Drawing.Point(494, 365);
-            this.btn_remove_selected.Name = "btn_remove_selected";
-            this.btn_remove_selected.Size = new System.Drawing.Size(75, 25);
-            this.btn_remove_selected.TabIndex = 60;
-            this.btn_remove_selected.Text = "Entfernen";
-            this.btn_remove_selected.UseVisualStyleBackColor = true;
-            this.btn_remove_selected.Click += new System.EventHandler(this.Btn_remove_selected_Click);
-            // 
-            // btn_remove_all
-            // 
-            this.btn_remove_all.Enabled = false;
-            this.btn_remove_all.Location = new System.Drawing.Point(486, 434);
-            this.btn_remove_all.Name = "btn_remove_all";
-            this.btn_remove_all.Size = new System.Drawing.Size(89, 25);
-            this.btn_remove_all.TabIndex = 61;
-            this.btn_remove_all.Text = "Alle Entfernen";
-            this.btn_remove_all.UseVisualStyleBackColor = true;
-            this.btn_remove_all.Click += new System.EventHandler(this.Btn_remove_all_Click);
             // 
             // MainForm
             // 

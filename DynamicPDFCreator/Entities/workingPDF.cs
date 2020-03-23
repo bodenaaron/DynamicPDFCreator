@@ -143,20 +143,20 @@ namespace DynamicPDFCreator
         public string zusatzAnlage1 { get; set; }
         public string zusatzAnlage2 { get; set; }
         public string zusatzAnlage3 { get; set; }
-        public List<string> Zusatzanlagen { get; set; }
-        public object[] ansprechpartnerStringList { get; set; }
-        public object[] anschreibenStringList { get; set; }
-        public object[] bearbeiterStringList { get; set; }
-        public object[] wesiTeamStringList { get; set; }
-        public object[] ansprechpartnerTypStringList { get; set; }
+        public List<string> Zusatzanlagen { get; set; }                     
         public List<AnschreibenTyp> anschreiben { get; set; }
         public List<AnsprechpartnerTyp> ansprechpartnerTypen { get; set; }
         public List<Bearbeiter> bearbeiter { get; set; }
         public List<WesiTeam> wesiTeams { get; set; }
-        public object[] pdfsTitel { get; set; }
+        public Dictionary<string, Bearbeiter> dic_Bearbeiter { get; set; }
+        public Dictionary<string, AnschreibenTyp> dic_AnschreibenTyp { get; set; }
+        public Dictionary<string, Ansprechpartner> dic_Ansprechpartner{ get; set; }
+        public Dictionary<string, AnsprechpartnerTyp> dic_ansprechpartnerTypen { get; set; }
+        public Dictionary<string, WesiTeam> dic_WesiTeam { get; set; }
+        public Dictionary<string, PDF> dic_pdf { get; set; }
 
 
 
 
-    }
+}
 }

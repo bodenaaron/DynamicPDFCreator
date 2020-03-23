@@ -57,9 +57,7 @@ namespace DynamicPDFCreator
             crit.Add(Expression.Like(nameof(Auftrag.smNummer), "%"+smNummer+"%"));
             dbPDF.auftrag = crit.List<Auftrag>().FirstOrDefault();
             tx.Commit();
-            
-
-            List<string> ansp = new List<string>();
+                        
             //Object in String umwandeln
             foreach (Ansprechpartner an in dbPDF.auftrag.projekt.ansprechpartner)
             {
@@ -67,16 +65,16 @@ namespace DynamicPDFCreator
                 {
                     if (an.firma != "")
                     {
-                        ansp.Add(an.firma);
+                       dbPDF.dic_Ansprechpartner.Add(an.firma,an);
                     }
                 }
                 else
                 {
-                    ansp.Add(an.ansprechpartnerVorname + " " + an.ansprechpartnerName);
+                   dbPDF.dic_Ansprechpartner.Add(an.ansprechpartnerVorname + " " + an.ansprechpartnerName,an);
                 }
 
             }
-            dbPDF.ansprechpartnerStringList = ansp.Cast<object>().ToArray();
+            
             getAnsprechpartnerTyp();
             getPDFs();
             closeSession(session, tx);
@@ -173,14 +171,13 @@ namespace DynamicPDFCreator
             ICriteria crit = session.CreateCriteria<AnschreibenTyp>();
            
             dbPDF.anschreiben = (List<AnschreibenTyp>) crit.List<AnschreibenTyp>();
-            
-            List<string> anschr = new List<string>();
+                       
             //Object in String umwandeln
             foreach (AnschreibenTyp an in dbPDF.anschreiben)
             {
-                anschr.Add(an.bezeichnung);
+               dbPDF.dic_AnschreibenTyp.Add(an.bezeichnung,an);
             }
-            dbPDF.anschreibenStringList = anschr.Cast<object>().ToArray();
+            
 
             closeSession(session, tx);
 
@@ -200,9 +197,9 @@ namespace DynamicPDFCreator
             //Object in String umwandeln
             foreach (Bearbeiter an in dbPDF.bearbeiter)
             {
-                    bearb.Add(an.bearbeiterVorname + " " + an.bearbeiterName);
+                   dbPDF.dic_Bearbeiter.Add(an.bearbeiterVorname + " " + an.bearbeiterName,an);
             }
-            dbPDF.bearbeiterStringList = bearb.Cast<object>().ToArray();
+            
 
             closeSession(session, tx);
         }
@@ -214,15 +211,13 @@ namespace DynamicPDFCreator
             ITransaction tx = session.BeginTransaction();
 
             ICriteria crit = session.CreateCriteria<WesiTeam>();
-            dbPDF.wesiTeams = (List<WesiTeam>)crit.List<WesiTeam>();
-
-            List<string> wesi = new List<string>();
+            dbPDF.wesiTeams = (List<WesiTeam>)crit.List<WesiTeam>();            
             //Object in String umwandeln
             foreach (WesiTeam an in dbPDF.wesiTeams)
             {
-                wesi.Add($"{an.firma} {an.niederlassung}");
+                dbPDF.dic_WesiTeam.Add($"{an.firma} {an.niederlassung}",an);
             }
-            dbPDF.wesiTeamStringList = wesi.Cast<object>().ToArray();
+            
 
 
             closeSession(session, tx);
@@ -302,15 +297,13 @@ namespace DynamicPDFCreator
             Debug.WriteLine("\n\n\n\n"+session.Connection.ConnectionString);
             ICriteria crit = session.CreateCriteria<AnsprechpartnerTyp>();
             dbPDF.ansprechpartnerTypen = (List<AnsprechpartnerTyp>)session.CreateCriteria<AnsprechpartnerTyp>().List<AnsprechpartnerTyp>();
-
-
-            List<string> ansprTyp = new List<string>();
+            
             //Object in String umwandeln
             foreach (AnsprechpartnerTyp an in dbPDF.ansprechpartnerTypen)
             {
-                ansprTyp.Add(an.id.ToString());
+               dbPDF.dic_ansprechpartnerTypen.Add(an.id.ToString(),an);
             }
-            dbPDF.ansprechpartnerTypStringList = ansprTyp.Cast<object>().ToArray();
+           
 
             closeSession(session, tx);
 
@@ -321,13 +314,12 @@ namespace DynamicPDFCreator
             ISession session = getSession();
             ITransaction tx = session.BeginTransaction();
 
-            List<string> pdfTitel = new List<string>();
+            
             //Object in String umwandeln
             foreach (PDF pdf in dbPDF.auftrag.pdfs)
             {
-                pdfTitel.Add($@"{pdf.anschreibenTyp.bezeichnung} {pdf.empfaenger.ansprechpartnerName} {pdf.empfaenger.firma}");
-            }
-            dbPDF.pdfsTitel = pdfTitel.Cast<object>().ToArray();
+                dbPDF.dic_pdf.Add($@"{pdf.anschreibenTyp.bezeichnung} {pdf.empfaenger.ansprechpartnerName} {pdf.empfaenger.firma}",pdf);
+            }            
 
             closeSession(session, tx);
         }
