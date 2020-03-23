@@ -238,22 +238,7 @@ namespace DynamicPDFCreator
         private void Cb_techBeschreibung_CheckedChanged(object sender, EventArgs e)
         {
             workingPDF.techBeschreibung = cb_techBeschreibung.Checked;
-        }
-
-        private void Tb_ZusatzAnlage1_TextChanged(object sender, EventArgs e)
-        {
-            workingPDF.zusatzAnlage1 = tb_ZusatzAnlage1.Text;
-        }
-
-        private void Tb_ZusatzAnlage2_TextChanged(object sender, EventArgs e)
-        {
-            workingPDF.zusatzAnlage2 = tb_ZusatzAnlage2.Text;
-        }
-
-        private void Tb_ZusatzAnlage3_TextChanged(object sender, EventArgs e)
-        {
-            workingPDF.zusatzAnlage3 = tb_ZusatzAnlage3.Text;
-        }
+        }        
 
         private void Tb_ortMassnahme_TextChanged(object sender, EventArgs e)
         {
@@ -392,10 +377,15 @@ namespace DynamicPDFCreator
             }
             if (cb_untervollmacht.Checked)
             {
+
                 zusatzanlagen.Add(new Zusatzanlage("- Untervollmacht"));
             }
-
-
+            
+            foreach (object i in listb_zusatzanlagen.Items)
+            {
+                zusatzanlagen.Add(i.ToString());
+            }
+            
             return zusatzanlagen;
         }
         private void Btn_bearbeiten_wesi_Click(object sender, EventArgs e)
@@ -617,8 +607,8 @@ namespace DynamicPDFCreator
             cb_beteiligte.Checked = pdf.listeBeteiligte;
             cb_untervollmacht.Checked = pdf.untervollmacht;
             cb_plansaetze.Checked = pdf.plansaetze;
-            cb_techBeschreibung.Checked = pdf.techBeschreibung;     
-            //Zusatzanlage noch hinzufügen
+            cb_techBeschreibung.Checked = pdf.techBeschreibung;                                                   
+
         
             int i = 0;
             foreach (string s in cmb_Ansprechpartner.Items)
@@ -638,6 +628,38 @@ namespace DynamicPDFCreator
                     cmb_absender.SelectedIndex = i;
                 }
             }            
+        }
+
+        private void Btn_add_zusatzanlagen_Click(object sender, EventArgs e)
+        {
+            listb_zusatzanlagen.Items.Add(tb_zusatzanlage.Text);
+            tb_zusatzanlage.Clear();
+        }
+
+        private void Btn_remove_selected_Click(object sender, EventArgs e)
+        {
+            listb_zusatzanlagen.Items.Remove(listb_zusatzanlagen.SelectedItem);
+        }
+
+        private void Listb_zusatzanlagen_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            btn_remove_selected.Enabled = true;
+            btn_remove_all.Enabled = true;
+            if (listb_zusatzanlagen.Items.Count<1)
+            {
+                btn_remove_selected.Enabled = false;
+                btn_remove_all.Enabled = false;
+            }
+        }
+
+        private void Btn_remove_all_Click(object sender, EventArgs e)
+        {
+            listb_zusatzanlagen.Items.Clear();
+            if (listb_zusatzanlagen.Items.Count < 1)
+            {
+                btn_remove_selected.Enabled = false;
+                btn_remove_all.Enabled = false;
+            }
         }
     }
     }
