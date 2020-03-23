@@ -149,7 +149,7 @@ alter table tblPDFs  drop constraint FK_419D9A5C
        ansprechpartner NVARCHAR(255) null,
        ansprechpartnerBau INT null,
        wesiTeam SMALLINT null,
-       zeitpunktErstellung DateTime not null,
+       erstellungsZeitpunkt DateTime not null,
        ausfuehrungszeitraum DateTime not null,
        ausfuehrungszeitraumEnde DateTime not null,
        ortDerMassnahme NVARCHAR(255) null,
