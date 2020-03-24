@@ -57,7 +57,7 @@ namespace DynamicPDFCreator
             crit.Add(Expression.Like(nameof(Auftrag.smNummer), "%"+smNummer+"%"));
             dbPDF.auftrag = crit.List<Auftrag>().FirstOrDefault();
             tx.Commit();
-                        
+            dbPDF.dic_Ansprechpartner = new Dictionary<string, Ansprechpartner>();
             //Object in String umwandeln
             foreach (Ansprechpartner an in dbPDF.auftrag.projekt.ansprechpartner)
             {
@@ -171,7 +171,7 @@ namespace DynamicPDFCreator
             ICriteria crit = session.CreateCriteria<AnschreibenTyp>();
            
             dbPDF.anschreiben = (List<AnschreibenTyp>) crit.List<AnschreibenTyp>();
-                       
+            dbPDF.dic_AnschreibenTyp = new Dictionary<string, AnschreibenTyp>();
             //Object in String umwandeln
             foreach (AnschreibenTyp an in dbPDF.anschreiben)
             {
@@ -192,8 +192,7 @@ namespace DynamicPDFCreator
             ICriteria crit = session.CreateCriteria<Bearbeiter>();
             crit.Add(Restrictions.IsNotNull("bearbeiterVorname"));
             dbPDF.bearbeiter = (List<Bearbeiter>)crit.List<Bearbeiter>();
-
-            List<string> bearb = new List<string>();
+            dbPDF.dic_Bearbeiter = new Dictionary<string, Bearbeiter>();
             //Object in String umwandeln
             foreach (Bearbeiter an in dbPDF.bearbeiter)
             {
@@ -211,8 +210,8 @@ namespace DynamicPDFCreator
             ITransaction tx = session.BeginTransaction();
 
             ICriteria crit = session.CreateCriteria<WesiTeam>();
-            dbPDF.wesiTeams = (List<WesiTeam>)crit.List<WesiTeam>();            
-            //Object in String umwandeln
+            dbPDF.wesiTeams = (List<WesiTeam>)crit.List<WesiTeam>();
+            dbPDF.dic_WesiTeam = new Dictionary<string, WesiTeam>();
             foreach (WesiTeam an in dbPDF.wesiTeams)
             {
                 dbPDF.dic_WesiTeam.Add($"{an.firma} {an.niederlassung}",an);
@@ -297,7 +296,7 @@ namespace DynamicPDFCreator
             Debug.WriteLine("\n\n\n\n"+session.Connection.ConnectionString);
             ICriteria crit = session.CreateCriteria<AnsprechpartnerTyp>();
             dbPDF.ansprechpartnerTypen = (List<AnsprechpartnerTyp>)session.CreateCriteria<AnsprechpartnerTyp>().List<AnsprechpartnerTyp>();
-            
+            dbPDF.dic_ansprechpartnerTypen = new Dictionary<string, AnsprechpartnerTyp>();
             //Object in String umwandeln
             foreach (AnsprechpartnerTyp an in dbPDF.ansprechpartnerTypen)
             {
@@ -314,12 +313,14 @@ namespace DynamicPDFCreator
             ISession session = getSession();
             ITransaction tx = session.BeginTransaction();
 
-            
+            dbPDF.dic_pdf = new Dictionary<string, PDF>();
             //Object in String umwandeln
             foreach (PDF pdf in dbPDF.auftrag.pdfs)
             {
                 dbPDF.dic_pdf.Add($@"{pdf.anschreibenTyp.bezeichnung} {pdf.empfaenger.ansprechpartnerName} {pdf.empfaenger.firma}",pdf);
-            }            
+            }
+
+
 
             closeSession(session, tx);
         }

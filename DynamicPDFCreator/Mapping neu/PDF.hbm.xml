@@ -11,7 +11,7 @@
     <many-to-one name = "anschreibenTyp"/>
     <many-to-one name = "empfaenger"/>
     <many-to-one name = "absender"/>
-    <many-to-one name = "ansprechpartner"/>
+    <many-to-one name = "ansprechpartner" cascade="all" lazy="false"/>
     <many-to-one name = "ansprechpartnerBau"/>
     <many-to-one name = "wesiTeam"/>
     
@@ -32,7 +32,7 @@
     <property name = "listeBeteiligte"/>
     <property name = "techBeschreibung"/>
 
-    <bag name = "tblZusatzanlagen" >
+    <bag name = "tblZusatzanlagen" lazy="false" >
       <key column="idPDF"/>
       
       <composite-element class="Zusatzanlage">

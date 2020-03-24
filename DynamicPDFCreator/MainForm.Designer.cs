@@ -88,6 +88,7 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.listb_vorherige_PDF = new System.Windows.Forms.ListBox();
+            this.btn_load_PDF = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -429,7 +430,6 @@
             this.cmb_wesie.Name = "cmb_wesie";
             this.cmb_wesie.Size = new System.Drawing.Size(343, 21);
             this.cmb_wesie.TabIndex = 44;
-            
             // 
             // label14
             // 
@@ -671,7 +671,7 @@
             this.groupBox3.Controls.Add(this.btn_printDocument);
             this.groupBox3.Controls.Add(this.btn_sendEmail);
             this.groupBox3.Controls.Add(this.error_label);
-            this.groupBox3.Location = new System.Drawing.Point(458, 586);
+            this.groupBox3.Location = new System.Drawing.Point(429, 586);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(229, 300);
             this.groupBox3.TabIndex = 52;
@@ -708,17 +708,29 @@
             // listb_vorherige_PDF
             // 
             this.listb_vorherige_PDF.FormattingEnabled = true;
-            this.listb_vorherige_PDF.Location = new System.Drawing.Point(693, 591);
+            this.listb_vorherige_PDF.Location = new System.Drawing.Point(662, 592);
             this.listb_vorherige_PDF.Name = "listb_vorherige_PDF";
-            this.listb_vorherige_PDF.Size = new System.Drawing.Size(370, 290);
+            this.listb_vorherige_PDF.Size = new System.Drawing.Size(320, 290);
             this.listb_vorherige_PDF.TabIndex = 55;
             this.listb_vorherige_PDF.SelectedIndexChanged += new System.EventHandler(this.Listb_vorherige_PDF_SelectedIndexChanged);
+            // 
+            // btn_load_PDF
+            // 
+            this.btn_load_PDF.Enabled = false;
+            this.btn_load_PDF.Location = new System.Drawing.Point(988, 598);
+            this.btn_load_PDF.Name = "btn_load_PDF";
+            this.btn_load_PDF.Size = new System.Drawing.Size(75, 25);
+            this.btn_load_PDF.TabIndex = 62;
+            this.btn_load_PDF.Text = "Laden";
+            this.btn_load_PDF.UseVisualStyleBackColor = true;
+            this.btn_load_PDF.Click += new System.EventHandler(this.btn_load_PDF_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1851, 898);
+            this.Controls.Add(this.btn_load_PDF);
             this.Controls.Add(this.listb_vorherige_PDF);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label15);
@@ -803,6 +815,7 @@
         private System.Windows.Forms.TextBox tb_zusatzanlage;
         private System.Windows.Forms.Button btn_remove_all;
         private System.Windows.Forms.Button btn_remove_selected;
+        private System.Windows.Forms.Button btn_load_PDF;
     }
 }
 

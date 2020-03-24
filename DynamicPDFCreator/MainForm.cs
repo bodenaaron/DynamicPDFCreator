@@ -39,16 +39,19 @@ namespace DynamicPDFCreator
             {
                 DBm = new DBManager(tb_smNummer.Text);
                 //Empfänger Festlegen
+                
+                cmb_empfaenger.DataSource = new BindingSource(DBm.dbPDF.dic_Ansprechpartner, null);
                 cmb_empfaenger.DisplayMember = "Key";
                 cmb_empfaenger.ValueMember = "Value";
-                cmb_empfaenger.DataSource = DBm.dbPDF.dic_Ansprechpartner;
-                                
+                cmb_empfaenger.SelectedItem = null;
+                cmb_empfaenger.SelectedIndexChanged += new System.EventHandler(this.Cmb_empfaenger_SelectedIndexChanged);
                 workingPDF.auftrag = DBm.dbPDF.auftrag;
 
                 //Vorherige PDFs festlegen
                 listb_vorherige_PDF.DisplayMember = "Key";
                 listb_vorherige_PDF.ValueMember = "Value";
-                listb_vorherige_PDF.DataSource=DBm.dbPDF.dic_pdf;
+                listb_vorherige_PDF.DataSource = new BindingSource(DBm.dbPDF.dic_pdf, null);
+                listb_vorherige_PDF.SelectedItem = null;
                 listb_vorherige_PDF.SelectedIndexChanged += new System.EventHandler(Listb_vorherige_PDF_SelectedIndexChanged);
             }
             catch (Exception fe) { }
@@ -57,61 +60,41 @@ namespace DynamicPDFCreator
         private void ReinitializeComponents()
         {
             this.WindowState = FormWindowState.Maximized;
-
-            // Bind combobox to dictionary
             
-            Dictionary<string, AnschreibenTyp> dic_anschreibenTyp = new Dictionary<string, AnschreibenTyp>();
-            foreach(AnschreibenTyp ansch in DBm.dbPDF.anschreiben)
-            {
-                dic_anschreibenTyp.Add(ansch.bezeichnung,ansch);
-            }
-            cmb_anschreibenTyp.DataSource = new BindingSource(dic_anschreibenTyp, null);
+            cmb_anschreibenTyp.DataSource = new BindingSource(DBm.dbPDF.dic_AnschreibenTyp, null);
             cmb_anschreibenTyp.DisplayMember = "Key";
             cmb_anschreibenTyp.ValueMember = "Value";
             cmb_anschreibenTyp.SelectedItem = null;
             cmb_anschreibenTyp.SelectedIndexChanged += new System.EventHandler(Cmb_anschreibenTyp_SelectedIndexChanged);            
 
-            //WesiTeam
-
-            Dictionary<string, WesiTeam> dic_wesiTeam = new Dictionary<string, WesiTeam>();
-            foreach (WesiTeam wesiTeam in DBm.dbPDF.wesiTeams)
-            {
-                dic_wesiTeam.Add($@"{wesiTeam.firma} {wesiTeam.niederlassung}", wesiTeam);
-            }
-            cmb_wesie.DataSource = new BindingSource(dic_wesiTeam, null);
-            
+            //WesiTeam            
+            cmb_wesie.DataSource = new BindingSource(DBm.dbPDF.dic_WesiTeam, null);            
             cmb_wesie.DisplayMember = "Key";
             cmb_wesie.ValueMember = "Value";
             cmb_wesie.SelectedItem = null;
             cmb_wesie.SelectedIndexChanged += new System.EventHandler(Cmb_wesie_SelectedIndexChanged);
 
-            //Ansprechpartner
-
-            Dictionary<string, Bearbeiter> dic_ansprechpartner = new Dictionary<string, Bearbeiter>();
-            foreach (Bearbeiter bearbeiter in DBm.dbPDF.bearbeiter)
-            {
-                dic_ansprechpartner.Add($@"{bearbeiter.bearbeiterVorname} {bearbeiter.bearbeiterName}", bearbeiter);
-            }
-            cmb_Ansprechpartner.DataSource = new BindingSource(dic_ansprechpartner, null);
+            //Ansprechpartner            
+            cmb_Ansprechpartner.DataSource = new BindingSource(DBm.dbPDF.dic_Bearbeiter, null);
             cmb_Ansprechpartner.DisplayMember = "Key";
             cmb_Ansprechpartner.ValueMember = "Value";
             cmb_Ansprechpartner.SelectedItem = null;
             cmb_Ansprechpartner.SelectedIndexChanged += new System.EventHandler(Cmb_Ansprechpartner_SelectedIndexChanged);
+            
             //Absender
-
-            cmb_absender.DataSource = new BindingSource(dic_ansprechpartner, null);
+            cmb_absender.DataSource = new BindingSource(DBm.dbPDF.dic_Bearbeiter, null);
             cmb_absender.DisplayMember = "Key";
             cmb_absender.ValueMember = "Value";
             cmb_absender.SelectedItem = null;
             cmb_absender.SelectedIndexChanged += new System.EventHandler(Cmb_absender_SelectedIndexChanged);
 
             //Datepicker custom form
-
             datePickerAusfuehrung.Format = DateTimePickerFormat.Custom;
             datePickerAusfuehrung.CustomFormat = "MMMM-yyyy";
 
             datePickerAusfuehrungEnde.Format = DateTimePickerFormat.Custom;
             datePickerAusfuehrungEnde.CustomFormat = "MMMM-yyyy";
+            
             //enableAll();
             btn_bearbeiten.Enabled = false;
             //btn_hinzufuegen.Enabled = false;
@@ -204,9 +187,11 @@ namespace DynamicPDFCreator
 
         private void Cmb_empfaenger_SelectedIndexChanged(object sender, EventArgs e)
         {
-            workingPDF.empfaenger = ((KeyValuePair<string, Ansprechpartner>)cmb_empfaenger.SelectedItem).Value;
-            btn_bearbeiten.Enabled = true;
-
+            if (cmb_empfaenger.SelectedItem!=null)
+            {
+                workingPDF.empfaenger = ((KeyValuePair<string, Ansprechpartner>)cmb_empfaenger.SelectedItem).Value;
+                btn_bearbeiten.Enabled = true;
+            }
 
         }
 
@@ -296,6 +281,7 @@ namespace DynamicPDFCreator
 
         private void Btn_saveDocument_Click(object sender, EventArgs e)
         {
+            listb_vorherige_PDF.SelectedItem = null;
             error_label.Text = "";
             List<Zusatzanlage> zusatzanlagen = checkInput();
 
@@ -317,6 +303,7 @@ namespace DynamicPDFCreator
 
         private void Btn_vorschau_Click(object sender, EventArgs e)
         {
+            listb_vorherige_PDF.SelectedItem = null;
             error_label.Text = "";
             List<Zusatzanlage> zusatzanlagen = checkInput();
 
@@ -412,23 +399,23 @@ namespace DynamicPDFCreator
                 }
             }            
             List<Zusatzanlage> zusatzanlagen = new List<Zusatzanlage>();
-            if (cb_plansaetze.Checked)
-            {
-                zusatzanlagen.Add(new Zusatzanlage("- Plansatz"));
-            }
-            if (cb_beteiligte.Checked)
-            {
-                zusatzanlagen.Add(new Zusatzanlage("- Liste der Beteiligten"));
-            }
-            if (cb_techBeschreibung.Checked)
-            {
-                zusatzanlagen.Add(new Zusatzanlage("- Technische Beschreibung"));
-            }
-            if (cb_untervollmacht.Checked)
-            {
-
-                zusatzanlagen.Add(new Zusatzanlage("- Untervollmacht"));
-            }
+            //if (cb_plansaetze.Checked)
+            //{
+            //    zusatzanlagen.Add(new Zusatzanlage("- Plansatz"));
+            //}
+            //if (cb_beteiligte.Checked)
+            //{
+            //    zusatzanlagen.Add(new Zusatzanlage("- Liste der Beteiligten"));
+            //}
+            //if (cb_techBeschreibung.Checked)
+            //{
+            //    zusatzanlagen.Add(new Zusatzanlage("- Technische Beschreibung"));
+            //}
+            //if (cb_untervollmacht.Checked)
+            //{
+            //
+            //    zusatzanlagen.Add(new Zusatzanlage("- Untervollmacht"));
+            //}
             
             foreach (object i in listb_zusatzanlagen.Items)
             {
@@ -596,7 +583,7 @@ namespace DynamicPDFCreator
 
         private void Btn_speichern_auftrag_pfad_Click(object sender, EventArgs e)
         {
-            
+            listb_vorherige_PDF.SelectedItem = null;
             error_label.Text = "";
             List<Zusatzanlage> zusatzanlagen = checkInput();
 
@@ -633,18 +620,60 @@ namespace DynamicPDFCreator
 
         private void Listb_vorherige_PDF_SelectedIndexChanged(object sender, EventArgs e)
         {
-            clearAll(false);
+            if (listb_vorherige_PDF.SelectedItem != null && tb_smNummer.Text != null)
+            {                
+                loadPDF();
+            }
+            else { pdfPreview.DocumentText = null; }
 
-
-            loadPDF();
+            if (listb_vorherige_PDF.SelectedItem!=null)
+            {
+                btn_load_PDF.Enabled = true;
+            }
+            else { btn_load_PDF.Enabled = false; }
         }
 
         private void loadPDF()
         {
             PDF pdf = ((KeyValuePair<string, PDF>)listb_vorherige_PDF.SelectedItem).Value;
 
+            switch (pdf.anschreibenTyp.bezeichnung) {
+                case "Anschreiben EVU":
+                    pdfWriter = new Interfaces.EVU();
+                    break;
+                case "Anschreiben Mitbenutzung":
+                    break;
+                case "Antrag Wupfl  ":
+                    pdfWriter = new Interfaces.Wupfl();
+                    break;
+                case "Behördliche Genehmigung":
+                    break;
+                case "Erläuterungsbericht":
+                    break;
+                case "Zustimmungsbescheid":
+                    pdfWriter = new Interfaces.Zustimmungsbescheid();
+                    break;
+                case "Abstimmung Naturschutz":
+                    pdfWriter = new Interfaces.AbstimmungNaturschutz();   
+                    break;
+                case "SOS Zustimmungsbescheid":
+                    break;
+                case "SOS Antrag":
+                    break;
+                case "Anschreiben Kommune":
+                    break;
+                case "Anschreiben Datenblatt":
+                    break;
+                case "Anschreiben Kommune Trenching":
+                    break;
+                case "Anschreiben Kampfmittel":
+                    pdfWriter = new Interfaces.Kampfmittel();
+                    break;
+            }
+            string hiddenPath = Path.GetTempPath() + @"\testVorschaupdf.pdf";
+            //this.pdfPreview.Navigate("www.google.de");
 
-
+            pdfPreview.Navigate(pdfWriter.writeHTMLtoPDF(pdf, hiddenPath));
         }
 
         private void Btn_add_zusatzanlagen_Click(object sender, EventArgs e)
@@ -679,6 +708,130 @@ namespace DynamicPDFCreator
             }
         }
 
+        private void btn_load_PDF_Click(object sender, EventArgs e)
+        {
+            PDF pdf = ((KeyValuePair<string, PDF>)listb_vorherige_PDF.SelectedItem).Value;
+
+            //Anschreiben Typ
+            Dictionary<string, AnschreibenTyp> anschreibenTypen = DBm.dbPDF.dic_AnschreibenTyp;            
+            cmb_anschreibenTyp.DataSource = new BindingSource(anschreibenTypen, null);
+            cmb_anschreibenTyp.DisplayMember = "Key";
+            cmb_anschreibenTyp.ValueMember = "Value";
+            if(anschreibenTypen.TryGetValue(pdf.anschreibenTyp.bezeichnung, out AnschreibenTyp typ))
+            {
+                cmb_anschreibenTyp.SelectedItem = typ;
+            }
+
+            //Empfänger
+            if (pdf.empfaenger!=null)
+            {
+                Dictionary<string, Ansprechpartner> empfaenger = DBm.dbPDF.dic_Ansprechpartner;
+                cmb_empfaenger.DataSource = new BindingSource(empfaenger, null);
+                cmb_empfaenger.DisplayMember = "Key";
+                cmb_empfaenger.ValueMember = "Value";
+                if (empfaenger.TryGetValue($@"{pdf.empfaenger.ansprechpartnerVorname} {pdf.empfaenger.ansprechpartnerName}", out Ansprechpartner ansp))
+                {
+                    cmb_Ansprechpartner.SelectedItem = ansp;
+                }
+                else if (empfaenger.TryGetValue($@"{pdf.empfaenger.firma}", out Ansprechpartner anspFirma))
+                {
+                    cmb_Ansprechpartner.SelectedItem = anspFirma;
+                }
+            }
+            
+
+            //Absender
+            if (pdf.absender!=null)
+            {
+                Dictionary<string, Bearbeiter> absender = DBm.dbPDF.dic_Bearbeiter;
+                cmb_absender.DataSource = new BindingSource(absender, null);
+                cmb_absender.DisplayMember = "Key";
+                cmb_absender.ValueMember = "Value";
+                if (absender.TryGetValue($@"{pdf.absender.bearbeiterVorname} {pdf.absender.bearbeiterName}", out Bearbeiter bearb))
+                {
+                    cmb_absender.SelectedItem = bearb;
+                }
+            }
+            
+
+            //Ansprechparner
+            if (pdf.ansprechpartner!=null)
+            {
+                Dictionary<string, Bearbeiter> ansprechpartner = DBm.dbPDF.dic_Bearbeiter;
+                cmb_Ansprechpartner.DataSource = new BindingSource(ansprechpartner, null);
+                cmb_Ansprechpartner.DisplayMember = "Key";
+                cmb_Ansprechpartner.ValueMember = "Value";
+                if (ansprechpartner.TryGetValue($@"{pdf.ansprechpartner.bearbeiterVorname} {pdf.ansprechpartner.bearbeiterName}", out Bearbeiter ansprech))
+                {
+                    cmb_Ansprechpartner.SelectedItem = ansprech;
+                }
+            }
+            
+
+            //Betreff
+            tb_ortMassnahme.Text = pdf.ortDerMassnahme;
+
+            //Absprachen
+            rtb_absprachen.Text = pdf.abgesprochenMit;
+
+            //Beschreibung der Maßnahme
+            rtb_BeschreibungMassnahme.Text = pdf.beschreibungMassnahme;
+
+            // Wesi Team
+            if (pdf.wesiTeam!=null)
+            {
+                Dictionary<string, WesiTeam> wesiTeam = DBm.dbPDF.dic_WesiTeam;
+                cmb_wesie.DataSource = new BindingSource(wesiTeam, null);
+                cmb_wesie.DisplayMember = "Key";
+                cmb_wesie.ValueMember = "Value";
+                if (wesiTeam.TryGetValue($@"{pdf.wesiTeam.firma} { pdf.wesiTeam.niederlassung} ", out WesiTeam wesi))
+                {
+                    cmb_wesie.SelectedItem = wesi;
+                }
+            }
+
+
+            //Ansprechpartner Bau
+            if (pdf.ansprechpartnerBau!=null)
+            {
+                Dictionary<string, Ansprechpartner> ansprechBau = DBm.dbPDF.dic_Ansprechpartner;
+                cmb_ansprechpartnerBau.DataSource = new BindingSource(ansprechBau, null);
+                cmb_ansprechpartnerBau.DisplayMember = "Key";
+                cmb_ansprechpartnerBau.ValueMember = "Value";
+                if (ansprechBau.TryGetValue($@"{pdf.ansprechpartnerBau.ansprechpartnerVorname} {pdf.ansprechpartnerBau.ansprechpartnerName}", out Ansprechpartner anspBau))
+                {
+                    cmb_ansprechpartnerBau.SelectedItem = anspBau;
+                }
+                else if (ansprechBau.TryGetValue($@"{pdf.ansprechpartnerBau.firma}", out Ansprechpartner anspBauFirma))
+                {
+                    cmb_ansprechpartnerBau.SelectedItem = anspBauFirma;
+                }
+            }
+
+            //Checkboxen
+            cb_beteiligte.Checked = pdf.listeBeteiligte;
+            cb_untervollmacht.Checked = pdf.untervollmacht;
+            cb_plansaetze.Checked = pdf.plansaetze;
+            cb_techBeschreibung.Checked = pdf.techBeschreibung;
+
+            //Zusätzliche Anhänge
+            if (pdf.tblZusatzanlagen != null)
+            {
+                
+                
+                Dictionary<string, Zusatzanlage> dic_zusatz = new Dictionary<string, Zusatzanlage>();
+                foreach (Zusatzanlage zu in pdf.tblZusatzanlagen)
+                {
+                    dic_zusatz.Add(zu.anlage,zu);
+                }
+
+                listb_zusatzanlagen.DataSource = new BindingSource(dic_zusatz, null);
+                listb_zusatzanlagen.DisplayMember = "Key";
+                listb_zusatzanlagen.ValueMember = "Value";                
+            }
+
+
+        }
     }
     }
     
