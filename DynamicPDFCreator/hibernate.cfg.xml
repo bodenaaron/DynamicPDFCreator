@@ -5,11 +5,17 @@
       NHibernate.Dialect.MsSql2012Dialect, NHibernate
     </property>
     <property name="connection.connection_string">
-      Server=WIN-M0M11N9GCQJ\SQLEXPRESS; Database=Eictronic_V1_1;
-      Trusted_Connection=SSPI
+      Data Source=WIN-9HAFEE71N1M\SQLEXPRESS;
+      Initial Catalog=Eictronic_V1_1;
+      Integrated Security=False;
+      Persist Security Info=True;
+      User ID=Boden;
+      Password=SQLServerxxX1Y2Z3
     </property>
-    <property name="adonet.batch_size">
+    <!--<property name="adonet.batch_size">
       100
-    </property>
+    </property>-->
+    <property name="show_sql">true</property>
+    <mapping assembly="DynamicPDFCreator" />
   </session-factory>
 </hibernate-configuration>

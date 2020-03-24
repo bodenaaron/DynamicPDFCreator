@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<hibernate-mapping xmlns = "urn:nhibernate-mapping-2.2" assembly="DynamicPDFCreator" namespace="DynamicPDFCreator">
+
+  <class name = "PDF" table="tblPDFs">
+    <id name = "id" column="id"/>
+
+
+    <many-to-one name = "auftrag"/>
+    
+    <many-to-one name = "anschreibenTyp"/>
+    <many-to-one name = "empfaenger"/>
+    <many-to-one name = "absender"/>
+    <many-to-one name = "ansprechpartner" cascade="all" lazy="false"/>
+    <many-to-one name = "ansprechpartnerBau"/>
+    <many-to-one name = "wesiTeam" lazy="false"/>
+    
+    <property name="datum" type="DateTime">
+      <column name="erstellungsZeitpunkt" not-null="true" sql-type="DateTime" />
+    </property>
+    <property name="ausfuehrungszeitraum" type="DateTime">
+      <column name="ausfuehrungszeitraum" not-null="true" sql-type="DateTime" />
+    </property>
+    <property name="ausfuehrungszeitraumEnde" type="DateTime">
+      <column name="ausfuehrungszeitraumEnde" not-null="true" sql-type="DateTime" />
+    </property>
+    <property name = "ortDerMassnahme"/>
+    <property name = "abgesprochenMit"/>
+    <property name = "beschreibungMassnahme"/>
+    <property name = "plansaetze"/>
+    <property name = "untervollmacht"/>
+    <property name = "listeBeteiligte"/>
+    <property name = "techBeschreibung"/>
+
+    <bag name = "tblZusatzanlagen" lazy="false" >
+      <key column="idPDF"/>
+      
+      <composite-element class="Zusatzanlage">
+        <property name = "anlage"/>        
+      </composite-element>
+    </bag>        
+  </class>
+
+</hibernate-mapping>

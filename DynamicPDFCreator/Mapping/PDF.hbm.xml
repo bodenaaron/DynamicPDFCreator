@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping assembly="DynamicPDFCreator" namespace="DynamicPDFCreator" xmlns="urn:nhibernate-mapping-2.2">
+  <class name="PDF" table="tblAuftrag" schema="dbo">
+    <id name="id" type="Int16">
+      <column name="id" not-null="true" precision="5" scale="0" sql-type="SMALLINT" />
+      <generator class="identity" />
+    </id>
+    <many-to-one name="auftrag" class="DynamicPDFCreator.TblAuftraege" column="auftragId"/>
+    <many-to-one name="anschreibenTyp" class="DynamicPDFCreator.TblAnschreibenTyp" column="anschreibenTyp"/>
+    <many-to-one name="empfaenger" class="DynamicPDFCreator.TblAnsprechpartner" column="empfaengerId"/>
+    <many-to-one name="absender" class="DynamicPDFCreator.TblBearbeiter" column="absenderId"/>
+    <many-to-one name="ansprechpartner" class="DynamicPDFCreator.TblBearbeiter" column="ansprechpartnerId"/>
+    <many-to-one name="ansprechpartnerBau" class="DynamicPDFCreator.TblAnsprechpartner" column="ansprechpartnerBauId"/>
+    <many-to-one name="wesiTeam" class="DynamicPDFCreator.TblWesiTeam" column="wesiId"/>
+
+    <property name="datum" type="DateTime">
+      <column name="datum" not-null="true" sql-type="DateTime" />
+    </property>
+    <property name="ausfuehrungszeitraum" type="DateTime">
+      <column name="ausfuehrungszeitraum" not-null="false" sql-type="DateTime" />
+    </property>
+    <property name="ausfuehrungszeitraumEnde" type="DateTime">
+      <column name="ausfuehrungszeitraumEnde" not-null="false" sql-type="DateTime" />
+    </property>
+    <property name="abgesprochenMit" type="StringClob">
+      <column name="abgesprochenMit" not-null="false" length="1073741823" sql-type="NTEXT" />
+    </property>
+    <property name="beschreibungMassnahme" type="StringClob">
+      <column name="beschreibungMassnahme" not-null="false" sql-type="NVARCHAR(MAX)" />
+    </property>
+    
+    
+  </class>
+</hibernate-mapping>

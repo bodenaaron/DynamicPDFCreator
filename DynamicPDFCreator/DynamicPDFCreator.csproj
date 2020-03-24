@@ -54,6 +54,9 @@
     <Reference Include="BouncyCastle.Crypto, Version=1.8.6.0, Culture=neutral, PublicKeyToken=0e99375e54769942, processorArchitecture=MSIL">
       <HintPath>..\packages\Portable.BouncyCastle.1.8.6\lib\net40\BouncyCastle.Crypto.dll</HintPath>
     </Reference>
+    <Reference Include="FluentNHibernate, Version=2.1.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentNHibernate.2.1.2\lib\net461\FluentNHibernate.dll</HintPath>
+    </Reference>
     <Reference Include="HtmlRenderer, Version=1.5.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\HtmlRenderer.Core.1.5.1-beta1\lib\net45\HtmlRenderer.dll</HintPath>
     </Reference>
@@ -63,6 +66,9 @@
     </Reference>
     <Reference Include="Iesi.Collections, Version=4.0.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
       <HintPath>..\packages\Iesi.Collections.4.0.4\lib\net461\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
     </Reference>
     <Reference Include="NHibernate, Version=5.2.0.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
       <HintPath>..\packages\NHibernate.5.2.7\lib\net461\NHibernate.dll</HintPath>
@@ -74,6 +80,7 @@
       <HintPath>..\packages\PDFsharp.1.50.5147\lib\net20\PdfSharp.Charting.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="PresentationFramework" />
     <Reference Include="Remotion.Linq, Version=2.2.0.0, Culture=neutral, PublicKeyToken=fee00910d6e5f53b, processorArchitecture=MSIL">
       <HintPath>..\packages\Remotion.Linq.2.2.0\lib\net45\Remotion.Linq.dll</HintPath>
     </Reference>
@@ -81,8 +88,8 @@
       <HintPath>..\packages\Remotion.Linq.EagerFetching.2.2.0\lib\net45\Remotion.Linq.EagerFetching.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="RtfPipe, Version=1.0.7322.27725, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\RtfPipe.1.0.7322.27725\lib\net45\RtfPipe.dll</HintPath>
+    <Reference Include="RtfPipe, Version=1.0.7388.1242, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\RtfPipe.1.0.7388.1242\lib\net45\RtfPipe.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -116,20 +123,22 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Classes\PDF.cs" />
-    <Compile Include="Entities\PDFCreatorModels.TblAnschreibenTyp.cs" />
-    <Compile Include="Entities\PDFCreatorModels.TblAnsprechpartner.cs" />
-    <Compile Include="Entities\PDFCreatorModels.TblAuftraege.cs" />
-    <Compile Include="Entities\PDFCreatorModels2.TblAnsprechpartner2Projekt.cs" />
-    <Compile Include="Entities\PDFCreatorModels2.TblProjekte.cs" />
-    <Compile Include="Entities\PDFCreatorModels3.TblBearbeiter.cs" />
-    <Compile Include="Entities\PDFCreatorModels3.TblAnsprechpartnerTyp.cs" />
-    <Compile Include="Entities\PDFCreatorModels3.TblWesiTeam.cs" />
+    <Compile Include="Combobox Items\CmbEmpfaenger.cs" />
+    <Compile Include="Entities\AnschreibenTyp.cs" />
+    <Compile Include="Entities\Ansprechpartner.cs" />
+    <Compile Include="Entities\Auftrag.cs" />
+    <Compile Include="Entities\workingPDF.cs" />
+    <Compile Include="Entities\Projekt.cs" />
+    <Compile Include="Entities\Bearbeiter.cs" />
+    <Compile Include="Entities\AnsprechpartnerTyp.cs" />
+    <Compile Include="Entities\WesiTeam.cs" />
     <Compile Include="Classes\FatalErrorForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Classes\FatalErrorForm.Designer.cs">
       <DependentUpon>FatalErrorForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Entities\Zusatzanlage.cs" />
     <Compile Include="Interfaces\AbstimmungNaturschutz.cs" />
     <Compile Include="Interfaces\Kampfmittel.cs" />
     <Compile Include="Interfaces\Zustimmungsbescheid.cs" />
@@ -188,51 +197,6 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
-    <None Include="PDFCreatorModels.dboDiagram.view">
-      <DependentUpon>PDFCreatorModels.hbml</DependentUpon>
-    </None>
-    <None Include="PDFCreatorModels.edps">
-      <DependentUpon>PDFCreatorModels.hbml</DependentUpon>
-    </None>
-    <None Include="PDFCreatorModels.hbml">
-      <Generator>DevartHibernateGenerator</Generator>
-      <LastGenOutput>PDFCreatorModels.info</LastGenOutput>
-    </None>
-    <None Include="PDFCreatorModels.info">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PDFCreatorModels.hbml</DependentUpon>
-    </None>
-    <None Include="PDFCreatorModels2.dboDiagram.view">
-      <DependentUpon>PDFCreatorModels2.hbml</DependentUpon>
-    </None>
-    <None Include="PDFCreatorModels2.edps">
-      <DependentUpon>PDFCreatorModels2.hbml</DependentUpon>
-    </None>
-    <None Include="PDFCreatorModels2.hbml">
-      <Generator>DevartHibernateGenerator</Generator>
-      <LastGenOutput>PDFCreatorModels2.info</LastGenOutput>
-    </None>
-    <None Include="PDFCreatorModels2.info">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PDFCreatorModels2.hbml</DependentUpon>
-    </None>
-    <None Include="PDFCreatorModels3.dboDiagram.view">
-      <DependentUpon>PDFCreatorModels3.hbml</DependentUpon>
-    </None>
-    <None Include="PDFCreatorModels3.edps">
-      <DependentUpon>PDFCreatorModels3.hbml</DependentUpon>
-    </None>
-    <None Include="PDFCreatorModels3.hbml">
-      <Generator>DevartHibernateGenerator</Generator>
-      <LastGenOutput>PDFCreatorModels3.info</LastGenOutput>
-    </None>
-    <None Include="PDFCreatorModels3.info">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PDFCreatorModels3.hbml</DependentUpon>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -247,24 +211,35 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Mapping\PDFCreatorModels.TblAnschreibenTyp.hbm.xml" />
+    <None Include="Mapping\PDFCreatorModels.TblAnschreibenTyp.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Mapping\PDFCreatorModels.TblAnsprechpartner.hbm.xml" />
+    <None Include="Mapping\PDFCreatorModels.TblAnsprechpartner.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Mapping\PDFCreatorModels.TblAuftraege.hbm.xml" />
+    <None Include="Mapping\PDFCreatorModels.TblAuftraege.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="hibernate.cfg.xml">
+    <EmbeddedResource Include="hibernate.cfg.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    </EmbeddedResource>
     <Content Include="HTML\Wupfl.txt" />
-    <EmbeddedResource Include="Mapping\PDFCreatorModels3.TblAnsprechpartnerTyp.hbm.xml" />
-    <EmbeddedResource Include="Mapping\PDFCreatorModels3.TblWesiTeam.hbm.xml" />
-    <EmbeddedResource Include="Mapping\PDFCreatorModels3.TblBearbeiter.hbm.xml" />
-    <EmbeddedResource Include="Mapping\PDFCreatorModels2.TblProjekte.hbm.xml" />
-    <EmbeddedResource Include="Mapping\PDFCreatorModels2.TblAnsprechpartner2Projekt.hbm.xml" />
+    <EmbeddedResource Include="Mapping neu\WesiTeam.hbm.xml" />
+    <EmbeddedResource Include="Mapping neu\Bearbeiter.hbm.xml" />
+    <EmbeddedResource Include="Mapping neu\AnschreibenTyp.hbm.xml" />
+    <EmbeddedResource Include="Mapping neu\Ansprechpartner.hbm.xml" />
+    <EmbeddedResource Include="Mapping neu\Auftrag.hbm.xml" />
+    <EmbeddedResource Include="Mapping neu\Projekt.hbm.xml" />
+    <EmbeddedResource Include="Mapping neu\PDF.hbm.xml" />
+    <EmbeddedResource Include="Mapping neu\AnsprechpartnerTyp.hbm.xml" />
+    <EmbeddedResource Include="Mapping neu\Zusatzanlage.hbm.xml" />
+    <Content Include="Mapping\PDF.hbm.xml" />
+    <None Include="Mapping\PDFCreatorModels3.TblAnsprechpartnerTyp.hbm.xml" />
+    <None Include="Mapping\PDFCreatorModels3.TblWesiTeam.hbm.xml" />
+    <None Include="Mapping\PDFCreatorModels3.TblBearbeiter.hbm.xml" />
+    <None Include="Mapping\PDFCreatorModels2.TblProjekte.hbm.xml" />
+    <None Include="Mapping\PDFCreatorModels2.TblAnsprechpartner2Projekt.hbm.xml" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

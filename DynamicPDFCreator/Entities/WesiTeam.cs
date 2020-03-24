@@ -19,9 +19,9 @@ namespace DynamicPDFCreator
 {
 
     /// <summary>
-    /// There are no comments for DynamicPDFCreator.TblBearbeiter, DynamicPDFCreator in the schema.
+    /// There are no comments for DynamicPDFCreator.TblWesiTeam, DynamicPDFCreator in the schema.
     /// </summary>
-    public partial class TblBearbeiter {
+    public partial class WesiTeam {
     
         #region Extensibility Method Definitions
         
@@ -32,19 +32,18 @@ namespace DynamicPDFCreator
         
         #endregion
         /// <summary>
-        /// There are no comments for TblBearbeiter constructor in the schema.
+        /// There are no comments for TblWesiTeam constructor in the schema.
         /// </summary>
-        public TblBearbeiter()
+        public WesiTeam()
         {
-            this.CreateDate = DateTime.Now;
             OnCreated();
         }
 
     
         /// <summary>
-        /// There are no comments for IdBearbeiter in the schema.
+        /// There are no comments for Id in the schema.
         /// </summary>
-        public virtual string IdBearbeiter
+        public virtual short id
         {
             get;
             set;
@@ -52,9 +51,9 @@ namespace DynamicPDFCreator
 
     
         /// <summary>
-        /// There are no comments for SSMATimeStamp in the schema.
+        /// There are no comments for Firma in the schema.
         /// </summary>
-        public virtual byte[] SSMATimeStamp
+        public virtual string firma
         {
             get;
             set;
@@ -62,9 +61,9 @@ namespace DynamicPDFCreator
 
     
         /// <summary>
-        /// There are no comments for Passwort in the schema.
+        /// There are no comments for Stadt in the schema.
         /// </summary>
-        public virtual string Passwort
+        public virtual string stadt
         {
             get;
             set;
@@ -72,9 +71,9 @@ namespace DynamicPDFCreator
 
     
         /// <summary>
-        /// There are no comments for Email in the schema.
+        /// There are no comments for PLZ in the schema.
         /// </summary>
-        public virtual string Email
+        public virtual string plz
         {
             get;
             set;
@@ -82,63 +81,37 @@ namespace DynamicPDFCreator
 
     
         /// <summary>
-        /// There are no comments for Telefon in the schema.
+        /// There are no comments for Strasse in the schema.
         /// </summary>
-        public virtual string Telefon
+        public virtual string strasse
         {
             get;
             set;
         }
-
     
         /// <summary>
-        /// There are no comments for CreateDate in the schema.
+        /// There are no comments for Bereich in the schema.
         /// </summary>
-        public virtual System.DateTime? CreateDate
+        public virtual string bereich
         {
             get;
             set;
         }
-
-    
-        /// <summary>
-        /// There are no comments for UpdateDate in the schema.
-        /// </summary>
-        public virtual System.DateTime? UpdateDate
+        public virtual string email
         {
             get;
             set;
         }
-
-    
-        /// <summary>
-        /// There are no comments for SollStunden in the schema.
-        /// </summary>
-        public virtual float? SollStunden
+        public virtual string niederlassung
         {
             get;
             set;
         }
-
-    
-        /// <summary>
-        /// There are no comments for BearbeiterName in the schema.
-        /// </summary>
-        public virtual string BearbeiterName
-        {
-            get;
-            set;
-        }
-
-    
-        /// <summary>
-        /// There are no comments for BearbeiterVorname in the schema.
-        /// </summary>
-        public virtual string BearbeiterVorname
-        {
-            get;
-            set;
-        }
+        /* public virtual ISet<PDF> pdfs
+         {
+             get;
+             set;
+         }*/
     }
 
 }

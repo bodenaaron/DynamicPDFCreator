@@ -28,9 +28,12 @@ namespace DynamicPDFCreator.Interfaces
 
         public string getHTML(PDF pdf)
         {
-            string htmlMassnahmen = Rtf.ToHtml(pdf.beschreibungMassnahme.Rtf);
+
+            RichTextBox rtb = new RichTextBox();
+            rtb.Rtf = pdf.beschreibungMassnahme;
+            string htmlMassnahmen = Rtf.ToHtml(rtb.Rtf);
             htmlMassnahmen = reduceRtfFormatting(htmlMassnahmen);
-            
+
             string html="";
             html = $@"
             <div style='position: fixed; left: 150px; top: 810px; width:65% '>
@@ -42,27 +45,27 @@ namespace DynamicPDFCreator.Interfaces
             <table>
                 <tr>
                 	<td valign: top>
-                  	{pdf.empfaenger.AnsprechpartnerVorname} {pdf.empfaenger.AnsprechpartnerName}
+                  	{pdf.empfaenger.ansprechpartnerVorname} {pdf.empfaenger.ansprechpartnerName}
                   </td>
                 </tr>
                   <tr>
                 	<td valign: top>
-                  	{pdf.empfaenger.Firma}  
+                  	{pdf.empfaenger.firma}  
                   </td>
                 </tr>
                   <tr>
                 	<td valign: top>
-                  	{pdf.empfaenger.Bereich}
+                  	{pdf.empfaenger.bereich}
                   </td>
                 </tr>
                   <tr>
                 	<td valign: top>
-                  	{pdf.empfaenger.Straße}
+                  	{pdf.empfaenger.strasse}
                   </td>
                 </tr>
                 <tr>
                 	<td valign: top>
-                  	{pdf.empfaenger.PLZ} {pdf.empfaenger.Ort}
+                  	{pdf.empfaenger.plz} {pdf.empfaenger.ort}
                   </td>
                 </tr>
             </table>
@@ -79,7 +82,7 @@ namespace DynamicPDFCreator.Interfaces
                 </tr>
                   <tr>
                 	<td valign= top>
-                  	SM-Auftragsnummer: <b>{pdf.auftrag.SMNummer} </b>(bei Rückfragen bitte immer angeben)
+                  	SM-Auftragsnummer: <b>{pdf.auftrag.smNummer} </b>(bei Rückfragen bitte immer angeben)
                   </td>
                 </tr>
                   <tr>
@@ -108,8 +111,8 @@ namespace DynamicPDFCreator.Interfaces
                     Mit freundlichen Grüßen:
                 </p>
                 <p>
-                    i.A. {pdf.absender.BearbeiterVorname} {pdf.absender.BearbeiterName}<br/>
-                        {pdf.absender.Telefon}<br/>{pdf.absender.Email}
+                    i.A. {pdf.absender.bearbeiterVorname} {pdf.absender.bearbeiterName}<br/>
+                        {pdf.absender.telefon}<br/>{pdf.absender.email}
                 </p>
                 </td>
                 </tr>
@@ -119,9 +122,9 @@ namespace DynamicPDFCreator.Interfaces
                 </p>
             ";
 
-            foreach (string s in pdf.Zusatzanlagen)
+            foreach (Zusatzanlage s in pdf.tblZusatzanlagen)
             {
-                html += s+ "<br/>";
+                html += s.anlage + "<br/>";
             }
             
            
@@ -155,6 +158,32 @@ namespace DynamicPDFCreator.Interfaces
             return pfad;
         }
 
+        public string writeHTMLtoPDF(PDF pdf, string pfad)
+        {
+            PdfDocument pdf1 = PdfGenerator.GeneratePdf(getHTML(pdf), config);
+            pfad = checkSlash(pfad);
+            string alternativerPfad = pfad.Remove(pfad.Length - 5, 1);
+            try
+            {
+                pdf1.Save(pfad);
+                return checkSlash(pfad);
+            }
+            catch (Exception ef)
+            {
+            }
+            try
+            {
+                pdf1.Save(alternativerPfad);
+                return checkSlash(alternativerPfad);
+            }
+
+            catch (Exception e)
+            {
+            }
+
+
+            return pfad;
+        }
         public string checkSlash(string input) {
             try
             {

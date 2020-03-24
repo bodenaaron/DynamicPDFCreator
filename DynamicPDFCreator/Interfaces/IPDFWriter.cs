@@ -20,5 +20,7 @@ namespace DynamicPDFCreator.Interfaces
         string checkSlash(string input);
 
         string reduceRtfFormatting(string html);
+
+        string writeHTMLtoPDF(PDF pdf, string pfad);
     }
 }
