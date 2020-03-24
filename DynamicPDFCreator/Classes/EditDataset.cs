@@ -41,7 +41,7 @@ namespace DynamicPDFCreator
             this.ansprechpartner =  ansprechpartner;
             cmb_typ.DisplayMember = "Key";
             cmb_typ.ValueMember = "Value";
-            cmb_typ.DataSource=ansprechpartnerTypen;
+            cmb_typ.DataSource= new BindingSource(ansprechpartnerTypen, null);
         }
 
         public void ReinitializeComponent(WesiTeam wesiTeam)

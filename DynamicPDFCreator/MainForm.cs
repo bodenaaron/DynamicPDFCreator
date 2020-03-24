@@ -44,19 +44,30 @@ namespace DynamicPDFCreator
                 //Empfänger Festlegen
                 if (DBm.dbPDF.auftrag!=null)
                 {
-                    cmb_empfaenger.DataSource = new BindingSource(DBm.dbPDF.dic_Ansprechpartner, null);
-                    cmb_empfaenger.DisplayMember = "Key";
-                    cmb_empfaenger.ValueMember = "Value";
-                    cmb_empfaenger.SelectedItem = null;
-                    cmb_empfaenger.SelectedIndexChanged += new System.EventHandler(Cmb_empfaenger_SelectedIndexChanged);
+                    if (DBm.dbPDF.dic_Ansprechpartner.Count>0)
+                    {
+                        cmb_empfaenger.DataSource = new BindingSource(DBm.dbPDF.dic_Ansprechpartner, null);
+                        cmb_empfaenger.DisplayMember = "Key";
+                        cmb_empfaenger.ValueMember = "Value";
+                        cmb_empfaenger.SelectedItem = null;
+                        cmb_empfaenger.SelectedIndexChanged += new System.EventHandler(Cmb_empfaenger_SelectedIndexChanged);
+                    }
+                    else { cmb_empfaenger.DataSource = null; }
+                    
                     workingPDF.auftrag = DBm.dbPDF.auftrag;
 
-                    //Vorherige PDFs festlegen
-                    listb_vorherige_PDF.DisplayMember = "Key";
-                    listb_vorherige_PDF.ValueMember = "Value";
-                    listb_vorherige_PDF.DataSource = new BindingSource(DBm.dbPDF.dic_pdf, null);
-                    listb_vorherige_PDF.SelectedItem = null;
-                    listb_vorherige_PDF.SelectedIndexChanged += new System.EventHandler(Listb_vorherige_PDF_SelectedIndexChanged);
+                    if (DBm.dbPDF.auftrag.pdfs.Count>0)
+                    {
+                        //Vorherige PDFs festlegen
+                        listb_vorherige_PDF.DisplayMember = "Key";
+                        listb_vorherige_PDF.ValueMember = "Value";
+                        listb_vorherige_PDF.DataSource = new BindingSource(DBm.dbPDF.dic_pdf, null);
+                        listb_vorherige_PDF.SelectedItem = null;
+                        listb_vorherige_PDF.SelectedIndexChanged += new System.EventHandler(Listb_vorherige_PDF_SelectedIndexChanged);
+                    }
+                    else { listb_vorherige_PDF.DataSource = null; }
+                    
+                    
                 }                                
             }
             catch (Exception fe) { Debug.WriteLine("\nSMnummer nicht gefunden\n\n\n"); }
@@ -201,10 +212,16 @@ namespace DynamicPDFCreator
         {
             if (cmb_empfaenger.SelectedItem!=null &&cmb_empfaenger.Items.Count>0)
             {
-                workingPDF.empfaenger = ((KeyValuePair<string, Ansprechpartner>)cmb_empfaenger.SelectedItem).Value;
-                btn_bearbeiten.Enabled = true;
+                workingPDF.empfaenger = ((KeyValuePair<string, Ansprechpartner>)cmb_empfaenger.SelectedItem).Value;                
             }
 
+            try
+            {
+                string key = ((KeyValuePair<string, Ansprechpartner>)cmb_empfaenger.SelectedItem).Key;
+                btn_bearbeiten.Enabled = true;
+            }
+            catch(Exception t) {btn_bearbeiten.Enabled = false; cmb_empfaenger.SelectedItem = null; }
+            
         }
 
         private void Cmb_absender_SelectedIndexChanged(object sender, EventArgs e)
@@ -447,7 +464,7 @@ namespace DynamicPDFCreator
 
             cmb_wesie.DisplayMember = "Key";
             cmb_wesie.ValueMember = "Value";
-            cmb_wesie.DataSource=DBm.dbPDF.dic_WesiTeam;
+            cmb_wesie.DataSource = new BindingSource(DBm.dbPDF.dic_WesiTeam, null);
             this.Enabled = true;
         }
 
@@ -610,6 +627,7 @@ namespace DynamicPDFCreator
                 DBm.savePDF(FinalPDF);
             }
             catch (Exception q) { }
+            //Fehlermeldung Datei noch offen
         }
 
         private string getDynamicPath(PDF finalPDF)
@@ -834,6 +852,11 @@ namespace DynamicPDFCreator
                 }                             
             }
 
+
+        }
+
+        private void error_label_Click(object sender, EventArgs e)
+        {
 
         }
     }

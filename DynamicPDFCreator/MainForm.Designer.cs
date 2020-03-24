@@ -454,16 +454,17 @@
             this.pdfPreview.Location = new System.Drawing.Point(1069, 0);
             this.pdfPreview.MinimumSize = new System.Drawing.Size(20, 20);
             this.pdfPreview.Name = "pdfPreview";
-            this.pdfPreview.Size = new System.Drawing.Size(782, 898);
+            this.pdfPreview.Size = new System.Drawing.Size(782, 936);
             this.pdfPreview.TabIndex = 47;
             // 
             // error_label
             // 
             this.error_label.AutoSize = true;
-            this.error_label.Location = new System.Drawing.Point(223, 216);
+            this.error_label.Location = new System.Drawing.Point(12, 901);
             this.error_label.Name = "error_label";
             this.error_label.Size = new System.Drawing.Size(0, 13);
             this.error_label.TabIndex = 48;
+            this.error_label.Click += new System.EventHandler(this.error_label_Click);
             // 
             // btn_vorschau
             // 
@@ -515,6 +516,7 @@
             // 
             // btn_bearbeiten
             // 
+            this.btn_bearbeiten.Enabled = false;
             this.btn_bearbeiten.Location = new System.Drawing.Point(330, 148);
             this.btn_bearbeiten.Name = "btn_bearbeiten";
             this.btn_bearbeiten.Size = new System.Drawing.Size(75, 23);
@@ -670,7 +672,6 @@
             this.groupBox3.Controls.Add(this.btn_saveDocument);
             this.groupBox3.Controls.Add(this.btn_printDocument);
             this.groupBox3.Controls.Add(this.btn_sendEmail);
-            this.groupBox3.Controls.Add(this.error_label);
             this.groupBox3.Location = new System.Drawing.Point(429, 586);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(229, 300);
@@ -708,7 +709,7 @@
             // listb_vorherige_PDF
             // 
             this.listb_vorherige_PDF.FormattingEnabled = true;
-            this.listb_vorherige_PDF.Location = new System.Drawing.Point(662, 592);
+            this.listb_vorherige_PDF.Location = new System.Drawing.Point(662, 596);
             this.listb_vorherige_PDF.Name = "listb_vorherige_PDF";
             this.listb_vorherige_PDF.Size = new System.Drawing.Size(320, 290);
             this.listb_vorherige_PDF.TabIndex = 55;
@@ -729,12 +730,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1851, 898);
+            this.ClientSize = new System.Drawing.Size(1851, 936);
             this.Controls.Add(this.btn_load_PDF);
             this.Controls.Add(this.listb_vorherige_PDF);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.error_label);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pdfPreview);
@@ -747,7 +749,6 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
