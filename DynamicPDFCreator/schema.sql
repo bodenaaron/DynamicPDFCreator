@@ -51,6 +51,14 @@ alter table tblPDFs  drop constraint FK_15595A9A
 alter table tblPDFs  drop constraint FK_419D9A5C
 
 
+    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FK_11D7A606]') and parent_object_id = OBJECT_ID(N'tblZusatzanlagen'))
+alter table tblZusatzanlagen  drop constraint FK_11D7A606
+
+
+    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FK_7C0DB9B5]') and parent_object_id = OBJECT_ID(N'tblZusatzanlagen'))
+alter table tblZusatzanlagen  drop constraint FK_7C0DB9B5
+
+
     if exists (select * from dbo.sysobjects where id = object_id(N'tblWesiTeam') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table tblWesiTeam
 
     if exists (select * from dbo.sysobjects where id = object_id(N'tblBearbeiter') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table tblBearbeiter
@@ -68,6 +76,8 @@ alter table tblPDFs  drop constraint FK_419D9A5C
     if exists (select * from dbo.sysobjects where id = object_id(N'tblPDFs') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table tblPDFs
 
     if exists (select * from dbo.sysobjects where id = object_id(N'tblAnsprechpartnerTyp') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table tblAnsprechpartnerTyp
+
+    if exists (select * from dbo.sysobjects where id = object_id(N'tblZusatzanlagen') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table tblZusatzanlagen
 
     create table tblWesiTeam (
         id SMALLINT IDENTITY NOT NULL,
@@ -149,7 +159,7 @@ alter table tblPDFs  drop constraint FK_419D9A5C
        ansprechpartner NVARCHAR(255) null,
        ansprechpartnerBau INT null,
        wesiTeam SMALLINT null,
-       zeitpunktErstellung DateTime not null,
+       erstellungsZeitpunkt DateTime not null,
        ausfuehrungszeitraum DateTime not null,
        ausfuehrungszeitraumEnde DateTime not null,
        ortDerMassnahme NVARCHAR(255) null,
@@ -159,9 +169,6 @@ alter table tblPDFs  drop constraint FK_419D9A5C
        untervollmacht BIT null,
        listeBeteiligte BIT null,
        techBeschreibung BIT null,
-       zusatzAnlage1 NVARCHAR(255) null,
-       zusatzAnlage2 NVARCHAR(255) null,
-       zusatzAnlage3 NVARCHAR(255) null,
        primary key (id)
     )
 
@@ -169,6 +176,13 @@ alter table tblPDFs  drop constraint FK_419D9A5C
         idAnsprechpartnerTyp NVARCHAR(255) IDENTITY NOT NULL,
        Bezeichnung NVARCHAR(255) null,
        primary key (idAnsprechpartnerTyp)
+    )
+
+    create table tblZusatzanlagen (
+        id INT IDENTITY NOT NULL,
+       anlage NVARCHAR(255) null,
+       idPDF NVARCHAR(255) null,
+       primary key (id)
     )
 
     alter table tblAnsprechpartner2Projekt 
@@ -235,3 +249,13 @@ alter table tblPDFs  drop constraint FK_419D9A5C
         add constraint FK_419D9A5C 
         foreign key (wesiTeam) 
         references tblWesiTeam
+
+    alter table tblZusatzanlagen 
+        add constraint FK_11D7A606 
+        foreign key (idPDF) 
+        references tblPDFs
+
+    alter table tblZusatzanlagen 
+        add constraint FK_7C0DB9B5 
+        foreign key ([id]) 
+        references tblPDFs

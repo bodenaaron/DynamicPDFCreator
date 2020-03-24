@@ -28,9 +28,12 @@ namespace DynamicPDFCreator.Interfaces
 
         public string getHTML(PDF pdf)
         {
-            string htmlMassnahmen = Rtf.ToHtml(pdf.beschreibungMassnahme);
+
+            RichTextBox rtb = new RichTextBox();
+            rtb.Rtf = pdf.beschreibungMassnahme;
+            string htmlMassnahmen = Rtf.ToHtml(rtb.Rtf);
             htmlMassnahmen = reduceRtfFormatting(htmlMassnahmen);
-            
+
             string html="";
             html = $@"
             <div style='position: fixed; left: 150px; top: 810px; width:65% '>
@@ -119,9 +122,9 @@ namespace DynamicPDFCreator.Interfaces
                 </p>
             ";
 
-            foreach (string s in pdf.Zusatzanlagen)
+            foreach (Zusatzanlage s in pdf.tblZusatzanlagen)
             {
-                html += s+ "<br/>";
+                html += s.anlage + "<br/>";
             }
             
            

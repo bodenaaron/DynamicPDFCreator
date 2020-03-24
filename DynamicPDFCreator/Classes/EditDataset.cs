@@ -19,7 +19,7 @@ namespace DynamicPDFCreator
             InitializeComponent();
         }
 
-        public void ReinitializeComponent(Ansprechpartner ansprechpartner, object[] ansprechpartnerTypen)
+        public void ReinitializeComponent(Ansprechpartner ansprechpartner, Dictionary<string, AnsprechpartnerTyp> ansprechpartnerTypen)
         {
             tb_vorname.Text =       ansprechpartner.ansprechpartnerVorname;
             tb_nachname.Text =      ansprechpartner.ansprechpartnerName;
@@ -39,8 +39,9 @@ namespace DynamicPDFCreator
             tb_ptiBereich.Text =    ansprechpartner.ptiBereich;
             tb_bemerkung.Text =     ansprechpartner.bemerkung;
             this.ansprechpartner =  ansprechpartner;
-            cmb_typ.Items.Clear();
-            cmb_typ.Items.AddRange(ansprechpartnerTypen);
+            cmb_typ.DisplayMember = "Key";
+            cmb_typ.ValueMember = "Value";
+            cmb_typ.DataSource= new BindingSource(ansprechpartnerTypen, null);
         }
 
         public void ReinitializeComponent(WesiTeam wesiTeam)
