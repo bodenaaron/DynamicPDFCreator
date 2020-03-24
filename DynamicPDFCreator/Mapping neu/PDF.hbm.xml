@@ -13,7 +13,7 @@
     <many-to-one name = "absender"/>
     <many-to-one name = "ansprechpartner" cascade="all" lazy="false"/>
     <many-to-one name = "ansprechpartnerBau"/>
-    <many-to-one name = "wesiTeam"/>
+    <many-to-one name = "wesiTeam" lazy="false"/>
     
     <property name="datum" type="DateTime">
       <column name="erstellungsZeitpunkt" not-null="true" sql-type="DateTime" />

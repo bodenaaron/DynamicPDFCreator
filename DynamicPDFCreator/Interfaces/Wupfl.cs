@@ -28,7 +28,9 @@ namespace DynamicPDFCreator.Interfaces
 
         public string getHTML(PDF pdf)
         {
-            string htmlMassnahmen = Rtf.ToHtml(pdf.beschreibungMassnahme);
+            RichTextBox rtb = new RichTextBox();
+            rtb.Rtf = pdf.beschreibungMassnahme;
+            string htmlMassnahmen = Rtf.ToHtml(rtb.Rtf);
             htmlMassnahmen = reduceRtfFormatting(htmlMassnahmen);
             
             string html="";
@@ -131,12 +133,7 @@ namespace DynamicPDFCreator.Interfaces
             <table style='width: 100%; margin-top:30px'>
                  <tr>
                 	<td  valign=top style=' width:20%'>
-                      Baubeschreibung:
-                  </td>
-                </tr>
-                <tr>
-                  <td valign=top>
-                  	{htmlMassnahmen}
+                      Baubeschreibung: {htmlMassnahmen}
                   </td>
                 </tr>
             </table>
@@ -210,10 +207,26 @@ namespace DynamicPDFCreator.Interfaces
                     Anlagen:
                 </p>
             ";
+            if (pdf.listeBeteiligte)
+            {
+                html += "- Liste der Beteiligten<br/>";
+            }
+            if (pdf.untervollmacht)
+            {
+                html += "- Untervollmacht <br/>";
+            }
+            if (pdf.plansaetze)
+            {
+                html += "- Plansatz<br/>";
+            }
+            if (pdf.techBeschreibung)
+            {
+                html += "- Technische Beschreibung<br/>";
+            }
 
             foreach (Zusatzanlage s in pdf.tblZusatzanlagen)
             {
-                html += "<p>"+ s.anlage + "</p>";
+                html += s.anlage + "<br/>";
             }
             
            
