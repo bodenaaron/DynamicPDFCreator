@@ -36,27 +36,27 @@ namespace DynamicPDFCreator.Interfaces
             <table>
                 <tr>
                 	<td valign: top>
-                  	{pdf.empfaenger.AnsprechpartnerVorname} {pdf.empfaenger.AnsprechpartnerName}
+                  	{pdf.empfaenger.ansprechpartnerVorname} {pdf.empfaenger.ansprechpartnerName}
                   </td>
                 </tr>
                   <tr>
                 	<td valign: top>
-                  	{pdf.empfaenger.Firma}  
+                  	{pdf.empfaenger.firma}  
                   </td>
                 </tr>
                   <tr>
                 	<td valign: top>
-                  	{pdf.empfaenger.Bereich}
+                  	{pdf.empfaenger.bereich}
                   </td>
                 </tr>
                   <tr>
                 	<td valign: top>
-                  	{pdf.empfaenger.Straße}
+                  	{pdf.empfaenger.strasse}
                   </td>
                 </tr>
                 <tr>
                 	<td valign: top>
-                  	{pdf.empfaenger.PLZ} {pdf.empfaenger.Ort}
+                  	{pdf.empfaenger.plz} {pdf.empfaenger.ort}
                   </td>
                 </tr>
             </table>
@@ -66,7 +66,7 @@ namespace DynamicPDFCreator.Interfaces
                   	Aufragsnummer:
                   </td>
                   <td>
-                  	<b>{pdf.auftrag.SMNummer}</b> (bei Rückfragen bitte immer angeben)
+                  	<b>{pdf.auftrag.smNummer}</b> (bei Rückfragen bitte immer angeben)
                   </td>
                 </tr>
                   <tr>
@@ -74,7 +74,7 @@ namespace DynamicPDFCreator.Interfaces
                   	Ansprechpartner:    
                   </td>
                   <td>
-                  	{pdf.ansprechpartner.BearbeiterVorname} {pdf.ansprechpartner.BearbeiterName}, {pdf.ansprechpartner.Telefon}, {pdf.ansprechpartner.Email}
+                  	{pdf.ansprechpartner.bearbeiterVorname} {pdf.ansprechpartner.bearbeiterName}, {pdf.ansprechpartner.telefon}, {pdf.ansprechpartner.email}
                   </td>
                 </tr>
                   <tr>
@@ -139,7 +139,7 @@ namespace DynamicPDFCreator.Interfaces
                     Mit freundlichen Grüßen:
                 </p>
                 <p>
-                    i.A. {pdf.ansprechpartner.BearbeiterVorname} {pdf.ansprechpartner.BearbeiterName}
+                    i.A. {pdf.ansprechpartner.bearbeiterVorname} {pdf.ansprechpartner.bearbeiterName}
                 </p>
                 </td>
                 </tr>
@@ -147,12 +147,27 @@ namespace DynamicPDFCreator.Interfaces
                     Anlagen:<br/>
 
             ";
-
-            foreach (string s in pdf.Zusatzanlagen)
+            if (pdf.listeBeteiligte)
             {
-                html += s + "<br/>";
+                html += "- Liste der Beteiligten<br/>";
+            }
+            if (pdf.untervollmacht)
+            {
+                html += "- Untervollmacht <br/>";
+            }
+            if (pdf.plansaetze)
+            {
+                html += "- Plansatz<br/>";
+            }
+            if (pdf.techBeschreibung)
+            {
+                html += "- Technische Beschreibung<br/>";
             }
 
+            foreach (Zusatzanlage s in pdf.tblZusatzanlagen)
+            {
+                html += s.anlage + "<br/>";
+            }
 
 
             return html;
@@ -206,6 +221,32 @@ namespace DynamicPDFCreator.Interfaces
             return pfad;
         }
 
+        public string writeHTMLtoPDF(PDF pdf, string pfad)
+        {
+            PdfDocument pdf1 = PdfGenerator.GeneratePdf(getHTML(pdf), config);
+            pfad = checkSlash(pfad);
+            string alternativerPfad = pfad.Remove(pfad.Length - 5, 1);
+            try
+            {
+                pdf1.Save(pfad);
+                return checkSlash(pfad);
+            }
+            catch (Exception ef)
+            {
+            }
+            try
+            {
+                pdf1.Save(alternativerPfad);
+                return checkSlash(alternativerPfad);
+            }
+
+            catch (Exception e)
+            {
+            }
+
+
+            return pfad;
+        }
         public string checkSlash(string input)
         {
             try

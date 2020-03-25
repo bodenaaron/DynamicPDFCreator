@@ -26,40 +26,40 @@ namespace DynamicPDFCreator.Interfaces
         public string getHTML(PDF pdf)
         {
             string firma;
-            if (pdf.empfaenger.Firma == "" || pdf.empfaenger.Firma == null)
+            if (pdf.empfaenger.firma == "" || pdf.empfaenger.firma == null)
             {
-                firma = pdf.empfaenger.AnsprechpartnerName;
+                firma = pdf.empfaenger.ansprechpartnerName;
             }
-            else { firma = pdf.empfaenger.Firma; }
+            else { firma = pdf.empfaenger.firma; }
             string html = "";
             html = $@"
             <p style='font-size: 12px; ' >
-                {firma}<br/>{pdf.empfaenger.Straße} {pdf.empfaenger.PLZ} {pdf.empfaenger.Ort}
+                {firma}<br/>{pdf.empfaenger.strasse} {pdf.empfaenger.plz} {pdf.empfaenger.ort}
             </p>
             <table>
                 <tr>
                 	<td valign: top>
-                  	{pdf.wesiTeam.Firma}
+                  	{pdf.wesiTeam.firma}
                   </td>
                 </tr>
                   <tr>
                 	<td valign: top>
-                  	{pdf.wesiTeam.Niederlassung}
+                  	{pdf.wesiTeam.niederlassung}
                   </td>
                 </tr>
                   <tr>
                 	<td valign: top>
-                  	{pdf.wesiTeam.Bereich}
+                  	{pdf.wesiTeam.bereich}
                   </td>
                 </tr>
                   <tr>
                 	<td valign: top>
-                  	{pdf.wesiTeam.Strasse}
+                  	{pdf.wesiTeam.strasse}
                   </td>
                 </tr>
                 <tr>
                 	<td valign: top>
-                  	{pdf.wesiTeam.PLZ} {pdf.wesiTeam.Stadt}
+                  	{pdf.wesiTeam.plz} {pdf.wesiTeam.stadt}
                   </td>
                 </tr>
             </table>
@@ -76,7 +76,7 @@ namespace DynamicPDFCreator.Interfaces
                 	<td valign: top>
                   	Sehr geehrte Damen und Herren,<br/><br/>
                     Ihrem Antrag auf Zustimmung für die Durchführung einer Baumaßnahme in:<br/>
-                    {pdf.ortDerMassnahme} (SM-Auftragsnummer: {pdf.auftrag.SMNummer})    
+                    {pdf.ortDerMassnahme} (SM-Auftragsnummer: {pdf.auftrag.smNummer})    
                   </td>
                 </tr>
             </table>
@@ -165,6 +165,33 @@ namespace DynamicPDFCreator.Interfaces
         public string writeHTMLtoPDF(string html, string pfad)
         {
             PdfDocument pdf1 = PdfGenerator.GeneratePdf(html, config);
+            pfad = checkSlash(pfad);
+            string alternativerPfad = pfad.Remove(pfad.Length - 5, 1);
+            try
+            {
+                pdf1.Save(pfad);
+                return checkSlash(pfad);
+            }
+            catch (Exception ef)
+            {
+            }
+            try
+            {
+                pdf1.Save(alternativerPfad);
+                return checkSlash(alternativerPfad);
+            }
+
+            catch (Exception e)
+            {
+            }
+
+
+            return pfad;
+        }
+
+        public string writeHTMLtoPDF(PDF pdf, string pfad)
+        {
+            PdfDocument pdf1 = PdfGenerator.GeneratePdf(getHTML(pdf), config);
             pfad = checkSlash(pfad);
             string alternativerPfad = pfad.Remove(pfad.Length - 5, 1);
             try

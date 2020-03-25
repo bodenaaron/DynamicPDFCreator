@@ -66,18 +66,18 @@
             this.label14 = new System.Windows.Forms.Label();
             this.tb_ortMassnahme = new System.Windows.Forms.TextBox();
             this.pdfPreview = new System.Windows.Forms.WebBrowser();
-            this.tb_ZusatzAnlage3 = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.tb_ZusatzAnlage2 = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.tb_ZusatzAnlage1 = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.error_label = new System.Windows.Forms.Label();
             this.btn_vorschau = new System.Windows.Forms.Button();
             this.datePickerAusfuehrungEnde = new System.Windows.Forms.DateTimePicker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btn_bearbeiten = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btn_remove_all = new System.Windows.Forms.Button();
+            this.btn_remove_selected = new System.Windows.Forms.Button();
+            this.tb_zusatzanlage = new System.Windows.Forms.TextBox();
+            this.btn_add_zusatzanlagen = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
+            this.listb_zusatzanlagen = new System.Windows.Forms.ListBox();
             this.cb_untervollmacht = new System.Windows.Forms.CheckBox();
             this.label19 = new System.Windows.Forms.Label();
             this.btn_bearbeiten_wesi = new System.Windows.Forms.Button();
@@ -87,6 +87,8 @@
             this.btn_speichern_auftrag_pfad = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
+            this.listb_vorherige_PDF = new System.Windows.Forms.ListBox();
+            this.btn_load_PDF = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -129,7 +131,6 @@
             this.cmb_anschreibenTyp.Name = "cmb_anschreibenTyp";
             this.cmb_anschreibenTyp.Size = new System.Drawing.Size(194, 21);
             this.cmb_anschreibenTyp.TabIndex = 4;
-            this.cmb_anschreibenTyp.SelectedIndexChanged += new System.EventHandler(this.Cmb_anschreibenTyp_SelectedIndexChanged);
             // 
             // cmb_empfaenger
             // 
@@ -194,7 +195,7 @@
             // 
             this.rtb_BeschreibungMassnahme.Location = new System.Drawing.Point(12, 701);
             this.rtb_BeschreibungMassnahme.Name = "rtb_BeschreibungMassnahme";
-            this.rtb_BeschreibungMassnahme.Size = new System.Drawing.Size(504, 185);
+            this.rtb_BeschreibungMassnahme.Size = new System.Drawing.Size(411, 185);
             this.rtb_BeschreibungMassnahme.TabIndex = 11;
             this.rtb_BeschreibungMassnahme.Text = "";
             this.rtb_BeschreibungMassnahme.TextChanged += new System.EventHandler(this.Rtb_BeschreibungMassnahme_TextChanged);
@@ -429,7 +430,6 @@
             this.cmb_wesie.Name = "cmb_wesie";
             this.cmb_wesie.Size = new System.Drawing.Size(343, 21);
             this.cmb_wesie.TabIndex = 44;
-            this.cmb_wesie.SelectedIndexChanged += new System.EventHandler(this.Cmb_wesie_SelectedIndexChanged);
             // 
             // label14
             // 
@@ -454,67 +454,17 @@
             this.pdfPreview.Location = new System.Drawing.Point(1069, 0);
             this.pdfPreview.MinimumSize = new System.Drawing.Size(20, 20);
             this.pdfPreview.Name = "pdfPreview";
-            this.pdfPreview.Size = new System.Drawing.Size(782, 898);
+            this.pdfPreview.Size = new System.Drawing.Size(782, 936);
             this.pdfPreview.TabIndex = 47;
-            // 
-            // tb_ZusatzAnlage3
-            // 
-            this.tb_ZusatzAnlage3.Location = new System.Drawing.Point(137, 406);
-            this.tb_ZusatzAnlage3.Name = "tb_ZusatzAnlage3";
-            this.tb_ZusatzAnlage3.Size = new System.Drawing.Size(194, 20);
-            this.tb_ZusatzAnlage3.TabIndex = 40;
-            this.tb_ZusatzAnlage3.TextChanged += new System.EventHandler(this.Tb_ZusatzAnlage3_TextChanged);
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(8, 409);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(80, 13);
-            this.label12.TabIndex = 39;
-            this.label12.Text = "Zusatzanlage 3";
-            // 
-            // tb_ZusatzAnlage2
-            // 
-            this.tb_ZusatzAnlage2.Location = new System.Drawing.Point(137, 370);
-            this.tb_ZusatzAnlage2.Name = "tb_ZusatzAnlage2";
-            this.tb_ZusatzAnlage2.Size = new System.Drawing.Size(194, 20);
-            this.tb_ZusatzAnlage2.TabIndex = 36;
-            this.tb_ZusatzAnlage2.TextChanged += new System.EventHandler(this.Tb_ZusatzAnlage2_TextChanged);
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(8, 374);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(80, 13);
-            this.label11.TabIndex = 38;
-            this.label11.Text = "Zusatzanlage 2";
-            // 
-            // tb_ZusatzAnlage1
-            // 
-            this.tb_ZusatzAnlage1.Location = new System.Drawing.Point(137, 336);
-            this.tb_ZusatzAnlage1.Name = "tb_ZusatzAnlage1";
-            this.tb_ZusatzAnlage1.Size = new System.Drawing.Size(194, 20);
-            this.tb_ZusatzAnlage1.TabIndex = 35;
-            this.tb_ZusatzAnlage1.TextChanged += new System.EventHandler(this.Tb_ZusatzAnlage1_TextChanged);
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(8, 339);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(80, 13);
-            this.label10.TabIndex = 37;
-            this.label10.Text = "Zusatzanlage 1";
             // 
             // error_label
             // 
             this.error_label.AutoSize = true;
-            this.error_label.Location = new System.Drawing.Point(223, 216);
+            this.error_label.Location = new System.Drawing.Point(12, 901);
             this.error_label.Name = "error_label";
             this.error_label.Size = new System.Drawing.Size(0, 13);
             this.error_label.TabIndex = 48;
+            this.error_label.Click += new System.EventHandler(this.error_label_Click);
             // 
             // btn_vorschau
             // 
@@ -566,6 +516,7 @@
             // 
             // btn_bearbeiten
             // 
+            this.btn_bearbeiten.Enabled = false;
             this.btn_bearbeiten.Location = new System.Drawing.Point(330, 148);
             this.btn_bearbeiten.Name = "btn_bearbeiten";
             this.btn_bearbeiten.Size = new System.Drawing.Size(75, 23);
@@ -578,6 +529,12 @@
             // 
             this.groupBox2.AutoSize = true;
             this.groupBox2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.groupBox2.Controls.Add(this.btn_remove_all);
+            this.groupBox2.Controls.Add(this.btn_remove_selected);
+            this.groupBox2.Controls.Add(this.tb_zusatzanlage);
+            this.groupBox2.Controls.Add(this.btn_add_zusatzanlagen);
+            this.groupBox2.Controls.Add(this.label10);
+            this.groupBox2.Controls.Add(this.listb_zusatzanlagen);
             this.groupBox2.Controls.Add(this.cb_untervollmacht);
             this.groupBox2.Controls.Add(this.label19);
             this.groupBox2.Controls.Add(this.btn_bearbeiten_wesi);
@@ -596,18 +553,69 @@
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.tb_WesiMail);
             this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.tb_ZusatzAnlage3);
             this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Controls.Add(this.label12);
-            this.groupBox2.Controls.Add(this.tb_ZusatzAnlage1);
-            this.groupBox2.Controls.Add(this.label11);
-            this.groupBox2.Controls.Add(this.tb_ZusatzAnlage2);
-            this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Location = new System.Drawing.Point(458, 82);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(575, 445);
+            this.groupBox2.Size = new System.Drawing.Size(581, 478);
             this.groupBox2.TabIndex = 51;
             this.groupBox2.TabStop = false;
+            // 
+            // btn_remove_all
+            // 
+            this.btn_remove_all.Enabled = false;
+            this.btn_remove_all.Location = new System.Drawing.Point(486, 434);
+            this.btn_remove_all.Name = "btn_remove_all";
+            this.btn_remove_all.Size = new System.Drawing.Size(89, 25);
+            this.btn_remove_all.TabIndex = 61;
+            this.btn_remove_all.Text = "Alle Entfernen";
+            this.btn_remove_all.UseVisualStyleBackColor = true;
+            this.btn_remove_all.Click += new System.EventHandler(this.Btn_remove_all_Click);
+            // 
+            // btn_remove_selected
+            // 
+            this.btn_remove_selected.Enabled = false;
+            this.btn_remove_selected.Location = new System.Drawing.Point(494, 365);
+            this.btn_remove_selected.Name = "btn_remove_selected";
+            this.btn_remove_selected.Size = new System.Drawing.Size(75, 25);
+            this.btn_remove_selected.TabIndex = 60;
+            this.btn_remove_selected.Text = "Entfernen";
+            this.btn_remove_selected.UseVisualStyleBackColor = true;
+            this.btn_remove_selected.Click += new System.EventHandler(this.Btn_remove_selected_Click);
+            // 
+            // tb_zusatzanlage
+            // 
+            this.tb_zusatzanlage.Location = new System.Drawing.Point(145, 330);
+            this.tb_zusatzanlage.Name = "tb_zusatzanlage";
+            this.tb_zusatzanlage.Size = new System.Drawing.Size(335, 20);
+            this.tb_zusatzanlage.TabIndex = 54;
+            // 
+            // btn_add_zusatzanlagen
+            // 
+            this.btn_add_zusatzanlagen.Location = new System.Drawing.Point(494, 328);
+            this.btn_add_zusatzanlagen.Name = "btn_add_zusatzanlagen";
+            this.btn_add_zusatzanlagen.Size = new System.Drawing.Size(75, 25);
+            this.btn_add_zusatzanlagen.TabIndex = 59;
+            this.btn_add_zusatzanlagen.Text = "Hinzufügen";
+            this.btn_add_zusatzanlagen.UseVisualStyleBackColor = true;
+            this.btn_add_zusatzanlagen.Click += new System.EventHandler(this.Btn_add_zusatzanlagen_Click);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(11, 333);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(106, 13);
+            this.label10.TabIndex = 58;
+            this.label10.Text = "Zusätzliche Anlagen:";
+            // 
+            // listb_zusatzanlagen
+            // 
+            this.listb_zusatzanlagen.FormattingEnabled = true;
+            this.listb_zusatzanlagen.Location = new System.Drawing.Point(145, 364);
+            this.listb_zusatzanlagen.Name = "listb_zusatzanlagen";
+            this.listb_zusatzanlagen.Size = new System.Drawing.Size(335, 95);
+            this.listb_zusatzanlagen.TabIndex = 57;
+            this.listb_zusatzanlagen.SelectedIndexChanged += new System.EventHandler(this.Listb_zusatzanlagen_SelectedIndexChanged);
             // 
             // cb_untervollmacht
             // 
@@ -664,8 +672,7 @@
             this.groupBox3.Controls.Add(this.btn_saveDocument);
             this.groupBox3.Controls.Add(this.btn_printDocument);
             this.groupBox3.Controls.Add(this.btn_sendEmail);
-            this.groupBox3.Controls.Add(this.error_label);
-            this.groupBox3.Location = new System.Drawing.Point(522, 586);
+            this.groupBox3.Location = new System.Drawing.Point(429, 586);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(229, 300);
             this.groupBox3.TabIndex = 52;
@@ -699,14 +706,37 @@
             this.label16.TabIndex = 54;
             this.label16.Text = "SHIFT+ENTER = Umbruch";
             // 
+            // listb_vorherige_PDF
+            // 
+            this.listb_vorherige_PDF.FormattingEnabled = true;
+            this.listb_vorherige_PDF.Location = new System.Drawing.Point(662, 596);
+            this.listb_vorherige_PDF.Name = "listb_vorherige_PDF";
+            this.listb_vorherige_PDF.Size = new System.Drawing.Size(320, 290);
+            this.listb_vorherige_PDF.TabIndex = 55;
+            this.listb_vorherige_PDF.SelectedIndexChanged += new System.EventHandler(this.Listb_vorherige_PDF_SelectedIndexChanged);
+            // 
+            // btn_load_PDF
+            // 
+            this.btn_load_PDF.Enabled = false;
+            this.btn_load_PDF.Location = new System.Drawing.Point(988, 598);
+            this.btn_load_PDF.Name = "btn_load_PDF";
+            this.btn_load_PDF.Size = new System.Drawing.Size(75, 25);
+            this.btn_load_PDF.TabIndex = 62;
+            this.btn_load_PDF.Text = "Laden";
+            this.btn_load_PDF.UseVisualStyleBackColor = true;
+            this.btn_load_PDF.Click += new System.EventHandler(this.btn_load_PDF_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1851, 898);
+            this.ClientSize = new System.Drawing.Size(1851, 936);
+            this.Controls.Add(this.btn_load_PDF);
+            this.Controls.Add(this.listb_vorherige_PDF);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.error_label);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pdfPreview);
@@ -719,7 +749,6 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -765,12 +794,6 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox tb_ortMassnahme;
         private System.Windows.Forms.WebBrowser pdfPreview;
-        private System.Windows.Forms.TextBox tb_ZusatzAnlage3;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox tb_ZusatzAnlage2;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox tb_ZusatzAnlage1;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label error_label;
         private System.Windows.Forms.Button btn_vorschau;
         private System.Windows.Forms.DateTimePicker datePickerAusfuehrungEnde;
@@ -786,6 +809,14 @@
         private System.Windows.Forms.CheckBox cb_untervollmacht;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Button btn_speichern_auftrag_pfad;
+        private System.Windows.Forms.ListBox listb_vorherige_PDF;
+        private System.Windows.Forms.Button btn_add_zusatzanlagen;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ListBox listb_zusatzanlagen;
+        private System.Windows.Forms.TextBox tb_zusatzanlage;
+        private System.Windows.Forms.Button btn_remove_all;
+        private System.Windows.Forms.Button btn_remove_selected;
+        private System.Windows.Forms.Button btn_load_PDF;
     }
 }
 

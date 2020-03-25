@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<hibernate-mapping xmlns = "urn:nhibernate-mapping-2.2" assembly="DynamicPDFCreator" namespace="DynamicPDFCreator">
+
+  <class name = "Auftrag" table="tblAuftraege">
+    <id name = "id" column="idAuftrag">
+      <generator class = "identity"/>
+    </id>
+    <property name = "smNummer" column="SM_Nummer"/>
+
+    <many-to-one name = "projekt" column = "idProjekt"/>
+
+    <set name = "pdfs" table = "tblPDFs" lazy="false">
+      <key column = "`auftrag´"/>
+      <one-to-many class = "PDF" />
+    </set>
+  </class>
+
+</hibernate-mapping>
