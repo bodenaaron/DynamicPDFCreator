@@ -71,12 +71,10 @@ namespace DynamicPDFCreator.Interfaces
             </table>
             <table style='margin-top: 30px; '>
                 <tr>
-                	<td valign: top>
-                  	Abstimmung zu einer geplanten Baumaßnahme in {pdf.ortDerMassnahme}
-                  </td>
-                </tr>
-                  <tr>
-                	<td valign: top>
+                	<td valign: top;>
+
+                      Abstimmung zu einer geplanten Baumaßnahme in {pdf.ortDerMassnahme}<br/>
+
                   	{htmlMassnahmen}
                   </td>
                 </tr>

@@ -24,7 +24,8 @@ namespace DynamicPDFCreator
         PDF pdf;
         public MainForm()
         {
-           //DBm.sqlSchema();
+            this.Font= new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            //DBm.sqlSchema();
             InitializeComponent();
             ReinitializeComponents();
 
@@ -75,8 +76,7 @@ namespace DynamicPDFCreator
 
         private void ReinitializeComponents()
         {
-            this.WindowState = FormWindowState.Maximized;
-            
+            this.WindowState = FormWindowState.Maximized;            
             cmb_anschreibenTyp.DataSource = new BindingSource(DBm.dbPDF.dic_AnschreibenTyp, null);
             cmb_anschreibenTyp.DisplayMember = "Key";
             cmb_anschreibenTyp.ValueMember = "Value";
@@ -290,12 +290,12 @@ namespace DynamicPDFCreator
         }
         private void Cb_plansaetze_CheckedChanged(object sender, EventArgs e)
         {
-            workingPDF.plansaetze = cb_plansaetze.Checked;
+            workingPDF.plansaetze = cb_beteiligte.Checked;
         }
 
         private void Cb_beteiligte_CheckedChanged(object sender, EventArgs e)
         {
-            workingPDF.listeBeteiligte = cb_beteiligte.Checked;
+            workingPDF.listeBeteiligte = cb_untervollmacht.Checked;
         }
 
         private void Cb_techBeschreibung_CheckedChanged(object sender, EventArgs e)
@@ -485,8 +485,8 @@ namespace DynamicPDFCreator
                    datePickerAusfuehrungEnde.Value.Date,
                    ((KeyValuePair<string, Bearbeiter>)cmb_absender.SelectedItem).Value,
                    tb_ortMassnahme.Text,
-                   cb_plansaetze.Checked,
                    cb_beteiligte.Checked,
+                   cb_untervollmacht.Checked,
                    cb_techBeschreibung.Checked,
                    cb_untervollmacht.Checked,
                    zusatzanlagen);
@@ -504,8 +504,8 @@ namespace DynamicPDFCreator
                    tb_ortMassnahme.Text,
                    rtb,
                    ((KeyValuePair<string, WesiTeam>)cmb_wesie.SelectedItem).Value,
-                   cb_plansaetze.Checked,
                    cb_beteiligte.Checked,
+                   cb_untervollmacht.Checked,
                    cb_techBeschreibung.Checked,
                    cb_untervollmacht.Checked,
                    zusatzanlagen);
@@ -531,8 +531,8 @@ namespace DynamicPDFCreator
                     datePickerAusfuehrungEnde.Value.Date,
                     tb_ortMassnahme.Text,
                     rtb,
-                    cb_plansaetze.Checked,
                     cb_beteiligte.Checked,
+                    cb_untervollmacht.Checked,
                     cb_techBeschreibung.Checked,
                     cb_untervollmacht.Checked,
                     zusatzanlagen);
@@ -622,12 +622,13 @@ namespace DynamicPDFCreator
             {
                 PDF FinalPDF = createPDF(zusatzanlagen, rtb.Rtf);
                 string pfad = getDynamicPath(FinalPDF);
-                
+
                 pdfWriter.writeHTMLtoPDF(FinalPDF, pfad);
                 DBm.savePDF(FinalPDF);
+                error_label.Text = $@"Gespeichert unter {pfad}";
             }
-            catch (Exception q) { }
-            //Fehlermeldung Datei noch offen
+            catch (Exception q) { error_label.Text = "Datei konnte nicht gespeichert werden, vielleicht anderweitig geöffnet"; }
+
         }
 
         private string getDynamicPath(PDF finalPDF)
@@ -766,7 +767,7 @@ namespace DynamicPDFCreator
                 }
                 else if (empfaenger.TryGetValue($@"{pdf.empfaenger.firma}", out Ansprechpartner anspFirma))
                 {
-                    cmb_empfaenger.SelectedItem = new KeyValuePair<string, Ansprechpartner>($@"{ansp.firma}", anspFirma);
+                    cmb_empfaenger.SelectedItem = new KeyValuePair<string, Ansprechpartner>($@"{anspFirma.firma}", anspFirma);
                 }
             }
             
@@ -837,9 +838,9 @@ namespace DynamicPDFCreator
             }
 
             //Checkboxen
-            cb_beteiligte.Checked = pdf.listeBeteiligte;
+            cb_untervollmacht.Checked = pdf.listeBeteiligte;
             cb_untervollmacht.Checked = pdf.untervollmacht;
-            cb_plansaetze.Checked = pdf.plansaetze;
+            cb_beteiligte.Checked = pdf.plansaetze;
             cb_techBeschreibung.Checked = pdf.techBeschreibung;
 
             //Zusätzliche Anhänge
@@ -856,6 +857,11 @@ namespace DynamicPDFCreator
         }
 
         private void error_label_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Cmb_anschreibenTyp_SelectedIndexChanged_1(object sender, EventArgs e)
         {
 
         }

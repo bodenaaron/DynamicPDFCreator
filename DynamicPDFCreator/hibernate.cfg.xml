@@ -5,7 +5,7 @@
       NHibernate.Dialect.MsSql2012Dialect, NHibernate
     </property>
     <property name="connection.connection_string">
-      Data Source=WIN-9HAFEE71N1M\SQLEXPRESS;
+      Data Source=WIN-M0M11N9GCQJ\SQLEXPRESS;
       Initial Catalog=Eictronic_V1_1;
       Integrated Security=False;
       Persist Security Info=True;
