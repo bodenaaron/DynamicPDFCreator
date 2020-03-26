@@ -16,7 +16,7 @@ using System.Windows.Forms;
 namespace DynamicPDFCreator
 {
     public partial class MainForm : Form
-    {
+    {        
         private object[] pflichtfelder_typ;
         Interfaces.IPDFWriter pdfWriter;
         DBManager DBm = new DBManager();
@@ -28,12 +28,6 @@ namespace DynamicPDFCreator
             //DBm.sqlSchema();
             InitializeComponent();
             ReinitializeComponents();
-
-        }
-
-        private void Button1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void Tb_smNummer_TextChanged(object sender, EventArgs e)

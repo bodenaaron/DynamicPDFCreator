@@ -7,7 +7,7 @@
       <generator class = "identity"/>
     </id>
     <property name = "bezeichnung" column="Bezeichnung"/>
-
+    <property name ="implementiert" column="Implementiert"/>
     <!--<set name = "pdfs" table = "tblPDFs">
       <key column = "`id´"/>
       <one-to-many class = "PDF" />

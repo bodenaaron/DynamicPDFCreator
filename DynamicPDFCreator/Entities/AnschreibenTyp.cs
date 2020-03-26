@@ -44,6 +44,11 @@ namespace DynamicPDFCreator
             get;
             set;
         }
+        public virtual bool implementiert
+        {
+            get;
+            set;
+        }
         /*
         public virtual ISet<PDF> pdfs
         {

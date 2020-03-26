@@ -20,9 +20,9 @@ namespace DynamicPDFCreator
     class DBManager
     {
         public WorkingPDF dbPDF;    
-
+        
         public DBManager()
-        {
+        {            
             dbPDF = new WorkingPDF();
             getMetaDaten();
 
@@ -200,8 +200,13 @@ namespace DynamicPDFCreator
             //Object in String umwandeln
             foreach (AnschreibenTyp an in dbPDF.anschreiben)
             {
-               dbPDF.dic_AnschreibenTyp.Add(an.bezeichnung,an);
+                if (an.implementiert)
+                {
+                    dbPDF.dic_AnschreibenTyp.Add(an.bezeichnung, an);
+                }
+               
             }
+
             
 
             closeSession(session, tx);
