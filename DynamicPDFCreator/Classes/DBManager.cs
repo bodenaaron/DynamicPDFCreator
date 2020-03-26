@@ -325,7 +325,7 @@ namespace DynamicPDFCreator
             //Object in String umwandeln
             foreach (AnsprechpartnerTyp an in dbPDF.ansprechpartnerTypen)
             {
-               dbPDF.dic_ansprechpartnerTypen.Add(an.id.ToString(),an);
+               dbPDF.dic_ansprechpartnerTypen.Add(an.bezeichnung.ToString(),an);
             }
            
 

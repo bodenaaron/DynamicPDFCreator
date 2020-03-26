@@ -2,11 +2,11 @@
 
 <hibernate-mapping xmlns = "urn:nhibernate-mapping-2.2" assembly="DynamicPDFCreator" namespace="DynamicPDFCreator">
 
-  <class name = "AnsprechpartnerTyp" table="tblAnsprechpartnerTyp">
+  <class name = "AnsprechpartnerTyp" table="tblAnsprechpartnerTypen">
     <id name = "id" column="idAnsprechpartnerTyp">
       <generator class = "identity"/>
     </id>
-    <property name = "bezeichnung" column="Bezeichnung"/>
+    <property name = "bezeichnung" column="typ"/>
   </class>
 
 </hibernate-mapping>
