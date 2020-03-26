@@ -206,11 +206,7 @@ namespace DynamicPDFCreator
                 }
                
             }
-
-            
-
             closeSession(session, tx);
-
         }
 
         //immer verfügbar

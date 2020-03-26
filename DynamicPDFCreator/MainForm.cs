@@ -32,40 +32,11 @@ namespace DynamicPDFCreator
 
         private void Tb_smNummer_TextChanged(object sender, EventArgs e)
         {
-            try
+            if (tb_smNummer.TextLength>0)
             {
-
-                DBm = new DBManager(tb_smNummer.Text);
-                //Empfänger Festlegen
-                if (DBm.dbPDF.auftrag!=null)
-                {
-                    if (DBm.dbPDF.dic_Ansprechpartner.Count>0)
-                    {
-                        cmb_empfaenger.DataSource = new BindingSource(DBm.dbPDF.dic_Ansprechpartner, null);
-                        cmb_empfaenger.DisplayMember = "Key";
-                        cmb_empfaenger.ValueMember = "Value";
-                        cmb_empfaenger.SelectedItem = null;
-                        cmb_empfaenger.SelectedIndexChanged += new System.EventHandler(Cmb_empfaenger_SelectedIndexChanged);
-                    }
-                    else { cmb_empfaenger.DataSource = null; }
-                    
-                    workingPDF.auftrag = DBm.dbPDF.auftrag;
-
-                    if (DBm.dbPDF.auftrag.pdfs.Count>0)
-                    {
-                        //Vorherige PDFs festlegen
-                        listb_vorherige_PDF.DisplayMember = "Key";
-                        listb_vorherige_PDF.ValueMember = "Value";
-                        listb_vorherige_PDF.DataSource = new BindingSource(DBm.dbPDF.dic_pdf, null);
-                        listb_vorherige_PDF.SelectedItem = null;
-                        listb_vorherige_PDF.SelectedIndexChanged += new System.EventHandler(Listb_vorherige_PDF_SelectedIndexChanged);
-                    }
-                    else { listb_vorherige_PDF.DataSource = null; }
-                    
-                    
-                }                                
+                btn_suchen.Enabled = true;
             }
-            catch (Exception fe) { Debug.WriteLine("\nSMnummer nicht gefunden\n\n\n"); }
+            else{ btn_suchen.Enabled = false; }
         }
 
         private void ReinitializeComponents()
@@ -278,9 +249,14 @@ namespace DynamicPDFCreator
                 WesiTeam wesi = ((KeyValuePair<string, WesiTeam>)cmb_wesie.SelectedItem).Value;
                 rtb_WesiAdresse.Text = $"{wesi.firma} {wesi.niederlassung}" + Environment.NewLine + wesi.bereich + Environment.NewLine + wesi.strasse + Environment.NewLine + wesi.plz + " " + wesi.stadt;
                 tb_WesiMail.Text = wesi.email;
+                btn_bearbeiten_wesi.Enabled = true;
             }
-            tb_WesiMail.Text = "";
-            rtb_WesiAdresse.Text = "";
+            else
+            {
+                tb_WesiMail.Text = "";
+                rtb_WesiAdresse.Text = "";
+                btn_bearbeiten_wesi.Enabled = false;
+            }
         }
         private void Cb_plansaetze_CheckedChanged(object sender, EventArgs e)
         {
@@ -855,10 +831,44 @@ namespace DynamicPDFCreator
 
         }
 
-        private void Cmb_anschreibenTyp_SelectedIndexChanged_1(object sender, EventArgs e)
+        private void Btn_suchen_Click(object sender, EventArgs e)
         {
+            try
+            {
 
+                DBm = new DBManager(tb_smNummer.Text);
+                //Empfänger Festlegen
+                if (DBm.dbPDF.auftrag != null)
+                {
+                    if (DBm.dbPDF.dic_Ansprechpartner.Count > 0)
+                    {
+                        cmb_empfaenger.DataSource = new BindingSource(DBm.dbPDF.dic_Ansprechpartner, null);
+                        cmb_empfaenger.DisplayMember = "Key";
+                        cmb_empfaenger.ValueMember = "Value";
+                        cmb_empfaenger.SelectedItem = null;
+                        cmb_empfaenger.SelectedIndexChanged += new System.EventHandler(Cmb_empfaenger_SelectedIndexChanged);
+                    }
+                    else { cmb_empfaenger.DataSource = null; }
+
+                    workingPDF.auftrag = DBm.dbPDF.auftrag;
+
+                    if (DBm.dbPDF.auftrag.pdfs.Count > 0)
+                    {
+                        //Vorherige PDFs festlegen
+                        listb_vorherige_PDF.DisplayMember = "Key";
+                        listb_vorherige_PDF.ValueMember = "Value";
+                        listb_vorherige_PDF.DataSource = new BindingSource(DBm.dbPDF.dic_pdf, null);
+                        listb_vorherige_PDF.SelectedItem = null;
+                        listb_vorherige_PDF.SelectedIndexChanged += new System.EventHandler(Listb_vorherige_PDF_SelectedIndexChanged);
+                    }
+                    else { listb_vorherige_PDF.DataSource = null; }
+
+
+                }
+            }
+            catch (Exception fe) { Debug.WriteLine("\nSMnummer nicht gefunden\n\n\n"); }
         }
+
     }
     }
     

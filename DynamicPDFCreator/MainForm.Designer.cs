@@ -52,6 +52,7 @@
             this.error_label = new System.Windows.Forms.Label();
             this.datePickerAusfuehrungEnde = new System.Windows.Forms.DateTimePicker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btn_suchen = new System.Windows.Forms.Button();
             this.btn_bearbeiten = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.btn_remove_all = new System.Windows.Forms.Button();
@@ -110,7 +111,7 @@
             this.tb_smNummer.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_smNummer.Location = new System.Drawing.Point(130, 27);
             this.tb_smNummer.Name = "tb_smNummer";
-            this.tb_smNummer.Size = new System.Drawing.Size(217, 20);
+            this.tb_smNummer.Size = new System.Drawing.Size(160, 20);
             this.tb_smNummer.TabIndex = 2;
             this.tb_smNummer.TextChanged += new System.EventHandler(this.Tb_smNummer_TextChanged);
             // 
@@ -330,6 +331,7 @@
             // 
             this.groupBox1.AutoSize = true;
             this.groupBox1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.groupBox1.Controls.Add(this.btn_suchen);
             this.groupBox1.Controls.Add(this.btn_bearbeiten);
             this.groupBox1.Controls.Add(this.datePicker);
             this.groupBox1.Controls.Add(this.datePickerAusfuehrungEnde);
@@ -358,6 +360,18 @@
             this.groupBox1.Size = new System.Drawing.Size(949, 574);
             this.groupBox1.TabIndex = 51;
             this.groupBox1.TabStop = false;
+            // 
+            // btn_suchen
+            // 
+            this.btn_suchen.Enabled = false;
+            this.btn_suchen.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_suchen.Location = new System.Drawing.Point(315, 25);
+            this.btn_suchen.Name = "btn_suchen";
+            this.btn_suchen.Size = new System.Drawing.Size(64, 25);
+            this.btn_suchen.TabIndex = 62;
+            this.btn_suchen.Text = "suchen";
+            this.btn_suchen.UseVisualStyleBackColor = true;
+            this.btn_suchen.Click += new System.EventHandler(this.Btn_suchen_Click);
             // 
             // btn_bearbeiten
             // 
@@ -491,6 +505,7 @@
             // 
             this.btn_bearbeiten_wesi.BackgroundImage = global::DynamicPDFCreator.Properties.Resources.edit;
             this.btn_bearbeiten_wesi.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_bearbeiten_wesi.Enabled = false;
             this.btn_bearbeiten_wesi.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_bearbeiten_wesi.Location = new System.Drawing.Point(501, 30);
             this.btn_bearbeiten_wesi.Name = "btn_bearbeiten_wesi";
@@ -585,6 +600,7 @@
             this.cmb_wesie.Name = "cmb_wesie";
             this.cmb_wesie.Size = new System.Drawing.Size(343, 22);
             this.cmb_wesie.TabIndex = 44;
+            this.cmb_wesie.SelectedIndexChanged += new System.EventHandler(this.Cmb_wesie_SelectedIndexChanged);
             // 
             // cb_beteiligte
             // 
@@ -868,6 +884,7 @@
         private System.Windows.Forms.Button btn_saveDocument;
         private System.Windows.Forms.Button btn_printDocument;
         private System.Windows.Forms.Button btn_sendEmail;
+        private System.Windows.Forms.Button btn_suchen;
     }
 }
 
