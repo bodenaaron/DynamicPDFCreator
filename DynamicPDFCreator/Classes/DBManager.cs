@@ -77,8 +77,7 @@ namespace DynamicPDFCreator
                 string typ = null;
 
                 try
-                {
-                    StringBuilder sb = null;
+                {                    
                     typ = an.typ.Trim();
                 }
 
@@ -90,6 +89,17 @@ namespace DynamicPDFCreator
                 dbPDF.dic_Ansprechpartner.Add(typ.PadRight(12) + key.Trim(), an);
             }
             
+            var items = from pair in dbPDF.dic_Ansprechpartner
+                        orderby pair.Value.typ descending
+                        select pair;
+
+            Dictionary<string, Ansprechpartner> sorted_dic_Ansprechpartner = new Dictionary<string, Ansprechpartner>();
+            foreach (KeyValuePair<string, Ansprechpartner> a in items)
+            {
+                sorted_dic_Ansprechpartner.Add(a.Key,a.Value);
+            }
+            dbPDF.dic_Ansprechpartner = sorted_dic_Ansprechpartner;
+
             getAnsprechpartnerTyp();
             getPDFs();
             closeSession(session, tx);

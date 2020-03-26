@@ -131,9 +131,9 @@
             this.cmb_anschreibenTyp.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_anschreibenTyp.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmb_anschreibenTyp.FormattingEnabled = true;
-            this.cmb_anschreibenTyp.Location = new System.Drawing.Point(162, 100);
+            this.cmb_anschreibenTyp.Location = new System.Drawing.Point(189, 100);
             this.cmb_anschreibenTyp.Name = "cmb_anschreibenTyp";
-            this.cmb_anschreibenTyp.Size = new System.Drawing.Size(217, 22);
+            this.cmb_anschreibenTyp.Size = new System.Drawing.Size(190, 22);
             this.cmb_anschreibenTyp.TabIndex = 4;
             // 
             // cmb_empfaenger
@@ -166,9 +166,9 @@
             this.cmb_absender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_absender.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmb_absender.FormattingEnabled = true;
-            this.cmb_absender.Location = new System.Drawing.Point(162, 192);
+            this.cmb_absender.Location = new System.Drawing.Point(189, 192);
             this.cmb_absender.Name = "cmb_absender";
-            this.cmb_absender.Size = new System.Drawing.Size(217, 22);
+            this.cmb_absender.Size = new System.Drawing.Size(190, 22);
             this.cmb_absender.TabIndex = 7;
             this.cmb_absender.SelectedIndexChanged += new System.EventHandler(this.Cmb_absender_SelectedIndexChanged);
             // 
@@ -185,9 +185,9 @@
             // datePicker
             // 
             this.datePicker.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.datePicker.Location = new System.Drawing.Point(162, 239);
+            this.datePicker.Location = new System.Drawing.Point(189, 239);
             this.datePicker.Name = "datePicker";
-            this.datePicker.Size = new System.Drawing.Size(217, 20);
+            this.datePicker.Size = new System.Drawing.Size(190, 20);
             this.datePicker.TabIndex = 9;
             this.datePicker.ValueChanged += new System.EventHandler(this.DatePicker_ValueChanged);
             // 
@@ -222,9 +222,9 @@
             // datePickerAusfuehrung
             // 
             this.datePickerAusfuehrung.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.datePickerAusfuehrung.Location = new System.Drawing.Point(162, 278);
+            this.datePickerAusfuehrung.Location = new System.Drawing.Point(189, 278);
             this.datePickerAusfuehrung.Name = "datePickerAusfuehrung";
-            this.datePickerAusfuehrung.Size = new System.Drawing.Size(217, 20);
+            this.datePickerAusfuehrung.Size = new System.Drawing.Size(190, 20);
             this.datePickerAusfuehrung.TabIndex = 17;
             this.datePickerAusfuehrung.ValueChanged += new System.EventHandler(this.DatePickerAusfuehrung_ValueChanged);
             // 
@@ -245,9 +245,9 @@
             this.cmb_Ansprechpartner.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_Ansprechpartner.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmb_Ansprechpartner.FormattingEnabled = true;
-            this.cmb_Ansprechpartner.Location = new System.Drawing.Point(162, 359);
+            this.cmb_Ansprechpartner.Location = new System.Drawing.Point(189, 359);
             this.cmb_Ansprechpartner.Name = "cmb_Ansprechpartner";
-            this.cmb_Ansprechpartner.Size = new System.Drawing.Size(217, 22);
+            this.cmb_Ansprechpartner.Size = new System.Drawing.Size(190, 22);
             this.cmb_Ansprechpartner.TabIndex = 19;
             this.cmb_Ansprechpartner.SelectedIndexChanged += new System.EventHandler(this.Cmb_Ansprechpartner_SelectedIndexChanged);
             // 
@@ -294,9 +294,9 @@
             // tb_ortMassnahme
             // 
             this.tb_ortMassnahme.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_ortMassnahme.Location = new System.Drawing.Point(162, 396);
+            this.tb_ortMassnahme.Location = new System.Drawing.Point(189, 396);
             this.tb_ortMassnahme.Name = "tb_ortMassnahme";
-            this.tb_ortMassnahme.Size = new System.Drawing.Size(217, 20);
+            this.tb_ortMassnahme.Size = new System.Drawing.Size(190, 20);
             this.tb_ortMassnahme.TabIndex = 46;
             this.tb_ortMassnahme.TextChanged += new System.EventHandler(this.Tb_ortMassnahme_TextChanged);
             // 
@@ -321,9 +321,9 @@
             // datePickerAusfuehrungEnde
             // 
             this.datePickerAusfuehrungEnde.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.datePickerAusfuehrungEnde.Location = new System.Drawing.Point(162, 314);
+            this.datePickerAusfuehrungEnde.Location = new System.Drawing.Point(189, 314);
             this.datePickerAusfuehrungEnde.Name = "datePickerAusfuehrungEnde";
-            this.datePickerAusfuehrungEnde.Size = new System.Drawing.Size(217, 20);
+            this.datePickerAusfuehrungEnde.Size = new System.Drawing.Size(190, 20);
             this.datePickerAusfuehrungEnde.TabIndex = 50;
             // 
             // groupBox1
