@@ -65,12 +65,12 @@ namespace DynamicPDFCreator
                 {
                     if (an.firma != "")
                     {
-                       dbPDF.dic_Ansprechpartner.Add(an.firma,an);
+                       dbPDF.dic_Ansprechpartner.Add(an.typ+" "+an.firma,an);
                     }
                 }
                 else
                 {
-                   dbPDF.dic_Ansprechpartner.Add(an.ansprechpartnerVorname + " " + an.ansprechpartnerName,an);
+                   dbPDF.dic_Ansprechpartner.Add(an.typ + " " + an.ansprechpartnerVorname + " " + an.ansprechpartnerName,an);
                 }
 
             }

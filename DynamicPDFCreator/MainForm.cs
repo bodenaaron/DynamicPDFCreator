@@ -24,7 +24,7 @@ namespace DynamicPDFCreator
         PDF pdf;
         public MainForm()
         {
-           //DBm.sqlSchema();
+            //DBm.sqlSchema();
             InitializeComponent();
             ReinitializeComponents();
 
@@ -622,12 +622,13 @@ namespace DynamicPDFCreator
             {
                 PDF FinalPDF = createPDF(zusatzanlagen, rtb.Rtf);
                 string pfad = getDynamicPath(FinalPDF);
-                
+
                 pdfWriter.writeHTMLtoPDF(FinalPDF, pfad);
                 DBm.savePDF(FinalPDF);
+                error_label.Text = $@"Gespeichert unter {pfad}";
             }
-            catch (Exception q) { }
-            //Fehlermeldung Datei noch offen
+            catch (Exception q) { error_label.Text = "Datei konnte nicht gespeichert werden, vielleicht anderweitig geöffnet"; }
+
         }
 
         private string getDynamicPath(PDF finalPDF)
@@ -766,7 +767,7 @@ namespace DynamicPDFCreator
                 }
                 else if (empfaenger.TryGetValue($@"{pdf.empfaenger.firma}", out Ansprechpartner anspFirma))
                 {
-                    cmb_empfaenger.SelectedItem = new KeyValuePair<string, Ansprechpartner>($@"{ansp.firma}", anspFirma);
+                    cmb_empfaenger.SelectedItem = new KeyValuePair<string, Ansprechpartner>($@"{anspFirma.firma}", anspFirma);
                 }
             }
             

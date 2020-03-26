@@ -108,7 +108,7 @@
             this.tb_smNummer.BackColor = System.Drawing.SystemColors.Window;
             this.tb_smNummer.Location = new System.Drawing.Point(130, 27);
             this.tb_smNummer.Name = "tb_smNummer";
-            this.tb_smNummer.Size = new System.Drawing.Size(194, 20);
+            this.tb_smNummer.Size = new System.Drawing.Size(217, 20);
             this.tb_smNummer.TabIndex = 2;
             this.tb_smNummer.TextChanged += new System.EventHandler(this.Tb_smNummer_TextChanged);
             // 
@@ -129,7 +129,7 @@
             this.cmb_anschreibenTyp.FormattingEnabled = true;
             this.cmb_anschreibenTyp.Location = new System.Drawing.Point(130, 100);
             this.cmb_anschreibenTyp.Name = "cmb_anschreibenTyp";
-            this.cmb_anschreibenTyp.Size = new System.Drawing.Size(194, 21);
+            this.cmb_anschreibenTyp.Size = new System.Drawing.Size(217, 21);
             this.cmb_anschreibenTyp.TabIndex = 4;
             // 
             // cmb_empfaenger
@@ -140,7 +140,7 @@
             this.cmb_empfaenger.FormattingEnabled = true;
             this.cmb_empfaenger.Location = new System.Drawing.Point(130, 148);
             this.cmb_empfaenger.Name = "cmb_empfaenger";
-            this.cmb_empfaenger.Size = new System.Drawing.Size(194, 21);
+            this.cmb_empfaenger.Size = new System.Drawing.Size(217, 21);
             this.cmb_empfaenger.TabIndex = 5;
             this.cmb_empfaenger.SelectedIndexChanged += new System.EventHandler(this.Cmb_empfaenger_SelectedIndexChanged);
             // 
@@ -161,7 +161,7 @@
             this.cmb_absender.FormattingEnabled = true;
             this.cmb_absender.Location = new System.Drawing.Point(130, 192);
             this.cmb_absender.Name = "cmb_absender";
-            this.cmb_absender.Size = new System.Drawing.Size(194, 21);
+            this.cmb_absender.Size = new System.Drawing.Size(217, 21);
             this.cmb_absender.TabIndex = 7;
             this.cmb_absender.SelectedIndexChanged += new System.EventHandler(this.Cmb_absender_SelectedIndexChanged);
             // 
@@ -178,7 +178,7 @@
             // 
             this.datePicker.Location = new System.Drawing.Point(130, 239);
             this.datePicker.Name = "datePicker";
-            this.datePicker.Size = new System.Drawing.Size(194, 20);
+            this.datePicker.Size = new System.Drawing.Size(217, 20);
             this.datePicker.TabIndex = 9;
             this.datePicker.ValueChanged += new System.EventHandler(this.DatePicker_ValueChanged);
             // 
@@ -244,7 +244,7 @@
             // 
             this.datePickerAusfuehrung.Location = new System.Drawing.Point(130, 278);
             this.datePickerAusfuehrung.Name = "datePickerAusfuehrung";
-            this.datePickerAusfuehrung.Size = new System.Drawing.Size(194, 20);
+            this.datePickerAusfuehrung.Size = new System.Drawing.Size(217, 20);
             this.datePickerAusfuehrung.TabIndex = 17;
             this.datePickerAusfuehrung.ValueChanged += new System.EventHandler(this.DatePickerAusfuehrung_ValueChanged);
             // 
@@ -265,7 +265,7 @@
             this.cmb_Ansprechpartner.FormattingEnabled = true;
             this.cmb_Ansprechpartner.Location = new System.Drawing.Point(130, 359);
             this.cmb_Ansprechpartner.Name = "cmb_Ansprechpartner";
-            this.cmb_Ansprechpartner.Size = new System.Drawing.Size(194, 21);
+            this.cmb_Ansprechpartner.Size = new System.Drawing.Size(217, 21);
             this.cmb_Ansprechpartner.TabIndex = 19;
             this.cmb_Ansprechpartner.SelectedIndexChanged += new System.EventHandler(this.Cmb_Ansprechpartner_SelectedIndexChanged);
             // 
@@ -444,7 +444,7 @@
             // 
             this.tb_ortMassnahme.Location = new System.Drawing.Point(130, 396);
             this.tb_ortMassnahme.Name = "tb_ortMassnahme";
-            this.tb_ortMassnahme.Size = new System.Drawing.Size(194, 20);
+            this.tb_ortMassnahme.Size = new System.Drawing.Size(217, 20);
             this.tb_ortMassnahme.TabIndex = 46;
             this.tb_ortMassnahme.TextChanged += new System.EventHandler(this.Tb_ortMassnahme_TextChanged);
             // 
@@ -480,7 +480,7 @@
             // 
             this.datePickerAusfuehrungEnde.Location = new System.Drawing.Point(130, 314);
             this.datePickerAusfuehrungEnde.Name = "datePickerAusfuehrungEnde";
-            this.datePickerAusfuehrungEnde.Size = new System.Drawing.Size(194, 20);
+            this.datePickerAusfuehrungEnde.Size = new System.Drawing.Size(217, 20);
             this.datePickerAusfuehrungEnde.TabIndex = 50;
             // 
             // groupBox1
@@ -510,14 +510,14 @@
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(411, 518);
+            this.groupBox1.Size = new System.Drawing.Size(438, 518);
             this.groupBox1.TabIndex = 51;
             this.groupBox1.TabStop = false;
             // 
             // btn_bearbeiten
             // 
             this.btn_bearbeiten.Enabled = false;
-            this.btn_bearbeiten.Location = new System.Drawing.Point(330, 148);
+            this.btn_bearbeiten.Location = new System.Drawing.Point(357, 148);
             this.btn_bearbeiten.Name = "btn_bearbeiten";
             this.btn_bearbeiten.Size = new System.Drawing.Size(75, 23);
             this.btn_bearbeiten.TabIndex = 53;
