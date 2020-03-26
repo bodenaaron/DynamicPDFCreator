@@ -401,7 +401,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tb_vorname);
             this.Name = "EditDataset";
-            this.Text = "EditDataset";
+            this.Text = "Datensatz Bearbeiten";
             this.ResumeLayout(false);
             this.PerformLayout();
 
