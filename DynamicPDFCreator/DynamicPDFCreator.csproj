@@ -119,9 +119,7 @@
     <Compile Include="Classes\EditDataset.Designer.cs">
       <DependentUpon>EditDataset.cs</DependentUpon>
     </Compile>
-    <Compile Include="Classes\ErrorCodes.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Classes\FieldHandler.cs" />
     <Compile Include="Classes\PDF.cs" />
     <Compile Include="Entities\AnschreibenTyp.cs" />
     <Compile Include="Entities\Ansprechpartner.cs" />
@@ -210,35 +208,19 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Mapping\PDFCreatorModels.TblAnschreibenTyp.hbm.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Mapping\PDFCreatorModels.TblAnsprechpartner.hbm.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Mapping\PDFCreatorModels.TblAuftraege.hbm.xml" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\edit.png" />
     <EmbeddedResource Include="hibernate.cfg.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <Content Include="HTML\Wupfl.txt" />
-    <EmbeddedResource Include="Mapping neu\WesiTeam.hbm.xml" />
-    <EmbeddedResource Include="Mapping neu\Bearbeiter.hbm.xml" />
-    <EmbeddedResource Include="Mapping neu\AnschreibenTyp.hbm.xml" />
-    <EmbeddedResource Include="Mapping neu\Ansprechpartner.hbm.xml" />
-    <EmbeddedResource Include="Mapping neu\Auftrag.hbm.xml" />
-    <EmbeddedResource Include="Mapping neu\Projekt.hbm.xml" />
-    <EmbeddedResource Include="Mapping neu\PDF.hbm.xml" />
-    <EmbeddedResource Include="Mapping neu\AnsprechpartnerTyp.hbm.xml" />
-    <EmbeddedResource Include="Mapping neu\Zusatzanlage.hbm.xml" />
-    <Content Include="Mapping\PDF.hbm.xml" />
-    <None Include="Mapping\PDFCreatorModels3.TblAnsprechpartnerTyp.hbm.xml" />
-    <None Include="Mapping\PDFCreatorModels3.TblWesiTeam.hbm.xml" />
-    <None Include="Mapping\PDFCreatorModels3.TblBearbeiter.hbm.xml" />
-    <None Include="Mapping\PDFCreatorModels2.TblProjekte.hbm.xml" />
-    <None Include="Mapping\PDFCreatorModels2.TblAnsprechpartner2Projekt.hbm.xml" />
+    <EmbeddedResource Include="Mapping\WesiTeam.hbm.xml" />
+    <EmbeddedResource Include="Mapping\Bearbeiter.hbm.xml" />
+    <EmbeddedResource Include="Mapping\AnschreibenTyp.hbm.xml" />
+    <EmbeddedResource Include="Mapping\Ansprechpartner.hbm.xml" />
+    <EmbeddedResource Include="Mapping\Auftrag.hbm.xml" />
+    <EmbeddedResource Include="Mapping\Projekt.hbm.xml" />
+    <EmbeddedResource Include="Mapping\PDF.hbm.xml" />
+    <EmbeddedResource Include="Mapping\AnsprechpartnerTyp.hbm.xml" />
+    <EmbeddedResource Include="Mapping\Zusatzanlage.hbm.xml" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

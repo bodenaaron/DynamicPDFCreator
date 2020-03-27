@@ -163,11 +163,14 @@ namespace DynamicPDFCreator.Interfaces
             {
                 html += "- Technische Beschreibung<br/>";
             }
-
-            foreach (Zusatzanlage s in pdf.tblZusatzanlagen)
+            if (pdf.tblZusatzanlagen != null)
             {
-                html += s.anlage + "<br/>";
+                foreach (Zusatzanlage s in pdf.tblZusatzanlagen)
+                {
+                    html += s.anlage + "<br/>";
+                }
             }
+            
 
 
             return html;

@@ -19,7 +19,7 @@ namespace DynamicPDFCreator
 {
     class DBManager
     {
-        public WorkingPDF dbPDF;    
+        public WorkingPDF dbPDF;
         
         public DBManager()
         {            

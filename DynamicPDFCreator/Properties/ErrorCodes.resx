@@ -148,7 +148,7 @@
     <value>Bitte Empfänger auswählen!</value>
   </data>
   <data name="ERROR_ORTDERMASSNAHME" xml:space="preserve">
-    <value>Bitte Ort der Maßnahme ausfüllen!</value>
+    <value>Bitte den Betreff ausfüllen!</value>
   </data>
   <data name="ERROR_SMNUMMER" xml:space="preserve">
     <value>SMNummer nicht gefunden</value>
