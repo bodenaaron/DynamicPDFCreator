@@ -16,18 +16,21 @@ using System.Windows.Forms;
 namespace DynamicPDFCreator
 {
     public partial class MainForm : Form
-    {        
-        private object[] pflichtfelder_typ;
+    {
+        EnableHandler eH;        
+        object[] pflichtfelder;
         Interfaces.IPDFWriter pdfWriter;
         DBManager DBm = new DBManager();
-        WorkingPDF workingPDF = new WorkingPDF();
+        public WorkingPDF workingPDF = new WorkingPDF();
         PDF pdf;
         public MainForm()
         {
             this.Font= new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             //DBm.sqlSchema();
             InitializeComponent();
+            eH = new EnableHandler(this);
             ReinitializeComponents();
+            
         }
 
         private void Tb_smNummer_TextChanged(object sender, EventArgs e)
@@ -41,11 +44,13 @@ namespace DynamicPDFCreator
 
         private void ReinitializeComponents()
         {
+            eH.disableAll(true);
             this.WindowState = FormWindowState.Maximized;            
             cmb_anschreibenTyp.DataSource = new BindingSource(DBm.dbPDF.dic_AnschreibenTyp, null);
             cmb_anschreibenTyp.DisplayMember = "Key";
             cmb_anschreibenTyp.ValueMember = "Value";
             cmb_anschreibenTyp.SelectedItem = null;
+            cmb_anschreibenTyp.FlatStyle = FlatStyle.Popup;
             cmb_anschreibenTyp.SelectedIndexChanged += new System.EventHandler(Cmb_anschreibenTyp_SelectedIndexChanged);            
 
             //WesiTeam            
@@ -84,8 +89,8 @@ namespace DynamicPDFCreator
 
         private void Cmb_anschreibenTyp_SelectedIndexChanged(object sender, EventArgs e)
         {
-            AnschreibenTyp anschreiben = new AnschreibenTyp(); ;
-
+            AnschreibenTyp anschreiben = new AnschreibenTyp();
+            
             if (cmb_anschreibenTyp.SelectedItem!=null)
             {
                  anschreiben = ((KeyValuePair<string, AnschreibenTyp>)cmb_anschreibenTyp.SelectedItem).Value;
@@ -95,51 +100,33 @@ namespace DynamicPDFCreator
                 {
                     case 1:
                         //EVU
-                        enableAll();
                         pdfWriter = new Interfaces.EVU();
-                        rtb_absprachen.Enabled = false;
-                        rtb_BeschreibungMassnahme.Enabled = false;
-                        cmb_wesie.Enabled = false;
-                        cmb_ansprechpartnerBau.Enabled = false;
-                        pflichtfelder_typ = Pflichtfelder_Klassen.Pflicht_EVU.PFLICHTFELDER;
+                        pflichtfelder = Pflichtfelder_Klassen.Pflicht_EVU.PFLICHTFELDER;
+                        eH.manageFields(Pflichtfelder_Klassen.Pflicht_EVU.FELDER);
                         break;
                     case 2:
                         break;
                     case 3:
-                        //WUPFL
-                        enableAll();
-                        rtb_absprachen.Enabled = false;
-                        cmb_ansprechpartnerBau.Enabled = false;
+                        //WUPFL                                                
                         pdfWriter = new Interfaces.Wupfl();
-                        pflichtfelder_typ = Pflichtfelder_Klassen.Pflicht_EVU.PFLICHTFELDER;
+                        pflichtfelder = Pflichtfelder_Klassen.Pflicht_Wupfl.PFLICHTFELDER;
+                        eH.manageFields(Pflichtfelder_Klassen.Pflicht_Wupfl.FELDER);
                         break;
                     case 4:
                         break;
                     case 5:
                         break;
                     case 6:
-                        //ZUstimmungsbescheid
-                        enableAll();
-                        rtb_absprachen.Enabled = false;
-                        cmb_ansprechpartnerBau.Enabled = false;
-                        rtb_BeschreibungMassnahme.Enabled = false;
-                        cmb_absender.Enabled = false;
-                        cmb_Ansprechpartner.Enabled = false;
-                        datePicker.Enabled = false;
-                        datePickerAusfuehrung.Enabled = false;
-                        datePickerAusfuehrungEnde.Enabled = false;
+                        //ZUstimmungsbescheid                        
                         pdfWriter = new Interfaces.Zustimmungsbescheid();
-                        pflichtfelder_typ = Pflichtfelder_Klassen.Pflicht_Zustimmungsbescheid.PFLICHTFELDER;
+                        pflichtfelder= Pflichtfelder_Klassen.Pflicht_Zustimmungsbescheid.FELDER;
+                        eH.manageFields(Pflichtfelder_Klassen.Pflicht_Zustimmungsbescheid.FELDER);
                         break;
                     case 7:
-                        //Abstimmung Naturschutz
-                        enableAll();
-                        rtb_absprachen.Enabled = false;
-                        cmb_ansprechpartnerBau.Enabled = false;
-                        cmb_Ansprechpartner.Enabled = false;
-                        cmb_wesie.Enabled = false;
+                        //Abstimmung Naturschutz                        
                         pdfWriter = new Interfaces.AbstimmungNaturschutz();
-                        pflichtfelder_typ = Pflichtfelder_Klassen.Pflicht_AbstimmungNaturschutz.PFLICHTFELDER;
+                        pflichtfelder= Pflichtfelder_Klassen.Pflicht_AbstimmungNaturschutz.FELDER;
+                        eH.manageFields(Pflichtfelder_Klassen.Pflicht_AbstimmungNaturschutz.FELDER);
                         break;
                     case 8:
                         break;
@@ -152,24 +139,13 @@ namespace DynamicPDFCreator
                     case 12:
                         break;
                     case 13:
-                        //Anschreiben Kampfmittel
-                        enableAll();
-                        cmb_absender.Enabled = false;
-                        datePickerAusfuehrung.Enabled = false;
-                        datePickerAusfuehrungEnde.Enabled = false;
-                        cmb_Ansprechpartner.Enabled = false;
-                        rtb_absprachen.Enabled = false;
-                        rtb_BeschreibungMassnahme.Enabled = false;
-                        cmb_ansprechpartnerBau.Enabled = false;
+                        //Anschreiben Kampfmittel                        
                         pdfWriter = new Interfaces.Kampfmittel();
-                        pflichtfelder_typ = Pflichtfelder_Klassen.Pflicht_Kampfmittel.PFLICHTFELDER;
+                        pflichtfelder= Pflichtfelder_Klassen.Pflicht_Kampfmittel.FELDER;
+                        eH.manageFields(Pflichtfelder_Klassen.Pflicht_Kampfmittel.FELDER);
                         break;
                 }
-                }
-            
-            
-
-
+            }
             workingPDF.anschreibenTyp = anschreiben;
         }
 
@@ -282,7 +258,7 @@ namespace DynamicPDFCreator
         {
             listb_vorherige_PDF.SelectedItem = null;
             error_label.Text = "";
-            List<Zusatzanlage> zusatzanlagen = checkInput();
+            List<Zusatzanlage> zusatzanlagen = eH.checkInput(pflichtfelder);
 
             RichTextBox rtb = new RichTextBox();
             rtb.Rtf = rtb_BeschreibungMassnahme.Rtf;
@@ -304,7 +280,7 @@ namespace DynamicPDFCreator
         {
             listb_vorherige_PDF.SelectedItem = null;
             error_label.Text = "";
-            List<Zusatzanlage> zusatzanlagen = checkInput();
+            List<Zusatzanlage> zusatzanlagen = eH.checkInput(pflichtfelder);
 
             RichTextBox rtb = new RichTextBox();
             rtb.Rtf = rtb_BeschreibungMassnahme.Rtf;
@@ -332,97 +308,6 @@ namespace DynamicPDFCreator
         }
 
         //noch falsche reihenfolge beim checken
-        private List<Zusatzanlage> checkInput()
-        {
-            if (workingPDF.auftrag == null)
-            {
-                displayError(ERROR_SMNUMMER);
-                return null;
-            }
-
-            if (pflichtfelder_typ == null)
-            {
-                displayError(ERROR_ANSCHREIBENTYP);
-                return null;
-            }
-            foreach (int s in pflichtfelder_typ)
-            {
-                switch (s)
-                {
-                    case Pflichtfelder_Klassen.Pflichtfelder.ABSENDER:
-                        if (cmb_absender.Text == "")
-                        {
-                            displayError(ERROR_ABSENDER);
-                            return null;
-                        }
-                        break;
-                    case Pflichtfelder_Klassen.Pflichtfelder.EMPFAENGER:
-                        if (cmb_empfaenger.Text == "")
-                        {
-                            displayError(ERROR_EMPFAENGER);
-                            return null;
-                        }
-                        break;
-                    case Pflichtfelder_Klassen.Pflichtfelder.ANSPRECHPARTNER:
-                        if (cmb_Ansprechpartner.Text == "")
-                        {
-                            displayError(ERROR_ANSPRECHPARTNER);
-                            return null;
-                        }
-                        break;
-                    case Pflichtfelder_Klassen.Pflichtfelder.ORT_DER_MASSNAHMEN:
-                        if (tb_ortMassnahme.Text == "")
-                        {
-                            displayError(ERROR_ORTDERMASSNAHME);
-                            return null;
-                        }
-                        break;
-                    case Pflichtfelder_Klassen.Pflichtfelder.BESCHREIBUNG_ABSPRACHEN:
-                        break;
-                    case Pflichtfelder_Klassen.Pflichtfelder.BESCHREIBUNG_DER_MASSNAHMEN:
-                        if (rtb_BeschreibungMassnahme.Text == "")
-                        {
-                            displayError(ERROR_BESCHREIBUNGMASSNAHME);
-                            return null;
-                        }
-                        break;
-                    case Pflichtfelder_Klassen.Pflichtfelder.WESI_TEAM:
-                        if (rtb_WesiAdresse.Text == "")
-                        {
-                            displayError(ERROR_WESI_TEAM_ADRESSE);
-                            return null;
-                        }
-                        break;
-                    case Pflichtfelder_Klassen.Pflichtfelder.ANSPRECHPARTNER_BAU:
-                        break;
-                }
-            }            
-            List<Zusatzanlage> zusatzanlagen = new List<Zusatzanlage>();
-            //if (cb_plansaetze.Checked)
-            //{
-            //    zusatzanlagen.Add(new Zusatzanlage("- Plansatz"));
-            //}
-            //if (cb_beteiligte.Checked)
-            //{
-            //    zusatzanlagen.Add(new Zusatzanlage("- Liste der Beteiligten"));
-            //}
-            //if (cb_techBeschreibung.Checked)
-            //{
-            //    zusatzanlagen.Add(new Zusatzanlage("- Technische Beschreibung"));
-            //}
-            //if (cb_untervollmacht.Checked)
-            //{
-            //
-            //    zusatzanlagen.Add(new Zusatzanlage("- Untervollmacht"));
-            //}
-            
-            foreach (object i in listb_zusatzanlagen.Items)
-            {
-                zusatzanlagen.Add(new Zusatzanlage(i.ToString()));
-            }
-            
-            return zusatzanlagen;
-        }
         private void Btn_bearbeiten_wesi_Click(object sender, EventArgs e)
         {
             EditDataset editDataset = new EditDataset();
@@ -517,74 +402,15 @@ namespace DynamicPDFCreator
                     datePicker.Value
                     );
                     break;
-            }
-
-            
-
+            }            
             return FinalPDF;
-        }
-        private void clearAll(bool fullClear)
-        {
-            Action<Control.ControlCollection> func = null;
-
-            func = (controls) =>
-            {
-                foreach (Control control in controls)
-                    if (control is TextBox && control.Name!= "tb_smNummer")
-                        (control as TextBox).Clear();
-                    else
-                        func(control.Controls);
-            };
-
-            func(Controls);
-        }
-
-        private void enableAll()
-        {
-            Action<Control.ControlCollection> func = null;
-
-            func = (controls) =>
-            {
-                foreach (Control control in controls)
-                    if (control is ComboBox)
-                        (control as ComboBox).Enabled=true;
-                    else
-                        func(control.Controls);
-            };
-
-            func(Controls);
-
-            func = null;
-
-            func = (controls) =>
-            {
-                foreach (Control control in controls)
-                    if (control is TextBox&&control.Name!= "tb_smNummer")
-                        (control as TextBox).Enabled = true;
-                    else
-                        func(control.Controls);
-            };
-
-            func(Controls);
-            func = null;
-
-            func = (controls) =>
-            {
-                foreach (Control control in controls)
-                    if (control is RichTextBox)
-                        (control as RichTextBox).Enabled = true;
-                    else
-                        func(control.Controls);
-            };
-
-            func(Controls);
-        }
+        }        
 
         private void Btn_speichern_auftrag_pfad_Click(object sender, EventArgs e)
         {
             listb_vorherige_PDF.SelectedItem = null;
             error_label.Text = "";
-            List<Zusatzanlage> zusatzanlagen = checkInput();
+            List<Zusatzanlage> zusatzanlagen = eH.checkInput(pflichtfelder);
 
             RichTextBox rtb = new RichTextBox();
             rtb.Rtf = rtb_BeschreibungMassnahme.Rtf;
@@ -598,7 +424,6 @@ namespace DynamicPDFCreator
                 error_label.Text = $@"Gespeichert unter {pfad}";
             }
             catch (Exception q) { error_label.Text = "Datei konnte nicht gespeichert werden, vielleicht anderweitig geöffnet"; }
-
         }
 
         private string getDynamicPath(PDF finalPDF)
@@ -860,6 +685,8 @@ namespace DynamicPDFCreator
                         listb_vorherige_PDF.DataSource = new BindingSource(DBm.dbPDF.dic_pdf, null);
                         listb_vorherige_PDF.SelectedItem = null;
                         listb_vorherige_PDF.SelectedIndexChanged += new System.EventHandler(Listb_vorherige_PDF_SelectedIndexChanged);
+                        cmb_anschreibenTyp.Enabled = true;
+                        cmb_anschreibenTyp.BackColor = eH.colorEnabled;
                     }
                     else { listb_vorherige_PDF.DataSource = null; }
 
@@ -869,6 +696,23 @@ namespace DynamicPDFCreator
             catch (Exception fe) { Debug.WriteLine("\nSMnummer nicht gefunden\n\n\n"); }
         }
 
+        private void Tb_zusatzanlage_TextChanged(object sender, EventArgs e)
+        {
+            if (tb_zusatzanlage.TextLength > 0)
+            {
+                btn_add_zusatzanlagen.Enabled = true;
+            }
+            else
+            {
+                btn_add_zusatzanlagen.Enabled = false;
+            }
+            
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+        }
+
     }
-    }
+}
     
