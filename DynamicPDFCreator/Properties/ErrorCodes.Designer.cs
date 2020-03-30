@@ -151,7 +151,7 @@ namespace DynamicPDFCreator.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Bitte Ort der Maßnahme ausfüllen! ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Bitte den Betreff ausfüllen! ähnelt.
         /// </summary>
         internal static string ERROR_ORTDERMASSNAHME {
             get {

@@ -8,24 +8,25 @@ namespace DynamicPDFCreator.Pflichtfelder_Klassen
 {
     class Pflicht_AbstimmungNaturschutz
     {
+        //Pflichtfelder
+        public const int EMPFAENGER = 1;
+        public const int ABSENDER = 2;
+        public const int DATUM = 3;
+        public const int AUSFUEHRUNGSZEITRAUM = 4;
+        public const int ANSPRECHPARTNER = 5;
+        public const int ORT_DER_MASSNAHMEN = 6;
+        //public const int BESCHREIBUNG_ABSPRACHEN = 7;
+        public const int BESCHREIBUNG_DER_MASSNAHMEN = 8;
+        //public const int WESI_TEAM = 9;
+        //public const int ANSPRECHPARTNER_BAU = 10;
 
-        //public const int ANSCHREIBEN_TYP = 2;
-        public const int EMPFAENGER = 9;
-        public const int ABSENDER = 1;
-        public const int DATUM = 8;
-        public const int AUSFUEHRUNGSZEITRAUM = 5;
-        //public const int ANSPRECHPARTNER = 3;
-        public const int ORT_DER_MASSNAHMEN = 11;
-        //public const int BESCHREIBUNG_ABSPRACHEN = 6;
-        public const int BESCHREIBUNG_DER_MASSNAHMEN = 7;
-        //public const int WESI_TEAM = 14;
-        //public const int ANSPRECHPARTNER_BAU = 4;
-        //public const int PLANSAETZE = 12;
-        //public const int LISTE_DER_BETEILIGTEN = 10;
-        //public const int TECHNISCHE_BESCHREIBUNG = 13;
-        //public const int ZUSATZ1 = 15;
-        //public const int ZUSATZ2 = 16;
-        //public const int ZUSATZ3 = 17;
+        //Optional
+        public const int CHECKBOXEN = 11;
+        public const int ZUSATZ = 12;
+        
+        public static object[] FELDER = { EMPFAENGER, ABSENDER, DATUM, AUSFUEHRUNGSZEITRAUM, ANSPRECHPARTNER, ORT_DER_MASSNAHMEN, BESCHREIBUNG_DER_MASSNAHMEN, CHECKBOXEN, ZUSATZ };       
         public static object[] PFLICHTFELDER = { EMPFAENGER, ORT_DER_MASSNAHMEN, ABSENDER, DATUM, AUSFUEHRUNGSZEITRAUM, BESCHREIBUNG_DER_MASSNAHMEN };
+        
+
     }
 }

@@ -19,10 +19,10 @@ namespace DynamicPDFCreator
 {
     class DBManager
     {
-        public WorkingPDF dbPDF;    
-
+        public WorkingPDF dbPDF;
+        
         public DBManager()
-        {
+        {            
             dbPDF = new WorkingPDF();
             getMetaDaten();
 
@@ -58,23 +58,48 @@ namespace DynamicPDFCreator
             dbPDF.auftrag = crit.List<Auftrag>().FirstOrDefault();
             tx.Commit();
             dbPDF.dic_Ansprechpartner = new Dictionary<string, Ansprechpartner>();
-            //Object in String umwandeln
+
+            string key;
             foreach (Ansprechpartner an in dbPDF.auftrag.projekt.ansprechpartner)
             {
+                key = null;
                 if (an.ansprechpartnerVorname == null && an.ansprechpartnerName == null || an.ansprechpartnerVorname == "" && an.ansprechpartnerName == "")
                 {
                     if (an.firma != "")
                     {
-                       dbPDF.dic_Ansprechpartner.Add(an.firma,an);
+                       key = an.firma;                        
                     }
                 }
                 else
                 {
-                   dbPDF.dic_Ansprechpartner.Add(an.ansprechpartnerVorname + " " + an.ansprechpartnerName,an);
+                   key=an.ansprechpartnerVorname + " " + an.ansprechpartnerName;
+                }
+                string typ = null;
+
+                try
+                {                    
+                    typ = an.typ.Trim();
                 }
 
+                catch (Exception) { }
+                if (typ == null)
+                {
+                    typ = "";
+                }                
+                dbPDF.dic_Ansprechpartner.Add(typ.PadRight(12) + key.Trim(), an);
             }
             
+            var items = from pair in dbPDF.dic_Ansprechpartner
+                        orderby pair.Value.typ descending
+                        select pair;
+
+            Dictionary<string, Ansprechpartner> sorted_dic_Ansprechpartner = new Dictionary<string, Ansprechpartner>();
+            foreach (KeyValuePair<string, Ansprechpartner> a in items)
+            {
+                sorted_dic_Ansprechpartner.Add(a.Key,a.Value);
+            }
+            dbPDF.dic_Ansprechpartner = sorted_dic_Ansprechpartner;
+
             getAnsprechpartnerTyp();
             getPDFs();
             closeSession(session, tx);
@@ -175,12 +200,13 @@ namespace DynamicPDFCreator
             //Object in String umwandeln
             foreach (AnschreibenTyp an in dbPDF.anschreiben)
             {
-               dbPDF.dic_AnschreibenTyp.Add(an.bezeichnung,an);
+                if (an.implementiert)
+                {
+                    dbPDF.dic_AnschreibenTyp.Add(an.bezeichnung, an);
+                }
+               
             }
-            
-
             closeSession(session, tx);
-
         }
 
         //immer verfügbar
@@ -300,7 +326,7 @@ namespace DynamicPDFCreator
             //Object in String umwandeln
             foreach (AnsprechpartnerTyp an in dbPDF.ansprechpartnerTypen)
             {
-               dbPDF.dic_ansprechpartnerTypen.Add(an.id.ToString(),an);
+               dbPDF.dic_ansprechpartnerTypen.Add(an.bezeichnung.ToString(),an);
             }
            
 

@@ -32,7 +32,7 @@ namespace DynamicPDFCreator
             tb_firma.Text =         ansprechpartner.firma;
             tb_bereich.Text =       ansprechpartner.bereich;
             tb_funktion.Text =      ansprechpartner.funktion;
-            cmb_typ.Text =          ansprechpartner.typ;
+            
             tb_homepage.Text =      ansprechpartner.homepage;
             tb_niederlassung.Text = ansprechpartner.niederlassung;
             tb_nl_abteilung.Text =  ansprechpartner.nlAbteilung;
@@ -42,6 +42,13 @@ namespace DynamicPDFCreator
             cmb_typ.DisplayMember = "Key";
             cmb_typ.ValueMember = "Value";
             cmb_typ.DataSource= new BindingSource(ansprechpartnerTypen, null);
+            AnsprechpartnerTyp ansprechtyp;
+            if (!ansprechpartnerTypen.TryGetValue(ansprechpartner.typ,out ansprechtyp))
+            {
+                ansprechpartnerTypen.TryGetValue(ansprechpartner.typ.ToUpper(), out ansprechtyp);
+            }
+            cmb_typ.SelectedItem = new KeyValuePair<string, AnsprechpartnerTyp>($@"{ansprechtyp.bezeichnung}",ansprechtyp);
+
         }
 
         public void ReinitializeComponent(WesiTeam wesiTeam)
