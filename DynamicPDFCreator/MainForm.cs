@@ -205,17 +205,6 @@ namespace DynamicPDFCreator
         {
             workingPDF.beschreibungMassnahme = rtb_BeschreibungMassnahme.Rtf;
         }
-
-        private void Cmb_ansprechpartnerBau_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //workingPDF.ansprechpartnerBau = DBm.dbPDF.auftrag.projekt.ansprechpartner.ElementAt<Ansprechpartner>(cmb_ansprechpartnerBau.SelectedIndex);
-        }
-
-        private void Rtb_WesiAdresse_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void Cmb_wesie_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -534,7 +523,7 @@ namespace DynamicPDFCreator
             }
         }
 
-        private void btn_load_PDF_Click(object sender, EventArgs e)
+        private void Btn_load_PDF_Click(object sender, EventArgs e)
         {
             PDF pdf = ((KeyValuePair<string, PDF>)listb_vorherige_PDF.SelectedItem).Value;
             workingPDF = new WorkingPDF(pdf);
@@ -650,12 +639,6 @@ namespace DynamicPDFCreator
 
 
         }
-
-        private void error_label_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void Btn_suchen_Click(object sender, EventArgs e)
         {
             try
@@ -684,6 +667,7 @@ namespace DynamicPDFCreator
                         listb_vorherige_PDF.ValueMember = "Value";
                         listb_vorherige_PDF.DataSource = new BindingSource(DBm.dbPDF.dic_pdf, null);
                         listb_vorherige_PDF.SelectedItem = null;
+
                         listb_vorherige_PDF.SelectedIndexChanged += new System.EventHandler(Listb_vorherige_PDF_SelectedIndexChanged);
                         cmb_anschreibenTyp.Enabled = true;
                         cmb_anschreibenTyp.BackColor = eH.colorEnabled;
@@ -708,11 +692,6 @@ namespace DynamicPDFCreator
             }
             
         }
-
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-        }
-
     }
 }
     

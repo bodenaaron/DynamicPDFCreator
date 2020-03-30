@@ -165,8 +165,7 @@ namespace DynamicPDFCreator
                         (control as TextBox).Enabled = false;
                     else
                         func(control.Controls);
-            };
-
+            };            
             func(form.Controls);            
             func = null;
 
