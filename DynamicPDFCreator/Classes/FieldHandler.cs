@@ -100,6 +100,16 @@ namespace DynamicPDFCreator
             enabledColor(true);
         }
 
+
+        public void manageFieldsEF(object[] felder_typ)
+        {
+            clearAll(false);
+            disableAll(false);
+
+            enableAll();
+            clearColor(true);
+            enabledColor(true);
+        }
         private void enableAll()
         {
             Action<Control.ControlCollection> func = null;
@@ -120,7 +130,7 @@ namespace DynamicPDFCreator
             func = (controls) =>
             {
                 foreach (Control control in controls)
-                    if (control is TextBox && control.Name != "tb_smNummer" && control.Name != "cmb_anschreibenTyp")
+                    if (control is TextBox)
                         (control as TextBox).Enabled = true;
                     else
                         func(control.Controls);
@@ -268,11 +278,11 @@ namespace DynamicPDFCreator
         public void enabledColor(bool fullClear)
         {
             Action<Control.ControlCollection> func = null;
-
+            List<string> felder = new List<string>() { "tb_smNummer", "tb_zusatzanlage", "rtb_EF_Anschreiben","listb_EF_Zusatz","tb_EF_zusatz"};
             func = (controls) =>
             {
                 foreach (Control control in controls)
-                    if (control is TextBox && control.Name != "tb_smNummer"&& control.Enabled && control.Name!= "tb_zusatzanlage")
+                    if (control is TextBox && control.Enabled && !felder.Contains(control.Name))
                         (control as TextBox).BackColor = colorEnabled;
                     else
                         func(control.Controls);
@@ -298,7 +308,7 @@ namespace DynamicPDFCreator
             func = (controls) =>
             {
                 foreach (Control control in controls)
-                    if (control is RichTextBox)
+                    if (control is RichTextBox && !felder.Contains(control.Name)&&control.Enabled)
                         (control as RichTextBox).BackColor = colorEnabled;
                     else
                         func(control.Controls);

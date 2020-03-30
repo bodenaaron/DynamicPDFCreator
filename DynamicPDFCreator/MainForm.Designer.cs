@@ -32,6 +32,33 @@
             this.error_label = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.customFormular = new System.Windows.Forms.TabPage();
+            this.EF_error_label = new System.Windows.Forms.Label();
+            this.btn_EF_auftragsordner_speichern = new System.Windows.Forms.Button();
+            this.btn_EF_vorschau = new System.Windows.Forms.Button();
+            this.btn_EF_speichernUnter = new System.Windows.Forms.Button();
+            this.rtb_EF_Anschreiben = new System.Windows.Forms.RichTextBox();
+            this.pdfPreview_EF = new System.Windows.Forms.WebBrowser();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btn_EF_PDF_laden = new System.Windows.Forms.Button();
+            this.listb_EF_vorherigePDF = new System.Windows.Forms.ListBox();
+            this.btn_EF_allesEntfernen = new System.Windows.Forms.Button();
+            this.btn_EF_zusatzEntfernen = new System.Windows.Forms.Button();
+            this.tb_EF_zusatz = new System.Windows.Forms.TextBox();
+            this.btn_EF_zusatzHinzufuegen = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.listb_EF_Zusatz = new System.Windows.Forms.ListBox();
+            this.btn_EF_suchen = new System.Windows.Forms.Button();
+            this.btn_EF_empfaengerBearbeiten = new System.Windows.Forms.Button();
+            this.Datepicker_EF_datum = new System.Windows.Forms.DateTimePicker();
+            this.label15 = new System.Windows.Forms.Label();
+            this.tb_EF_SMNummer = new System.Windows.Forms.TextBox();
+            this.tb_EF_betreff = new System.Windows.Forms.TextBox();
+            this.cmb_EF_empfaenger = new System.Windows.Forms.ComboBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.cmb_ef_absender = new System.Windows.Forms.ComboBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
             this.MainTab = new System.Windows.Forms.TabPage();
             this.pdfPreview = new System.Windows.Forms.WebBrowser();
             this.rtb_BeschreibungMassnahme = new System.Windows.Forms.RichTextBox();
@@ -90,31 +117,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.rtb_absprachen = new System.Windows.Forms.RichTextBox();
-            this.tab_1 = new System.Windows.Forms.TabControl();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.label15 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
+            this.tabControl = new System.Windows.Forms.TabControl();
             this.customFormular.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.MainTab.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.tab_1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.tabControl.SuspendLayout();
             this.SuspendLayout();
             // 
             // error_label
@@ -130,10 +138,211 @@
             // 
             // customFormular
             // 
+            this.customFormular.Controls.Add(this.EF_error_label);
+            this.customFormular.Controls.Add(this.btn_EF_auftragsordner_speichern);
+            this.customFormular.Controls.Add(this.btn_EF_vorschau);
+            this.customFormular.Controls.Add(this.btn_EF_speichernUnter);
+            this.customFormular.Controls.Add(this.rtb_EF_Anschreiben);
+            this.customFormular.Controls.Add(this.pdfPreview_EF);
             this.customFormular.Controls.Add(this.groupBox2);
             resources.ApplyResources(this.customFormular, "customFormular");
             this.customFormular.Name = "customFormular";
             this.customFormular.UseVisualStyleBackColor = true;
+            // 
+            // EF_error_label
+            // 
+            resources.ApplyResources(this.EF_error_label, "EF_error_label");
+            this.EF_error_label.Name = "EF_error_label";
+            // 
+            // btn_EF_auftragsordner_speichern
+            // 
+            resources.ApplyResources(this.btn_EF_auftragsordner_speichern, "btn_EF_auftragsordner_speichern");
+            this.btn_EF_auftragsordner_speichern.Name = "btn_EF_auftragsordner_speichern";
+            this.btn_EF_auftragsordner_speichern.UseVisualStyleBackColor = true;
+            this.btn_EF_auftragsordner_speichern.Click += new System.EventHandler(this.btn_EF_auftragsordner_speichern_Click);
+            // 
+            // btn_EF_vorschau
+            // 
+            resources.ApplyResources(this.btn_EF_vorschau, "btn_EF_vorschau");
+            this.btn_EF_vorschau.Name = "btn_EF_vorschau";
+            this.btn_EF_vorschau.UseVisualStyleBackColor = true;
+            this.btn_EF_vorschau.Click += new System.EventHandler(this.btn_EF_vorschau_Click);
+            // 
+            // btn_EF_speichernUnter
+            // 
+            resources.ApplyResources(this.btn_EF_speichernUnter, "btn_EF_speichernUnter");
+            this.btn_EF_speichernUnter.Name = "btn_EF_speichernUnter";
+            this.btn_EF_speichernUnter.UseVisualStyleBackColor = true;
+            this.btn_EF_speichernUnter.Click += new System.EventHandler(this.btn_EF_speichernUnter_Click);
+            // 
+            // rtb_EF_Anschreiben
+            // 
+            resources.ApplyResources(this.rtb_EF_Anschreiben, "rtb_EF_Anschreiben");
+            this.rtb_EF_Anschreiben.Name = "rtb_EF_Anschreiben";
+            this.rtb_EF_Anschreiben.TextChanged += new System.EventHandler(this.rtb_EF_Anschreiben_TextChanged);
+            // 
+            // pdfPreview_EF
+            // 
+            resources.ApplyResources(this.pdfPreview_EF, "pdfPreview_EF");
+            this.pdfPreview_EF.Name = "pdfPreview_EF";
+            // 
+            // groupBox2
+            // 
+            resources.ApplyResources(this.groupBox2, "groupBox2");
+            this.groupBox2.Controls.Add(this.btn_EF_PDF_laden);
+            this.groupBox2.Controls.Add(this.listb_EF_vorherigePDF);
+            this.groupBox2.Controls.Add(this.btn_EF_allesEntfernen);
+            this.groupBox2.Controls.Add(this.btn_EF_zusatzEntfernen);
+            this.groupBox2.Controls.Add(this.tb_EF_zusatz);
+            this.groupBox2.Controls.Add(this.btn_EF_zusatzHinzufuegen);
+            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Controls.Add(this.listb_EF_Zusatz);
+            this.groupBox2.Controls.Add(this.btn_EF_suchen);
+            this.groupBox2.Controls.Add(this.btn_EF_empfaengerBearbeiten);
+            this.groupBox2.Controls.Add(this.Datepicker_EF_datum);
+            this.groupBox2.Controls.Add(this.label15);
+            this.groupBox2.Controls.Add(this.tb_EF_SMNummer);
+            this.groupBox2.Controls.Add(this.tb_EF_betreff);
+            this.groupBox2.Controls.Add(this.cmb_EF_empfaenger);
+            this.groupBox2.Controls.Add(this.label17);
+            this.groupBox2.Controls.Add(this.cmb_ef_absender);
+            this.groupBox2.Controls.Add(this.label18);
+            this.groupBox2.Controls.Add(this.label19);
+            this.groupBox2.Controls.Add(this.label22);
+            this.groupBox2.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.TabStop = false;
+            // 
+            // btn_EF_PDF_laden
+            // 
+            resources.ApplyResources(this.btn_EF_PDF_laden, "btn_EF_PDF_laden");
+            this.btn_EF_PDF_laden.Name = "btn_EF_PDF_laden";
+            this.btn_EF_PDF_laden.UseVisualStyleBackColor = true;
+            this.btn_EF_PDF_laden.Click += new System.EventHandler(this.btn_EF_PDF_laden_Click);
+            // 
+            // listb_EF_vorherigePDF
+            // 
+            this.listb_EF_vorherigePDF.FormattingEnabled = true;
+            resources.ApplyResources(this.listb_EF_vorherigePDF, "listb_EF_vorherigePDF");
+            this.listb_EF_vorherigePDF.Name = "listb_EF_vorherigePDF";
+            // 
+            // btn_EF_allesEntfernen
+            // 
+            resources.ApplyResources(this.btn_EF_allesEntfernen, "btn_EF_allesEntfernen");
+            this.btn_EF_allesEntfernen.Name = "btn_EF_allesEntfernen";
+            this.btn_EF_allesEntfernen.UseVisualStyleBackColor = true;
+            // 
+            // btn_EF_zusatzEntfernen
+            // 
+            resources.ApplyResources(this.btn_EF_zusatzEntfernen, "btn_EF_zusatzEntfernen");
+            this.btn_EF_zusatzEntfernen.Name = "btn_EF_zusatzEntfernen";
+            this.btn_EF_zusatzEntfernen.UseVisualStyleBackColor = true;
+            // 
+            // tb_EF_zusatz
+            // 
+            resources.ApplyResources(this.tb_EF_zusatz, "tb_EF_zusatz");
+            this.tb_EF_zusatz.Name = "tb_EF_zusatz";
+            this.tb_EF_zusatz.TextChanged += new System.EventHandler(this.tb_EF_zusatz_TextChanged);
+            // 
+            // btn_EF_zusatzHinzufuegen
+            // 
+            resources.ApplyResources(this.btn_EF_zusatzHinzufuegen, "btn_EF_zusatzHinzufuegen");
+            this.btn_EF_zusatzHinzufuegen.Name = "btn_EF_zusatzHinzufuegen";
+            this.btn_EF_zusatzHinzufuegen.UseVisualStyleBackColor = true;
+            this.btn_EF_zusatzHinzufuegen.Click += new System.EventHandler(this.btn_EF_zusatzHinzufuegen_Click);
+            // 
+            // label5
+            // 
+            resources.ApplyResources(this.label5, "label5");
+            this.label5.Name = "label5";
+            // 
+            // listb_EF_Zusatz
+            // 
+            resources.ApplyResources(this.listb_EF_Zusatz, "listb_EF_Zusatz");
+            this.listb_EF_Zusatz.FormattingEnabled = true;
+            this.listb_EF_Zusatz.Name = "listb_EF_Zusatz";
+            this.listb_EF_Zusatz.SelectedIndexChanged += new System.EventHandler(this.listb_EF_Zusatz_SelectedIndexChanged);
+            // 
+            // btn_EF_suchen
+            // 
+            resources.ApplyResources(this.btn_EF_suchen, "btn_EF_suchen");
+            this.btn_EF_suchen.Name = "btn_EF_suchen";
+            this.btn_EF_suchen.UseVisualStyleBackColor = true;
+            this.btn_EF_suchen.Click += new System.EventHandler(this.btn_EF_suchen_Click);
+            // 
+            // btn_EF_empfaengerBearbeiten
+            // 
+            this.btn_EF_empfaengerBearbeiten.BackgroundImage = global::DynamicPDFCreator.Properties.Resources.edit;
+            resources.ApplyResources(this.btn_EF_empfaengerBearbeiten, "btn_EF_empfaengerBearbeiten");
+            this.btn_EF_empfaengerBearbeiten.Name = "btn_EF_empfaengerBearbeiten";
+            this.btn_EF_empfaengerBearbeiten.UseVisualStyleBackColor = true;
+            // 
+            // Datepicker_EF_datum
+            // 
+            this.Datepicker_EF_datum.CalendarMonthBackground = System.Drawing.Color.Yellow;
+            this.Datepicker_EF_datum.CalendarTitleBackColor = System.Drawing.SystemColors.HotTrack;
+            resources.ApplyResources(this.Datepicker_EF_datum, "Datepicker_EF_datum");
+            this.Datepicker_EF_datum.Name = "Datepicker_EF_datum";
+            this.Datepicker_EF_datum.ValueChanged += new System.EventHandler(this.Datepicker_datum_ValueChanged);
+            // 
+            // label15
+            // 
+            resources.ApplyResources(this.label15, "label15");
+            this.label15.Name = "label15";
+            // 
+            // tb_EF_SMNummer
+            // 
+            this.tb_EF_SMNummer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            resources.ApplyResources(this.tb_EF_SMNummer, "tb_EF_SMNummer");
+            this.tb_EF_SMNummer.Name = "tb_EF_SMNummer";
+            this.tb_EF_SMNummer.TextChanged += new System.EventHandler(this.tb_EF_SMNummer_TextChanged);
+            // 
+            // tb_EF_betreff
+            // 
+            resources.ApplyResources(this.tb_EF_betreff, "tb_EF_betreff");
+            this.tb_EF_betreff.Name = "tb_EF_betreff";
+            this.tb_EF_betreff.TextChanged += new System.EventHandler(this.tb_EF_betreff_TextChanged);
+            // 
+            // cmb_EF_empfaenger
+            // 
+            this.cmb_EF_empfaenger.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cmb_EF_empfaenger.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmb_EF_empfaenger.BackColor = System.Drawing.SystemColors.Window;
+            this.cmb_EF_empfaenger.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            resources.ApplyResources(this.cmb_EF_empfaenger, "cmb_EF_empfaenger");
+            this.cmb_EF_empfaenger.FormattingEnabled = true;
+            this.cmb_EF_empfaenger.Name = "cmb_EF_empfaenger";
+            this.cmb_EF_empfaenger.SelectedIndexChanged += new System.EventHandler(this.cmb_EF_empfaenger_SelectedIndexChanged);
+            // 
+            // label17
+            // 
+            resources.ApplyResources(this.label17, "label17");
+            this.label17.Name = "label17";
+            // 
+            // cmb_ef_absender
+            // 
+            this.cmb_ef_absender.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cmb_ef_absender.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmb_ef_absender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            resources.ApplyResources(this.cmb_ef_absender, "cmb_ef_absender");
+            this.cmb_ef_absender.FormattingEnabled = true;
+            this.cmb_ef_absender.Name = "cmb_ef_absender";
+            this.cmb_ef_absender.SelectedIndexChanged += new System.EventHandler(this.cmb_ef_absender_SelectedIndexChanged);
+            // 
+            // label18
+            // 
+            resources.ApplyResources(this.label18, "label18");
+            this.label18.Name = "label18";
+            // 
+            // label19
+            // 
+            resources.ApplyResources(this.label19, "label19");
+            this.label19.Name = "label19";
+            // 
+            // label22
+            // 
+            resources.ApplyResources(this.label22, "label22");
+            this.label22.Name = "label22";
             // 
             // MainTab
             // 
@@ -210,7 +419,6 @@
             this.listb_vorherige_PDF.FormattingEnabled = true;
             resources.ApplyResources(this.listb_vorherige_PDF, "listb_vorherige_PDF");
             this.listb_vorherige_PDF.Name = "listb_vorherige_PDF";
-            this.listb_vorherige_PDF.SelectedIndexChanged += new System.EventHandler(this.Listb_vorherige_PDF_SelectedIndexChanged);
             // 
             // label41
             // 
@@ -478,6 +686,7 @@
             this.cmb_anschreibenTyp.ForeColor = System.Drawing.SystemColors.WindowText;
             this.cmb_anschreibenTyp.FormattingEnabled = true;
             this.cmb_anschreibenTyp.Name = "cmb_anschreibenTyp";
+            
             // 
             // tb_ortMassnahme
             // 
@@ -563,165 +772,32 @@
             this.rtb_absprachen.Name = "rtb_absprachen";
             this.rtb_absprachen.TextChanged += new System.EventHandler(this.Rtb_absprachen_TextChanged);
             // 
-            // tab_1
+            // tabControl
             // 
-            resources.ApplyResources(this.tab_1, "tab_1");
-            this.tab_1.Controls.Add(this.MainTab);
-            this.tab_1.Controls.Add(this.customFormular);
-            this.tab_1.Name = "tab_1";
-            this.tab_1.SelectedIndex = 0;
-            // 
-            // groupBox2
-            // 
-            resources.ApplyResources(this.groupBox2, "groupBox2");
-            this.groupBox2.Controls.Add(this.button1);
-            this.groupBox2.Controls.Add(this.button2);
-            this.groupBox2.Controls.Add(this.textBox1);
-            this.groupBox2.Controls.Add(this.button3);
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.listBox1);
-            this.groupBox2.Controls.Add(this.button5);
-            this.groupBox2.Controls.Add(this.button6);
-            this.groupBox2.Controls.Add(this.dateTimePicker1);
-            this.groupBox2.Controls.Add(this.label15);
-            this.groupBox2.Controls.Add(this.textBox3);
-            this.groupBox2.Controls.Add(this.textBox4);
-            this.groupBox2.Controls.Add(this.comboBox4);
-            this.groupBox2.Controls.Add(this.label17);
-            this.groupBox2.Controls.Add(this.comboBox5);
-            this.groupBox2.Controls.Add(this.label18);
-            this.groupBox2.Controls.Add(this.label19);
-            this.groupBox2.Controls.Add(this.label22);
-            this.groupBox2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.TabStop = false;
-            // 
-            // button1
-            // 
-            resources.ApplyResources(this.button1, "button1");
-            this.button1.Name = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            resources.ApplyResources(this.button2, "button2");
-            this.button2.Name = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            resources.ApplyResources(this.textBox1, "textBox1");
-            this.textBox1.Name = "textBox1";
-            // 
-            // button3
-            // 
-            resources.ApplyResources(this.button3, "button3");
-            this.button3.Name = "button3";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // label5
-            // 
-            resources.ApplyResources(this.label5, "label5");
-            this.label5.Name = "label5";
-            // 
-            // listBox1
-            // 
-            resources.ApplyResources(this.listBox1, "listBox1");
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Name = "listBox1";
-            // 
-            // button5
-            // 
-            resources.ApplyResources(this.button5, "button5");
-            this.button5.Name = "button5";
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // button6
-            // 
-            this.button6.BackgroundImage = global::DynamicPDFCreator.Properties.Resources.edit;
-            resources.ApplyResources(this.button6, "button6");
-            this.button6.Name = "button6";
-            this.button6.UseVisualStyleBackColor = true;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.CalendarMonthBackground = System.Drawing.Color.Yellow;
-            this.dateTimePicker1.CalendarTitleBackColor = System.Drawing.SystemColors.HotTrack;
-            resources.ApplyResources(this.dateTimePicker1, "dateTimePicker1");
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            // 
-            // label15
-            // 
-            resources.ApplyResources(this.label15, "label15");
-            this.label15.Name = "label15";
-            // 
-            // textBox3
-            // 
-            this.textBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            resources.ApplyResources(this.textBox3, "textBox3");
-            this.textBox3.Name = "textBox3";
-            // 
-            // textBox4
-            // 
-            resources.ApplyResources(this.textBox4, "textBox4");
-            this.textBox4.Name = "textBox4";
-            // 
-            // comboBox4
-            // 
-            this.comboBox4.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.comboBox4.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBox4.BackColor = System.Drawing.SystemColors.Window;
-            this.comboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            resources.ApplyResources(this.comboBox4, "comboBox4");
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Name = "comboBox4";
-            // 
-            // label17
-            // 
-            resources.ApplyResources(this.label17, "label17");
-            this.label17.Name = "label17";
-            // 
-            // comboBox5
-            // 
-            this.comboBox5.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.comboBox5.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBox5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            resources.ApplyResources(this.comboBox5, "comboBox5");
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Name = "comboBox5";
-            // 
-            // label18
-            // 
-            resources.ApplyResources(this.label18, "label18");
-            this.label18.Name = "label18";
-            // 
-            // label19
-            // 
-            resources.ApplyResources(this.label19, "label19");
-            this.label19.Name = "label19";
-            // 
-            // label22
-            // 
-            resources.ApplyResources(this.label22, "label22");
-            this.label22.Name = "label22";
+            resources.ApplyResources(this.tabControl, "tabControl");
+            this.tabControl.Controls.Add(this.MainTab);
+            this.tabControl.Controls.Add(this.customFormular);
+            this.tabControl.Name = "tabControl";
+            this.tabControl.SelectedIndex = 0;
+            this.tabControl.SelectedIndexChanged += new System.EventHandler(this.tabSwitch);
             // 
             // MainForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.tab_1);
+            this.Controls.Add(this.tabControl);
             this.Controls.Add(this.error_label);
             this.Controls.Add(this.groupBox5);
             this.Name = "MainForm";
             this.customFormular.ResumeLayout(false);
             this.customFormular.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.MainTab.ResumeLayout(false);
             this.MainTab.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.tab_1.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.tabControl.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -789,26 +865,34 @@
         public System.Windows.Forms.Label label3;
         public System.Windows.Forms.Label label4;
         public System.Windows.Forms.RichTextBox rtb_absprachen;
-        private System.Windows.Forms.TabControl tab_1;
+        private System.Windows.Forms.TabControl tabControl;
         public System.Windows.Forms.GroupBox groupBox2;
-        public System.Windows.Forms.Button button1;
-        public System.Windows.Forms.Button button2;
-        public System.Windows.Forms.TextBox textBox1;
-        public System.Windows.Forms.Button button3;
+        public System.Windows.Forms.Button btn_EF_allesEntfernen;
+        public System.Windows.Forms.Button btn_EF_zusatzEntfernen;
+        public System.Windows.Forms.TextBox tb_EF_zusatz;
+        public System.Windows.Forms.Button btn_EF_zusatzHinzufuegen;
         public System.Windows.Forms.Label label5;
-        public System.Windows.Forms.ListBox listBox1;
-        public System.Windows.Forms.Button button5;
-        public System.Windows.Forms.Button button6;
-        public System.Windows.Forms.DateTimePicker dateTimePicker1;
+        public System.Windows.Forms.ListBox listb_EF_Zusatz;
+        public System.Windows.Forms.Button btn_EF_suchen;
+        public System.Windows.Forms.Button btn_EF_empfaengerBearbeiten;
+        public System.Windows.Forms.DateTimePicker Datepicker_EF_datum;
         public System.Windows.Forms.Label label15;
-        public System.Windows.Forms.TextBox textBox3;
-        public System.Windows.Forms.TextBox textBox4;
-        public System.Windows.Forms.ComboBox comboBox4;
+        public System.Windows.Forms.TextBox tb_EF_SMNummer;
+        public System.Windows.Forms.TextBox tb_EF_betreff;
+        public System.Windows.Forms.ComboBox cmb_EF_empfaenger;
         public System.Windows.Forms.Label label17;
-        public System.Windows.Forms.ComboBox comboBox5;
+        public System.Windows.Forms.ComboBox cmb_ef_absender;
         public System.Windows.Forms.Label label18;
         public System.Windows.Forms.Label label19;
         public System.Windows.Forms.Label label22;
+        public System.Windows.Forms.WebBrowser pdfPreview_EF;
+        public System.Windows.Forms.Button btn_EF_PDF_laden;
+        public System.Windows.Forms.ListBox listb_EF_vorherigePDF;
+        private System.Windows.Forms.RichTextBox rtb_EF_Anschreiben;
+        public System.Windows.Forms.Button btn_EF_auftragsordner_speichern;
+        public System.Windows.Forms.Button btn_EF_vorschau;
+        public System.Windows.Forms.Button btn_EF_speichernUnter;
+        private System.Windows.Forms.Label EF_error_label;
     }
 }
 

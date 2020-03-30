@@ -10,6 +10,12 @@ namespace DynamicPDFCreator
 {
     public class PDF
     {
+        private Ansprechpartner value1;
+        private Bearbeiter value2;
+        private DateTime value3;
+        private string text;
+        private string rtb;
+        private List<Zusatzanlage> zusatzanlagen;
 
         public  PDF(Auftrag auftrag, AnschreibenTyp anschreibenTyp, Ansprechpartner empfaenger, Bearbeiter absender, DateTime datum, DateTime ausfuehrungszeitraum, DateTime ausfuehrungszeitraumEnde, Bearbeiter ansprechpartner, string ortDerMassnahme, string abgesprochenMit, string beschreibungMassnahme, Ansprechpartner ansprechpartnerBau, WesiTeam wesiTeam, bool plansaetze, bool listeBeteiligte, bool techBeschreibung, bool untervollmacht,List<Zusatzanlage>zusatzanlagen)
         {
@@ -127,6 +133,19 @@ namespace DynamicPDFCreator
             this.untervollmacht = untervollmacht;
             this.tblZusatzanlagen = zusatzanlagen;
         }
+
+        public PDF(Auftrag auftrag, AnschreibenTyp anschreibenTyp, Ansprechpartner empfaenger, Bearbeiter absender, DateTime datum, string ortDerMassnahme, string rtb, List<Zusatzanlage> zusatzanlagen)
+        {
+            this.auftrag = auftrag;
+            this.anschreibenTyp = anschreibenTyp;
+            this.empfaenger = empfaenger;
+            this.absender = absender;
+            this.datum = datum;            
+            this.ortDerMassnahme = ortDerMassnahme;
+            this.beschreibungMassnahme = rtb;
+            this.zusatzanlagen = zusatzanlagen;
+        }
+
         public virtual string id { get; set; } //= new TblAuftraege();
         public virtual Auftrag auftrag { get; set; } //= new TblAuftraege();
         public virtual AnschreibenTyp anschreibenTyp { get; set; } //= new TblAnschreibenTyp();

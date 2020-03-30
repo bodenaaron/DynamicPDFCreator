@@ -137,6 +137,7 @@
     </Compile>
     <Compile Include="Entities\Zusatzanlage.cs" />
     <Compile Include="Interfaces\AbstimmungNaturschutz.cs" />
+    <Compile Include="Interfaces\EigenesFormular.cs" />
     <Compile Include="Interfaces\Kampfmittel.cs" />
     <Compile Include="Interfaces\Zustimmungsbescheid.cs" />
     <Compile Include="Interfaces\EVU.cs" />
@@ -149,6 +150,7 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\Program.cs" />
+    <Compile Include="Pflichtfelder_Klassen\Pflicht_EigenesFormular.cs" />
     <Compile Include="Pflichtfelder_Klassen\Pflicht_Kampfmittel.cs" />
     <Compile Include="Pflichtfelder_Klassen\Pflicht_AbstimmungNaturschutz.cs" />
     <Compile Include="Pflichtfelder_Klassen\Pflichtfelder.cs" />
