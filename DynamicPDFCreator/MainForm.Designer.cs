@@ -686,7 +686,6 @@
             this.cmb_anschreibenTyp.ForeColor = System.Drawing.SystemColors.WindowText;
             this.cmb_anschreibenTyp.FormattingEnabled = true;
             this.cmb_anschreibenTyp.Name = "cmb_anschreibenTyp";
-            
             // 
             // tb_ortMassnahme
             // 

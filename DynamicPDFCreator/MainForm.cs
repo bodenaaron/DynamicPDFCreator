@@ -21,38 +21,39 @@ namespace DynamicPDFCreator
         object[] pflichtfelder;
         Interfaces.IPDFWriter pdfWriter;
         DBManager DBm = new DBManager();
-        public WorkingPDF workingPDF = new WorkingPDF();
-        PDF pdf;
+        public WorkingPDF workingPDF = new WorkingPDF();        
         public MainForm()
         {
             this.Font= new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             //DBm.sqlSchema();
             InitializeComponent();
             eH = new EnableHandler(this);
-            foreach (var page in tabControl.TabPages.Cast<TabPage>())
-            {
-                page.CausesValidation = true;
-                page.Validating += new CancelEventHandler(tabSwitch);
-            }
-            ReinitializeComponents();
-            
+            //foreach (var page in tabControl.TabPages.Cast<TabPage>())
+            //{
+            //    page.CausesValidation = true;
+            //    page.Validating += new CancelEventHandler(tabSwitch);
+            //}
+            ReinitializeComponents();            
         }
 
         public void tabSwitch(object sender, EventArgs e)
-        {                        
+        {
             workingPDF = new WorkingPDF();
+            MainTab = new TabPage();
+            customFormular = new TabPage();
             TabPage page = sender as TabPage;
             if (this.tabControl.SelectedTab.Text=="Eigenes Formular")
             {
                 pdfWriter = new Interfaces.EigenesFormular();
                 pflichtfelder = Pflichtfelder_Klassen.Pflicht_EigenesFormular.FELDER;
-                eH.manageFieldsEF(Pflichtfelder_Klassen.Pflicht_EigenesFormular.FELDER);
+                if (tb_EF_SMNummer.Text=="")
+                {
+                    eH.manageFieldsEF(Pflichtfelder_Klassen.Pflicht_EigenesFormular.FELDER);
+                }
+                else { eH.manageFieldsSwitchTabs(); }
             }
-            else { eH.disableAll(false); eH.clearColor(true); }
-
+            else { eH.disableAll(false); eH.clearColor(true); }            
             listb_EF_vorherigePDF.SelectedItem = null;
-            pdfPreview.Navigate("");
-            pdfPreview_EF.Navigate("");
         }
         private void Tb_smNummer_TextChanged(object sender, EventArgs e)
         {
@@ -502,10 +503,11 @@ namespace DynamicPDFCreator
         private void Listb_vorherige_PDF_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (listb_vorherige_PDF.SelectedItem != null && tb_smNummer.Text != null)
-            {                
-                loadPDF(0);
+            {
+                pdfPreview.Navigate(loadPDF(0));
             }
             else { pdfPreview.DocumentText = null; }
+           
 
             if (listb_vorherige_PDF.SelectedItem!=null)
             {
@@ -514,96 +516,228 @@ namespace DynamicPDFCreator
             else { btn_load_PDF.Enabled = false; }
         }
 
-        private void loadPDF(int tab)
+        private string loadPDF(int tab)
         {
             PDF pdf = new PDF();
             switch (tab)
             {
                 case 0:
-                    pdf = ((KeyValuePair<string, PDF>)listb_vorherige_PDF.SelectedItem).Value;
-
-                    switch (pdf.anschreibenTyp.bezeichnung)
-                    {
-                        case "Anschreiben EVU":
-                            pdfWriter = new Interfaces.EVU();
-                            break;
-                        case "Anschreiben Mitbenutzung":
-                            break;
-                        case "Antrag Wupfl":
-                            pdfWriter = new Interfaces.Wupfl();
-                            break;
-                        case "Behördliche Genehmigung":
-                            break;
-                        case "Erläuterungsbericht":
-                            break;
-                        case "Zustimmungsbescheid":
-                            pdfWriter = new Interfaces.Zustimmungsbescheid();
-                            break;
-                        case "Abstimmung Naturschutz":
-                            pdfWriter = new Interfaces.AbstimmungNaturschutz();
-                            break;
-                        case "SOS Zustimmungsbescheid":
-                            break;
-                        case "SOS Antrag":
-                            break;
-                        case "Anschreiben Kommune":
-                            break;
-                        case "Anschreiben Datenblatt":
-                            break;
-                        case "Anschreiben Kommune Trenching":
-                            break;
-                        case "Anschreiben Kampfmittel":
-                            pdfWriter = new Interfaces.Kampfmittel();
-                            break;
-                    }
+                    pdf = ((KeyValuePair<string, PDF>)listb_vorherige_PDF.SelectedItem).Value;                                        
                     break;
                 case 1:
-                    pdf = ((KeyValuePair<string, PDF>)listb_EF_vorherigePDF.SelectedItem).Value;
-
-                    switch (pdf.anschreibenTyp.bezeichnung)
-                    {
-                        case "Anschreiben EVU":
-                            pdfWriter = new Interfaces.EVU();
-                            break;
-                        case "Anschreiben Mitbenutzung":
-                            break;
-                        case "Antrag Wupfl":
-                            pdfWriter = new Interfaces.Wupfl();
-                            break;
-                        case "Behördliche Genehmigung":
-                            break;
-                        case "Erläuterungsbericht":
-                            break;
-                        case "Zustimmungsbescheid":
-                            pdfWriter = new Interfaces.Zustimmungsbescheid();
-                            break;
-                        case "Abstimmung Naturschutz":
-                            pdfWriter = new Interfaces.AbstimmungNaturschutz();
-                            break;
-                        case "SOS Zustimmungsbescheid":
-                            break;
-                        case "SOS Antrag":
-                            break;
-                        case "Anschreiben Kommune":
-                            break;
-                        case "Anschreiben Datenblatt":
-                            break;
-                        case "Anschreiben Kommune Trenching":
-                            break;
-                        case "Anschreiben Kampfmittel":
-                            pdfWriter = new Interfaces.Kampfmittel();
-                            break;
-                        case "Eigen":
-                            break;
-                    }
-                    break;
-            
+                    pdf = ((KeyValuePair<string, PDF>)listb_EF_vorherigePDF.SelectedItem).Value;                    
+                    break;            
             }
-            
+
+            switch (pdf.anschreibenTyp.bezeichnung)
+            {
+                case "Anschreiben EVU":
+                    pdfWriter = new Interfaces.EVU();
+                    break;
+                case "Anschreiben Mitbenutzung":
+                    break;
+                case "Antrag Wupfl":
+                    pdfWriter = new Interfaces.Wupfl();
+                    break;
+                case "Behördliche Genehmigung":
+                    break;
+                case "Erläuterungsbericht":
+                    break;
+                case "Zustimmungsbescheid":
+                    pdfWriter = new Interfaces.Zustimmungsbescheid();
+                    break;
+                case "Abstimmung Naturschutz":
+                    pdfWriter = new Interfaces.AbstimmungNaturschutz();
+                    break;
+                case "SOS Zustimmungsbescheid":
+                    break;
+                case "SOS Antrag":
+                    break;
+                case "Anschreiben Kommune":
+                    break;
+                case "Anschreiben Datenblatt":
+                    break;
+                case "Anschreiben Kommune Trenching":
+                    break;
+                case "Anschreiben Kampfmittel":
+                    pdfWriter = new Interfaces.Kampfmittel();
+                    break;
+                case "Eigen":
+                    pdfWriter = new Interfaces.EigenesFormular();
+                    break;
+            }
             string hiddenPath = Path.GetTempPath() + @"\testVorschaupdf.pdf";
             //this.pdfPreview.Navigate("www.google.de");
 
-            pdfPreview.Navigate(pdfWriter.writeHTMLtoPDF(pdf, hiddenPath));
+            return pdfWriter.writeHTMLtoPDF(pdf, hiddenPath);
+        }
+
+        private void fillFormular(int tab, WorkingPDF pdf, object sender, EventArgs e)
+        {
+            switch (tab)
+            {
+                case 1:
+                    //SM Nummer
+                    tb_EF_SMNummer.Text = pdf.auftrag.smNummer;
+                    btn_EF_suchen_Click(sender, e);
+
+                    //Empfänger
+                    if (pdf.empfaenger != null)
+                    {
+                        Dictionary<string, Ansprechpartner> empfaenger = DBm.dbPDF.dic_Ansprechpartner;
+                        cmb_EF_empfaenger.DataSource = new BindingSource(empfaenger, null);
+                        cmb_EF_empfaenger.DisplayMember = "Key";
+                        cmb_EF_empfaenger.ValueMember = "Value";
+                        if (empfaenger.TryGetValue($@"{pdf.empfaenger.ansprechpartnerVorname} {pdf.empfaenger.ansprechpartnerName}", out Ansprechpartner ansp))
+                        {
+                            cmb_EF_empfaenger.SelectedItem = new KeyValuePair<string, Ansprechpartner>($@"{ansp.ansprechpartnerVorname} {ansp.ansprechpartnerName}", ansp);
+                        }
+                        else if (empfaenger.TryGetValue($@"{pdf.empfaenger.firma}", out Ansprechpartner anspFirma))
+                        {
+                            cmb_EF_empfaenger.SelectedItem = new KeyValuePair<string, Ansprechpartner>($@"{anspFirma.firma}", anspFirma);
+                        }
+                    }
+
+                    if (pdf.absender != null)
+                    {
+                        Dictionary<string, Bearbeiter> absender = DBm.dbPDF.dic_Bearbeiter;
+                        cmb_ef_absender.DataSource = new BindingSource(absender, null);
+                        cmb_ef_absender.DisplayMember = "Key";
+                        cmb_ef_absender.ValueMember = "Value";
+                        if (absender.TryGetValue($@"{pdf.absender.bearbeiterVorname} {pdf.absender.bearbeiterName}", out Bearbeiter bearb))
+                        {
+                            cmb_ef_absender.SelectedItem = new KeyValuePair<string, Bearbeiter>($@"{bearb.bearbeiterVorname} {bearb.bearbeiterName}", bearb);
+                        }
+                    }
+
+                    //Betreff
+                    tb_EF_betreff.Text = pdf.ortDerMassnahme;
+
+                    rtb_EF_Anschreiben.Rtf = pdf.beschreibungMassnahme;
+                    //Zusätzliche Anhänge
+                    if (pdf.zusatzanlagen != null)
+                    {
+                        listb_EF_Zusatz.Items.Clear();
+                        foreach (Zusatzanlage zu in pdf.zusatzanlagen)
+                        {
+                            listb_EF_Zusatz.Items.Add(zu.anlage);
+                        }
+                    }
+
+                    break;
+                case 0:
+                    //Anschreiben Typ
+                    Dictionary<string, AnschreibenTyp> anschreibenTypen = DBm.dbPDF.dic_AnschreibenTyp;
+                    cmb_anschreibenTyp.DataSource = new BindingSource(anschreibenTypen, null);
+                    cmb_anschreibenTyp.DisplayMember = "Key";
+                    cmb_anschreibenTyp.ValueMember = "Value";
+                    if (anschreibenTypen.TryGetValue(pdf.anschreibenTyp.bezeichnung, out AnschreibenTyp typ))
+                    {
+                        cmb_anschreibenTyp.SelectedItem = new KeyValuePair<string, AnschreibenTyp>(typ.bezeichnung, typ);
+                    }
+
+                    //Empfänger
+                    if (pdf.empfaenger != null)
+                    {
+                        Dictionary<string, Ansprechpartner> empfaenger = DBm.dbPDF.dic_Ansprechpartner;
+                        cmb_empfaenger.DataSource = new BindingSource(empfaenger, null);
+                        cmb_empfaenger.DisplayMember = "Key";
+                        cmb_empfaenger.ValueMember = "Value";
+                        if (empfaenger.TryGetValue($@"{pdf.empfaenger.ansprechpartnerVorname} {pdf.empfaenger.ansprechpartnerName}", out Ansprechpartner ansp))
+                        {
+                            cmb_empfaenger.SelectedItem = new KeyValuePair<string, Ansprechpartner>($@"{ansp.ansprechpartnerVorname} {ansp.ansprechpartnerName}", ansp);
+                        }
+                        else if (empfaenger.TryGetValue($@"{pdf.empfaenger.firma}", out Ansprechpartner anspFirma))
+                        {
+                            cmb_empfaenger.SelectedItem = new KeyValuePair<string, Ansprechpartner>($@"{anspFirma.firma}", anspFirma);
+                        }
+                    }
+
+                    //Absender
+                    if (pdf.absender != null)
+                    {
+                        Dictionary<string, Bearbeiter> absender = DBm.dbPDF.dic_Bearbeiter;
+                        cmb_absender.DataSource = new BindingSource(absender, null);
+                        cmb_absender.DisplayMember = "Key";
+                        cmb_absender.ValueMember = "Value";
+                        if (absender.TryGetValue($@"{pdf.absender.bearbeiterVorname} {pdf.absender.bearbeiterName}", out Bearbeiter bearb))
+                        {
+                            cmb_absender.SelectedItem = new KeyValuePair<string, Bearbeiter>($@"{bearb.bearbeiterVorname} {bearb.bearbeiterName}", bearb);
+                        }
+                    }
+
+                    //Ansprechparner
+                    if (pdf.ansprechpartner != null)
+                    {
+                        Dictionary<string, Bearbeiter> ansprechpartner = DBm.dbPDF.dic_Bearbeiter;
+                        cmb_Ansprechpartner.DataSource = new BindingSource(ansprechpartner, null);
+                        cmb_Ansprechpartner.DisplayMember = "Key";
+                        cmb_Ansprechpartner.ValueMember = "Value";
+                        if (ansprechpartner.TryGetValue($@"{pdf.ansprechpartner.bearbeiterVorname} {pdf.ansprechpartner.bearbeiterName}", out Bearbeiter ansprech))
+                        {
+                            cmb_Ansprechpartner.SelectedItem = new KeyValuePair<string, Bearbeiter>($@"{ansprech.bearbeiterVorname} {ansprech.bearbeiterName}", ansprech);
+                        }
+                    }
+
+                    //Betreff
+                    tb_ortMassnahme.Text = pdf.ortDerMassnahme;
+
+                    //Absprachen
+                    rtb_absprachen.Text = pdf.abgesprochenMit;
+
+                    //Beschreibung der Maßnahme
+                    rtb_BeschreibungMassnahme.Rtf = pdf.beschreibungMassnahme;
+
+                    // Wesi Team
+                    if (pdf.wesiTeam != null)
+                    {
+                        Dictionary<string, WesiTeam> wesiTeam = DBm.dbPDF.dic_WesiTeam;
+                        cmb_wesie.DataSource = new BindingSource(wesiTeam, null);
+                        cmb_wesie.DisplayMember = "Key";
+                        cmb_wesie.ValueMember = "Value";
+                        if (wesiTeam.TryGetValue($@"{pdf.wesiTeam.firma} { pdf.wesiTeam.niederlassung} ", out WesiTeam wesi))
+                        {
+                            cmb_wesie.SelectedItem = new KeyValuePair<string, WesiTeam>($@"{wesi.firma} {wesi.niederlassung}", wesi);
+                        }
+                    }
+
+
+                    //Ansprechpartner Bau
+                    if (pdf.ansprechpartnerBau != null)
+                    {
+                        Dictionary<string, Ansprechpartner> ansprechBau = DBm.dbPDF.dic_Ansprechpartner;
+                        cmb_ansprechpartnerBau.DataSource = new BindingSource(ansprechBau, null);
+                        cmb_ansprechpartnerBau.DisplayMember = "Key";
+                        cmb_ansprechpartnerBau.ValueMember = "Value";
+                        if (ansprechBau.TryGetValue($@"{pdf.ansprechpartnerBau.ansprechpartnerVorname} {pdf.ansprechpartnerBau.ansprechpartnerName}", out Ansprechpartner anspBau))
+                        {
+                            cmb_ansprechpartnerBau.SelectedItem = new KeyValuePair<string, Ansprechpartner>($@"{anspBau.ansprechpartnerVorname} {anspBau.ansprechpartnerName}", anspBau);
+                        }
+                        else if (ansprechBau.TryGetValue($@"{pdf.ansprechpartnerBau.firma}", out Ansprechpartner anspBauFirma))
+                        {
+                            cmb_ansprechpartnerBau.SelectedItem = new KeyValuePair<string, Ansprechpartner>($@"{anspBauFirma.firma}", anspBauFirma);
+                        }
+                    }
+
+                    //Checkboxen
+                    cb_untervollmacht.Checked = pdf.listeBeteiligte;
+                    cb_untervollmacht.Checked = pdf.untervollmacht;
+                    cb_beteiligte.Checked = pdf.plansaetze;
+                    cb_techBeschreibung.Checked = pdf.techBeschreibung;
+
+                    //Zusätzliche Anhänge
+                    if (pdf.zusatzanlagen != null)
+                    {
+                        listb_zusatzanlagen.Items.Clear();
+                        foreach (Zusatzanlage zu in pdf.zusatzanlagen)
+                        {
+                            listb_zusatzanlagen.Items.Add(zu.anlage);
+                        }
+                    }
+
+                    break;
+            }
+
         }
 
         private void Btn_add_zusatzanlagen_Click(object sender, EventArgs e)
@@ -643,116 +777,16 @@ namespace DynamicPDFCreator
             PDF pdf = ((KeyValuePair<string, PDF>)listb_vorherige_PDF.SelectedItem).Value;
             workingPDF = new WorkingPDF(pdf);
 
-            //Anschreiben Typ
-            Dictionary<string, AnschreibenTyp> anschreibenTypen = DBm.dbPDF.dic_AnschreibenTyp;            
-            cmb_anschreibenTyp.DataSource = new BindingSource(anschreibenTypen, null);
-            cmb_anschreibenTyp.DisplayMember = "Key";
-            cmb_anschreibenTyp.ValueMember = "Value";
-            if(anschreibenTypen.TryGetValue(pdf.anschreibenTyp.bezeichnung, out AnschreibenTyp typ))
-            {                                
-                cmb_anschreibenTyp.SelectedItem = new KeyValuePair<string, AnschreibenTyp>(typ.bezeichnung,typ);
-            }
-
-            //Empfänger
-            if (pdf.empfaenger!=null)
+            if (pdf.anschreibenTyp.bezeichnung == "Eigen")
             {
-                Dictionary<string, Ansprechpartner> empfaenger = DBm.dbPDF.dic_Ansprechpartner;
-                cmb_empfaenger.DataSource = new BindingSource(empfaenger, null);
-                cmb_empfaenger.DisplayMember = "Key";
-                cmb_empfaenger.ValueMember = "Value";
-                if (empfaenger.TryGetValue($@"{pdf.empfaenger.ansprechpartnerVorname} {pdf.empfaenger.ansprechpartnerName}", out Ansprechpartner ansp))
-                {
-                    cmb_empfaenger.SelectedItem = new KeyValuePair<string, Ansprechpartner>($@"{ansp.ansprechpartnerVorname} {ansp.ansprechpartnerName}",ansp);
-                }
-                else if (empfaenger.TryGetValue($@"{pdf.empfaenger.firma}", out Ansprechpartner anspFirma))
-                {
-                    cmb_empfaenger.SelectedItem = new KeyValuePair<string, Ansprechpartner>($@"{anspFirma.firma}", anspFirma);
-                }
+                fillFormular(1,workingPDF, sender, e);
+                btn_EF_vorschau_Click(sender, e);
+                tabControl.SelectedIndex = 1;
             }
-            
-            //Absender
-            if (pdf.absender!=null)
+            else
             {
-                Dictionary<string, Bearbeiter> absender = DBm.dbPDF.dic_Bearbeiter;
-                cmb_absender.DataSource = new BindingSource(absender, null);
-                cmb_absender.DisplayMember = "Key";
-                cmb_absender.ValueMember = "Value";
-                if (absender.TryGetValue($@"{pdf.absender.bearbeiterVorname} {pdf.absender.bearbeiterName}", out Bearbeiter bearb))
-                {
-                    cmb_absender.SelectedItem = new KeyValuePair<string, Bearbeiter>($@"{bearb.bearbeiterVorname} {bearb.bearbeiterName}",bearb);
-                }
+                fillFormular(0, workingPDF, sender, e);
             }
-            
-            //Ansprechparner
-            if (pdf.ansprechpartner!=null)
-            {
-                Dictionary<string, Bearbeiter> ansprechpartner = DBm.dbPDF.dic_Bearbeiter;
-                cmb_Ansprechpartner.DataSource = new BindingSource(ansprechpartner, null);
-                cmb_Ansprechpartner.DisplayMember = "Key";
-                cmb_Ansprechpartner.ValueMember = "Value";
-                if (ansprechpartner.TryGetValue($@"{pdf.ansprechpartner.bearbeiterVorname} {pdf.ansprechpartner.bearbeiterName}", out Bearbeiter ansprech))
-                {
-                    cmb_Ansprechpartner.SelectedItem = new KeyValuePair<string, Bearbeiter>($@"{ansprech.bearbeiterVorname} {ansprech.bearbeiterName}", ansprech);
-                }
-            }
-            
-            //Betreff
-            tb_ortMassnahme.Text = pdf.ortDerMassnahme;
-
-            //Absprachen
-            rtb_absprachen.Text = pdf.abgesprochenMit;
-
-            //Beschreibung der Maßnahme
-            rtb_BeschreibungMassnahme.Rtf = pdf.beschreibungMassnahme;
-
-            // Wesi Team
-            if (pdf.wesiTeam!=null)
-            {
-                Dictionary<string, WesiTeam> wesiTeam = DBm.dbPDF.dic_WesiTeam;
-                cmb_wesie.DataSource = new BindingSource(wesiTeam, null);
-                cmb_wesie.DisplayMember = "Key";
-                cmb_wesie.ValueMember = "Value";
-                if (wesiTeam.TryGetValue($@"{pdf.wesiTeam.firma} { pdf.wesiTeam.niederlassung} ", out WesiTeam wesi))
-                {
-                    cmb_wesie.SelectedItem = new KeyValuePair<string, WesiTeam>($@"{wesi.firma} {wesi.niederlassung}", wesi);
-                }
-            }
-
-
-            //Ansprechpartner Bau
-            if (pdf.ansprechpartnerBau != null)
-            {
-                Dictionary<string, Ansprechpartner> ansprechBau = DBm.dbPDF.dic_Ansprechpartner;
-                cmb_ansprechpartnerBau.DataSource = new BindingSource(ansprechBau, null);
-                cmb_ansprechpartnerBau.DisplayMember = "Key";
-                cmb_ansprechpartnerBau.ValueMember = "Value";
-                if (ansprechBau.TryGetValue($@"{pdf.ansprechpartnerBau.ansprechpartnerVorname} {pdf.ansprechpartnerBau.ansprechpartnerName}", out Ansprechpartner anspBau))
-                {
-                    cmb_ansprechpartnerBau.SelectedItem = new KeyValuePair<string, Ansprechpartner>($@"{anspBau.ansprechpartnerVorname} {anspBau.ansprechpartnerName}", anspBau);
-                }
-                else if (ansprechBau.TryGetValue($@"{pdf.ansprechpartnerBau.firma}", out Ansprechpartner anspBauFirma))
-                {
-                    cmb_ansprechpartnerBau.SelectedItem = new KeyValuePair<string, Ansprechpartner>($@"{anspBauFirma.firma}", anspBauFirma);
-                }
-            }
-
-            //Checkboxen
-            cb_untervollmacht.Checked = pdf.listeBeteiligte;
-            cb_untervollmacht.Checked = pdf.untervollmacht;
-            cb_beteiligte.Checked = pdf.plansaetze;
-            cb_techBeschreibung.Checked = pdf.techBeschreibung;
-
-            //Zusätzliche Anhänge
-            if (pdf.tblZusatzanlagen != null)
-            {
-                listb_zusatzanlagen.Items.Clear();
-                foreach (Zusatzanlage zu in pdf.tblZusatzanlagen)
-                {
-                    listb_zusatzanlagen.Items.Add(zu.anlage);
-                }                             
-            }
-
-
         }
         private void Btn_suchen_Click(object sender, EventArgs e)
         {
@@ -856,16 +890,13 @@ namespace DynamicPDFCreator
                 PDF pdf = ((KeyValuePair<string, PDF>)listb_EF_vorherigePDF.SelectedItem).Value;
                 if (pdf.anschreibenTyp.bezeichnung!="Eigen")
                 {
-                    tb_smNummer.Text = pdf.auftrag.smNummer;
-                    Btn_suchen_Click(sender, e);
+                    fillFormular(0, workingPDF, sender, e);
                     tabControl.SelectedIndex = 0;
-                    listb_vorherige_PDF.SelectedIndex = listb_EF_vorherigePDF.SelectedIndex;
-                   
                 }
-                else {loadPDF(1);}
+                else { pdfPreview_EF.Navigate(loadPDF(1));}
                 
             }
-            else { pdfPreview.DocumentText = null; }
+            else { pdfPreview_EF.DocumentText = null; }
 
             if (listb_EF_vorherigePDF.SelectedItem != null)
             {
@@ -980,8 +1011,7 @@ namespace DynamicPDFCreator
         {
             workingPDF.beschreibungMassnahme = rtb_EF_Anschreiben.Rtf;
         }
-
-        //ToDo Neue Pflichtfelder klasse
+        
         private void btn_EF_auftragsordner_speichern_Click(object sender, EventArgs e)
         {
             listb_EF_vorherigePDF.SelectedItem = null;
@@ -1001,6 +1031,7 @@ namespace DynamicPDFCreator
             }
             catch (Exception q) { error_label.Text = "Datei konnte nicht gespeichert werden, vielleicht anderweitig geöffnet"; }
         }
+
         private void btn_EF_vorschau_Click(object sender, EventArgs e)
         {
             listb_EF_vorherigePDF.SelectedItem = null;
@@ -1043,7 +1074,6 @@ namespace DynamicPDFCreator
             }
             catch (Exception q) { }
         }
-
     }
 }
     

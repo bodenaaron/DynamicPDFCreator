@@ -110,6 +110,13 @@ namespace DynamicPDFCreator
             clearColor(true);
             enabledColor(true);
         }
+
+        public void manageFieldsSwitchTabs()
+        {
+            enableAll();
+            clearColor(true);
+            enabledColor(true);
+        }
         private void enableAll()
         {
             Action<Control.ControlCollection> func = null;
