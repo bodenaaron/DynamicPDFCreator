@@ -73,28 +73,35 @@ namespace DynamicPDFCreator.Interfaces
                 <tr>
                 	<td valign: top;>
 
-                      Abstimmung zu einer geplanten Baumaßnahme in {pdf.ortDerMassnahme}<br/>
-
-                  	{htmlMassnahmen}
-                  </td>
-                </tr>
-                  <tr>
-                	<td valign= top>
-                  	SM-Auftragsnummer: <b>{pdf.auftrag.smNummer} </b>(bei Rückfragen bitte immer angeben)
-                  </td>
-                </tr>
-                  <tr>
-                	<td valign=top >
-                  	Sehr geehrte Damen und Herren,<br/><br/>
-                    die Deutsche Telekom Technik GmbH beabsichtigt im Auftrag der Telekom Deutschland GmbH eine Baumaßnahme durchzuführen.<br/>
-                    Wir wurden mit den Planungsleistungen betraut.<br/><br/>
-                    Die Arbeiten werden entsprechend der Schutzverordnung DIN 18920 ausgeführt. 
-                    Dadurch sind der Schutz von Bäumen, Pflanzenbeständen und Vegetationsflächen gewährleistet.<br/><br/>
-                    Falls bei der Bauausführung Ihre Belange betroffen sind, bitten wir um deren Angabe und um Beifügung von Plänen der betroffenen Anlagen.<br/><br/>
+                      Abstimmung zu einer geplanten Baumaßnahme in {pdf.ortDerMassnahme}<br/>                  	
                   </td>
                 </tr>
                 <tr>
-                    <td valign= top>
+                    <td>
+                <table>
+                    <tr>
+          	            <td>SM-Auftragsnummer: </td>
+                        <td><b>{pdf.auftrag.smNummer}</b> (bei R&uuml;ckfragen bitte immer angeben)</td>
+                    </tr>
+                    <tr>
+                        <td>Ansprechpartner:</td>
+                        <td>{pdf.absender.bearbeiterVorname} {pdf.absender.bearbeiterName}, {pdf.absender.telefon}, {pdf.absender.email}</td>
+                    </tr>
+                </table>
+                </td>
+                </tr>
+                  <tr>
+                	<td></br>
+                  	Sehr geehrte Damen und Herren,<br/><br/>
+                    die Deutsche Telekom Technik GmbH beabsichtigt im Auftrag der Telekom Deutschland GmbH eine Baumaßnahme durchzuführen.<br/>
+                    Wir wurden mit den Planungsleistungen betraut.<br/>
+                    Die Arbeiten werden entsprechend der Schutzverordnung DIN 18920 ausgeführt. 
+                    Dadurch sind der Schutz von Bäumen, Pflanzenbeständen und Vegetationsflächen gewährleistet.<br/><br/>
+                    Falls bei der Bauausführung Ihre Belange betroffen sind, bitten wir um deren Angabe und um Beifügung von Plänen der betroffenen Anlagen.
+
+
+                    <p><b>Beschreibung der Maßnahmen:</b>
+                    {htmlMassnahmen}
                   	Derzeit ist folgende Ausführungsfrist vorgesehen: {pdf.ausfuehrungszeitraum.ToString("MMMM yyyy")}";
             if (pdf.ausfuehrungszeitraum.Month != pdf.ausfuehrungszeitraumEnde.Month || pdf.ausfuehrungszeitraum.Year != pdf.ausfuehrungszeitraumEnde.Year)
             {
@@ -102,15 +109,15 @@ namespace DynamicPDFCreator.Interfaces
             }
 
             html +=$@"
+</p>
                     </td>
                 </tr>
                 </table>
-                <p style='margin-top:40px'>
+                <p>
                     Mit freundlichen Grüßen:
                 </p>
                 <p>
-                    i.A. {pdf.absender.bearbeiterVorname} {pdf.absender.bearbeiterName}<br/>
-                        {pdf.absender.telefon}<br/>{pdf.absender.email}
+                    i.A. {pdf.absender.bearbeiterVorname} {pdf.absender.bearbeiterName}                       
                 </p>
                 </td>
                 </tr>
