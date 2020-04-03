@@ -429,8 +429,8 @@ namespace DynamicPDFCreator
                     datePickerAusfuehrungEnde.Value.Date,
                     tb_ortMassnahme.Text,
                     rtb,
+                    cb_plansaetze.Checked,
                     cb_beteiligte.Checked,
-                    cb_untervollmacht.Checked,
                     cb_techBeschreibung.Checked,
                     cb_untervollmacht.Checked,
                     zusatzanlagen);
@@ -512,8 +512,9 @@ namespace DynamicPDFCreator
             if (listb_vorherige_PDF.SelectedItem!=null)
             {
                 btn_load_PDF.Enabled = true;
+                btn_delete_pdf.Enabled = true;
             }
-            else { btn_load_PDF.Enabled = false; }
+            else { btn_load_PDF.Enabled = false; btn_delete_pdf.Enabled = false; }
         }
 
         private string loadPDF(int tab)
@@ -1077,6 +1078,14 @@ namespace DynamicPDFCreator
                 DBm.savePDF(FinalPDF);
             }
             catch (Exception q) { }
+        }
+
+        private void Btn_delete_pdf_Click(object sender, EventArgs e)
+        {
+            PDF p = ((KeyValuePair<string, PDF>)listb_vorherige_PDF.SelectedItem).Value;
+            p.aktiv = false;
+            DBm.savePDF(p);
+            Btn_suchen_Click(sender,e);
         }
     }
 }

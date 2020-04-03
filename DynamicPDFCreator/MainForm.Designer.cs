@@ -118,6 +118,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.rtb_absprachen = new System.Windows.Forms.RichTextBox();
             this.tabControl = new System.Windows.Forms.TabControl();
+            this.btn_delete_pdf = new System.Windows.Forms.Button();
             this.customFormular.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.MainTab.SuspendLayout();
@@ -346,6 +347,7 @@
             // 
             // MainTab
             // 
+            this.MainTab.Controls.Add(this.btn_delete_pdf);
             this.MainTab.Controls.Add(this.pdfPreview);
             this.MainTab.Controls.Add(this.rtb_BeschreibungMassnahme);
             this.MainTab.Controls.Add(this.btn_speichern_auftrag_pfad);
@@ -419,6 +421,7 @@
             this.listb_vorherige_PDF.FormattingEnabled = true;
             resources.ApplyResources(this.listb_vorherige_PDF, "listb_vorherige_PDF");
             this.listb_vorherige_PDF.Name = "listb_vorherige_PDF";
+            
             // 
             // label41
             // 
@@ -780,6 +783,13 @@
             this.tabControl.SelectedIndex = 0;
             this.tabControl.SelectedIndexChanged += new System.EventHandler(this.tabSwitch);
             // 
+            // btn_delete_pdf
+            // 
+            resources.ApplyResources(this.btn_delete_pdf, "btn_delete_pdf");
+            this.btn_delete_pdf.Name = "btn_delete_pdf";
+            this.btn_delete_pdf.UseVisualStyleBackColor = true;
+            this.btn_delete_pdf.Click += new System.EventHandler(this.Btn_delete_pdf_Click);
+            // 
             // MainForm
             // 
             resources.ApplyResources(this, "$this");
@@ -892,6 +902,7 @@
         public System.Windows.Forms.Button btn_EF_vorschau;
         public System.Windows.Forms.Button btn_EF_speichernUnter;
         private System.Windows.Forms.Label EF_error_label;
+        public System.Windows.Forms.Button btn_delete_pdf;
     }
 }
 

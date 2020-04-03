@@ -176,6 +176,7 @@ namespace DynamicPDFCreator
         public Dictionary<string, WesiTeam> dic_WesiTeam { get; set; }
         public Dictionary<string, PDF> dic_pdf { get; set; }
         public Dictionary<string, Zusatzanlage> dic_Zusatzanlagen { get; set; }
+        public bool aktiv { get; set; }
 
 
 

@@ -37,6 +37,7 @@ namespace DynamicPDFCreator
             this.techBeschreibung = techBeschreibung;
             this.untervollmacht = untervollmacht;
             this.tblZusatzanlagen = zusatzanlagen;
+            aktiv = true;
         }
         /// <summary>
         /// WUPFL
@@ -59,6 +60,7 @@ namespace DynamicPDFCreator
             this.techBeschreibung = techBeschreibung;
             this.untervollmacht = untervollmacht;
             this.tblZusatzanlagen = zusatzanlagen;
+            aktiv = true;
         }
 
         /// <summary>
@@ -80,6 +82,7 @@ namespace DynamicPDFCreator
             this.techBeschreibung = techBeschreibung;
             this.untervollmacht = untervollmacht;
             this.tblZusatzanlagen = zusatzanlagen;
+            aktiv = true;
         }
 
         public PDF()
@@ -96,7 +99,7 @@ namespace DynamicPDFCreator
             this.empfaenger = empfaenger;
             this.ortDerMassnahme = ortDerMassnahme;
             this.wesiTeam = wesiTeam;
-
+            aktiv = true;
         }
 
         /// <summary>
@@ -110,7 +113,7 @@ namespace DynamicPDFCreator
             this.ortDerMassnahme = ortDerMassnahme;
             this.wesiTeam = wesiTeam;
             this.datum = datum;
-
+            aktiv = true;
         }
 
         /// <summary>
@@ -132,6 +135,7 @@ namespace DynamicPDFCreator
             this.techBeschreibung = techBeschreibung;
             this.untervollmacht = untervollmacht;
             this.tblZusatzanlagen = zusatzanlagen;
+            aktiv = true;
         }
 
         public PDF(Auftrag auftrag, AnschreibenTyp anschreibenTyp, Ansprechpartner empfaenger, Bearbeiter absender, DateTime datum, string ortDerMassnahme, string rtb, List<Zusatzanlage> zusatzanlagen)
@@ -165,6 +169,7 @@ namespace DynamicPDFCreator
         public virtual bool listeBeteiligte { get; set; }
         public virtual bool techBeschreibung { get; set; }
         public virtual IList<Zusatzanlage> tblZusatzanlagen { get; set; }
+        public virtual bool aktiv { get; set; }
 
 
 

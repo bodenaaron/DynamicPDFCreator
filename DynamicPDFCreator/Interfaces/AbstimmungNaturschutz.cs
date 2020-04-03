@@ -120,13 +120,30 @@ namespace DynamicPDFCreator.Interfaces
                 </p>
             ";
 
+            if (pdf.listeBeteiligte)
+            {
+                html += "- Liste der Beteiligten<br/>";
+            }
+            if (pdf.untervollmacht)
+            {
+                html += "- Untervollmacht <br/>";
+            }
+            if (pdf.plansaetze)
+            {
+                html += "- Plansatz<br/>";
+            }
+            if (pdf.techBeschreibung)
+            {
+                html += "- Technische Beschreibung<br/>";
+            }
+
             foreach (Zusatzanlage s in pdf.tblZusatzanlagen)
             {
                 html += s.anlage + "<br/>";
             }
-            
-           
-           
+
+
+
             return html;
         }
 

@@ -352,7 +352,10 @@ namespace DynamicPDFCreator
             //Object in String umwandeln
             foreach (PDF pdf in dbPDF.auftrag.pdfs)
             {
-                dbPDF.dic_pdf.Add($@"{pdf.anschreibenTyp.bezeichnung} {pdf.empfaenger.ansprechpartnerName} {pdf.empfaenger.firma}",pdf);
+                if (pdf.aktiv)
+                {
+                    dbPDF.dic_pdf.Add($@"{pdf.anschreibenTyp.bezeichnung} {pdf.empfaenger.ansprechpartnerName} {pdf.empfaenger.firma}", pdf);
+                }                
             }
 
 
