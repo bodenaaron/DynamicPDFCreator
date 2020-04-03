@@ -44,7 +44,7 @@ namespace DynamicPDFCreator
 
         public void manageFields(object[] felder_typ)
         {                        
-            clearAll(false);
+            //clearAll(false);
             disableAll(false);
             
 
