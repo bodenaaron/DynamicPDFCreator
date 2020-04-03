@@ -402,8 +402,8 @@ namespace DynamicPDFCreator
                    tb_ortMassnahme.Text,
                    rtb,
                    ((KeyValuePair<string, WesiTeam>)cmb_wesie.SelectedItem).Value,
-                   cb_beteiligte.Checked,
-                   cb_untervollmacht.Checked,
+                   cb_plansaetze.Checked,
+                   cb_beteiligte.Checked,                   
                    cb_techBeschreibung.Checked,
                    cb_untervollmacht.Checked,
                    zusatzanlagen);
