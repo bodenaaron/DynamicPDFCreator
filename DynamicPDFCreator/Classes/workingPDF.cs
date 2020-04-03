@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace DynamicPDFCreator
 {
-    public class WorkingPDF
+    public class WorkingPDF : PDF
     {
         public WorkingPDF(PDF pdf)
         {
@@ -143,27 +143,9 @@ namespace DynamicPDFCreator
             this.untervollmacht = untervollmacht;
             this.zusatzanlagen = zusatzanlagen;
         }
-        public string id { get; set; }
-        public Auftrag auftrag { get; set; }
-        public AnschreibenTyp anschreibenTyp { get; set; }
-        public Ansprechpartner empfaenger { get; set; }
-        public Bearbeiter absender { get; set; }
-        public DateTime datum { get; set; }
-        public DateTime ausfuehrungszeitraum { get; set; }
-        public DateTime ausfuehrungszeitraumEnde { get; set; }
-        public Bearbeiter ansprechpartner { get; set; }
-        public string ortDerMassnahme { get; set; }
-        public string abgesprochenMit { get; set; }
-        public string beschreibungMassnahme { get; set; }
-        public Ansprechpartner ansprechpartnerBau { get; set; }
-        public WesiTeam wesiTeam { get; set; }
-        public bool plansaetze { get; set; }
-        public bool untervollmacht { get; set; }
-        public bool listeBeteiligte { get; set; }
-        public bool techBeschreibung { get; set; }
-        public string zusatzAnlage1 { get; set; }
-        public string zusatzAnlage2 { get; set; }
-        public string zusatzAnlage3 { get; set; }
+
+        public object[] pflichtfelder { get; set; }
+        public Interfaces.IPDFWriter pdfWriter { get; set; }
         public IList<Zusatzanlage> zusatzanlagen { get; set; }                     
         public List<AnschreibenTyp> anschreiben { get; set; }
         public List<AnsprechpartnerTyp> ansprechpartnerTypen { get; set; }
@@ -174,10 +156,7 @@ namespace DynamicPDFCreator
         public Dictionary<string, Ansprechpartner> dic_Ansprechpartner{ get; set; }
         public Dictionary<string, AnsprechpartnerTyp> dic_ansprechpartnerTypen { get; set; }
         public Dictionary<string, WesiTeam> dic_WesiTeam { get; set; }
-        public Dictionary<string, PDF> dic_pdf { get; set; }
-        public Dictionary<string, Zusatzanlage> dic_Zusatzanlagen { get; set; }
-        public bool aktiv { get; set; }
-
+        public Dictionary<string, PDF> dic_pdf { get; set; }              
 
 
 

@@ -11,7 +11,7 @@ using TheArtOfDev.HtmlRenderer.PdfSharp;
 
 namespace DynamicPDFCreator.Interfaces
 {
-    interface IPDFWriter
+    public interface IPDFWriter
     {
         string getHTML(PDF pdf);
 
