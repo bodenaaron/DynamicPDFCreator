@@ -184,7 +184,7 @@ namespace DynamicPDFCreator
                         break;
                 }
             }
-            workingPDF.anschreibenTyp = anschreiben;
+            //workingPDF.anschreibenTyp = anschreiben;
         }
 
         private void Cmb_empfaenger_SelectedIndexChanged(object sender, EventArgs e)
@@ -774,10 +774,10 @@ namespace DynamicPDFCreator
 
         private void Btn_load_PDF_Click(object sender, EventArgs e)
         {
-            PDF pdf = ((KeyValuePair<string, PDF>)listb_vorherige_PDF.SelectedItem).Value;
-            workingPDF = new WorkingPDF(pdf);
+            //PDF pdf = ((KeyValuePair<string, PDF>)listb_vorherige_PDF.SelectedItem).Value;
+            workingPDF = new WorkingPDF(((KeyValuePair<string, PDF>)listb_vorherige_PDF.SelectedItem).Value);
 
-            if (pdf.anschreibenTyp.bezeichnung == "Eigen")
+            if (workingPDF.anschreibenTyp.bezeichnung == "Eigen")
             {
                 fillFormular(1,workingPDF, sender, e);
                 btn_EF_vorschau_Click(sender, e);
@@ -792,7 +792,6 @@ namespace DynamicPDFCreator
         {
             try
             {
-
                 DBm = new DBManager(tb_smNummer.Text);
                 //Empfänger Festlegen
                 if (DBm.dbPDF.auftrag != null)
@@ -818,10 +817,15 @@ namespace DynamicPDFCreator
                         listb_vorherige_PDF.SelectedItem = null;
 
                         listb_vorherige_PDF.SelectedIndexChanged += new System.EventHandler(Listb_vorherige_PDF_SelectedIndexChanged);
+                        
+                    }
+                    else { listb_vorherige_PDF.DataSource = null; }
+
+                    if (workingPDF.auftrag!=null)
+                    {
                         cmb_anschreibenTyp.Enabled = true;
                         cmb_anschreibenTyp.BackColor = eH.colorEnabled;
                     }
-                    else { listb_vorherige_PDF.DataSource = null; }
 
 
                 }
