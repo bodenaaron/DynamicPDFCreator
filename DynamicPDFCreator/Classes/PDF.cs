@@ -10,11 +10,6 @@ namespace DynamicPDFCreator
 {
     public class PDF
     {
-        private Ansprechpartner value1;
-        private Bearbeiter value2;
-        private DateTime value3;
-        private string text;
-        private string rtb;
         private List<Zusatzanlage> zusatzanlagen;
 
         public  PDF(Auftrag auftrag, AnschreibenTyp anschreibenTyp, Ansprechpartner empfaenger, Bearbeiter absender, DateTime datum, DateTime ausfuehrungszeitraum, DateTime ausfuehrungszeitraumEnde, Bearbeiter ansprechpartner, string ortDerMassnahme, string abgesprochenMit, string beschreibungMassnahme, Ansprechpartner ansprechpartnerBau, WesiTeam wesiTeam, bool plansaetze, bool listeBeteiligte, bool techBeschreibung, bool untervollmacht,List<Zusatzanlage>zusatzanlagen)

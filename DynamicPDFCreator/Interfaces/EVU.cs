@@ -192,7 +192,7 @@ namespace DynamicPDFCreator.Interfaces
 
                     html = startTag + endTag;
                 }
-                catch (Exception e) { control = false; }
+                catch (Exception) { control = false; }
             }
             return html;
         }
@@ -207,7 +207,7 @@ namespace DynamicPDFCreator.Interfaces
                 pdf1.Save(pfad);
                 return checkSlash(pfad);
             }
-            catch (Exception ef)
+            catch (Exception)
             {
             }
             try
@@ -216,7 +216,7 @@ namespace DynamicPDFCreator.Interfaces
                 return checkSlash(alternativerPfad);
             }
 
-            catch (Exception e)
+            catch (Exception)
             {
             }
 
@@ -234,7 +234,7 @@ namespace DynamicPDFCreator.Interfaces
                 pdf1.Save(pfad);
                 return checkSlash(pfad);
             }
-            catch (Exception ef)
+            catch (Exception)
             {
             }
             try
@@ -243,7 +243,7 @@ namespace DynamicPDFCreator.Interfaces
                 return checkSlash(alternativerPfad);
             }
 
-            catch (Exception e)
+            catch (Exception)
             {
             }
 
@@ -256,7 +256,7 @@ namespace DynamicPDFCreator.Interfaces
             {
                 return input.Remove(input.IndexOf("\\\\"), 1);
             }
-            catch (Exception e) { }
+            catch (Exception) { }
             return input;
         }
     }

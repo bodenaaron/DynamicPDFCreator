@@ -45,7 +45,7 @@ namespace DynamicPDFCreator
                 getMetaDaten();
                 getAuftrag(smNummer);
             }
-            catch (Exception e) { Debug.WriteLine("\n\n\n"+smNummer+ "\n\n\n"); }
+            catch (Exception) { Debug.WriteLine("\n\n\n"+smNummer+ "\n\n\n"); }
         }
 
         //braucht SMNummer

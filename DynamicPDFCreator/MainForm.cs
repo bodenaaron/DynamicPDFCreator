@@ -55,6 +55,7 @@ namespace DynamicPDFCreator
             else { eH.disableAll(false); eH.clearColor(true); }            
             listb_EF_vorherigePDF.SelectedItem = null;
         }
+
         private void Tb_smNummer_TextChanged(object sender, EventArgs e)
         {
             if (tb_smNummer.TextLength>0)
@@ -199,7 +200,7 @@ namespace DynamicPDFCreator
                 string key = ((KeyValuePair<string, Ansprechpartner>)cmb_empfaenger.SelectedItem).Key;
                 btn_bearbeiten.Enabled = true;
             }
-            catch(Exception t) {btn_bearbeiten.Enabled = false; cmb_empfaenger.SelectedItem = null; }
+            catch(Exception) {btn_bearbeiten.Enabled = false; cmb_empfaenger.SelectedItem = null; }
             
         }
 
@@ -215,7 +216,7 @@ namespace DynamicPDFCreator
                 string key = ((KeyValuePair<string, Ansprechpartner>)cmb_EF_empfaenger.SelectedItem).Key;
                 btn_EF_empfaengerBearbeiten.Enabled = true;
             }
-            catch (Exception t) { btn_EF_empfaengerBearbeiten.Enabled = false; cmb_EF_empfaenger.SelectedItem = null; }
+            catch (Exception) { btn_EF_empfaengerBearbeiten.Enabled = false; cmb_EF_empfaenger.SelectedItem = null; }
 
         }
 
@@ -259,6 +260,7 @@ namespace DynamicPDFCreator
         {
             workingPDF.beschreibungMassnahme = rtb_BeschreibungMassnahme.Rtf;
         }
+
         private void Cmb_wesie_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -277,6 +279,7 @@ namespace DynamicPDFCreator
                 btn_bearbeiten_wesi.Enabled = false;
             }
         }
+
         private void Cb_plansaetze_CheckedChanged(object sender, EventArgs e)
         {
             workingPDF.plansaetze = cb_beteiligte.Checked;
@@ -316,7 +319,7 @@ namespace DynamicPDFCreator
                 pdfWriter.writeHTMLtoPDF(FinalPDF, saveFileDialog.FileName);
                 DBm.savePDF(FinalPDF);
             }
-            catch (Exception q) { }
+            catch (Exception) { }
         }
 
         private void Btn_vorschau_Click(object sender, EventArgs e)
@@ -337,7 +340,7 @@ namespace DynamicPDFCreator
 
                 pdfPreview.Navigate(pdfWriter.writeHTMLtoPDF(FinalPDF, hiddenPath));
             }
-            catch (Exception ef) { }
+            catch (Exception) { }
 
         }
 
@@ -349,8 +352,7 @@ namespace DynamicPDFCreator
             editDataset.ShowDialog();
             this.Enabled = true;
         }
-
-        //noch falsche reihenfolge beim checken
+        
         private void Btn_bearbeiten_wesi_Click(object sender, EventArgs e)
         {
             EditDataset editDataset = new EditDataset();
@@ -478,7 +480,7 @@ namespace DynamicPDFCreator
                 DBm.savePDF(FinalPDF);
                 error_label.Text = $@"Gespeichert unter {pfad}";                
             }
-            catch (Exception q) { error_label.Text = "Datei konnte nicht gespeichert werden, vielleicht anderweitig geöffnet";}
+            catch (Exception) { error_label.Text = "Datei konnte nicht gespeichert werden, vielleicht anderweitig geöffnet";}
             
         }
 
@@ -789,6 +791,7 @@ namespace DynamicPDFCreator
                 fillFormular(0, workingPDF, sender, e);
             }
         }
+
         private void Btn_suchen_Click(object sender, EventArgs e)
         {
             try
@@ -831,7 +834,7 @@ namespace DynamicPDFCreator
 
                 }
             }
-            catch (Exception fe) { Debug.WriteLine("\nSMnummer nicht gefunden\n\n\n"); }
+            catch (Exception) { Debug.WriteLine("\nSMnummer nicht gefunden\n\n\n"); }
         }
 
         private void btn_EF_suchen_Click(object sender, EventArgs e)
@@ -872,7 +875,7 @@ namespace DynamicPDFCreator
 
                 }
             }
-            catch (Exception fe) { Debug.WriteLine("\nSMnummer nicht gefunden\n\n\n"); }
+            catch (Exception) { Debug.WriteLine("\nSMnummer nicht gefunden\n\n\n"); }
         }
 
         private void Tb_zusatzanlage_TextChanged(object sender, EventArgs e)
@@ -1034,7 +1037,7 @@ namespace DynamicPDFCreator
                 DBm.savePDF(FinalPDF);
                 EF_error_label.Text = $@"Gespeichert unter {pfad}";
             }
-            catch (Exception q) { error_label.Text = "Datei konnte nicht gespeichert werden, vielleicht anderweitig geöffnet"; }
+            catch (Exception) { error_label.Text = "Datei konnte nicht gespeichert werden, vielleicht anderweitig geöffnet"; }
         }
 
         private void btn_EF_vorschau_Click(object sender, EventArgs e)
@@ -1055,7 +1058,7 @@ namespace DynamicPDFCreator
 
                 pdfPreview_EF.Navigate(pdfWriter.writeHTMLtoPDF(FinalPDF, hiddenPath));
             }
-            catch (Exception ef) { }
+            catch (Exception) { }
         }
 
         private void btn_EF_speichernUnter_Click(object sender, EventArgs e)
@@ -1077,7 +1080,7 @@ namespace DynamicPDFCreator
                 pdfWriter.writeHTMLtoPDF(FinalPDF, saveFileDialog.FileName);
                 DBm.savePDF(FinalPDF);
             }
-            catch (Exception q) { }
+            catch (Exception) { }
         }
 
         private void Btn_delete_pdf_Click(object sender, EventArgs e)
