@@ -25,7 +25,7 @@ namespace DynamicPDFCreator
             set;
         }
 
-        public virtual ISet<PDF> pdfs
+        public virtual ISet<DBpdf> pdfs
         {
             get;
             set;

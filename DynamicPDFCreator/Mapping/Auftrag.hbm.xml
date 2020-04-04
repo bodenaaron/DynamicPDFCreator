@@ -12,7 +12,7 @@
 
     <set name = "pdfs" table = "tblPDFs" lazy="false">
       <key column = "`auftrag´"/>
-      <one-to-many class = "PDF" />
+      <one-to-many class = "DBpdf" />
     </set>
   </class>
 

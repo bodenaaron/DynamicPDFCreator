@@ -248,7 +248,7 @@ namespace DynamicPDFCreator
             closeSession(session, tx);
         }
 
-        public void savePDF(PDF a)
+        public void savePDF(DBpdf a)
         {
             if (a.anschreibenTyp.id==14)
             {
@@ -350,11 +350,12 @@ namespace DynamicPDFCreator
 
             dbPDF.dic_pdf = new Dictionary<string, PDF>();
             //Object in String umwandeln
-            foreach (PDF pdf in dbPDF.auftrag.pdfs)
+            foreach (DBpdf pdf in dbPDF.auftrag.pdfs)
             {
                 if (pdf.aktiv)
                 {
-                    dbPDF.dic_pdf.Add($@"{pdf.anschreibenTyp.bezeichnung} {pdf.empfaenger.ansprechpartnerName} {pdf.empfaenger.firma}", pdf);
+
+                    dbPDF.dic_pdf.Add($@"{pdf.anschreibenTyp.bezeichnung} {pdf.empfaenger.ansprechpartnerName} {pdf.empfaenger.firma}", new PDF(pdf));
                 }                
             }
 

@@ -120,11 +120,12 @@
       <DependentUpon>EditDataset.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\FieldHandler.cs" />
+    <Compile Include="Entities\DBpdf.cs" />
     <Compile Include="Classes\PDF.cs" />
     <Compile Include="Entities\AnschreibenTyp.cs" />
     <Compile Include="Entities\Ansprechpartner.cs" />
     <Compile Include="Entities\Auftrag.cs" />
-    <Compile Include="Entities\workingPDF.cs" />
+    <Compile Include="Classes\workingPDF.cs" />
     <Compile Include="Entities\Projekt.cs" />
     <Compile Include="Entities\Bearbeiter.cs" />
     <Compile Include="Entities\AnsprechpartnerTyp.cs" />
