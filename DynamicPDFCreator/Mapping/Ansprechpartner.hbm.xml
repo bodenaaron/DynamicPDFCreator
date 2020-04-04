@@ -22,6 +22,7 @@
     <property name = "ptiBereich" column="`PTI-Bereich´"/>
     <property name = "bemerkung" column="Bemerkung"/>
     <property name = "firma" column="`Firma´"/>
+    <property name = "ort" column="`Ort´"/>
     <set name = "projekte" table = "tblAnsprechpartner2Projekt">
       <key column = "`idAnsprechpartner´"/>
       <many-to-many class = "Projekt" column="idProjekt"/>
