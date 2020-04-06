@@ -47,10 +47,15 @@ namespace DynamicPDFCreator
             {
                 ansprechpartnerTypen.TryGetValue(ansprechpartner.typ.ToUpper(), out ansprechtyp);
             }
-            cmb_typ.SelectedItem = new KeyValuePair<string, AnsprechpartnerTyp>($@"{ansprechtyp.bezeichnung}",ansprechtyp);
-
+            try
+            {
+                cmb_typ.SelectedItem = new KeyValuePair<string, AnsprechpartnerTyp>($@"{ansprechtyp.bezeichnung}", ansprechtyp);
+            }
+            catch (Exception)//todo: Errorhandler implementieren
+            {
+                cmb_typ.SelectedItem = null;
+            }
         }
-
         public void ReinitializeComponent(WesiTeam wesiTeam)
         {
             tb_strasse.Text =       wesiTeam.strasse;

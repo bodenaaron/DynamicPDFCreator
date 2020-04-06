@@ -33,6 +33,12 @@
     <property name = "techBeschreibung"/>
     <property name ="aktiv"/>
 
+    <set name = "beteiligte" table = "tblAnsprechpartner2PDF">
+      <key column = "`idPDF´"/>
+      <many-to-many class = "Ansprechpartner" column="idAnsprechpartner"/>
+    </set>
+    
+    
     <bag name = "tblZusatzanlagen" lazy="false" >
       <key column="idPDF"/>
       

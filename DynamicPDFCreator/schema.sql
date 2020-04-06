@@ -1,10 +1,10 @@
 
-    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FK_2D4F8B40]') and parent_object_id = OBJECT_ID(N'tblAnsprechpartner2Projekt'))
-alter table tblAnsprechpartner2Projekt  drop constraint FK_2D4F8B40
+    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FK_97EA931B]') and parent_object_id = OBJECT_ID(N'tblAuftraege'))
+alter table tblAuftraege  drop constraint FK_97EA931B
 
 
-    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FK_2F850803]') and parent_object_id = OBJECT_ID(N'tblAnsprechpartner2Projekt'))
-alter table tblAnsprechpartner2Projekt  drop constraint FK_2F850803
+    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FK_AF26A49A]') and parent_object_id = OBJECT_ID(N'tblAuftraege'))
+alter table tblAuftraege  drop constraint FK_AF26A49A
 
 
     if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FK_A84EFCA2]') and parent_object_id = OBJECT_ID(N'tblAnsprechpartner2Projekt'))
@@ -13,14 +13,6 @@ alter table tblAnsprechpartner2Projekt  drop constraint FK_A84EFCA2
 
     if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FK_CA96A8D4]') and parent_object_id = OBJECT_ID(N'tblAnsprechpartner2Projekt'))
 alter table tblAnsprechpartner2Projekt  drop constraint FK_CA96A8D4
-
-
-    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FK_97EA931B]') and parent_object_id = OBJECT_ID(N'tblAuftraege'))
-alter table tblAuftraege  drop constraint FK_97EA931B
-
-
-    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FK_AF26A49A]') and parent_object_id = OBJECT_ID(N'tblAuftraege'))
-alter table tblAuftraege  drop constraint FK_AF26A49A
 
 
     if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FK_515AFA3C]') and parent_object_id = OBJECT_ID(N'tblPDFs'))
@@ -51,6 +43,14 @@ alter table tblPDFs  drop constraint FK_15595A9A
 alter table tblPDFs  drop constraint FK_419D9A5C
 
 
+    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FK_A5E993CF]') and parent_object_id = OBJECT_ID(N'tblAnsprechpartner2PDF'))
+alter table tblAnsprechpartner2PDF  drop constraint FK_A5E993CF
+
+
+    if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FK_9F15DBC6]') and parent_object_id = OBJECT_ID(N'tblAnsprechpartner2PDF'))
+alter table tblAnsprechpartner2PDF  drop constraint FK_9F15DBC6
+
+
     if exists (select 1 from sys.objects where object_id = OBJECT_ID(N'[FK_11D7A606]') and parent_object_id = OBJECT_ID(N'tblZusatzanlagen'))
 alter table tblZusatzanlagen  drop constraint FK_11D7A606
 
@@ -63,17 +63,19 @@ alter table tblZusatzanlagen  drop constraint FK_11D7A606
 
     if exists (select * from dbo.sysobjects where id = object_id(N'tblAnsprechpartner') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table tblAnsprechpartner
 
-    if exists (select * from dbo.sysobjects where id = object_id(N'tblAnsprechpartner2Projekt') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table tblAnsprechpartner2Projekt
-
     if exists (select * from dbo.sysobjects where id = object_id(N'tblAuftraege') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table tblAuftraege
 
     if exists (select * from dbo.sysobjects where id = object_id(N'tblProjekte') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table tblProjekte
 
+    if exists (select * from dbo.sysobjects where id = object_id(N'tblAnsprechpartner2Projekt') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table tblAnsprechpartner2Projekt
+
     if exists (select * from dbo.sysobjects where id = object_id(N'tblPDFs') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table tblPDFs
+
+    if exists (select * from dbo.sysobjects where id = object_id(N'tblAnsprechpartner2PDF') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table tblAnsprechpartner2PDF
 
     if exists (select * from dbo.sysobjects where id = object_id(N'tblZusatzanlagen') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table tblZusatzanlagen
 
-    if exists (select * from dbo.sysobjects where id = object_id(N'tblAnsprechpartnerTyp') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table tblAnsprechpartnerTyp
+    if exists (select * from dbo.sysobjects where id = object_id(N'tblAnsprechpartnerTypen') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table tblAnsprechpartnerTypen
 
     create table tblWesiTeam (
         id SMALLINT IDENTITY NOT NULL,
@@ -99,6 +101,7 @@ alter table tblZusatzanlagen  drop constraint FK_11D7A606
     create table tblAnschreibenTyp (
         id SMALLINT IDENTITY NOT NULL,
        Bezeichnung NVARCHAR(255) null,
+       Implementiert BIT null,
        primary key (id)
     )
 
@@ -120,15 +123,8 @@ alter table tblZusatzanlagen  drop constraint FK_11D7A606
        [PTI-Bereich] NVARCHAR(255) null,
        Bemerkung NVARCHAR(255) null,
        [Firma] NVARCHAR(255) null,
+       [Ort] NVARCHAR(255) null,
        primary key (idAnsprechpartner)
-    )
-
-    create table tblAnsprechpartner2Projekt (
-        [idAnsprechpartner] INT not null,
-       idProjekt INT not null,
-       [idProjekt] INT not null,
-       idAnsprechpartner INT not null,
-       primary key ([idProjekt], idAnsprechpartner)
     )
 
     create table tblAuftraege (
@@ -144,6 +140,12 @@ alter table tblZusatzanlagen  drop constraint FK_11D7A606
        [Projekt] NVARCHAR(255) null,
        [Bemerkung_Projekt] NVARCHAR(255) null,
        primary key ([idProjekt])
+    )
+
+    create table tblAnsprechpartner2Projekt (
+        [idProjekt] INT not null,
+       idAnsprechpartner INT not null,
+       primary key ([idProjekt], idAnsprechpartner)
     )
 
     create table tblPDFs (
@@ -165,7 +167,14 @@ alter table tblZusatzanlagen  drop constraint FK_11D7A606
        untervollmacht BIT null,
        listeBeteiligte BIT null,
        techBeschreibung BIT null,
+       aktiv BIT null,
        primary key (id)
+    )
+
+    create table tblAnsprechpartner2PDF (
+        [idPDF] NVARCHAR(255) not null,
+       idAnsprechpartner INT not null,
+       primary key ([idPDF], idAnsprechpartner)
     )
 
     create table tblZusatzanlagen (
@@ -175,31 +184,11 @@ alter table tblZusatzanlagen  drop constraint FK_11D7A606
        primary key (id)
     )
 
-    create table tblAnsprechpartnerTyp (
+    create table tblAnsprechpartnerTypen (
         idAnsprechpartnerTyp NVARCHAR(255) IDENTITY NOT NULL,
-       Bezeichnung NVARCHAR(255) null,
+       typ NVARCHAR(255) null,
        primary key (idAnsprechpartnerTyp)
     )
-
-    alter table tblAnsprechpartner2Projekt 
-        add constraint FK_2D4F8B40 
-        foreign key (idProjekt) 
-        references tblProjekte
-
-    alter table tblAnsprechpartner2Projekt 
-        add constraint FK_2F850803 
-        foreign key ([idAnsprechpartner]) 
-        references tblAnsprechpartner
-
-    alter table tblAnsprechpartner2Projekt 
-        add constraint FK_A84EFCA2 
-        foreign key (idAnsprechpartner) 
-        references tblAnsprechpartner
-
-    alter table tblAnsprechpartner2Projekt 
-        add constraint FK_CA96A8D4 
-        foreign key ([idProjekt]) 
-        references tblProjekte
 
     alter table tblAuftraege 
         add constraint FK_97EA931B 
@@ -209,6 +198,16 @@ alter table tblZusatzanlagen  drop constraint FK_11D7A606
     alter table tblAuftraege 
         add constraint FK_AF26A49A 
         foreign key ([idAuftrag]) 
+        references tblProjekte
+
+    alter table tblAnsprechpartner2Projekt 
+        add constraint FK_A84EFCA2 
+        foreign key (idAnsprechpartner) 
+        references tblAnsprechpartner
+
+    alter table tblAnsprechpartner2Projekt 
+        add constraint FK_CA96A8D4 
+        foreign key ([idProjekt]) 
         references tblProjekte
 
     alter table tblPDFs 
@@ -245,6 +244,16 @@ alter table tblZusatzanlagen  drop constraint FK_11D7A606
         add constraint FK_419D9A5C 
         foreign key (wesiTeam) 
         references tblWesiTeam
+
+    alter table tblAnsprechpartner2PDF 
+        add constraint FK_A5E993CF 
+        foreign key (idAnsprechpartner) 
+        references tblAnsprechpartner
+
+    alter table tblAnsprechpartner2PDF 
+        add constraint FK_9F15DBC6 
+        foreign key ([idPDF]) 
+        references tblPDFs
 
     alter table tblZusatzanlagen 
         add constraint FK_11D7A606 

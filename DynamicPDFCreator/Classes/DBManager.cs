@@ -58,6 +58,7 @@ namespace DynamicPDFCreator
             dbPDF.auftrag = crit.List<Auftrag>().FirstOrDefault();
             tx.Commit();
             dbPDF.dic_Ansprechpartner = new Dictionary<string, Ansprechpartner>();
+            dbPDF.dic_Ansprechpartner_mitTyp = new Dictionary<string, Ansprechpartner>();
 
             string key;
             foreach (Ansprechpartner an in dbPDF.auftrag.projekt.ansprechpartner)
@@ -87,6 +88,10 @@ namespace DynamicPDFCreator
                     typ = "";
                 }                
                 dbPDF.dic_Ansprechpartner.Add(typ.PadRight(12) + key.Trim(), an);
+                if (an.typ!=null)
+                {
+                    dbPDF.dic_Ansprechpartner_mitTyp.Add(typ.PadRight(12) + key.Trim(), an);
+                }
             }
             
             var items = from pair in dbPDF.dic_Ansprechpartner
@@ -250,10 +255,14 @@ namespace DynamicPDFCreator
 
         public void savePDF(DBpdf a)
         {
-            if (a.anschreibenTyp.id==14)
+            if (a.ausfuehrungszeitraum.Year==1)
             {
                 a.ausfuehrungszeitraum = DateTime.Now;
                 a.ausfuehrungszeitraumEnde = DateTime.Now;
+            }
+            if (a.datum.Year==1)
+            {
+                a.datum = DateTime.Now;
             }
             a.id =a.anschreibenTyp.id.ToString()+ a.empfaenger.id.ToString();
             if (a.tblZusatzanlagen!=null)

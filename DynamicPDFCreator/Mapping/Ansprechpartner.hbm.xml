@@ -23,10 +23,10 @@
     <property name = "bemerkung" column="Bemerkung"/>
     <property name = "firma" column="`Firma´"/>
     <property name = "ort" column="`Ort´"/>
-    <set name = "projekte" table = "tblAnsprechpartner2Projekt">
+    <!--<set name = "projekte" table = "tblAnsprechpartner2Projekt">
       <key column = "`idAnsprechpartner´"/>
       <many-to-many class = "Projekt" column="idProjekt"/>
-    </set>
+    </set>-->
     <!--<set name = "pdfs" table = "tblPDFs">
       <key column = "`id´"/>
       <one-to-many class = "PDF" />

@@ -156,7 +156,8 @@ namespace DynamicPDFCreator
         public Dictionary<string, Ansprechpartner> dic_Ansprechpartner{ get; set; }
         public Dictionary<string, AnsprechpartnerTyp> dic_ansprechpartnerTypen { get; set; }
         public Dictionary<string, WesiTeam> dic_WesiTeam { get; set; }
-        public Dictionary<string, PDF> dic_pdf { get; set; }              
+        public Dictionary<string, PDF> dic_pdf { get; set; }
+        public Dictionary<string, Ansprechpartner> dic_Ansprechpartner_mitTyp { get; set; }
 
 
 

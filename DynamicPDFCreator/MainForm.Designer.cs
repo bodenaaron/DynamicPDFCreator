@@ -119,11 +119,19 @@
             this.label4 = new System.Windows.Forms.Label();
             this.rtb_absprachen = new System.Windows.Forms.RichTextBox();
             this.tabControl = new System.Windows.Forms.TabControl();
+            this.listeBeteiligte = new System.Windows.Forms.TabPage();
+            this.label7 = new System.Windows.Forms.Label();
+            this.checked_listBox_Beteiligte = new System.Windows.Forms.CheckedListBox();
+            this.btn_LB_suchen = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.tb_LB_SMNummer = new System.Windows.Forms.TextBox();
+            this.pdfPreview_ListeBeteiligte = new System.Windows.Forms.WebBrowser();
             this.customFormular.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.MainTab.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabControl.SuspendLayout();
+            this.listeBeteiligte.SuspendLayout();
             this.SuspendLayout();
             // 
             // error_label
@@ -786,9 +794,56 @@
             resources.ApplyResources(this.tabControl, "tabControl");
             this.tabControl.Controls.Add(this.MainTab);
             this.tabControl.Controls.Add(this.customFormular);
+            this.tabControl.Controls.Add(this.listeBeteiligte);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
             this.tabControl.SelectedIndexChanged += new System.EventHandler(this.tabSwitch);
+            // 
+            // listeBeteiligte
+            // 
+            this.listeBeteiligte.Controls.Add(this.label7);
+            this.listeBeteiligte.Controls.Add(this.checked_listBox_Beteiligte);
+            this.listeBeteiligte.Controls.Add(this.btn_LB_suchen);
+            this.listeBeteiligte.Controls.Add(this.label6);
+            this.listeBeteiligte.Controls.Add(this.tb_LB_SMNummer);
+            this.listeBeteiligte.Controls.Add(this.pdfPreview_ListeBeteiligte);
+            resources.ApplyResources(this.listeBeteiligte, "listeBeteiligte");
+            this.listeBeteiligte.Name = "listeBeteiligte";
+            this.listeBeteiligte.UseVisualStyleBackColor = true;
+            // 
+            // label7
+            // 
+            resources.ApplyResources(this.label7, "label7");
+            this.label7.Name = "label7";
+            // 
+            // checked_listBox_Beteiligte
+            // 
+            this.checked_listBox_Beteiligte.FormattingEnabled = true;
+            resources.ApplyResources(this.checked_listBox_Beteiligte, "checked_listBox_Beteiligte");
+            this.checked_listBox_Beteiligte.Name = "checked_listBox_Beteiligte";
+            // 
+            // btn_LB_suchen
+            // 
+            resources.ApplyResources(this.btn_LB_suchen, "btn_LB_suchen");
+            this.btn_LB_suchen.Name = "btn_LB_suchen";
+            this.btn_LB_suchen.UseVisualStyleBackColor = true;
+            this.btn_LB_suchen.Click += new System.EventHandler(this.Btn_LB_suchen_Click);
+            // 
+            // label6
+            // 
+            resources.ApplyResources(this.label6, "label6");
+            this.label6.Name = "label6";
+            // 
+            // tb_LB_SMNummer
+            // 
+            this.tb_LB_SMNummer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            resources.ApplyResources(this.tb_LB_SMNummer, "tb_LB_SMNummer");
+            this.tb_LB_SMNummer.Name = "tb_LB_SMNummer";
+            // 
+            // pdfPreview_ListeBeteiligte
+            // 
+            resources.ApplyResources(this.pdfPreview_ListeBeteiligte, "pdfPreview_ListeBeteiligte");
+            this.pdfPreview_ListeBeteiligte.Name = "pdfPreview_ListeBeteiligte";
             // 
             // MainForm
             // 
@@ -806,6 +861,8 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.tabControl.ResumeLayout(false);
+            this.listeBeteiligte.ResumeLayout(false);
+            this.listeBeteiligte.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -902,6 +959,13 @@
         public System.Windows.Forms.Button btn_EF_speichernUnter;
         private System.Windows.Forms.Label EF_error_label;
         public System.Windows.Forms.Button btn_delete_pdf;
+        private System.Windows.Forms.TabPage listeBeteiligte;
+        public System.Windows.Forms.Label label7;
+        private System.Windows.Forms.CheckedListBox checked_listBox_Beteiligte;
+        public System.Windows.Forms.Button btn_LB_suchen;
+        public System.Windows.Forms.Label label6;
+        public System.Windows.Forms.TextBox tb_LB_SMNummer;
+        public System.Windows.Forms.WebBrowser pdfPreview_ListeBeteiligte;
     }
 }
 

@@ -2728,6 +2728,204 @@ abgesprochen wurde</value>
   <data name="tabControl.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
   </data>
+  <data name="label7.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label7.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Courier New, 8.25pt</value>
+  </data>
+  <data name="label7.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>14, 122</value>
+  </data>
+  <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>112, 14</value>
+  </data>
+  <data name="label7.TabIndex" type="System.Int32, mscorlib">
+    <value>85</value>
+  </data>
+  <data name="label7.Text" xml:space="preserve">
+    <value>Ansprechpartner</value>
+  </data>
+  <data name="&gt;&gt;label7.Name" xml:space="preserve">
+    <value>label7</value>
+  </data>
+  <data name="&gt;&gt;label7.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label7.Parent" xml:space="preserve">
+    <value>listeBeteiligte</value>
+  </data>
+  <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="checked_listBox_Beteiligte.Location" type="System.Drawing.Point, System.Drawing">
+    <value>132, 122</value>
+  </data>
+  <data name="checked_listBox_Beteiligte.Size" type="System.Drawing.Size, System.Drawing">
+    <value>416, 349</value>
+  </data>
+  <data name="checked_listBox_Beteiligte.TabIndex" type="System.Int32, mscorlib">
+    <value>84</value>
+  </data>
+  <data name="&gt;&gt;checked_listBox_Beteiligte.Name" xml:space="preserve">
+    <value>checked_listBox_Beteiligte</value>
+  </data>
+  <data name="&gt;&gt;checked_listBox_Beteiligte.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckedListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checked_listBox_Beteiligte.Parent" xml:space="preserve">
+    <value>listeBeteiligte</value>
+  </data>
+  <data name="&gt;&gt;checked_listBox_Beteiligte.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="btn_LB_suchen.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="btn_LB_suchen.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Courier New, 8.25pt</value>
+  </data>
+  <data name="btn_LB_suchen.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btn_LB_suchen.Location" type="System.Drawing.Point, System.Drawing">
+    <value>317, 34</value>
+  </data>
+  <data name="btn_LB_suchen.Size" type="System.Drawing.Size, System.Drawing">
+    <value>64, 25</value>
+  </data>
+  <data name="btn_LB_suchen.TabIndex" type="System.Int32, mscorlib">
+    <value>83</value>
+  </data>
+  <data name="btn_LB_suchen.Text" xml:space="preserve">
+    <value>suchen</value>
+  </data>
+  <data name="&gt;&gt;btn_LB_suchen.Name" xml:space="preserve">
+    <value>btn_LB_suchen</value>
+  </data>
+  <data name="&gt;&gt;btn_LB_suchen.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_LB_suchen.Parent" xml:space="preserve">
+    <value>listeBeteiligte</value>
+  </data>
+  <data name="&gt;&gt;btn_LB_suchen.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="label6.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label6.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Courier New, 8.25pt</value>
+  </data>
+  <data name="label6.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>14, 39</value>
+  </data>
+  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>70, 14</value>
+  </data>
+  <data name="label6.TabIndex" type="System.Int32, mscorlib">
+    <value>81</value>
+  </data>
+  <data name="label6.Text" xml:space="preserve">
+    <value>SM-Nummer</value>
+  </data>
+  <data name="&gt;&gt;label6.Name" xml:space="preserve">
+    <value>label6</value>
+  </data>
+  <data name="&gt;&gt;label6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label6.Parent" xml:space="preserve">
+    <value>listeBeteiligte</value>
+  </data>
+  <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="tb_LB_SMNummer.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Courier New, 8.25pt</value>
+  </data>
+  <data name="tb_LB_SMNummer.Location" type="System.Drawing.Point, System.Drawing">
+    <value>132, 36</value>
+  </data>
+  <data name="tb_LB_SMNummer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 20</value>
+  </data>
+  <data name="tb_LB_SMNummer.TabIndex" type="System.Int32, mscorlib">
+    <value>82</value>
+  </data>
+  <data name="&gt;&gt;tb_LB_SMNummer.Name" xml:space="preserve">
+    <value>tb_LB_SMNummer</value>
+  </data>
+  <data name="&gt;&gt;tb_LB_SMNummer.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tb_LB_SMNummer.Parent" xml:space="preserve">
+    <value>listeBeteiligte</value>
+  </data>
+  <data name="&gt;&gt;tb_LB_SMNummer.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="pdfPreview_ListeBeteiligte.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="pdfPreview_ListeBeteiligte.Location" type="System.Drawing.Point, System.Drawing">
+    <value>965, 0</value>
+  </data>
+  <data name="pdfPreview_ListeBeteiligte.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>20, 20</value>
+  </data>
+  <data name="pdfPreview_ListeBeteiligte.Size" type="System.Drawing.Size, System.Drawing">
+    <value>649, 886</value>
+  </data>
+  <data name="pdfPreview_ListeBeteiligte.TabIndex" type="System.Int32, mscorlib">
+    <value>80</value>
+  </data>
+  <data name="&gt;&gt;pdfPreview_ListeBeteiligte.Name" xml:space="preserve">
+    <value>pdfPreview_ListeBeteiligte</value>
+  </data>
+  <data name="&gt;&gt;pdfPreview_ListeBeteiligte.Type" xml:space="preserve">
+    <value>System.Windows.Forms.WebBrowser, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pdfPreview_ListeBeteiligte.Parent" xml:space="preserve">
+    <value>listeBeteiligte</value>
+  </data>
+  <data name="&gt;&gt;pdfPreview_ListeBeteiligte.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="listeBeteiligte.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="listeBeteiligte.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="listeBeteiligte.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1614, 892</value>
+  </data>
+  <data name="listeBeteiligte.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="listeBeteiligte.Text" xml:space="preserve">
+    <value>Liste der Beteiligten</value>
+  </data>
+  <data name="&gt;&gt;listeBeteiligte.Name" xml:space="preserve">
+    <value>listeBeteiligte</value>
+  </data>
+  <data name="&gt;&gt;listeBeteiligte.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;listeBeteiligte.Parent" xml:space="preserve">
+    <value>tabControl</value>
+  </data>
+  <data name="&gt;&gt;listeBeteiligte.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
   <data name="tabControl.Location" type="System.Drawing.Point, System.Drawing">
     <value>2, 6</value>
   </data>

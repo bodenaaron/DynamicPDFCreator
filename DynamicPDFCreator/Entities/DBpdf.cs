@@ -56,5 +56,6 @@ namespace DynamicPDFCreator
         public virtual bool techBeschreibung { get; set; }
         public virtual IList<Zusatzanlage> tblZusatzanlagen { get; set; }
         public virtual bool aktiv { get; set; }
+        public virtual ISet<Ansprechpartner> beteiligte { get; set; }
     }
 }

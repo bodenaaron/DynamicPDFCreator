@@ -20,17 +20,15 @@ namespace DynamicPDFCreator
         EnableHandler eH;                     
         DBManager DBm = new DBManager();
         public WorkingPDF workingPDF;
-        public bool neuzuweisung;
-        
+        public bool neuzuweisung;        
         public MainForm()
         {
             this.Font= new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            //DBm.sqlSchema();
+            DBm.sqlSchema();
             InitializeComponent();
             eH = new EnableHandler(this);            
             ReinitializeComponents();            
         }
-
         private void ReinitializeComponents()
         {
             eH.disableAll(true);
@@ -196,6 +194,24 @@ namespace DynamicPDFCreator
                         workingPDF.pdfWriter = new Interfaces.Kampfmittel();
                         workingPDF.pflichtfelder = Pflichtfelder_Klassen.Pflicht_Kampfmittel.FELDER;
                         eH.manageFields(Pflichtfelder_Klassen.Pflicht_Kampfmittel.FELDER);
+                        break;
+                    case 14:
+                        //todo: tab wechsel einbauen
+                        break;
+                    case 15:
+                        //Liste der Beteiligten
+                        tb_LB_SMNummer.Text = tb_smNummer.Text;
+                        neuzuweisung = true;
+                        checked_listBox_Beteiligte.DataSource = new BindingSource(DBm.dbPDF.dic_Ansprechpartner_mitTyp, null);
+                        checked_listBox_Beteiligte.DisplayMember = "Key";
+                        checked_listBox_Beteiligte.ValueMember = "Value";
+                        checked_listBox_Beteiligte.SelectedItem = null;
+                        neuzuweisung = false;
+                        workingPDF.pdfWriter = new Interfaces.ListeBeteiligte();
+                        tabControl.SelectedIndex = 2;
+                        tb_LB_SMNummer.Enabled = true;
+                        btn_LB_suchen.Enabled = true;//todo: mit dem Fieldhandler behandeln
+                        Btn_LB_suchen_Click(sender ,e);
                         break;
                 }
                 workingPDF.anschreibenTyp = anschreiben;
@@ -505,6 +521,21 @@ namespace DynamicPDFCreator
                     zusatzanlagen
                     ) ;
                     break;
+                case "Liste der Beteiligten":
+                    workingPDF.pdfWriter = new Interfaces.ListeBeteiligte(); //todo: nicht sauber
+                    List<Ansprechpartner> beteiligte = new List<Ansprechpartner>();
+                    foreach(var item in checked_listBox_Beteiligte.CheckedItems)
+                    {
+                        var row = ((KeyValuePair<string, Ansprechpartner>)item).Value;
+                        beteiligte.Add(row);
+                    }
+
+                    FinalPDF = new PDF(
+                        DBm.dbPDF.auftrag,
+                        workingPDF.anschreibenTyp,
+                        beteiligte
+                        );
+                    break;
             }
             FinalPDF.aktiv = true;
             return FinalPDF;
@@ -527,7 +558,7 @@ namespace DynamicPDFCreator
                 DBm.savePDF(new DBpdf(FinalPDF));
                 error_label.Text = $@"Gespeichert unter {pfad}";                
             }
-            catch (Exception) { error_label.Text = "Datei konnte nicht gespeichert werden, vielleicht anderweitig geöffnet";}
+            catch (Exception qe) { error_label.Text = "Datei konnte nicht gespeichert werden "+qe.Message;}
         }
 
         private string getDynamicPath(PDF finalPDF)
@@ -1193,6 +1224,19 @@ namespace DynamicPDFCreator
             p.aktiv = false;
             DBm.savePDF(new DBpdf(p));
             Btn_suchen_Click(sender,e);
+        }
+
+        private void Btn_LB_suchen_Click(object sender, EventArgs e)
+        {           
+            try
+            {                
+                //DBm.testSave(pdf);
+                string hiddenPath = Path.GetTempPath() + @"\testpdf.pdf";
+                this.pdfPreview.Navigate("www.google.de");
+                workingPDF.pdfWriter = new Interfaces.ListeBeteiligte(); //todo: unsauber
+                pdfPreview_ListeBeteiligte.Navigate(workingPDF.pdfWriter.writeHTMLtoPDF(createPDF(null, null), hiddenPath));
+            }
+            catch (Exception) { }//todo: Errorhandler implementieren
         }
     }
 }

@@ -32,6 +32,7 @@ namespace DynamicPDFCreator
         public virtual bool techBeschreibung { get; set; }
         public virtual IList<Zusatzanlage> tblZusatzanlagen { get; set; }
         public virtual bool aktiv { get; set; }
+        public virtual IList<Ansprechpartner>beteiligte { get; set; }
 
         public PDF(DBpdf pdf)
         {
@@ -189,7 +190,13 @@ namespace DynamicPDFCreator
             this.zusatzanlagen = zusatzanlagen;
         }
 
-        
+        public PDF(Auftrag auftrag, AnschreibenTyp anschreibenTyp, List<Ansprechpartner>beteiligte)
+        {
+            this.auftrag = auftrag;
+            this.anschreibenTyp = anschreibenTyp;
+            this.beteiligte = beteiligte;
+            aktiv = true;
+        }
 
 
 
