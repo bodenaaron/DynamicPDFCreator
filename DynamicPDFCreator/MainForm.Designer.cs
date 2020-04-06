@@ -32,6 +32,8 @@
             this.error_label = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.customFormular = new System.Windows.Forms.TabPage();
+            this.btn_EF_openFile = new System.Windows.Forms.Button();
+            this.btn_EF_openFolder = new System.Windows.Forms.Button();
             this.EF_error_label = new System.Windows.Forms.Label();
             this.btn_EF_auftragsordner_speichern = new System.Windows.Forms.Button();
             this.btn_EF_vorschau = new System.Windows.Forms.Button();
@@ -147,6 +149,8 @@
             // 
             // customFormular
             // 
+            this.customFormular.Controls.Add(this.btn_EF_openFile);
+            this.customFormular.Controls.Add(this.btn_EF_openFolder);
             this.customFormular.Controls.Add(this.EF_error_label);
             this.customFormular.Controls.Add(this.btn_EF_auftragsordner_speichern);
             this.customFormular.Controls.Add(this.btn_EF_vorschau);
@@ -157,6 +161,20 @@
             resources.ApplyResources(this.customFormular, "customFormular");
             this.customFormular.Name = "customFormular";
             this.customFormular.UseVisualStyleBackColor = true;
+            // 
+            // btn_EF_openFile
+            // 
+            resources.ApplyResources(this.btn_EF_openFile, "btn_EF_openFile");
+            this.btn_EF_openFile.Name = "btn_EF_openFile";
+            this.btn_EF_openFile.UseVisualStyleBackColor = true;
+            this.btn_EF_openFile.Click += new System.EventHandler(this.Btn_EF_openFile_Click);
+            // 
+            // btn_EF_openFolder
+            // 
+            resources.ApplyResources(this.btn_EF_openFolder, "btn_EF_openFolder");
+            this.btn_EF_openFolder.Name = "btn_EF_openFolder";
+            this.btn_EF_openFolder.UseVisualStyleBackColor = true;
+            this.btn_EF_openFolder.Click += new System.EventHandler(this.Btn_EF_openFolder_Click);
             // 
             // EF_error_label
             // 
@@ -968,6 +986,8 @@
         public System.Windows.Forms.Label label6;
         public System.Windows.Forms.TextBox tb_LB_SMNummer;
         public System.Windows.Forms.WebBrowser pdfPreview_ListeBeteiligte;
+        public System.Windows.Forms.Button btn_EF_openFile;
+        public System.Windows.Forms.Button btn_EF_openFolder;
     }
 }
 

@@ -104,6 +104,8 @@ namespace DynamicPDFCreator
                     eH.manageFieldsEF(Pflichtfelder_Klassen.Pflicht_EigenesFormular.FELDER);
                 }
                 else { eH.manageFieldsSwitchTabs(); }
+                workingPDF.anschreibenTyp = new AnschreibenTyp();
+                workingPDF.anschreibenTyp.bezeichnung = "EigenesFormular";
             }
             else { eH.disableAll(false); eH.clearColor(true); }            
             listb_EF_vorherigePDF.SelectedItem = null;
@@ -615,10 +617,10 @@ namespace DynamicPDFCreator
         {            
             switch (tab)
             {
-                case 0:
+                case 1:
                     workingPDF = new WorkingPDF(((KeyValuePair<string, PDF>)listb_vorherige_PDF.SelectedItem).Value);                                        
                     break;
-                case 1:
+                case 0:
                     workingPDF = new WorkingPDF(((KeyValuePair<string, PDF>)listb_EF_vorherigePDF.SelectedItem).Value);                    
                     break;            
             }
@@ -1171,6 +1173,9 @@ namespace DynamicPDFCreator
                     listb_EF_Zusatz.Items.Add(zu.anlage);
                 }
             }
+            string pfad = getDynamicPath(pdf);
+            savedFile = pfad;
+            savedFolder = pfad.Substring(0, pfad.LastIndexOf("\\"));
         }
 
         private void rtb_EF_Anschreiben_TextChanged(object sender, EventArgs e)
@@ -1194,6 +1199,8 @@ namespace DynamicPDFCreator
                 workingPDF.pdfWriter.writeHTMLtoPDF(FinalPDF, pfad);
                 DBm.savePDF(new DBpdf(FinalPDF));
                 EF_error_label.Text = $@"Gespeichert unter {pfad}";
+                savedFile = pfad;
+                savedFolder = pfad.Substring(0, pfad.LastIndexOf("\\"));
             }
             catch (Exception) { error_label.Text = "Datei konnte nicht gespeichert werden, vielleicht anderweitig geöffnet"; }
         }
@@ -1237,6 +1244,8 @@ namespace DynamicPDFCreator
                 saveFileDialog.ShowDialog();
                 workingPDF.pdfWriter.writeHTMLtoPDF(FinalPDF, saveFileDialog.FileName);
                 DBm.savePDF(new DBpdf(FinalPDF));
+                savedFile = saveFileDialog.FileName;
+                savedFolder = saveFileDialog.FileName.Substring(0, saveFileDialog.FileName.LastIndexOf("\\"));
             }
             catch (Exception) { }
         }
@@ -1275,6 +1284,22 @@ namespace DynamicPDFCreator
             if (savedFile != null)
             {
                 Process.Start(savedFile);
+            }
+        }
+
+        private void Btn_EF_openFile_Click(object sender, EventArgs e)
+        {
+            if (savedFile != null)
+            {
+                Process.Start(savedFile);
+            }
+        }
+
+        private void Btn_EF_openFolder_Click(object sender, EventArgs e)
+        {
+            if (savedFolder != null)
+            {
+                Process.Start(savedFolder);
             }
         }
     }
