@@ -20,7 +20,9 @@ namespace DynamicPDFCreator
         EnableHandler eH;                     
         DBManager DBm = new DBManager();
         public WorkingPDF workingPDF;
-        public bool neuzuweisung;        
+        public bool neuzuweisung;
+        public string savedFile;
+        public string savedFolder;
         public MainForm()
         {
             this.Font= new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -371,6 +373,10 @@ namespace DynamicPDFCreator
                     DBpdf dataBasePDF = new DBpdf(FinalPDF);
                     workingPDF.pdfWriter.writeHTMLtoPDF(FinalPDF, saveFileDialog.FileName);
                     DBm.savePDF(dataBasePDF);
+                    savedFile = saveFileDialog.FileName;
+                    savedFolder = saveFileDialog.FileName.Substring(0, saveFileDialog.FileName.LastIndexOf("\\"));
+                    btn_openFile.Enabled = true;
+                    btn_openFolder.Enabled = true;
                 }
                 catch (Exception) { return; }
                
@@ -556,7 +562,11 @@ namespace DynamicPDFCreator
 
                 workingPDF.pdfWriter.writeHTMLtoPDF(FinalPDF, pfad);
                 DBm.savePDF(new DBpdf(FinalPDF));
-                error_label.Text = $@"Gespeichert unter {pfad}";                
+                error_label.Text = $@"Gespeichert unter {pfad}";
+                savedFile = pfad;
+                savedFolder = pfad.Substring(0,pfad.LastIndexOf("\\"));
+                btn_openFile.Enabled = true;
+                btn_openFolder.Enabled = true;
             }
             catch (Exception qe) { error_label.Text = "Datei konnte nicht gespeichert werden "+qe.Message;}
         }
@@ -900,6 +910,11 @@ namespace DynamicPDFCreator
             {
                 fillFormular(0, workingPDF, sender, e);
             }
+            string pfad = getDynamicPath(workingPDF);
+            savedFile = pfad;
+            savedFolder = pfad.Substring(0, pfad.LastIndexOf("\\"));
+            btn_openFile.Enabled = true;
+            btn_openFolder.Enabled = true;
         }
 
         private void Btn_suchen_Click(object sender, EventArgs e)
@@ -1237,6 +1252,22 @@ namespace DynamicPDFCreator
                 pdfPreview_ListeBeteiligte.Navigate(workingPDF.pdfWriter.writeHTMLtoPDF(createPDF(null, null), hiddenPath));
             }
             catch (Exception) { }//todo: Errorhandler implementieren
+        }
+
+        private void Btn_openFolder_Click(object sender, EventArgs e)
+        {
+            if (savedFolder!=null)
+            {
+                Process.Start(savedFolder);
+            }
+        }
+
+        private void Btn_openFile_Click(object sender, EventArgs e)
+        {
+            if (savedFile != null)
+            {
+                Process.Start(savedFile);
+            }
         }
     }
 }

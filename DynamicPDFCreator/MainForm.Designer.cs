@@ -66,8 +66,8 @@
             this.btn_speichern_auftrag_pfad = new System.Windows.Forms.Button();
             this.btn_vorschau = new System.Windows.Forms.Button();
             this.btn_saveDocument = new System.Windows.Forms.Button();
-            this.btn_printDocument = new System.Windows.Forms.Button();
-            this.btn_sendEmail = new System.Windows.Forms.Button();
+            this.btn_openFile = new System.Windows.Forms.Button();
+            this.btn_openFolder = new System.Windows.Forms.Button();
             this.btn_load_PDF = new System.Windows.Forms.Button();
             this.listb_vorherige_PDF = new System.Windows.Forms.ListBox();
             this.label41 = new System.Windows.Forms.Label();
@@ -362,8 +362,8 @@
             this.MainTab.Controls.Add(this.btn_speichern_auftrag_pfad);
             this.MainTab.Controls.Add(this.btn_vorschau);
             this.MainTab.Controls.Add(this.btn_saveDocument);
-            this.MainTab.Controls.Add(this.btn_printDocument);
-            this.MainTab.Controls.Add(this.btn_sendEmail);
+            this.MainTab.Controls.Add(this.btn_openFile);
+            this.MainTab.Controls.Add(this.btn_openFolder);
             this.MainTab.Controls.Add(this.btn_load_PDF);
             this.MainTab.Controls.Add(this.listb_vorherige_PDF);
             this.MainTab.Controls.Add(this.label41);
@@ -413,17 +413,19 @@
             this.btn_saveDocument.UseVisualStyleBackColor = true;
             this.btn_saveDocument.Click += new System.EventHandler(this.Btn_saveDocument_Click);
             // 
-            // btn_printDocument
+            // btn_openFile
             // 
-            resources.ApplyResources(this.btn_printDocument, "btn_printDocument");
-            this.btn_printDocument.Name = "btn_printDocument";
-            this.btn_printDocument.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.btn_openFile, "btn_openFile");
+            this.btn_openFile.Name = "btn_openFile";
+            this.btn_openFile.UseVisualStyleBackColor = true;
+            this.btn_openFile.Click += new System.EventHandler(this.Btn_openFile_Click);
             // 
-            // btn_sendEmail
+            // btn_openFolder
             // 
-            resources.ApplyResources(this.btn_sendEmail, "btn_sendEmail");
-            this.btn_sendEmail.Name = "btn_sendEmail";
-            this.btn_sendEmail.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.btn_openFolder, "btn_openFolder");
+            this.btn_openFolder.Name = "btn_openFolder";
+            this.btn_openFolder.UseVisualStyleBackColor = true;
+            this.btn_openFolder.Click += new System.EventHandler(this.Btn_openFolder_Click);
             // 
             // btn_load_PDF
             // 
@@ -878,8 +880,8 @@
         public System.Windows.Forms.Button btn_speichern_auftrag_pfad;
         public System.Windows.Forms.Button btn_vorschau;
         public System.Windows.Forms.Button btn_saveDocument;
-        public System.Windows.Forms.Button btn_printDocument;
-        public System.Windows.Forms.Button btn_sendEmail;
+        public System.Windows.Forms.Button btn_openFile;
+        public System.Windows.Forms.Button btn_openFolder;
         public System.Windows.Forms.Button btn_load_PDF;
         public System.Windows.Forms.ListBox listb_vorherige_PDF;
         public System.Windows.Forms.Label label41;
