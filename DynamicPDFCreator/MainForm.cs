@@ -691,6 +691,7 @@ namespace DynamicPDFCreator
                         cmb_EF_empfaenger.DisplayMember = "Key";
                         cmb_EF_empfaenger.ValueMember = "Value";
                         neuzuweisung = false;
+
                         if (empfaenger.TryGetValue($@"{pdf.empfaenger.ansprechpartnerVorname} {pdf.empfaenger.ansprechpartnerName}", out Ansprechpartner ansp))
                         {
                             cmb_EF_empfaenger.SelectedItem = new KeyValuePair<string, Ansprechpartner>($@"{ansp.ansprechpartnerVorname} {ansp.ansprechpartnerName}", ansp);
@@ -753,14 +754,23 @@ namespace DynamicPDFCreator
                         cmb_empfaenger.DisplayMember = "Key";
                         cmb_empfaenger.ValueMember = "Value";
                         neuzuweisung = false;
-                        if (empfaenger.TryGetValue($@"{workingPDF.empfaenger.ansprechpartnerVorname} {workingPDF.empfaenger.ansprechpartnerName}", out Ansprechpartner ansp))
+
+                        foreach (var item in cmb_empfaenger.Items)
                         {
-                            cmb_empfaenger.SelectedItem = new KeyValuePair<string, Ansprechpartner>($@"{ansp.ansprechpartnerVorname} {ansp.ansprechpartnerName}", ansp);
+                            if (((KeyValuePair<string, Ansprechpartner>)item).Value == workingPDF.empfaenger)
+                            {
+                                cmb_empfaenger.SelectedItem = item;
+                            }
                         }
-                        else if (empfaenger.TryGetValue($@"{workingPDF.empfaenger.firma}", out Ansprechpartner anspFirma))
-                        {
-                            cmb_empfaenger.SelectedItem = new KeyValuePair<string, Ansprechpartner>($@"{anspFirma.firma}", anspFirma);
-                        }
+                    
+                        //if (empfaenger.TryGetValue($@"{workingPDF.empfaenger.ansprechpartnerVorname} {workingPDF.empfaenger.ansprechpartnerName}", out Ansprechpartner ansp))
+                        //{
+                        //    cmb_empfaenger.SelectedItem = new KeyValuePair<string, Ansprechpartner>($@"{ansp.ansprechpartnerVorname} {ansp.ansprechpartnerName}", ansp);
+                        //}
+                        //else if (empfaenger.TryGetValue($@"{workingPDF.empfaenger.firma}", out Ansprechpartner anspFirma))
+                        //{
+                        //    cmb_empfaenger.SelectedItem = new KeyValuePair<string, Ansprechpartner>($@"{anspFirma.firma}", anspFirma);
+                        //}
                     }
 
                     //Absender
@@ -897,9 +907,7 @@ namespace DynamicPDFCreator
         }
 
         private void Btn_load_PDF_Click(object sender, EventArgs e)
-        {
-            //PDF pdf = ((KeyValuePair<string, PDF>)listb_vorherige_PDF.SelectedItem).Value;
-
+        {            
             if (workingPDF.anschreibenTyp.bezeichnung == "EigenesFormular")
             {
                 fillFormular(1,workingPDF, sender, e);
