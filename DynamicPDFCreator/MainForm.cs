@@ -26,7 +26,7 @@ namespace DynamicPDFCreator
         public MainForm()
         {
             this.Font= new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            DBm.sqlSchema();
+            //DBm.sqlSchema();
             InitializeComponent();
             eH = new EnableHandler(this);            
             ReinitializeComponents();            
@@ -107,7 +107,14 @@ namespace DynamicPDFCreator
                 workingPDF.anschreibenTyp = new AnschreibenTyp();
                 workingPDF.anschreibenTyp.bezeichnung = "EigenesFormular";
             }
-            else { eH.disableAll(false); eH.clearColor(true); }            
+            else { eH.disableAll(false); eH.clearColor(true); }
+            if (this.tabControl.SelectedTab.Text == "Liste der Beteiligten")
+            {
+
+                tb_LB_SMNummer.Enabled = true;
+                btn_LB_suchen.Enabled = true;
+                checked_listBox_Beteiligte.Enabled = true;
+            }
             listb_EF_vorherigePDF.SelectedItem = null;
         }
 
@@ -618,10 +625,10 @@ namespace DynamicPDFCreator
             switch (tab)
             {
                 case 1:
-                    workingPDF = new WorkingPDF(((KeyValuePair<string, PDF>)listb_vorherige_PDF.SelectedItem).Value);                                        
+                    workingPDF = new WorkingPDF(((KeyValuePair<string, PDF>)listb_EF_vorherigePDF.SelectedItem).Value);                                        
                     break;
                 case 0:
-                    workingPDF = new WorkingPDF(((KeyValuePair<string, PDF>)listb_EF_vorherigePDF.SelectedItem).Value);                    
+                    workingPDF = new WorkingPDF(((KeyValuePair<string, PDF>)listb_vorherige_PDF.SelectedItem).Value);                    
                     break;            
             }
 
@@ -1261,7 +1268,15 @@ namespace DynamicPDFCreator
         private void Btn_LB_suchen_Click(object sender, EventArgs e)
         {           
             try
-            {                
+            {
+                DBm = new DBManager(tb_LB_SMNummer.Text);
+                neuzuweisung = true;
+                checked_listBox_Beteiligte.DataSource = new BindingSource(DBm.dbPDF.dic_Ansprechpartner_mitTyp, null);
+                checked_listBox_Beteiligte.DisplayMember = "Key";
+                checked_listBox_Beteiligte.ValueMember = "Value";
+                checked_listBox_Beteiligte.SelectedItem = null;
+                neuzuweisung = false;
+
                 //DBm.testSave(pdf);
                 string hiddenPath = Path.GetTempPath() + @"\testpdf.pdf";
                 this.pdfPreview.Navigate("www.google.de");

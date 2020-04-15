@@ -272,6 +272,14 @@ namespace DynamicPDFCreator
                     z.idPDF = a.id;
                 }
             }
+            if (a.ansprechpartner==null)
+            {
+                a.ansprechpartner = a.absender;
+            }
+            //if (a.beteiligte==null)
+            //{
+            //    a.beteiligte = new List<Ansprechpartner>();
+            //}
             
             ISession session = getSession();
             ITransaction tx = session.BeginTransaction();
