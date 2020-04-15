@@ -255,61 +255,7 @@ namespace DynamicPDFCreator
         {
             neuzuweisung = true;
             switch (tab)
-            {
-                case 1:
-                    //SM Nummer
-                    tb_EF_SMNummer.Text = pdf.auftrag.smNummer;
-                    btn_EF_suchen_Click(sender, e);
-
-                    //Empfänger
-                    if (pdf.empfaenger != null)
-                    {
-                        neuzuweisung = true;
-                        Dictionary<string, Ansprechpartner> empfaenger = DBm.dbPDF.dic_Ansprechpartner;
-                        cmb_EF_empfaenger.DataSource = new BindingSource(empfaenger, null);
-                        cmb_EF_empfaenger.DisplayMember = "Key";
-                        cmb_EF_empfaenger.ValueMember = "Value";
-                        neuzuweisung = false;
-
-                        if (empfaenger.TryGetValue($@"{pdf.empfaenger.ansprechpartnerVorname} {pdf.empfaenger.ansprechpartnerName}", out Ansprechpartner ansp))
-                        {
-                            cmb_EF_empfaenger.SelectedItem = new KeyValuePair<string, Ansprechpartner>($@"{ansp.ansprechpartnerVorname} {ansp.ansprechpartnerName}", ansp);
-                        }
-                        else if (empfaenger.TryGetValue($@"{pdf.empfaenger.firma}", out Ansprechpartner anspFirma))
-                        {
-                            cmb_EF_empfaenger.SelectedItem = new KeyValuePair<string, Ansprechpartner>($@"{anspFirma.firma}", anspFirma);
-                        }
-                    }
-
-                    if (pdf.absender != null)
-                    {
-                        neuzuweisung = true;
-                        Dictionary<string, Bearbeiter> absender = DBm.dbPDF.dic_Bearbeiter;
-                        cmb_ef_absender.DataSource = new BindingSource(absender, null);
-                        cmb_ef_absender.DisplayMember = "Key";
-                        cmb_ef_absender.ValueMember = "Value";
-                        neuzuweisung = false;
-                        if (absender.TryGetValue($@"{pdf.absender.bearbeiterVorname} {pdf.absender.bearbeiterName}", out Bearbeiter bearb))
-                        {
-                            cmb_ef_absender.SelectedItem = new KeyValuePair<string, Bearbeiter>($@"{bearb.bearbeiterVorname} {bearb.bearbeiterName}", bearb);
-                        }
-                    }
-
-                    //Betreff
-                    tb_EF_betreff.Text = pdf.ortDerMassnahme;
-
-                    rtb_EF_Anschreiben.Rtf = pdf.beschreibungMassnahme;
-                    //Zusätzliche Anhänge
-                    if (pdf.zusatzanlagen != null)
-                    {
-                        listb_EF_Zusatz.Items.Clear();
-                        foreach (Zusatzanlage zu in pdf.zusatzanlagen)
-                        {
-                            listb_EF_Zusatz.Items.Add(zu.anlage);
-                        }
-                    }
-
-                    break;
+            {                
                 case 0:
                     //Anschreiben Typ                    
                     Dictionary<string, AnschreibenTyp> anschreibenTypen = DBm.dbPDF.dic_AnschreibenTyp;
@@ -317,11 +263,19 @@ namespace DynamicPDFCreator
                     cmb_anschreibenTyp.DisplayMember = "Key";
                     cmb_anschreibenTyp.ValueMember = "Value";
 
-                    if (anschreibenTypen.TryGetValue(pdf.anschreibenTyp.bezeichnung, out AnschreibenTyp typ))
+                    foreach (var item in cmb_anschreibenTyp.Items)
                     {
-                        cmb_anschreibenTyp.SelectedItem = new KeyValuePair<string, AnschreibenTyp>(typ.bezeichnung, typ);
+                        if (((KeyValuePair<string, AnschreibenTyp>)item).Value == pdf.anschreibenTyp)
+                        {
+                            cmb_anschreibenTyp.SelectedItem = item;
+                            break;
+                        }
                     }
-                    eH.manageFields(pdf.pflichtfelder);                    
+                    //todo: abfangen wenn Anschreibentyp nicht mit Items in Combobox übereinstimmt                                        
+                    
+                    //Pflichtfelder setzen / Felder aktivieren
+                    eH.manageFields(pdf.pflichtfelder);
+                    
                     //Empfänger
                     if (pdf.empfaenger != null)
                     {                        
@@ -407,7 +361,6 @@ namespace DynamicPDFCreator
                         //todo: abfangen wenn WesiTeam nicht mit Items in Combobox übereinstimmt
                     }
 
-
                     //Ansprechpartner Bau
                     if (pdf.ansprechpartnerBau != null)
                     {                        
@@ -443,6 +396,61 @@ namespace DynamicPDFCreator
                         }
                     }
 
+                    break;
+
+                case 1:
+                    //SM Nummer
+                    tb_EF_SMNummer.Text = pdf.auftrag.smNummer;
+                    btn_EF_suchen_Click(sender, e);
+                    //Empfänger
+                    if (pdf.empfaenger != null)
+                    {
+                        Dictionary<string, Ansprechpartner> empfaenger = DBm.dbPDF.dic_Ansprechpartner;
+                        cmb_EF_empfaenger.DataSource = new BindingSource(empfaenger, null);
+                        cmb_EF_empfaenger.DisplayMember = "Key";
+                        cmb_EF_empfaenger.ValueMember = "Value";
+
+                        foreach (var item in cmb_EF_empfaenger.Items)
+                        {
+                            if (((KeyValuePair<string, Ansprechpartner>)item).Value == pdf.empfaenger)
+                            {
+                                cmb_EF_empfaenger.SelectedItem = item;
+                                break;
+                            }
+                        }
+                        //todo: abfangen wenn Empfänger nicht mit Items in Combobox übereinstimmt
+                    }
+                    //Absender
+                    if (pdf.absender != null)
+                    {
+                        Dictionary<string, Bearbeiter> absender = DBm.dbPDF.dic_Bearbeiter;
+                        cmb_ef_absender.DataSource = new BindingSource(absender, null);
+                        cmb_ef_absender.DisplayMember = "Key";
+                        cmb_ef_absender.ValueMember = "Value";
+
+                        foreach (var item in cmb_ef_absender.Items)
+                        {
+                            if (((KeyValuePair<string, Bearbeiter>)item).Value == pdf.absender)
+                            {
+                                cmb_ef_absender.SelectedItem = item;
+                                break;
+                            }
+                        }
+                        //todo: abfangen wenn Absender nicht mit Items in Combobox übereinstimmt                       
+                    }
+                    //Betreff
+                    tb_EF_betreff.Text = pdf.ortDerMassnahme;
+
+                    rtb_EF_Anschreiben.Rtf = pdf.beschreibungMassnahme;
+                    //Zusätzliche Anhänge
+                    if (pdf.zusatzanlagen != null)
+                    {
+                        listb_EF_Zusatz.Items.Clear();
+                        foreach (Zusatzanlage zu in pdf.zusatzanlagen)
+                        {
+                            listb_EF_Zusatz.Items.Add(zu.anlage);
+                        }
+                    }
                     break;
 
             }
