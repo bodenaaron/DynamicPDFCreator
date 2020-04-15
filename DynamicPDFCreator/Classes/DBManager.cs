@@ -253,37 +253,61 @@ namespace DynamicPDFCreator
             closeSession(session, tx);
         }
 
-        public void savePDF(DBpdf a)
+        public void savePDF(DBpdf pdf)
         {
-            if (a.ausfuehrungszeitraum.Year==1)
-            {
-                a.ausfuehrungszeitraum = DateTime.Now;
-                a.ausfuehrungszeitraumEnde = DateTime.Now;
-            }
-            if (a.datum.Year==1)
-            {
-                a.datum = DateTime.Now;
-            }
-            a.id =a.anschreibenTyp.id.ToString()+ a.empfaenger.id.ToString();
-            if (a.tblZusatzanlagen!=null)
-            {
-                foreach (Zusatzanlage z in a.tblZusatzanlagen)
-                {
-                    z.idPDF = a.id;
-                }
-            }
-            if (a.ansprechpartner==null)
-            {
-                a.ansprechpartner = a.absender;
-            }
-            //if (a.beteiligte==null)
-            //{
-            //    a.beteiligte = new List<Ansprechpartner>();
-            //}
-            
             ISession session = getSession();
             ITransaction tx = session.BeginTransaction();
-            session.SaveOrUpdate(a);
+
+            if (pdf.ausfuehrungszeitraum.Year==1)
+            {
+                pdf.ausfuehrungszeitraum = DateTime.Now;
+                pdf.ausfuehrungszeitraumEnde = DateTime.Now;
+            }
+            if (pdf.datum.Year==1)
+            {
+                pdf.datum = DateTime.Now;
+            }
+            pdf.id =pdf.anschreibenTyp.id.ToString()+ pdf.empfaenger.id.ToString();
+            if (pdf.tblZusatzanlagen!=null)
+            {
+                foreach (Zusatzanlage z in pdf.tblZusatzanlagen)
+                {
+                    z.idPDF = pdf.id;
+                }
+            }
+            if (pdf.ansprechpartner==null)
+            {
+                pdf.ansprechpartner = pdf.absender;
+            }
+
+            ICriteria crit = session.CreateCriteria<DBpdf>();
+            crit.Add(Restrictions.Like("id",pdf.id));
+            DBpdf dbPDF = (DBpdf)crit.List<DBpdf>().FirstOrDefault();
+
+            if (dbPDF!=null) {                
+                dbPDF.auftrag = pdf.auftrag;
+                dbPDF.anschreibenTyp = pdf.anschreibenTyp;
+                dbPDF.empfaenger = pdf.empfaenger;
+                dbPDF.absender = pdf.absender;
+                dbPDF.ansprechpartner = pdf.absender;
+                dbPDF.ansprechpartnerBau = pdf.ansprechpartnerBau;
+                dbPDF.wesiTeam = pdf.wesiTeam;
+                dbPDF.datum = pdf.datum;
+                dbPDF.ausfuehrungszeitraum = pdf.ausfuehrungszeitraum;
+                dbPDF.ausfuehrungszeitraumEnde = pdf.ausfuehrungszeitraumEnde;
+                dbPDF.ortDerMassnahme = pdf.ortDerMassnahme;
+                dbPDF.abgesprochenMit = pdf.abgesprochenMit;
+                dbPDF.beschreibungMassnahme = pdf.beschreibungMassnahme;
+                dbPDF.plansaetze = pdf.plansaetze;
+                dbPDF.untervollmacht = pdf.untervollmacht;
+                dbPDF.listeBeteiligte = pdf.listeBeteiligte;
+                dbPDF.techBeschreibung = pdf.techBeschreibung;
+                dbPDF.tblZusatzanlagen = pdf.tblZusatzanlagen;
+                dbPDF.aktiv = pdf.aktiv;
+            }
+            else { session.SaveOrUpdate(pdf); }
+           
+            
             tx.Commit();
             closeSession(session, tx);
         }

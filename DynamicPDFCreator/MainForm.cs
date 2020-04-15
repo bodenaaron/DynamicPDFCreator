@@ -17,12 +17,12 @@ namespace DynamicPDFCreator
 {
     public partial class MainForm : Form
     {
-        EnableHandler eH;                     
+        EnableHandler eH = new EnableHandler();                     
         DBManager DBm = new DBManager();
-        public WorkingPDF workingPDF;
-        public bool neuzuweisung;
-        public string savedFile;
-        public string savedFolder;
+        public WorkingPDF workingPDF = new WorkingPDF();
+        public bool neuzuweisung = false;
+        public string savedFile = "";
+        public string savedFolder="";
         public MainForm()
         {
             this.Font= new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -39,6 +39,7 @@ namespace DynamicPDFCreator
             this.WindowState = FormWindowState.Maximized;
             //Alle Methoden die auf selectedIndexChanged hören deaktivieren
             neuzuweisung = true;
+            
             cmb_anschreibenTyp.DataSource = new BindingSource(DBm.dbPDF.dic_AnschreibenTyp, null);
             cmb_anschreibenTyp.DisplayMember = "Key";
             cmb_anschreibenTyp.ValueMember = "Value";
@@ -109,7 +110,7 @@ namespace DynamicPDFCreator
                 workingPDF.anschreibenTyp = new AnschreibenTyp();
                 workingPDF.anschreibenTyp.bezeichnung = "EigenesFormular";
             }
-            else { eH.disableAll(false); eH.clearColor(true); }
+            else { eH.clean(true,true,true); }
             if (this.tabControl.SelectedTab.Text == "Liste der Beteiligten")
             {
 
@@ -118,6 +119,7 @@ namespace DynamicPDFCreator
                 checked_listBox_Beteiligte.Enabled = true;
             }
             listb_EF_vorherigePDF.SelectedItem = null;
+            ReinitializeComponents();
         }
         private PDF createPDF(List<Zusatzanlage> zusatzanlagen, string rtb)
         {
@@ -265,7 +267,7 @@ namespace DynamicPDFCreator
 
                     foreach (var item in cmb_anschreibenTyp.Items)
                     {
-                        if (((KeyValuePair<string, AnschreibenTyp>)item).Value == pdf.anschreibenTyp)
+                        if (((KeyValuePair<string, AnschreibenTyp>)item).Value.id == pdf.anschreibenTyp.id)
                         {
                             cmb_anschreibenTyp.SelectedItem = item;
                             break;
@@ -286,7 +288,7 @@ namespace DynamicPDFCreator
 
                         foreach (var item in cmb_empfaenger.Items)
                         {
-                            if (((KeyValuePair<string, Ansprechpartner>)item).Value == pdf.empfaenger)
+                            if (((KeyValuePair<string, Ansprechpartner>)item).Value.id == pdf.empfaenger.id)
                             {
                                 cmb_empfaenger.SelectedItem = item;
                                 break; 
@@ -305,7 +307,7 @@ namespace DynamicPDFCreator
 
                         foreach (var item in cmb_absender.Items)
                         {
-                            if (((KeyValuePair<string, Bearbeiter>)item).Value == pdf.absender)
+                            if (((KeyValuePair<string, Bearbeiter>)item).Value.id == pdf.absender.id)
                             {
                                 cmb_absender.SelectedItem = item;
                                 break;
@@ -324,7 +326,7 @@ namespace DynamicPDFCreator
 
                         foreach (var item in cmb_Ansprechpartner.Items)
                         {
-                            if (((KeyValuePair<string, Bearbeiter>)item).Value == pdf.ansprechpartner)
+                            if (((KeyValuePair<string, Bearbeiter>)item).Value.id == pdf.ansprechpartner.id)
                             {
                                 cmb_Ansprechpartner.SelectedItem = item;
                                 break;
@@ -349,12 +351,15 @@ namespace DynamicPDFCreator
                         cmb_wesie.DataSource = new BindingSource(wesiTeam, null);
                         cmb_wesie.DisplayMember = "Key";
                         cmb_wesie.ValueMember = "Value";
+                        cmb_wesie.SelectedItem = null;
 
                         foreach (var item in cmb_wesie.Items)
                         {
-                            if (((KeyValuePair<string, WesiTeam>)item).Value == pdf.wesiTeam)
+                            if (((KeyValuePair<string, WesiTeam>)item).Value.id == pdf.wesiTeam.id)
                             {
+                                neuzuweisung = false;
                                 cmb_wesie.SelectedItem = item;
+                                neuzuweisung = true;
                                 break;
                             }
                         }
@@ -371,7 +376,7 @@ namespace DynamicPDFCreator
 
                         foreach (var item in cmb_ansprechpartnerBau.Items)
                         {
-                            if (((KeyValuePair<string, Ansprechpartner>)item).Value == pdf.ansprechpartnerBau)
+                            if (((KeyValuePair<string, Ansprechpartner>)item).Value.id == pdf.ansprechpartnerBau.id)
                             {
                                 cmb_ansprechpartnerBau.SelectedItem = item;
                                 break;
@@ -412,7 +417,7 @@ namespace DynamicPDFCreator
 
                         foreach (var item in cmb_EF_empfaenger.Items)
                         {
-                            if (((KeyValuePair<string, Ansprechpartner>)item).Value == pdf.empfaenger)
+                            if (((KeyValuePair<string, Ansprechpartner>)item).Value.id == pdf.empfaenger.id)
                             {
                                 cmb_EF_empfaenger.SelectedItem = item;
                                 break;
@@ -430,7 +435,7 @@ namespace DynamicPDFCreator
 
                         foreach (var item in cmb_ef_absender.Items)
                         {
-                            if (((KeyValuePair<string, Bearbeiter>)item).Value == pdf.absender)
+                            if (((KeyValuePair<string, Bearbeiter>)item).Value.id == pdf.absender.id)
                             {
                                 cmb_ef_absender.SelectedItem = item;
                                 break;
@@ -851,6 +856,7 @@ namespace DynamicPDFCreator
                 //Empfänger Festlegen
                 if (DBm.dbPDF.auftrag != null)
                 {
+                    listb_vorherige_PDF.Enabled = true;
                     if (DBm.dbPDF.dic_Ansprechpartner.Count > 0)
                     {
                         neuzuweisung = true;

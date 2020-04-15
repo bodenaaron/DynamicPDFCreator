@@ -41,6 +41,10 @@ namespace DynamicPDFCreator
         {
             this.form = form;
         }
+        public EnableHandler()
+        {
+
+        }
 
         public void manageFields(object[] felder_typ)
         {                        
@@ -93,13 +97,13 @@ namespace DynamicPDFCreator
                     case Pflichtfelder_Klassen.Pflichtfelder.ZUSATZ:
                         form.tb_zusatzanlage.Enabled = true;
                         form.listb_zusatzanlagen.Enabled = true;
-                        break;                                                 
+                        break;
+                    
                 }
-            }
+            }            
             clearColor(true);
             enabledColor(true);
         }
-
 
         public void manageFieldsEF(object[] felder_typ)
         {
@@ -151,6 +155,19 @@ namespace DynamicPDFCreator
                 foreach (Control control in controls)
                     if (control is RichTextBox)
                         (control as RichTextBox).Enabled = true;
+                    else
+                        func(control.Controls);
+            };
+
+            func(form.Controls);
+
+            func = null;
+
+            func = (controls) =>
+            {
+                foreach (Control control in controls)
+                    if (control is ListBox)
+                        (control as ListBox).Enabled = true;
                     else
                         func(control.Controls);
             };
@@ -235,6 +252,30 @@ namespace DynamicPDFCreator
                         (control as RichTextBox).Clear();
                     else
                         func(control.Controls);
+            };
+
+            func(form.Controls);
+
+            func = null;
+
+            func = (controls) =>
+            {
+                try
+                {
+                    foreach (Control control in controls)
+                        if (control is ListBox)
+                            (control as ListBox).Items.Clear();
+                        else
+                            func(control.Controls);
+                }
+                catch (Exception)
+                {
+                    foreach (Control control in controls)
+                        if (control is ListBox)
+                            (control as ListBox).DataSource=null;
+                        else
+                            func(control.Controls);
+                }
             };
 
             func(form.Controls);
@@ -398,7 +439,6 @@ namespace DynamicPDFCreator
 
             return zusatzanlagen;
         }
-
         public void displayError(int error)
         {
             switch (error)
@@ -455,6 +495,20 @@ namespace DynamicPDFCreator
                     break;
 
 
+            }
+        }
+        public void clean(bool content, bool color, bool active)
+        {
+            if (content)
+            {
+                clearAll(true);
+            }
+            if (color){
+                clearColor(true);
+            }
+            if (active)
+            {
+                disableAll(true);
             }
         }
     }

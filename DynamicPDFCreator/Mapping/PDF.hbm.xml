@@ -11,7 +11,7 @@
     <many-to-one name = "anschreibenTyp"/>
     <many-to-one name = "empfaenger"/>
     <many-to-one name = "absender" lazy="false"/>
-    <many-to-one name = "ansprechpartner" cascade="all" lazy="false"/>
+    <many-to-one name = "ansprechpartner"  lazy="false"/>
     <many-to-one name = "ansprechpartnerBau"/>
     <many-to-one name = "wesiTeam" lazy="false"/>
     
