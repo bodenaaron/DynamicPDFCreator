@@ -724,6 +724,7 @@
             this.cmb_anschreibenTyp.ForeColor = System.Drawing.SystemColors.WindowText;
             this.cmb_anschreibenTyp.FormattingEnabled = true;
             this.cmb_anschreibenTyp.Name = "cmb_anschreibenTyp";
+            this.cmb_anschreibenTyp.SelectedIndexChanged += new System.EventHandler(this.Cmb_anschreibenTyp_SelectedIndexChanged);
             // 
             // tb_ortMassnahme
             // 

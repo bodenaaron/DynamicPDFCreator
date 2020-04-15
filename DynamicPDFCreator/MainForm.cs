@@ -44,8 +44,7 @@ namespace DynamicPDFCreator
             cmb_anschreibenTyp.DisplayMember = "Key";
             cmb_anschreibenTyp.ValueMember = "Value";
             cmb_anschreibenTyp.SelectedItem = null;
-            cmb_anschreibenTyp.FlatStyle = FlatStyle.Popup;
-            cmb_anschreibenTyp.SelectedIndexChanged += new System.EventHandler(Cmb_anschreibenTyp_SelectedIndexChanged);
+            cmb_anschreibenTyp.FlatStyle = FlatStyle.Popup;            
 
             //WesiTeam            
             cmb_wesie.DataSource = new BindingSource(DBm.dbPDF.dic_WesiTeam, null);
@@ -619,6 +618,17 @@ namespace DynamicPDFCreator
                 }
                 workingPDF.anschreibenTyp = anschreiben;
             }
+
+            if (DBm.dbPDF.dic_Ansprechpartner.Count > 0)
+            {
+                neuzuweisung = true;
+                cmb_empfaenger.DataSource = new BindingSource(DBm.dbPDF.dic_Ansprechpartner, null);
+                cmb_empfaenger.DisplayMember = "Key";
+                cmb_empfaenger.ValueMember = "Value";
+                cmb_empfaenger.SelectedItem = null;
+                neuzuweisung = false;
+            }
+            else { cmb_empfaenger.DataSource = null; }
         }
         private void Cmb_empfaenger_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -856,18 +866,7 @@ namespace DynamicPDFCreator
                 //Empfänger Festlegen
                 if (DBm.dbPDF.auftrag != null)
                 {
-                    listb_vorherige_PDF.Enabled = true;
-                    if (DBm.dbPDF.dic_Ansprechpartner.Count > 0)
-                    {
-                        neuzuweisung = true;
-                        cmb_empfaenger.DataSource = new BindingSource(DBm.dbPDF.dic_Ansprechpartner, null);
-                        cmb_empfaenger.DisplayMember = "Key";
-                        cmb_empfaenger.ValueMember = "Value";
-                        cmb_empfaenger.SelectedItem = null;
-                        neuzuweisung = false;
-                        cmb_empfaenger.SelectedIndexChanged += new System.EventHandler(Cmb_empfaenger_SelectedIndexChanged);
-                    }
-                    else { cmb_empfaenger.DataSource = null; }
+                    listb_vorherige_PDF.Enabled = true;                    
 
                     workingPDF.auftrag = DBm.dbPDF.auftrag;
 
@@ -979,6 +978,7 @@ namespace DynamicPDFCreator
                 savedFolder = pfad.Substring(0, pfad.LastIndexOf("\\"));
                 btn_openFile.Enabled = true;
                 btn_openFolder.Enabled = true;
+                Btn_suchen_Click(null, null);
             }
             catch (Exception qe) { error_label.Text = "Datei konnte nicht gespeichert werden " + qe.Message; }
         }

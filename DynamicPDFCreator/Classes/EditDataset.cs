@@ -42,13 +42,14 @@ namespace DynamicPDFCreator
             cmb_typ.DisplayMember = "Key";
             cmb_typ.ValueMember = "Value";
             cmb_typ.DataSource= new BindingSource(ansprechpartnerTypen, null);
-            AnsprechpartnerTyp ansprechtyp;
+            try
+            {
+                AnsprechpartnerTyp ansprechtyp;
             if (!ansprechpartnerTypen.TryGetValue(ansprechpartner.typ,out ansprechtyp))
             {
                 ansprechpartnerTypen.TryGetValue(ansprechpartner.typ.ToUpper(), out ansprechtyp);
             }
-            try
-            {
+          
                 cmb_typ.SelectedItem = new KeyValuePair<string, AnsprechpartnerTyp>($@"{ansprechtyp.bezeichnung}", ansprechtyp);
             }
             catch (Exception)//todo: Errorhandler implementieren
