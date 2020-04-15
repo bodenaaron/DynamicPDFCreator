@@ -128,6 +128,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.tb_LB_SMNummer = new System.Windows.Forms.TextBox();
             this.pdfPreview_ListeBeteiligte = new System.Windows.Forms.WebBrowser();
+            this.btn_clear_all = new System.Windows.Forms.Button();
             this.customFormular.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.MainTab.SuspendLayout();
@@ -476,6 +477,7 @@
             // groupBox1
             // 
             resources.ApplyResources(this.groupBox1, "groupBox1");
+            this.groupBox1.Controls.Add(this.btn_clear_all);
             this.groupBox1.Controls.Add(this.btn_remove_all);
             this.groupBox1.Controls.Add(this.btn_remove_selected);
             this.groupBox1.Controls.Add(this.tb_zusatzanlage);
@@ -866,6 +868,13 @@
             resources.ApplyResources(this.pdfPreview_ListeBeteiligte, "pdfPreview_ListeBeteiligte");
             this.pdfPreview_ListeBeteiligte.Name = "pdfPreview_ListeBeteiligte";
             // 
+            // btn_clear_all
+            // 
+            resources.ApplyResources(this.btn_clear_all, "btn_clear_all");
+            this.btn_clear_all.Name = "btn_clear_all";
+            this.btn_clear_all.UseVisualStyleBackColor = true;
+            this.btn_clear_all.Click += new System.EventHandler(this.btn_clear_all_Click);
+            // 
             // MainForm
             // 
             resources.ApplyResources(this, "$this");
@@ -989,6 +998,7 @@
         public System.Windows.Forms.WebBrowser pdfPreview_ListeBeteiligte;
         public System.Windows.Forms.Button btn_EF_openFile;
         public System.Windows.Forms.Button btn_EF_openFolder;
+        private System.Windows.Forms.Button btn_clear_all;
     }
 }
 

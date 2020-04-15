@@ -1303,6 +1303,12 @@ namespace DynamicPDFCreator
         }
         #endregion
 
+        private void btn_clear_all_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
+            Environment.Exit(0);
+            //eH.clean(true,true,true);
+        }
     }
 }
     

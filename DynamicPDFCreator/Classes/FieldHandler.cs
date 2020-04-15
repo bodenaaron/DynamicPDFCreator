@@ -302,7 +302,7 @@ namespace DynamicPDFCreator
             {
                 foreach (Control control in controls)
                     if (control is ComboBox && !control.Enabled)
-                        (control as ComboBox).BackColor = colorDisabled;
+                        (control as ComboBox).BackColor = Color.White;
                     else
                         func(control.Controls);
             };

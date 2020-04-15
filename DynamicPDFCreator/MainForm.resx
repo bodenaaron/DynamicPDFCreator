@@ -171,6 +171,141 @@
   <data name="&gt;&gt;groupBox5.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="&gt;&gt;btn_EF_openFile.Name" xml:space="preserve">
+    <value>btn_EF_openFile</value>
+  </data>
+  <data name="&gt;&gt;btn_EF_openFile.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_EF_openFile.Parent" xml:space="preserve">
+    <value>customFormular</value>
+  </data>
+  <data name="&gt;&gt;btn_EF_openFile.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;btn_EF_openFolder.Name" xml:space="preserve">
+    <value>btn_EF_openFolder</value>
+  </data>
+  <data name="&gt;&gt;btn_EF_openFolder.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_EF_openFolder.Parent" xml:space="preserve">
+    <value>customFormular</value>
+  </data>
+  <data name="&gt;&gt;btn_EF_openFolder.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;EF_error_label.Name" xml:space="preserve">
+    <value>EF_error_label</value>
+  </data>
+  <data name="&gt;&gt;EF_error_label.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;EF_error_label.Parent" xml:space="preserve">
+    <value>customFormular</value>
+  </data>
+  <data name="&gt;&gt;EF_error_label.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;btn_EF_auftragsordner_speichern.Name" xml:space="preserve">
+    <value>btn_EF_auftragsordner_speichern</value>
+  </data>
+  <data name="&gt;&gt;btn_EF_auftragsordner_speichern.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_EF_auftragsordner_speichern.Parent" xml:space="preserve">
+    <value>customFormular</value>
+  </data>
+  <data name="&gt;&gt;btn_EF_auftragsordner_speichern.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;btn_EF_vorschau.Name" xml:space="preserve">
+    <value>btn_EF_vorschau</value>
+  </data>
+  <data name="&gt;&gt;btn_EF_vorschau.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_EF_vorschau.Parent" xml:space="preserve">
+    <value>customFormular</value>
+  </data>
+  <data name="&gt;&gt;btn_EF_vorschau.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;btn_EF_speichernUnter.Name" xml:space="preserve">
+    <value>btn_EF_speichernUnter</value>
+  </data>
+  <data name="&gt;&gt;btn_EF_speichernUnter.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_EF_speichernUnter.Parent" xml:space="preserve">
+    <value>customFormular</value>
+  </data>
+  <data name="&gt;&gt;btn_EF_speichernUnter.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;rtb_EF_Anschreiben.Name" xml:space="preserve">
+    <value>rtb_EF_Anschreiben</value>
+  </data>
+  <data name="&gt;&gt;rtb_EF_Anschreiben.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rtb_EF_Anschreiben.Parent" xml:space="preserve">
+    <value>customFormular</value>
+  </data>
+  <data name="&gt;&gt;rtb_EF_Anschreiben.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;pdfPreview_EF.Name" xml:space="preserve">
+    <value>pdfPreview_EF</value>
+  </data>
+  <data name="&gt;&gt;pdfPreview_EF.Type" xml:space="preserve">
+    <value>System.Windows.Forms.WebBrowser, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pdfPreview_EF.Parent" xml:space="preserve">
+    <value>customFormular</value>
+  </data>
+  <data name="&gt;&gt;pdfPreview_EF.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;groupBox2.Name" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;groupBox2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox2.Parent" xml:space="preserve">
+    <value>customFormular</value>
+  </data>
+  <data name="&gt;&gt;groupBox2.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="customFormular.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="customFormular.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="customFormular.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1614, 892</value>
+  </data>
+  <data name="customFormular.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="customFormular.Text" xml:space="preserve">
+    <value>Eigenes Formular</value>
+  </data>
+  <data name="&gt;&gt;customFormular.Name" xml:space="preserve">
+    <value>customFormular</value>
+  </data>
+  <data name="&gt;&gt;customFormular.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;customFormular.Parent" xml:space="preserve">
+    <value>tabControl</value>
+  </data>
+  <data name="&gt;&gt;customFormular.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <data name="btn_EF_openFile.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -386,6 +521,270 @@
   </data>
   <data name="groupBox2.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
     <value>GrowAndShrink</value>
+  </data>
+  <data name="&gt;&gt;btn_EF_PDF_laden.Name" xml:space="preserve">
+    <value>btn_EF_PDF_laden</value>
+  </data>
+  <data name="&gt;&gt;btn_EF_PDF_laden.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_EF_PDF_laden.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;btn_EF_PDF_laden.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;listb_EF_vorherigePDF.Name" xml:space="preserve">
+    <value>listb_EF_vorherigePDF</value>
+  </data>
+  <data name="&gt;&gt;listb_EF_vorherigePDF.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;listb_EF_vorherigePDF.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;listb_EF_vorherigePDF.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;btn_EF_allesEntfernen.Name" xml:space="preserve">
+    <value>btn_EF_allesEntfernen</value>
+  </data>
+  <data name="&gt;&gt;btn_EF_allesEntfernen.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_EF_allesEntfernen.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;btn_EF_allesEntfernen.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;btn_EF_zusatzEntfernen.Name" xml:space="preserve">
+    <value>btn_EF_zusatzEntfernen</value>
+  </data>
+  <data name="&gt;&gt;btn_EF_zusatzEntfernen.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_EF_zusatzEntfernen.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;btn_EF_zusatzEntfernen.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;tb_EF_zusatz.Name" xml:space="preserve">
+    <value>tb_EF_zusatz</value>
+  </data>
+  <data name="&gt;&gt;tb_EF_zusatz.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tb_EF_zusatz.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;tb_EF_zusatz.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;btn_EF_zusatzHinzufuegen.Name" xml:space="preserve">
+    <value>btn_EF_zusatzHinzufuegen</value>
+  </data>
+  <data name="&gt;&gt;btn_EF_zusatzHinzufuegen.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_EF_zusatzHinzufuegen.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;btn_EF_zusatzHinzufuegen.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;label5.Name" xml:space="preserve">
+    <value>label5</value>
+  </data>
+  <data name="&gt;&gt;label5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label5.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;listb_EF_Zusatz.Name" xml:space="preserve">
+    <value>listb_EF_Zusatz</value>
+  </data>
+  <data name="&gt;&gt;listb_EF_Zusatz.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;listb_EF_Zusatz.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;listb_EF_Zusatz.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;btn_EF_suchen.Name" xml:space="preserve">
+    <value>btn_EF_suchen</value>
+  </data>
+  <data name="&gt;&gt;btn_EF_suchen.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_EF_suchen.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;btn_EF_suchen.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;btn_EF_empfaengerBearbeiten.Name" xml:space="preserve">
+    <value>btn_EF_empfaengerBearbeiten</value>
+  </data>
+  <data name="&gt;&gt;btn_EF_empfaengerBearbeiten.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_EF_empfaengerBearbeiten.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;btn_EF_empfaengerBearbeiten.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;Datepicker_EF_datum.Name" xml:space="preserve">
+    <value>Datepicker_EF_datum</value>
+  </data>
+  <data name="&gt;&gt;Datepicker_EF_datum.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Datepicker_EF_datum.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;Datepicker_EF_datum.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;label15.Name" xml:space="preserve">
+    <value>label15</value>
+  </data>
+  <data name="&gt;&gt;label15.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label15.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;label15.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;tb_EF_SMNummer.Name" xml:space="preserve">
+    <value>tb_EF_SMNummer</value>
+  </data>
+  <data name="&gt;&gt;tb_EF_SMNummer.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tb_EF_SMNummer.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;tb_EF_SMNummer.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="&gt;&gt;tb_EF_betreff.Name" xml:space="preserve">
+    <value>tb_EF_betreff</value>
+  </data>
+  <data name="&gt;&gt;tb_EF_betreff.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tb_EF_betreff.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;tb_EF_betreff.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="&gt;&gt;cmb_EF_empfaenger.Name" xml:space="preserve">
+    <value>cmb_EF_empfaenger</value>
+  </data>
+  <data name="&gt;&gt;cmb_EF_empfaenger.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cmb_EF_empfaenger.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;cmb_EF_empfaenger.ZOrder" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <data name="&gt;&gt;label17.Name" xml:space="preserve">
+    <value>label17</value>
+  </data>
+  <data name="&gt;&gt;label17.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label17.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;label17.ZOrder" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="&gt;&gt;cmb_ef_absender.Name" xml:space="preserve">
+    <value>cmb_ef_absender</value>
+  </data>
+  <data name="&gt;&gt;cmb_ef_absender.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cmb_ef_absender.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;cmb_ef_absender.ZOrder" xml:space="preserve">
+    <value>16</value>
+  </data>
+  <data name="&gt;&gt;label18.Name" xml:space="preserve">
+    <value>label18</value>
+  </data>
+  <data name="&gt;&gt;label18.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label18.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;label18.ZOrder" xml:space="preserve">
+    <value>17</value>
+  </data>
+  <data name="&gt;&gt;label19.Name" xml:space="preserve">
+    <value>label19</value>
+  </data>
+  <data name="&gt;&gt;label19.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label19.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;label19.ZOrder" xml:space="preserve">
+    <value>18</value>
+  </data>
+  <data name="&gt;&gt;label22.Name" xml:space="preserve">
+    <value>label22</value>
+  </data>
+  <data name="&gt;&gt;label22.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label22.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;label22.ZOrder" xml:space="preserve">
+    <value>19</value>
+  </data>
+  <data name="groupBox2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Courier New, 8.25pt</value>
+  </data>
+  <data name="groupBox2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 6</value>
+  </data>
+  <data name="groupBox2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>462, 728</value>
+  </data>
+  <data name="groupBox2.TabIndex" type="System.Int32, mscorlib">
+    <value>53</value>
+  </data>
+  <data name="&gt;&gt;groupBox2.Name" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;groupBox2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox2.Parent" xml:space="preserve">
+    <value>customFormular</value>
+  </data>
+  <data name="&gt;&gt;groupBox2.ZOrder" xml:space="preserve">
+    <value>8</value>
   </data>
   <data name="btn_EF_PDF_laden.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -981,57 +1380,6 @@
   <data name="&gt;&gt;label22.ZOrder" xml:space="preserve">
     <value>19</value>
   </data>
-  <data name="groupBox2.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Courier New, 8.25pt</value>
-  </data>
-  <data name="groupBox2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 6</value>
-  </data>
-  <data name="groupBox2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>462, 728</value>
-  </data>
-  <data name="groupBox2.TabIndex" type="System.Int32, mscorlib">
-    <value>53</value>
-  </data>
-  <data name="&gt;&gt;groupBox2.Name" xml:space="preserve">
-    <value>groupBox2</value>
-  </data>
-  <data name="&gt;&gt;groupBox2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;groupBox2.Parent" xml:space="preserve">
-    <value>customFormular</value>
-  </data>
-  <data name="&gt;&gt;groupBox2.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="customFormular.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 22</value>
-  </data>
-  <data name="customFormular.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="customFormular.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1614, 892</value>
-  </data>
-  <data name="customFormular.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="customFormular.Text" xml:space="preserve">
-    <value>Eigenes Formular</value>
-  </data>
-  <data name="&gt;&gt;customFormular.Name" xml:space="preserve">
-    <value>customFormular</value>
-  </data>
-  <data name="&gt;&gt;customFormular.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;customFormular.Parent" xml:space="preserve">
-    <value>tabControl</value>
-  </data>
-  <data name="&gt;&gt;customFormular.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
   <data name="btn_delete_pdf.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
@@ -1416,6 +1764,30 @@
   <data name="groupBox1.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
     <value>GrowAndShrink</value>
   </data>
+  <data name="btn_clear_all.Location" type="System.Drawing.Point, System.Drawing">
+    <value>822, 12</value>
+  </data>
+  <data name="btn_clear_all.Size" type="System.Drawing.Size, System.Drawing">
+    <value>125, 42</value>
+  </data>
+  <data name="btn_clear_all.TabIndex" type="System.Int32, mscorlib">
+    <value>86</value>
+  </data>
+  <data name="btn_clear_all.Text" xml:space="preserve">
+    <value>Felder leeren</value>
+  </data>
+  <data name="&gt;&gt;btn_clear_all.Name" xml:space="preserve">
+    <value>btn_clear_all</value>
+  </data>
+  <data name="&gt;&gt;btn_clear_all.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_clear_all.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;btn_clear_all.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="btn_remove_all.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
@@ -1447,7 +1819,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;btn_remove_all.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="btn_remove_selected.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -1480,7 +1852,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;btn_remove_selected.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="tb_zusatzanlage.Font" type="System.Drawing.Font, System.Drawing">
     <value>Courier New, 8.25pt</value>
@@ -1504,7 +1876,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;tb_zusatzanlage.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="btn_add_zusatzanlagen.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -1537,7 +1909,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;btn_add_zusatzanlagen.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="label28.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1570,7 +1942,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;label28.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="listb_zusatzanlagen.Font" type="System.Drawing.Font, System.Drawing">
     <value>Courier New, 8.25pt</value>
@@ -1597,7 +1969,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;listb_zusatzanlagen.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="cb_untervollmacht.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1624,7 +1996,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;cb_untervollmacht.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="label29.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1657,7 +2029,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;label29.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="btn_bearbeiten_wesi.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Zoom</value>
@@ -1690,7 +2062,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;btn_bearbeiten_wesi.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>9</value>
   </data>
   <data name="label30.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1723,7 +2095,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;label30.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>10</value>
   </data>
   <data name="label31.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1756,7 +2128,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;label31.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>11</value>
   </data>
   <data name="cmb_ansprechpartnerBau.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -1786,7 +2158,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;cmb_ansprechpartnerBau.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>12</value>
   </data>
   <data name="label32.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1819,7 +2191,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;label32.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>13</value>
   </data>
   <data name="label33.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1852,7 +2224,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;label33.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>14</value>
   </data>
   <data name="rtb_WesiAdresse.Font" type="System.Drawing.Font, System.Drawing">
     <value>Courier New, 8.25pt</value>
@@ -1879,7 +2251,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;rtb_WesiAdresse.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>15</value>
   </data>
   <data name="cb_plansaetze.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1906,7 +2278,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;cb_plansaetze.ZOrder" xml:space="preserve">
-    <value>15</value>
+    <value>16</value>
   </data>
   <data name="cmb_wesie.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Popup</value>
@@ -1933,7 +2305,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;cmb_wesie.ZOrder" xml:space="preserve">
-    <value>16</value>
+    <value>17</value>
   </data>
   <data name="cb_beteiligte.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1960,7 +2332,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;cb_beteiligte.ZOrder" xml:space="preserve">
-    <value>17</value>
+    <value>18</value>
   </data>
   <data name="cb_techBeschreibung.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1987,7 +2359,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;cb_techBeschreibung.ZOrder" xml:space="preserve">
-    <value>18</value>
+    <value>19</value>
   </data>
   <data name="label35.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -2020,7 +2392,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;label35.ZOrder" xml:space="preserve">
-    <value>19</value>
+    <value>20</value>
   </data>
   <data name="tb_WesiMail.Font" type="System.Drawing.Font, System.Drawing">
     <value>Courier New, 8.25pt</value>
@@ -2044,7 +2416,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;tb_WesiMail.ZOrder" xml:space="preserve">
-    <value>20</value>
+    <value>21</value>
   </data>
   <data name="label37.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -2077,7 +2449,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;label37.ZOrder" xml:space="preserve">
-    <value>21</value>
+    <value>22</value>
   </data>
   <data name="label38.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -2110,7 +2482,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;label38.ZOrder" xml:space="preserve">
-    <value>22</value>
+    <value>23</value>
   </data>
   <data name="btn_suchen.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -2143,7 +2515,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;btn_suchen.ZOrder" xml:space="preserve">
-    <value>23</value>
+    <value>24</value>
   </data>
   <data name="btn_bearbeiten.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Zoom</value>
@@ -2173,7 +2545,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;btn_bearbeiten.ZOrder" xml:space="preserve">
-    <value>24</value>
+    <value>25</value>
   </data>
   <data name="datePicker.Font" type="System.Drawing.Font, System.Drawing">
     <value>Courier New, 8.25pt</value>
@@ -2197,7 +2569,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;datePicker.ZOrder" xml:space="preserve">
-    <value>25</value>
+    <value>26</value>
   </data>
   <data name="datePickerAusfuehrungEnde.Font" type="System.Drawing.Font, System.Drawing">
     <value>Courier New, 8.25pt</value>
@@ -2221,7 +2593,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;datePickerAusfuehrungEnde.ZOrder" xml:space="preserve">
-    <value>26</value>
+    <value>27</value>
   </data>
   <data name="lb_SMNumber.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -2254,7 +2626,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;lb_SMNumber.ZOrder" xml:space="preserve">
-    <value>27</value>
+    <value>28</value>
   </data>
   <data name="tb_smNummer.Font" type="System.Drawing.Font, System.Drawing">
     <value>Courier New, 8.25pt</value>
@@ -2278,7 +2650,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;tb_smNummer.ZOrder" xml:space="preserve">
-    <value>28</value>
+    <value>29</value>
   </data>
   <data name="lb_anschreibenTyp.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -2311,7 +2683,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;lb_anschreibenTyp.ZOrder" xml:space="preserve">
-    <value>29</value>
+    <value>30</value>
   </data>
   <data name="cmb_anschreibenTyp.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Popup</value>
@@ -2338,7 +2710,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;cmb_anschreibenTyp.ZOrder" xml:space="preserve">
-    <value>30</value>
+    <value>31</value>
   </data>
   <data name="tb_ortMassnahme.Font" type="System.Drawing.Font, System.Drawing">
     <value>Courier New, 8.25pt</value>
@@ -2362,7 +2734,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;tb_ortMassnahme.ZOrder" xml:space="preserve">
-    <value>31</value>
+    <value>32</value>
   </data>
   <data name="cmb_empfaenger.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Popup</value>
@@ -2389,7 +2761,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;cmb_empfaenger.ZOrder" xml:space="preserve">
-    <value>32</value>
+    <value>33</value>
   </data>
   <data name="lb_empfaenger.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -2422,7 +2794,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;lb_empfaenger.ZOrder" xml:space="preserve">
-    <value>33</value>
+    <value>34</value>
   </data>
   <data name="cmb_absender.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Popup</value>
@@ -2449,7 +2821,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;cmb_absender.ZOrder" xml:space="preserve">
-    <value>34</value>
+    <value>35</value>
   </data>
   <data name="lb_absender.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -2482,7 +2854,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;lb_absender.ZOrder" xml:space="preserve">
-    <value>35</value>
+    <value>36</value>
   </data>
   <data name="lb_datum.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -2515,7 +2887,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;lb_datum.ZOrder" xml:space="preserve">
-    <value>36</value>
+    <value>37</value>
   </data>
   <data name="datePickerAusfuehrung.Font" type="System.Drawing.Font, System.Drawing">
     <value>Courier New, 8.25pt</value>
@@ -2539,7 +2911,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;datePickerAusfuehrung.ZOrder" xml:space="preserve">
-    <value>37</value>
+    <value>38</value>
   </data>
   <data name="label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -2572,7 +2944,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>38</value>
+    <value>39</value>
   </data>
   <data name="cmb_Ansprechpartner.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Popup</value>
@@ -2599,7 +2971,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;cmb_Ansprechpartner.ZOrder" xml:space="preserve">
-    <value>39</value>
+    <value>40</value>
   </data>
   <data name="label2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -2632,7 +3004,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>40</value>
+    <value>41</value>
   </data>
   <data name="label3.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -2665,7 +3037,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
-    <value>41</value>
+    <value>42</value>
   </data>
   <data name="label4.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -2699,7 +3071,7 @@ abgesprochen wurde</value>
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
-    <value>42</value>
+    <value>43</value>
   </data>
   <data name="rtb_absprachen.Font" type="System.Drawing.Font, System.Drawing">
     <value>Courier New, 8.25pt</value>
@@ -2726,7 +3098,7 @@ abgesprochen wurde</value>
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;rtb_absprachen.ZOrder" xml:space="preserve">
-    <value>43</value>
+    <value>44</value>
   </data>
   <data name="groupBox1.Font" type="System.Drawing.Font, System.Drawing">
     <value>Courier New, 8.25pt</value>
@@ -2781,6 +3153,126 @@ abgesprochen wurde</value>
   </data>
   <data name="tabControl.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="&gt;&gt;label7.Name" xml:space="preserve">
+    <value>label7</value>
+  </data>
+  <data name="&gt;&gt;label7.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label7.Parent" xml:space="preserve">
+    <value>listeBeteiligte</value>
+  </data>
+  <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;checked_listBox_Beteiligte.Name" xml:space="preserve">
+    <value>checked_listBox_Beteiligte</value>
+  </data>
+  <data name="&gt;&gt;checked_listBox_Beteiligte.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckedListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checked_listBox_Beteiligte.Parent" xml:space="preserve">
+    <value>listeBeteiligte</value>
+  </data>
+  <data name="&gt;&gt;checked_listBox_Beteiligte.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;btn_LB_suchen.Name" xml:space="preserve">
+    <value>btn_LB_suchen</value>
+  </data>
+  <data name="&gt;&gt;btn_LB_suchen.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_LB_suchen.Parent" xml:space="preserve">
+    <value>listeBeteiligte</value>
+  </data>
+  <data name="&gt;&gt;btn_LB_suchen.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;label6.Name" xml:space="preserve">
+    <value>label6</value>
+  </data>
+  <data name="&gt;&gt;label6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label6.Parent" xml:space="preserve">
+    <value>listeBeteiligte</value>
+  </data>
+  <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;tb_LB_SMNummer.Name" xml:space="preserve">
+    <value>tb_LB_SMNummer</value>
+  </data>
+  <data name="&gt;&gt;tb_LB_SMNummer.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tb_LB_SMNummer.Parent" xml:space="preserve">
+    <value>listeBeteiligte</value>
+  </data>
+  <data name="&gt;&gt;tb_LB_SMNummer.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;pdfPreview_ListeBeteiligte.Name" xml:space="preserve">
+    <value>pdfPreview_ListeBeteiligte</value>
+  </data>
+  <data name="&gt;&gt;pdfPreview_ListeBeteiligte.Type" xml:space="preserve">
+    <value>System.Windows.Forms.WebBrowser, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pdfPreview_ListeBeteiligte.Parent" xml:space="preserve">
+    <value>listeBeteiligte</value>
+  </data>
+  <data name="&gt;&gt;pdfPreview_ListeBeteiligte.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="listeBeteiligte.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="listeBeteiligte.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="listeBeteiligte.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1614, 892</value>
+  </data>
+  <data name="listeBeteiligte.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="listeBeteiligte.Text" xml:space="preserve">
+    <value>Liste der Beteiligten</value>
+  </data>
+  <data name="&gt;&gt;listeBeteiligte.Name" xml:space="preserve">
+    <value>listeBeteiligte</value>
+  </data>
+  <data name="&gt;&gt;listeBeteiligte.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;listeBeteiligte.Parent" xml:space="preserve">
+    <value>tabControl</value>
+  </data>
+  <data name="&gt;&gt;listeBeteiligte.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="tabControl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>2, 6</value>
+  </data>
+  <data name="tabControl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1622, 918</value>
+  </data>
+  <data name="tabControl.TabIndex" type="System.Int32, mscorlib">
+    <value>68</value>
+  </data>
+  <data name="&gt;&gt;tabControl.Name" xml:space="preserve">
+    <value>tabControl</value>
+  </data>
+  <data name="&gt;&gt;tabControl.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabControl.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;tabControl.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="label7.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -2952,54 +3444,6 @@ abgesprochen wurde</value>
   </data>
   <data name="&gt;&gt;pdfPreview_ListeBeteiligte.ZOrder" xml:space="preserve">
     <value>5</value>
-  </data>
-  <data name="listeBeteiligte.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 22</value>
-  </data>
-  <data name="listeBeteiligte.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="listeBeteiligte.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1614, 892</value>
-  </data>
-  <data name="listeBeteiligte.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="listeBeteiligte.Text" xml:space="preserve">
-    <value>Liste der Beteiligten</value>
-  </data>
-  <data name="&gt;&gt;listeBeteiligte.Name" xml:space="preserve">
-    <value>listeBeteiligte</value>
-  </data>
-  <data name="&gt;&gt;listeBeteiligte.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;listeBeteiligte.Parent" xml:space="preserve">
-    <value>tabControl</value>
-  </data>
-  <data name="&gt;&gt;listeBeteiligte.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="tabControl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>2, 6</value>
-  </data>
-  <data name="tabControl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1622, 918</value>
-  </data>
-  <data name="tabControl.TabIndex" type="System.Int32, mscorlib">
-    <value>68</value>
-  </data>
-  <data name="&gt;&gt;tabControl.Name" xml:space="preserve">
-    <value>tabControl</value>
-  </data>
-  <data name="&gt;&gt;tabControl.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tabControl.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;tabControl.ZOrder" xml:space="preserve">
-    <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
