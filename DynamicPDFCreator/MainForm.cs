@@ -984,14 +984,14 @@ namespace DynamicPDFCreator
         }
         private void Btn_openFolder_Click(object sender, EventArgs e)
         {
-            if (savedFolder != null)
+            if (savedFolder != null&&savedFolder!="")
             {
                 Process.Start(savedFolder);
             }
         }
         private void Btn_openFile_Click(object sender, EventArgs e)
         {
-            if (savedFile != null)
+            if (savedFile != null&&savedFile!="")
             {
                 Process.Start(savedFile);
             }
@@ -1103,14 +1103,14 @@ namespace DynamicPDFCreator
         }
         private void Btn_EF_openFile_Click(object sender, EventArgs e)
         {
-            if (savedFile != null)
+            if (savedFile != null && savedFile!="")
             {
                 Process.Start(savedFile);
             }
         }
         private void Btn_EF_openFolder_Click(object sender, EventArgs e)
         {
-            if (savedFolder != null)
+            if (savedFolder != null && savedFolder != "")
             {
                 Process.Start(savedFolder);
             }
