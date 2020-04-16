@@ -57,7 +57,7 @@
             this.tb_EF_betreff = new System.Windows.Forms.TextBox();
             this.cmb_EF_empfaenger = new System.Windows.Forms.ComboBox();
             this.label17 = new System.Windows.Forms.Label();
-            this.cmb_ef_absender = new System.Windows.Forms.ComboBox();
+            this.cmb_EF_absender = new System.Windows.Forms.ComboBox();
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
@@ -233,7 +233,7 @@
             this.groupBox2.Controls.Add(this.tb_EF_betreff);
             this.groupBox2.Controls.Add(this.cmb_EF_empfaenger);
             this.groupBox2.Controls.Add(this.label17);
-            this.groupBox2.Controls.Add(this.cmb_ef_absender);
+            this.groupBox2.Controls.Add(this.cmb_EF_absender);
             this.groupBox2.Controls.Add(this.label18);
             this.groupBox2.Controls.Add(this.label19);
             this.groupBox2.Controls.Add(this.label22);
@@ -347,15 +347,15 @@
             resources.ApplyResources(this.label17, "label17");
             this.label17.Name = "label17";
             // 
-            // cmb_ef_absender
+            // cmb_EF_absender
             // 
-            this.cmb_ef_absender.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.cmb_ef_absender.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cmb_ef_absender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            resources.ApplyResources(this.cmb_ef_absender, "cmb_ef_absender");
-            this.cmb_ef_absender.FormattingEnabled = true;
-            this.cmb_ef_absender.Name = "cmb_ef_absender";
-            this.cmb_ef_absender.SelectedIndexChanged += new System.EventHandler(this.cmb_ef_absender_SelectedIndexChanged);
+            this.cmb_EF_absender.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cmb_EF_absender.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmb_EF_absender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            resources.ApplyResources(this.cmb_EF_absender, "cmb_EF_absender");
+            this.cmb_EF_absender.FormattingEnabled = true;
+            this.cmb_EF_absender.Name = "cmb_EF_absender";
+            this.cmb_EF_absender.SelectedIndexChanged += new System.EventHandler(this.cmb_ef_absender_SelectedIndexChanged);
             // 
             // label18
             // 
@@ -976,7 +976,7 @@
         public System.Windows.Forms.TextBox tb_EF_betreff;
         public System.Windows.Forms.ComboBox cmb_EF_empfaenger;
         public System.Windows.Forms.Label label17;
-        public System.Windows.Forms.ComboBox cmb_ef_absender;
+        public System.Windows.Forms.ComboBox cmb_EF_absender;
         public System.Windows.Forms.Label label18;
         public System.Windows.Forms.Label label19;
         public System.Windows.Forms.Label label22;

@@ -120,6 +120,7 @@
       <DependentUpon>EditDataset.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\FieldHandler.cs" />
+    <Compile Include="Controller\IMainView.cs" />
     <Compile Include="Entities\DBpdf.cs" />
     <Compile Include="Classes\PDF.cs" />
     <Compile Include="Entities\AnschreibenTyp.cs" />
@@ -226,6 +227,9 @@
     <EmbeddedResource Include="Mapping\AnsprechpartnerTyp.hbm.xml" />
     <EmbeddedResource Include="Mapping\Zusatzanlage.hbm.xml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Models\" />
+    <Folder Include="Views\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

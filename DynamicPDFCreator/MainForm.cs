@@ -17,7 +17,7 @@ namespace DynamicPDFCreator
 {
     public partial class MainForm : Form
     {
-        EnableHandler eH = new EnableHandler();                     
+        EnableHandler eH = new EnableHandler();
         DBManager DBm = new DBManager();
         public WorkingPDF workingPDF = new WorkingPDF();
         public bool neuzuweisung = false;
@@ -68,11 +68,11 @@ namespace DynamicPDFCreator
             cmb_absender.SelectedIndexChanged += new System.EventHandler(Cmb_absender_SelectedIndexChanged);
 
             //Absender EF
-            cmb_ef_absender.DataSource = new BindingSource(DBm.dbPDF.dic_Bearbeiter, null);
-            cmb_ef_absender.DisplayMember = "Key";
-            cmb_ef_absender.ValueMember = "Value";
-            cmb_ef_absender.SelectedItem = null;
-            cmb_ef_absender.SelectedIndexChanged += new System.EventHandler(cmb_ef_absender_SelectedIndexChanged);
+            cmb_EF_absender.DataSource = new BindingSource(DBm.dbPDF.dic_Bearbeiter, null);
+            cmb_EF_absender.DisplayMember = "Key";
+            cmb_EF_absender.ValueMember = "Value";
+            cmb_EF_absender.SelectedItem = null;
+            cmb_EF_absender.SelectedIndexChanged += new System.EventHandler(cmb_ef_absender_SelectedIndexChanged);
 
             //Datepicker custom form
             datePickerAusfuehrung.Format = DateTimePickerFormat.Custom;
@@ -112,7 +112,6 @@ namespace DynamicPDFCreator
             else { eH.clean(true,true,true); }
             if (this.tabControl.SelectedTab.Text == "Liste der Beteiligten")
             {
-
                 tb_LB_SMNummer.Enabled = true;
                 btn_LB_suchen.Enabled = true;
                 checked_listBox_Beteiligte.Enabled = true;
@@ -209,7 +208,7 @@ namespace DynamicPDFCreator
                     DBm.dbPDF.auftrag,
                     new AnschreibenTyp() { bezeichnung = "EigenesFormular", id = 14 },
                     ((KeyValuePair<string, Ansprechpartner>)cmb_EF_empfaenger.SelectedItem).Value,
-                    ((KeyValuePair<string, Bearbeiter>)cmb_ef_absender.SelectedItem).Value,
+                    ((KeyValuePair<string, Bearbeiter>)cmb_EF_absender.SelectedItem).Value,
                     Datepicker_EF_datum.Value,
                     tb_EF_betreff.Text,
                     rtb,
@@ -256,7 +255,7 @@ namespace DynamicPDFCreator
         {
             neuzuweisung = true;
             switch (tab)
-            {                
+            {
                 case 0:
                     //Anschreiben Typ                    
                     Dictionary<string, AnschreibenTyp> anschreibenTypen = DBm.dbPDF.dic_AnschreibenTyp;
@@ -428,15 +427,15 @@ namespace DynamicPDFCreator
                     if (pdf.absender != null)
                     {
                         Dictionary<string, Bearbeiter> absender = DBm.dbPDF.dic_Bearbeiter;
-                        cmb_ef_absender.DataSource = new BindingSource(absender, null);
-                        cmb_ef_absender.DisplayMember = "Key";
-                        cmb_ef_absender.ValueMember = "Value";
+                        cmb_EF_absender.DataSource = new BindingSource(absender, null);
+                        cmb_EF_absender.DisplayMember = "Key";
+                        cmb_EF_absender.ValueMember = "Value";
 
-                        foreach (var item in cmb_ef_absender.Items)
+                        foreach (var item in cmb_EF_absender.Items)
                         {
                             if (((KeyValuePair<string, Bearbeiter>)item).Value.id == pdf.absender.id)
                             {
-                                cmb_ef_absender.SelectedItem = item;
+                                cmb_EF_absender.SelectedItem = item;
                                 break;
                             }
                         }
@@ -784,9 +783,9 @@ namespace DynamicPDFCreator
             {
                 return;
             }
-            if (cmb_ef_absender.SelectedItem != null)
+            if (cmb_EF_absender.SelectedItem != null)
             {
-                workingPDF.absender = ((KeyValuePair<string, Bearbeiter>)cmb_ef_absender.SelectedItem).Value;
+                workingPDF.absender = ((KeyValuePair<string, Bearbeiter>)cmb_EF_absender.SelectedItem).Value;
 
             }
         }
@@ -1179,13 +1178,13 @@ namespace DynamicPDFCreator
             {
                 neuzuweisung = true;
                 Dictionary<string, Bearbeiter> absender = DBm.dbPDF.dic_Bearbeiter;
-                cmb_ef_absender.DataSource = new BindingSource(absender, null);
-                cmb_ef_absender.DisplayMember = "Key";
-                cmb_ef_absender.ValueMember = "Value";
+                cmb_EF_absender.DataSource = new BindingSource(absender, null);
+                cmb_EF_absender.DisplayMember = "Key";
+                cmb_EF_absender.ValueMember = "Value";
                 neuzuweisung = false;
                 if (absender.TryGetValue($@"{workingPDF.absender.bearbeiterVorname} {workingPDF.absender.bearbeiterName}", out Bearbeiter bearb))
                 {
-                    cmb_ef_absender.SelectedItem = new KeyValuePair<string, Bearbeiter>($@"{bearb.bearbeiterVorname} {bearb.bearbeiterName}", bearb);
+                    cmb_EF_absender.SelectedItem = new KeyValuePair<string, Bearbeiter>($@"{bearb.bearbeiterVorname} {bearb.bearbeiterName}", bearb);
                 }
             }
             //Datum
@@ -1239,6 +1238,7 @@ namespace DynamicPDFCreator
         {
             listb_EF_vorherigePDF.SelectedItem = null;
             EF_error_label.Text = "";
+            workingPDF.pflichtfelder= Pflichtfelder_Klassen.Pflicht_EigenesFormular.PFLICHTFELDER;
             List<Zusatzanlage> zusatzanlagen = eH.checkInput(workingPDF.pflichtfelder);
 
             RichTextBox rtb = new RichTextBox();

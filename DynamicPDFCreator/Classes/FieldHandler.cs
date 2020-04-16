@@ -182,7 +182,7 @@ namespace DynamicPDFCreator
             func = (controls) =>
             {
                 foreach (Control control in controls)
-                    if (control is ComboBox && control.Name != "cmb_anschreibenTyp" || control is ComboBox && fullDisable)
+                    if (control is ComboBox && control.Name != "cmb_anschreibenTyp" && !control.Name.Contains("_EF_") || control is ComboBox && fullDisable && !control.Name.Contains("_EF_"))
                         (control as ComboBox).Enabled = false;
                     else
                         func(control.Controls);
@@ -195,7 +195,7 @@ namespace DynamicPDFCreator
             func = (controls) =>
             {
                 foreach (Control control in controls)
-                    if (control is TextBox && control.Name != "tb_smNummer")
+                    if (control is TextBox && control.Name != "tb_smNummer" && !control.Name.Contains("_EF_"))
                         (control as TextBox).Enabled = false;
                     else
                         func(control.Controls);
@@ -206,7 +206,7 @@ namespace DynamicPDFCreator
             func = (controls) =>
             {
                 foreach (Control control in controls)
-                    if (control is RichTextBox)
+                    if (control is RichTextBox && !control.Name.Contains("_EF_"))
                         (control as RichTextBox).Enabled = false;
                     else
                         func(control.Controls);
