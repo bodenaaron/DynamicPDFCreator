@@ -51,28 +51,28 @@ namespace DynamicPDFCreator
             cmb_wesie.DisplayMember = "Key";
             cmb_wesie.ValueMember = "Value";
             cmb_wesie.SelectedItem = null;
-            cmb_wesie.SelectedIndexChanged += new System.EventHandler(Cmb_wesie_SelectedIndexChanged);
+            //cmb_wesie.SelectedIndexChanged += new System.EventHandler(Cmb_wesie_SelectedIndexChanged);
 
             //Ansprechpartner            
             cmb_Ansprechpartner.DataSource = new BindingSource(DBm.dbPDF.dic_Bearbeiter, null);
             cmb_Ansprechpartner.DisplayMember = "Key";
             cmb_Ansprechpartner.ValueMember = "Value";
             cmb_Ansprechpartner.SelectedItem = null;
-            cmb_Ansprechpartner.SelectedIndexChanged += new System.EventHandler(Cmb_Ansprechpartner_SelectedIndexChanged);
+            //cmb_Ansprechpartner.SelectedIndexChanged += new System.EventHandler(Cmb_Ansprechpartner_SelectedIndexChanged);
 
             //Absender
             cmb_absender.DataSource = new BindingSource(DBm.dbPDF.dic_Bearbeiter, null);
             cmb_absender.DisplayMember = "Key";
             cmb_absender.ValueMember = "Value";
             cmb_absender.SelectedItem = null;
-            cmb_absender.SelectedIndexChanged += new System.EventHandler(Cmb_absender_SelectedIndexChanged);
+            //cmb_absender.SelectedIndexChanged += new System.EventHandler(Cmb_absender_SelectedIndexChanged);
 
             //Absender EF
             cmb_EF_absender.DataSource = new BindingSource(DBm.dbPDF.dic_Bearbeiter, null);
             cmb_EF_absender.DisplayMember = "Key";
             cmb_EF_absender.ValueMember = "Value";
             cmb_EF_absender.SelectedItem = null;
-            cmb_EF_absender.SelectedIndexChanged += new System.EventHandler(cmb_ef_absender_SelectedIndexChanged);
+            //cmb_EF_absender.SelectedIndexChanged += new System.EventHandler(cmb_ef_absender_SelectedIndexChanged);
 
             //Datepicker custom form
             datePickerAusfuehrung.Format = DateTimePickerFormat.Custom;
@@ -288,7 +288,9 @@ namespace DynamicPDFCreator
                         {
                             if (((KeyValuePair<string, Ansprechpartner>)item).Value.id == pdf.empfaenger.id)
                             {
+                                neuzuweisung = false;
                                 cmb_empfaenger.SelectedItem = item;
+                                neuzuweisung = true;
                                 break; 
                             }
                         }
