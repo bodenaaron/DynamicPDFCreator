@@ -367,140 +367,76 @@ namespace DynamicPDFCreator
 
         public List<Zusatzanlage> checkInput(object[] pflichtfelder_typ)
         {
-            List<Zusatzanlage> zusatzanlagen = new List<Zusatzanlage>();
-            switch (form.tabControl.SelectedIndex)
+            if (form.workingPDF.auftrag == null)
             {
-                case 0:
-                    if (form.workingPDF.auftrag == null)
-                    {
-                        displayError(ERROR_SMNUMMER);
-                        return null;
-                    }
-
-                    if (pflichtfelder_typ == null)
-                    {
-                        displayError(ERROR_ANSCHREIBENTYP);
-                        return null;
-                    }
-                    foreach (int s in pflichtfelder_typ)
-                    {
-                        switch (s)
-                        {
-                            case Pflichtfelder_Klassen.Pflichtfelder.ABSENDER:
-                                if (form.cmb_absender.Text == "")
-                                {
-                                    displayError(ERROR_ABSENDER);
-                                    return null;
-                                }
-                                break;
-                            case Pflichtfelder_Klassen.Pflichtfelder.EMPFAENGER:
-                                if (form.cmb_empfaenger.Text == "")
-                                {
-                                    displayError(ERROR_EMPFAENGER);
-                                    return null;
-                                }
-                                break;
-                            case Pflichtfelder_Klassen.Pflichtfelder.ANSPRECHPARTNER:
-                                if (form.cmb_Ansprechpartner.Text == "")
-                                {
-                                    displayError(ERROR_ANSPRECHPARTNER);
-                                    return null;
-                                }
-                                break;
-                            case Pflichtfelder_Klassen.Pflichtfelder.ORT_DER_MASSNAHMEN:
-                                if (form.tb_ortMassnahme.Text == "")
-                                {
-                                    displayError(ERROR_ORTDERMASSNAHME);
-                                    return null;
-                                }
-                                break;
-                            case Pflichtfelder_Klassen.Pflichtfelder.BESCHREIBUNG_ABSPRACHEN:
-                                break;
-                            case Pflichtfelder_Klassen.Pflichtfelder.BESCHREIBUNG_DER_MASSNAHMEN:
-                                if (form.rtb_BeschreibungMassnahme.Text == "")
-                                {
-                                    displayError(ERROR_BESCHREIBUNGMASSNAHME);
-                                    return null;
-                                }
-                                break;
-                            case Pflichtfelder_Klassen.Pflichtfelder.WESI_TEAM:
-                                if (form.rtb_WesiAdresse.Text == "")
-                                {
-                                    displayError(ERROR_WESI_TEAM_ADRESSE);
-                                    return null;
-                                }
-                                break;
-                            case Pflichtfelder_Klassen.Pflichtfelder.ANSPRECHPARTNER_BAU:
-                                break;
-                        }
-                    }
-                    
-
-                    foreach (object i in form.listb_zusatzanlagen.Items)
-                    {
-                        zusatzanlagen.Add(new Zusatzanlage(i.ToString()));
-                    }
-
-                    break;
-                case 1:
-                    if (form.workingPDF.auftrag == null)
-                    {
-                        displayError(ERROR_SMNUMMER);
-                        return null;
-                    }
-
-                    if (pflichtfelder_typ == null)
-                    {
-                        displayError(ERROR_ANSCHREIBENTYP);
-                        return null;
-                    }
-                    foreach (int s in pflichtfelder_typ)
-                    {
-                        switch (s)
-                        {
-                            case Pflichtfelder_Klassen.Pflichtfelder.ABSENDER:
-                                if (form.cmb_EF_absender.Text == "")
-                                {
-                                    displayError(ERROR_ABSENDER);
-                                    return null;
-                                }
-                                break;
-                            case Pflichtfelder_Klassen.Pflichtfelder.EMPFAENGER:
-                                if (form.cmb_EF_empfaenger.Text == "")
-                                {
-                                    displayError(ERROR_EMPFAENGER);
-                                    return null;
-                                }                                                            
-                                break;
-                            case Pflichtfelder_Klassen.Pflichtfelder.ORT_DER_MASSNAHMEN:
-                                if (form.tb_EF_betreff.Text == "")
-                                {
-                                    displayError(ERROR_ORTDERMASSNAHME);
-                                    return null;
-                                }
-                                break;
-                            case Pflichtfelder_Klassen.Pflichtfelder.BESCHREIBUNG_ABSPRACHEN:
-                                break;
-                            case Pflichtfelder_Klassen.Pflichtfelder.BESCHREIBUNG_DER_MASSNAHMEN:
-                                if (form.rtb_EF_Anschreiben.Text == "")
-                                {
-                                    displayError(ERROR_BESCHREIBUNGMASSNAHME);
-                                    return null;
-                                }
-                                break;                            
-                            case Pflichtfelder_Klassen.Pflichtfelder.ANSPRECHPARTNER_BAU:
-                                break;
-                        }
-                    }                    
-
-                    foreach (object i in form.listb_EF_Zusatz.Items)
-                    {
-                        zusatzanlagen.Add(new Zusatzanlage(i.ToString()));
-                    }
-
-                    break;
+                displayError(ERROR_SMNUMMER);
+                return null;
             }
-            
+
+            if (pflichtfelder_typ == null)
+            {
+                displayError(ERROR_ANSCHREIBENTYP);
+                return null;
+            }
+            foreach (int s in pflichtfelder_typ)
+            {
+                switch (s)
+                {
+                    case Pflichtfelder_Klassen.Pflichtfelder.ABSENDER:
+                        if (form.cmb_absender.Text == "")
+                        {
+                            displayError(ERROR_ABSENDER);
+                            return null;
+                        }
+                        break;
+                    case Pflichtfelder_Klassen.Pflichtfelder.EMPFAENGER:
+                        if (form.cmb_empfaenger.Text == "")
+                        {
+                            displayError(ERROR_EMPFAENGER);
+                            return null;
+                        }
+                        break;
+                    case Pflichtfelder_Klassen.Pflichtfelder.ANSPRECHPARTNER:
+                        if (form.cmb_Ansprechpartner.Text == "")
+                        {
+                            displayError(ERROR_ANSPRECHPARTNER);
+                            return null;
+                        }
+                        break;
+                    case Pflichtfelder_Klassen.Pflichtfelder.ORT_DER_MASSNAHMEN:
+                        if (form.tb_ortMassnahme.Text == "")
+                        {
+                            displayError(ERROR_ORTDERMASSNAHME);
+                            return null;
+                        }
+                        break;
+                    case Pflichtfelder_Klassen.Pflichtfelder.BESCHREIBUNG_ABSPRACHEN:
+                        break;
+                    case Pflichtfelder_Klassen.Pflichtfelder.BESCHREIBUNG_DER_MASSNAHMEN:
+                        if (form.rtb_BeschreibungMassnahme.Text == "")
+                        {
+                            displayError(ERROR_BESCHREIBUNGMASSNAHME);
+                            return null;
+                        }
+                        break;
+                    case Pflichtfelder_Klassen.Pflichtfelder.WESI_TEAM:
+                        if (form.rtb_WesiAdresse.Text == "")
+                        {
+                            displayError(ERROR_WESI_TEAM_ADRESSE);
+                            return null;
+                        }
+                        break;
+                    case Pflichtfelder_Klassen.Pflichtfelder.ANSPRECHPARTNER_BAU:
+                        break;
+                }
+            }
+            List<Zusatzanlage> zusatzanlagen = new List<Zusatzanlage>();
+
+            foreach (object i in form.listb_zusatzanlagen.Items)
+            {
+                zusatzanlagen.Add(new Zusatzanlage(i.ToString()));
+            }
+
             return zusatzanlagen;
         }
         public void displayError(int error)

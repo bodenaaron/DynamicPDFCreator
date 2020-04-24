@@ -76,7 +76,6 @@
             this.label40 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btn_clear_all = new System.Windows.Forms.Button();
             this.btn_remove_all = new System.Windows.Forms.Button();
             this.btn_remove_selected = new System.Windows.Forms.Button();
             this.tb_zusatzanlage = new System.Windows.Forms.TextBox();
@@ -129,6 +128,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.tb_LB_SMNummer = new System.Windows.Forms.TextBox();
             this.pdfPreview_ListeBeteiligte = new System.Windows.Forms.WebBrowser();
+            this.btn_clear_all = new System.Windows.Forms.Button();
             this.customFormular.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.MainTab.SuspendLayout();
@@ -458,7 +458,6 @@
             this.listb_vorherige_PDF.FormattingEnabled = true;
             resources.ApplyResources(this.listb_vorherige_PDF, "listb_vorherige_PDF");
             this.listb_vorherige_PDF.Name = "listb_vorherige_PDF";
-            this.listb_vorherige_PDF.SelectedIndexChanged += new System.EventHandler(this.Listb_vorherige_PDF_SelectedIndexChanged);
             // 
             // label41
             // 
@@ -526,13 +525,6 @@
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
-            // 
-            // btn_clear_all
-            // 
-            resources.ApplyResources(this.btn_clear_all, "btn_clear_all");
-            this.btn_clear_all.Name = "btn_clear_all";
-            this.btn_clear_all.UseVisualStyleBackColor = true;
-            this.btn_clear_all.Click += new System.EventHandler(this.btn_clear_all_Click);
             // 
             // btn_remove_all
             // 
@@ -876,6 +868,13 @@
             resources.ApplyResources(this.pdfPreview_ListeBeteiligte, "pdfPreview_ListeBeteiligte");
             this.pdfPreview_ListeBeteiligte.Name = "pdfPreview_ListeBeteiligte";
             // 
+            // btn_clear_all
+            // 
+            resources.ApplyResources(this.btn_clear_all, "btn_clear_all");
+            this.btn_clear_all.Name = "btn_clear_all";
+            this.btn_clear_all.UseVisualStyleBackColor = true;
+            this.btn_clear_all.Click += new System.EventHandler(this.btn_clear_all_Click);
+            // 
             // MainForm
             // 
             resources.ApplyResources(this, "$this");
@@ -961,7 +960,7 @@
         public System.Windows.Forms.Label label3;
         public System.Windows.Forms.Label label4;
         public System.Windows.Forms.RichTextBox rtb_absprachen;
-        public System.Windows.Forms.TabControl tabControl;
+        private System.Windows.Forms.TabControl tabControl;
         public System.Windows.Forms.GroupBox groupBox2;
         public System.Windows.Forms.Button btn_EF_allesEntfernen;
         public System.Windows.Forms.Button btn_EF_zusatzEntfernen;
@@ -984,22 +983,22 @@
         public System.Windows.Forms.WebBrowser pdfPreview_EF;
         public System.Windows.Forms.Button btn_EF_PDF_laden;
         public System.Windows.Forms.ListBox listb_EF_vorherigePDF;
-        public System.Windows.Forms.RichTextBox rtb_EF_Anschreiben;
+        private System.Windows.Forms.RichTextBox rtb_EF_Anschreiben;
         public System.Windows.Forms.Button btn_EF_auftragsordner_speichern;
         public System.Windows.Forms.Button btn_EF_vorschau;
         public System.Windows.Forms.Button btn_EF_speichernUnter;
-        public System.Windows.Forms.Label EF_error_label;
+        private System.Windows.Forms.Label EF_error_label;
         public System.Windows.Forms.Button btn_delete_pdf;
-        public System.Windows.Forms.TabPage listeBeteiligte;
+        private System.Windows.Forms.TabPage listeBeteiligte;
         public System.Windows.Forms.Label label7;
-        public System.Windows.Forms.CheckedListBox checked_listBox_Beteiligte;
+        private System.Windows.Forms.CheckedListBox checked_listBox_Beteiligte;
         public System.Windows.Forms.Button btn_LB_suchen;
         public System.Windows.Forms.Label label6;
         public System.Windows.Forms.TextBox tb_LB_SMNummer;
         public System.Windows.Forms.WebBrowser pdfPreview_ListeBeteiligte;
         public System.Windows.Forms.Button btn_EF_openFile;
         public System.Windows.Forms.Button btn_EF_openFolder;
-        public System.Windows.Forms.Button btn_clear_all;
+        private System.Windows.Forms.Button btn_clear_all;
     }
 }
 
