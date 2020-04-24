@@ -128,6 +128,10 @@ namespace DynamicPDFCreator
             {
                 workingPDF.pdfWriter = new Interfaces.EigenesFormular();
             }
+            if (workingPDF.anschreibenTyp==null)
+            {
+                workingPDF.anschreibenTyp = new AnschreibenTyp { bezeichnung = "Liste der Beteiligten" };
+            }
             switch (workingPDF.anschreibenTyp.bezeichnung)
             {
                 case "Anschreiben EVU":
@@ -1289,7 +1293,7 @@ namespace DynamicPDFCreator
             {
                 DBm = new DBManager(tb_LB_SMNummer.Text);
                 neuzuweisung = true;
-                checked_listBox_Beteiligte.DataSource = new BindingSource(DBm.dbPDF.dic_Ansprechpartner_mitTyp, null);
+                checked_listBox_Beteiligte.DataSource = new BindingSource(DBm.dbPDF.dic_Ansprechpartner, null);
                 checked_listBox_Beteiligte.DisplayMember = "Key";
                 checked_listBox_Beteiligte.ValueMember = "Value";
                 checked_listBox_Beteiligte.SelectedItem = null;

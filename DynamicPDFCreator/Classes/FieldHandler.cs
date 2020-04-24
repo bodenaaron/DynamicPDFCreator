@@ -195,7 +195,7 @@ namespace DynamicPDFCreator
             func = (controls) =>
             {
                 foreach (Control control in controls)
-                    if (control is TextBox && control.Name != "tb_smNummer" && !control.Name.Contains("_EF_"))
+                    if (control is TextBox && control.Name != "tb_smNummer" && !control.Name.Contains("_EF_") && !control.Name.Contains("_LB_"))
                         (control as TextBox).Enabled = false;
                     else
                         func(control.Controls);
