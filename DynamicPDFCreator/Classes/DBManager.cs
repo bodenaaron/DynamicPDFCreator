@@ -245,7 +245,7 @@ namespace DynamicPDFCreator
             dbPDF.dic_WesiTeam = new Dictionary<string, WesiTeam>();
             foreach (WesiTeam an in dbPDF.wesiTeams)
             {
-                dbPDF.dic_WesiTeam.Add($"{an.firma} {an.niederlassung}",an);
+                dbPDF.dic_WesiTeam.Add($"{an.niederlassung} {an.bereich} {an.id}",an);
             }
             
 

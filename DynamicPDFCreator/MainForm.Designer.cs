@@ -76,6 +76,7 @@
             this.label40 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btn_clear_all = new System.Windows.Forms.Button();
             this.btn_remove_all = new System.Windows.Forms.Button();
             this.btn_remove_selected = new System.Windows.Forms.Button();
             this.tb_zusatzanlage = new System.Windows.Forms.TextBox();
@@ -128,7 +129,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.tb_LB_SMNummer = new System.Windows.Forms.TextBox();
             this.pdfPreview_ListeBeteiligte = new System.Windows.Forms.WebBrowser();
-            this.btn_clear_all = new System.Windows.Forms.Button();
             this.customFormular.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.MainTab.SuspendLayout();
@@ -526,6 +526,13 @@
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
             // 
+            // btn_clear_all
+            // 
+            resources.ApplyResources(this.btn_clear_all, "btn_clear_all");
+            this.btn_clear_all.Name = "btn_clear_all";
+            this.btn_clear_all.UseVisualStyleBackColor = true;
+            this.btn_clear_all.Click += new System.EventHandler(this.btn_clear_all_Click);
+            // 
             // btn_remove_all
             // 
             resources.ApplyResources(this.btn_remove_all, "btn_remove_all");
@@ -867,13 +874,6 @@
             // 
             resources.ApplyResources(this.pdfPreview_ListeBeteiligte, "pdfPreview_ListeBeteiligte");
             this.pdfPreview_ListeBeteiligte.Name = "pdfPreview_ListeBeteiligte";
-            // 
-            // btn_clear_all
-            // 
-            resources.ApplyResources(this.btn_clear_all, "btn_clear_all");
-            this.btn_clear_all.Name = "btn_clear_all";
-            this.btn_clear_all.UseVisualStyleBackColor = true;
-            this.btn_clear_all.Click += new System.EventHandler(this.btn_clear_all_Click);
             // 
             // MainForm
             // 

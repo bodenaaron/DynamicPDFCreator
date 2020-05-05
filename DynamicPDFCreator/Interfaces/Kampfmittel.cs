@@ -19,10 +19,10 @@ namespace DynamicPDFCreator.Interfaces
             MarginLeft = 70,
             MarginRight = 40,
             MarginTop = 100,
-            PageSize = PageSize.A4
+            PageSize = PageSize.A4            
         };
 
-
+        
 
         public string getHTML(PDF pdf)
         {
@@ -32,7 +32,7 @@ namespace DynamicPDFCreator.Interfaces
                 firma = pdf.empfaenger.ansprechpartnerName;
             }
             else { firma = pdf.empfaenger.firma; }
-            string html = "";
+            string html = "<html><body> <font size='10'>";
             html = $@"
             <p style='font-size: 12px; ' >
                 {firma}<br/>{pdf.empfaenger.strasse} {pdf.empfaenger.plz} {pdf.empfaenger.ort}
@@ -70,8 +70,9 @@ namespace DynamicPDFCreator.Interfaces
                     Ihre Referenzen
                   </td>
                    <td>
-                    {pdf.wesiTeam.bereich}
+                    Eictronic GmbH, {pdf.datum.ToString("dd.mm.yyyy")} {pdf.ansprechpartner?.bearbeiterVorname} {pdf.ansprechpartner?.bearbeiterName} 
                   </td>
+
                 </tr>
                   <tr>
                 	<td valign= top>
@@ -94,7 +95,7 @@ namespace DynamicPDFCreator.Interfaces
                    <table style='padding-left:40px'>
                     	<tr>
                        	<td>
-                   			Baumaßnahme in: 
+                   			Baumaßnahme: 
                        	</td>
                        	<td>
                        		<b>{pdf.ortDerMassnahme}</b>
@@ -121,11 +122,11 @@ namespace DynamicPDFCreator.Interfaces
     	                <table style='width:100%'>
                             <tr>  
                                 <td style='width:20px; height:20px;border:1px solid #000; '></td>
-                                <td>    keiner Kampfmittelverdachtsfläche</td>
+                                <td>    <b>keiner</b> Kampfmittelverdachtsfläche</td>
                             </tr>
                             <tr>
                                 <td style='width:20px; height:20px;border:1px solid #000; '></td>
-                                <td style='width:100%'>einer Kampfmittelverdachtsfläche</td>
+                                <td style='width:100%'><b>einer</b> Kampfmittelverdachtsfläche</td>
                             </tr>
                             <tr>
                                 <td>
@@ -134,7 +135,7 @@ namespace DynamicPDFCreator.Interfaces
                                 	<table style='width:100%'>
                                     <tr>  
                                         <td style='width:20px; height:20px;border:1px solid #000; '></td>
-                                        <td style='width:100%'>Bei Tiefbaumaßnahmen im angefragten Baufeld wurden keine Kampfmittel gefunden</td>
+                                        <td style='width:100%'>Bei <u>eigenen Tiefbaumaßnahmen</u> im angefragten Baufeld wurden keine Kampfmittel gefunden</td>
                                     </tr>
                                     <tr>
                                         <td style='width:20px; height:20px;border:1px solid #000; '></td>
@@ -157,8 +158,14 @@ namespace DynamicPDFCreator.Interfaces
                   </tr>
                   <tr>
                     <td></td>
-                    <td>Kampfmittelfunde (○Munition, ○Granaten, ○Sonstiges)</td>                    
+                    <td>   Kampfmittelfunde (□ Munition, □ Granaten, □ Sonstiges)</td>
                   </tr>
+<tr>
+<td style='width:20px; height:20px;border:1px solid #000; '></td>
+
+<td>Erkenntnisse zu möglichen Kampfmitteln liegen nicht vor.</td>
+</tr>
+
             </table>
             </td>
             </tr>
@@ -185,8 +192,7 @@ namespace DynamicPDFCreator.Interfaces
                 	Stempel und Unterschrift(en) Eigentümer
                 </td>
               </tr>
-            </table>
-                ";
+            </table>";
             return html;
         }
 

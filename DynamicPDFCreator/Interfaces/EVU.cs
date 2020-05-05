@@ -161,7 +161,7 @@ namespace DynamicPDFCreator.Interfaces
             }
             if (pdf.techBeschreibung)
             {
-                html += "- Technische Beschreibung<br/>";
+                html += "- Risikobewertung Kampfmittel<br/>";
             }
             if (pdf.tblZusatzanlagen != null)
             {
