@@ -16,8 +16,8 @@ namespace DynamicPDFCreator.Interfaces
         PdfGenerateConfig config = new PdfGenerateConfig()
         {
             MarginBottom = 50,
-            MarginLeft = 70,
-            MarginRight = 40,
+            MarginLeft = 50,
+            MarginRight = 30,
             MarginTop = 100,
             PageSize = PageSize.A4            
         };
@@ -64,7 +64,7 @@ namespace DynamicPDFCreator.Interfaces
                   </td>
                 </tr>
             </table>
-            <table style='margin-top: 40px; width:100%'>
+            <table style='margin-top: 30px; '>
                 <tr>
                   <td>
                     Ihre Referenzen
@@ -79,11 +79,11 @@ namespace DynamicPDFCreator.Interfaces
                   	Betrifft
                   </td>
                     <td valign= top>
-                  	<b>Information für die Risikobewertung der Gefährdung durch Kampfmittel im angefragten 									Baufeld der Telekom</b>
+                  	<b>Information für die Risikobewertung der Gefährdung durch Kampfmittel im angefragten 									Baufeld der Telekom.</b>
                   </td>
                 </tr>
             </table>
-            <table style='width:100%; margin-top:25px'>
+            <table style='width:100%; margin-top:20px'>
                 <tr>
                   <td>
                     Sehr geehrte Damen und Herren, <br/><br/>
@@ -113,56 +113,67 @@ namespace DynamicPDFCreator.Interfaces
                     </td>		 
                 </tr> 
                 <tr>
-                	<td style='padding-top:20px'>
-                  	Die Baumaßnahme befindet sich in:
+                	<td style='padding-top:15px'>
+                  	<b>Die Baumaßnahme befindet sich in:</b>
                   </td>
                 </tr>
                 <tr>
+                  
   	                <td>
     	                <table style='width:100%'>
-                            <tr>  
+                            <tr>
+                              <td></td>
                                 <td style='width:20px; height:20px;border:1px solid #000; '></td>
-                                <td>    <b>keiner</b> Kampfmittelverdachtsfläche</td>
+                              <td style='width:10px'></td>
+                                <td>    <b>keiner</b> Kampfmittelverdachtsfläche.</td>
                             </tr>
                             <tr>
+                              <td></td>
                                 <td style='width:20px; height:20px;border:1px solid #000; '></td>
-                                <td style='width:100%'><b>einer</b> Kampfmittelverdachtsfläche</td>
+                              <td style='width:10px'></td>
+                                <td style=''><b>einer</b> Kampfmittelverdachtsfläche.</td>
                             </tr>
                             <tr>
+                              <td></td><td></td>
                                 <td>
                                 </td>
+                              
                                 <td>
                                 	<table style='width:100%'>
-                                    <tr>  
+                                    <tr>  <td></td>
                                         <td style='width:20px; height:20px;border:1px solid #000; '></td>
-                                        <td style='width:100%'>Bei <u>eigenen Tiefbaumaßnahmen</u> im angefragten Baufeld wurden keine Kampfmittel gefunden</td>
+                                      <td style='width:10px'></td>
+                                        <td style=''>Bei <u>Tiefbaumaßnahmen</u> im angefragten Baufeld wurden keine Kampfmittel gefunden</td>
                                     </tr>
-                                    <tr>
+                                    <tr><td></td>
                                         <td style='width:20px; height:20px;border:1px solid #000; '></td>
-                                        <td>Es gab im</td>
+                                      <td style='width:10px'></td>
+                                        <td>Es gab bei eigenen/fremden Tiefbaumaßnahmen im</td>
                                     </tr>
-                                    <tr>
+                                    <tr><td></td><td></td>
                                         <td></td>
                                         <td>
                                     <table>
                                         <tr>  
                                             <td style='width:20px; height:20px;border:1px solid #000; '></td>
+                                          <td style='width:10px'></td>
                                             <td>angefragten Baufeld</td>
                                         </tr>
                                         <tr>
                                             <td style='width:20px; height:20px;border:1px solid #000; '></td>
+                                          <td style='width:10px'></td>
                                             <td>restlichen Zuständigkeitsbereich</td>
                                         </tr>
                                     </table>
                                 </td>
                   </tr>
-                  <tr>
+                  <tr><td></td><td></td>
                     <td></td>
                     <td>   Kampfmittelfunde (□ Munition, □ Granaten, □ Sonstiges)</td>
                   </tr>
-<tr>
+<tr><td></td>
 <td style='width:20px; height:20px;border:1px solid #000; '></td>
-
+<td style='width:10px'></td>
 <td>Erkenntnisse zu möglichen Kampfmitteln liegen nicht vor.</td>
 </tr>
 
