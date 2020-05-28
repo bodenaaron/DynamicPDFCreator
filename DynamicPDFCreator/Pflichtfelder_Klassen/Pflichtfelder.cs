@@ -20,7 +20,8 @@ namespace DynamicPDFCreator.Pflichtfelder_Klassen
         public const int ANSPRECHPARTNER_BAU = 10;
         public const int CHECKBOXEN = 11;
         public const int ZUSATZ = 12;
+        public const int ORT = 13;
 
-        
+
     }
 }

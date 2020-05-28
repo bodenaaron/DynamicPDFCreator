@@ -13,6 +13,7 @@
     <property name = "bereich"/>
     <property name = "email"/>
     <property name = "niederlassung"/>
+    <property name = "telefon"/>
 
     <!--<set name = "pdfs" table = "tblPDFs">
       <key column = "`id´"/>

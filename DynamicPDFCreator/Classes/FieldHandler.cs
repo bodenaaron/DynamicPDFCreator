@@ -98,7 +98,11 @@ namespace DynamicPDFCreator
                         form.tb_zusatzanlage.Enabled = true;
                         form.listb_zusatzanlagen.Enabled = true;
                         break;
-                    
+                    case Pflichtfelder_Klassen.Pflichtfelder.ORT:
+                        form.cmb_ort.Enabled = true;
+                        
+                        break;
+
                 }
             }            
             clearColor(true);

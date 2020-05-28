@@ -1,5 +1,6 @@
 ﻿using PdfSharp;
 using PdfSharp.Pdf;
+using PdfSharp.Pdf.IO;
 using RtfPipe;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,7 @@ namespace DynamicPDFCreator.Interfaces
 {
     class Kampfmittel : IPDFWriter
     {
+        PDF pdf = new PDF();
 
         PdfGenerateConfig config = new PdfGenerateConfig()
         {
@@ -26,6 +28,7 @@ namespace DynamicPDFCreator.Interfaces
 
         public string getHTML(PDF pdf)
         {
+            this.pdf = pdf;
             string firma;
             if (pdf.empfaenger.firma == "" || pdf.empfaenger.firma == null)
             {
@@ -70,7 +73,7 @@ namespace DynamicPDFCreator.Interfaces
                     Ihre Referenzen
                   </td>
                    <td>
-                    Eictronic GmbH, {pdf.datum.ToString("dd.mm.yyyy")} {pdf.ansprechpartner?.bearbeiterVorname} {pdf.ansprechpartner?.bearbeiterName} 
+                    <b> {pdf.auftrag.smNummer}</b>
                   </td>
 
                 </tr>
@@ -209,8 +212,11 @@ namespace DynamicPDFCreator.Interfaces
 
         public string writeHTMLtoPDF(string html, string pfad)
         {
-            PdfDocument pdf1 = PdfGenerator.GeneratePdf(html, config);
+            KampfmittelfreiheitText kampfmittelfreiheitText = new KampfmittelfreiheitText();
+            PdfDocument pdf1 = PdfGenerator.GeneratePdf(kampfmittelfreiheitText.getHTML(pdf.auftrag.smNummer, pdf?.ansprechpartner)+html, config);
             pfad = checkSlash(pfad);
+            //PdfDocument pdf2 = PdfGenerator.GeneratePdf(kampfmittelfreiheitText.getHTML(pdf.auftrag.smNummer, pdf?.ansprechpartner), config);
+            //pdf1.AddPage(pdf2.Pages[0]);
             string alternativerPfad = pfad.Remove(pfad.Length - 5, 1);
             try
             {
@@ -236,8 +242,12 @@ namespace DynamicPDFCreator.Interfaces
 
         public string writeHTMLtoPDF(PDF pdf, string pfad)
         {
-            PdfDocument pdf1 = PdfGenerator.GeneratePdf(getHTML(pdf), config);
+            KampfmittelfreiheitText kampfmittelfreiheitText = new KampfmittelfreiheitText();
+            PdfDocument pdf1 = PdfGenerator.GeneratePdf(kampfmittelfreiheitText.getHTML(pdf.auftrag.smNummer, pdf?.ansprechpartner)+ getHTML(pdf), config);
             pfad = checkSlash(pfad);
+            PdfDocument pdf2 = PdfGenerator.GeneratePdf(kampfmittelfreiheitText.getHTML(pdf.auftrag.smNummer, pdf?.ansprechpartner), config);
+            //PdfDocument inputDocument = PdfReader.Open            
+            //pdf1.AddPage(pdf2.Pages[0]);
             string alternativerPfad = pfad.Remove(pfad.Length - 5, 1);
             try
             {

@@ -7,6 +7,9 @@
       <generator class = "identity"/>
     </id>
     <property name = "smNummer" column="SM_Nummer"/>
+    <property name = "plz" column="Postleitzahl"/>
+    <property name = "ort" column="Ort"/>
+    <property name = "strasse" column="Strasse"/>
 
     <many-to-one name = "projekt" column = "idProjekt"/>
 

@@ -129,6 +129,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.tb_LB_SMNummer = new System.Windows.Forms.TextBox();
             this.pdfPreview_ListeBeteiligte = new System.Windows.Forms.WebBrowser();
+            this.cmb_ort = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.customFormular.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.MainTab.SuspendLayout();
@@ -477,6 +479,8 @@
             // groupBox1
             // 
             resources.ApplyResources(this.groupBox1, "groupBox1");
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.cmb_ort);
             this.groupBox1.Controls.Add(this.btn_clear_all);
             this.groupBox1.Controls.Add(this.btn_remove_all);
             this.groupBox1.Controls.Add(this.btn_remove_selected);
@@ -875,6 +879,19 @@
             resources.ApplyResources(this.pdfPreview_ListeBeteiligte, "pdfPreview_ListeBeteiligte");
             this.pdfPreview_ListeBeteiligte.Name = "pdfPreview_ListeBeteiligte";
             // 
+            // cmb_ort
+            // 
+            this.cmb_ort.FormattingEnabled = true;
+            resources.ApplyResources(this.cmb_ort, "cmb_ort");
+            this.cmb_ort.Name = "cmb_ort";
+            this.cmb_ort.TextChanged += new System.EventHandler(this.Cmb_ort_SelectedIndexChanged);
+            this.cmb_ort.SelectedIndexChanged += new System.EventHandler(this.Cmb_ort_SelectedIndexChanged);
+            // 
+            // label8
+            // 
+            resources.ApplyResources(this.label8, "label8");
+            this.label8.Name = "label8";
+            // 
             // MainForm
             // 
             resources.ApplyResources(this, "$this");
@@ -999,6 +1016,8 @@
         public System.Windows.Forms.Button btn_EF_openFile;
         public System.Windows.Forms.Button btn_EF_openFolder;
         private System.Windows.Forms.Button btn_clear_all;
+        public System.Windows.Forms.Label label8;
+        public System.Windows.Forms.ComboBox cmb_ort;
     }
 }
 

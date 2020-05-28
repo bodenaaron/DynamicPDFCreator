@@ -107,6 +107,11 @@ namespace DynamicPDFCreator
             get;
             set;
         }
+        public virtual string telefon
+        {
+            get;
+            set;
+        }
         /* public virtual ISet<PDF> pdfs
          {
              get;

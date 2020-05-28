@@ -30,5 +30,20 @@ namespace DynamicPDFCreator
             get;
             set;
         }
+        public virtual string plz
+        {
+            get;
+            set;
+        }
+        public virtual string ort
+        {
+            get;
+            set;
+        }
+        public virtual string strasse
+        {
+            get;
+            set;
+        }
     }
 }

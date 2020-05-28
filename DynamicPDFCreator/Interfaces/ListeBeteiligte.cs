@@ -44,10 +44,13 @@ namespace DynamicPDFCreator.Interfaces
                 <td>
                     Im Rahmen der Wegesicherung wurden benachrichtigt:
                 </td>
-            </tr>";
+            </tr>
+            </table>";
+            
             foreach (Ansprechpartner a in pdf.beteiligte)
             {
                 html += $@"
+            <table style='page-break-inside: avoid'>
                 <tr>
                     <td>
                     ------------------------------------------------
@@ -78,11 +81,10 @@ namespace DynamicPDFCreator.Interfaces
                         {a.plz} {a.ort} 
                     </td>        
                 </tr>
-                ";
+                </table>";
                 
 
-            }
-            html += "</table>";
+            }            
             return html;
         }
 

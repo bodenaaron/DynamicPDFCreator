@@ -33,37 +33,42 @@ namespace DynamicPDFCreator.Interfaces
             else { firma = pdf.empfaenger.firma; }
             string html = "";
             html = $@"
-            <p style='font-size: 12px; ' >
-                {firma}<br/>{pdf.empfaenger.strasse} {pdf.empfaenger.plz} {pdf.empfaenger.ort}
+            <p style='font-size: 18px; ' >Zustimmungsbescheid</p>
+            <p>
+                {firma}<br/>{pdf.empfaenger.strasse}<br/><br/>{pdf.empfaenger.plz} {pdf.empfaenger.ort}
             </p>
-            <table>
+            
+            <table style='margin-top: 35px;>
                 <tr>
-                	<td valign: top>
-                  	{pdf.wesiTeam.firma}
-                  </td>
-                </tr>
-                  <tr>
-                	<td valign: top>
-                  	{pdf.wesiTeam.niederlassung}
-                  </td>
-                </tr>
-                  <tr>
-                	<td valign: top>
-                  	{pdf.wesiTeam.bereich}
-                  </td>
-                </tr>
-                  <tr>
-                	<td valign: top>
-                  	{pdf.wesiTeam.strasse}
-                  </td>
+                <td><u>Ihre Referenzen</u></td>
+                  <td></td>    
                 </tr>
                 <tr>
-                	<td valign: top>
-                  	{pdf.wesiTeam.plz} {pdf.wesiTeam.stadt}
-                  </td>
+                    <td>
+                  	    Unser Zeichen
+                    </td>
+                    <td>
+                        {pdf.wesiTeam.niederlassung} {pdf.wesiTeam.bereich} {pdf.auftrag.smNummer}
+                    </td>
+                </tr>
+                <tr>
+                	<td>
+                  	    Datum
+                    </td>
+                    <td>
+                        {DateTime.Now.ToString("dd.MM.yyyy")}
+                    </td>
+                </tr>
+                <tr>
+                	<td>
+                  	    Durchwahl
+                    </td>
+                    <td>
+                        {pdf.wesiTeam.telefon}
+                    </td>
                 </tr>
             </table>
-            <table style='margin-top: 40px; width:100%'>
+            <table style='margin-top: 10px; width:100%'>
                 <tr>
                   <td>
                     <b>
@@ -76,7 +81,7 @@ namespace DynamicPDFCreator.Interfaces
                 	<td valign: top>
                   	Sehr geehrte Damen und Herren,<br/><br/>
                     Ihrem Antrag auf Zustimmung für die Durchführung einer Baumaßnahme in:<br/>
-                    {pdf.ortDerMassnahme} (SM-Auftragsnummer: {pdf.auftrag.smNummer})    
+                    {pdf.ortDerMassnahme} (SM-Auftragsnummer: <b>{pdf.auftrag.smNummer}</b>)    
                   </td>
                 </tr>
             </table>
@@ -106,13 +111,9 @@ namespace DynamicPDFCreator.Interfaces
               <tr>
               <td style='border-bottom: solid; height:30px'>
               </td>
-              </tr>
-              <tr>
-              <td style='border-bottom: solid; height:30px'>
-              </td>
-              </tr>
+              </tr>             
             </table>
-            <table style='width:100%; margin-top:70px'>
+            <table style='width:100%; margin-top:50px'>
               <tr>
               <td style='border-bottom:solid'>
                 </td>
@@ -123,7 +124,7 @@ namespace DynamicPDFCreator.Interfaces
                 </td>
               </tr>
               <tr>
-              <td style='border-bottom:solid;height:70px'>
+              <td style='border-bottom:solid;height:50px'>
                 </td>
               </tr>
               <tr>

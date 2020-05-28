@@ -140,6 +140,7 @@
     <Compile Include="Interfaces\AbstimmungNaturschutz.cs" />
     <Compile Include="Interfaces\EigenesFormular.cs" />
     <Compile Include="Interfaces\Kampfmittel.cs" />
+    <Compile Include="Interfaces\KampfmittelfreiheitText.cs" />
     <Compile Include="Interfaces\ListeBeteiligte.cs" />
     <Compile Include="Interfaces\Zustimmungsbescheid.cs" />
     <Compile Include="Interfaces\EVU.cs" />

@@ -561,6 +561,11 @@ namespace DynamicPDFCreator
                         workingPDF.pdfWriter = new Interfaces.EVU();
                         workingPDF.pflichtfelder = Pflichtfelder_Klassen.Pflicht_EVU.PFLICHTFELDER;
                         eH.manageFields(Pflichtfelder_Klassen.Pflicht_EVU.FELDER);
+                        //cb Untervollmacht, Plansatz 
+                        cb_beteiligte.Checked = false;
+                        cb_plansaetze.Checked = true;
+                        cb_techBeschreibung.Checked = false;
+                        cb_untervollmacht.Checked = true;
                         break;
                     case 2:
                         break;
@@ -569,6 +574,11 @@ namespace DynamicPDFCreator
                         workingPDF.pdfWriter = new Interfaces.Wupfl();
                         workingPDF.pflichtfelder = Pflichtfelder_Klassen.Pflicht_Wupfl.PFLICHTFELDER;
                         eH.manageFields(Pflichtfelder_Klassen.Pflicht_Wupfl.FELDER);
+                        //cb alles
+                        cb_beteiligte.Checked = true;
+                        cb_plansaetze.Checked = true;
+                        cb_techBeschreibung.Checked = true;
+                        cb_untervollmacht.Checked = true;                        
                         break;
                     case 4:
                         break;
@@ -585,6 +595,11 @@ namespace DynamicPDFCreator
                         workingPDF.pdfWriter = new Interfaces.AbstimmungNaturschutz();
                         workingPDF.pflichtfelder = Pflichtfelder_Klassen.Pflicht_AbstimmungNaturschutz.FELDER;
                         eH.manageFields(Pflichtfelder_Klassen.Pflicht_AbstimmungNaturschutz.FELDER);
+                        //cb Liste Beteiligte untervollmacht plansatz
+                        cb_beteiligte.Checked = true;
+                        cb_plansaetze.Checked = true;
+                        cb_techBeschreibung.Checked = false;
+                        cb_untervollmacht.Checked = true;
                         break;
                     case 8:
                         break;
@@ -734,6 +749,9 @@ namespace DynamicPDFCreator
         private void Tb_ortMassnahme_TextChanged(object sender, EventArgs e)
         {
             workingPDF.ortDerMassnahme = tb_ortMassnahme.Text;
+            //neuzuweisung = true;
+            //cmb_ort.SelectedItem = null;
+            //neuzuweisung = false;
         }
         private void Listb_vorherige_PDF_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -871,6 +889,8 @@ namespace DynamicPDFCreator
                 //Empfänger Festlegen
                 if (DBm.dbPDF.auftrag != null)
                 {
+                    cmb_ort.Items.Add($@"{DBm.dbPDF.auftrag.plz} {DBm.dbPDF.auftrag.ort} {DBm.dbPDF.auftrag.strasse}");
+                    cmb_ort.SelectedIndex = 0;
                     listb_vorherige_PDF.Enabled = true;                    
 
                     workingPDF.auftrag = DBm.dbPDF.auftrag;
@@ -1314,6 +1334,11 @@ namespace DynamicPDFCreator
             Application.Restart();
             Environment.Exit(0);
             //eH.clean(true,true,true);
+        }
+
+        private void Cmb_ort_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            tb_ortMassnahme.Text = cmb_ort.Text;            
         }
     }
 }
