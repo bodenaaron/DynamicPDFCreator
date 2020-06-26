@@ -30,6 +30,7 @@ namespace DynamicPDFCreator
         public virtual bool untervollmacht { get; set; }
         public virtual bool listeBeteiligte { get; set; }
         public virtual bool techBeschreibung { get; set; }
+        public virtual bool zustimmungsbescheid { get; set; }
         public virtual IList<Zusatzanlage> tblZusatzanlagen { get; set; }
         public virtual bool aktiv { get; set; }
         public virtual IList<Ansprechpartner>beteiligte { get; set; }
@@ -82,7 +83,7 @@ namespace DynamicPDFCreator
         /// <summary>
         /// WUPFL
         /// </summary>
-        public  PDF(Auftrag auftrag, AnschreibenTyp anschreibenTyp, Ansprechpartner empfaenger, Bearbeiter absender, DateTime datum, DateTime ausfuehrungszeitraum, DateTime ausfuehrungszeitraumEnde, Bearbeiter ansprechpartner, string ortDerMassnahme, string beschreibungMassnahme,  WesiTeam wesiTeam, bool plansaetze, bool listeBeteiligte, bool techBeschreibung, bool untervollmacht, List<Zusatzanlage> zusatzanlagen)
+        public  PDF(Auftrag auftrag, AnschreibenTyp anschreibenTyp, Ansprechpartner empfaenger, Bearbeiter absender, DateTime datum, DateTime ausfuehrungszeitraum, DateTime ausfuehrungszeitraumEnde, Bearbeiter ansprechpartner, string ortDerMassnahme, string beschreibungMassnahme,  WesiTeam wesiTeam, bool plansaetze, bool listeBeteiligte, bool techBeschreibung, bool untervollmacht, bool zustimmungsbescheid, List<Zusatzanlage> zusatzanlagen)
         {
             this.auftrag = auftrag;
             this.anschreibenTyp = anschreibenTyp;
@@ -99,6 +100,7 @@ namespace DynamicPDFCreator
             this.listeBeteiligte = listeBeteiligte;
             this.techBeschreibung = techBeschreibung;
             this.untervollmacht = untervollmacht;
+            this.zustimmungsbescheid = zustimmungsbescheid;
             this.tblZusatzanlagen = zusatzanlagen;
             aktiv = true;
         }

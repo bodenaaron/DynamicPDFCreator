@@ -44,12 +44,11 @@ namespace DynamicPDFCreator
             cmb_typ.DataSource= new BindingSource(ansprechpartnerTypen, null);
             try
             {
-                AnsprechpartnerTyp ansprechtyp;
-            if (!ansprechpartnerTypen.TryGetValue(ansprechpartner.typ,out ansprechtyp))
-            {
-                ansprechpartnerTypen.TryGetValue(ansprechpartner.typ.ToUpper(), out ansprechtyp);
-            }
-          
+                if (!ansprechpartnerTypen.TryGetValue(ansprechpartner.typ, out AnsprechpartnerTyp ansprechtyp))
+                {
+                    ansprechpartnerTypen.TryGetValue(ansprechpartner.typ.ToUpper(), out ansprechtyp);
+                }
+
                 cmb_typ.SelectedItem = new KeyValuePair<string, AnsprechpartnerTyp>($@"{ansprechtyp.bezeichnung}", ansprechtyp);
             }
             catch (Exception)//todo: Errorhandler implementieren
@@ -66,12 +65,13 @@ namespace DynamicPDFCreator
             tb_firma.Text =         wesiTeam.firma;
             tb_bereich.Text =       wesiTeam.bereich;
             tb_niederlassung.Text = wesiTeam.niederlassung;
+            tb_tel.Text =           wesiTeam.telefon;
             //tb_ptiBereich.Text =  ansprechpartner.PTIBereich;
 
             tb_vorname.Enabled = false;
             tb_nachname.Enabled = false;
             tb_mobil.Enabled = false;
-            tb_tel.Enabled = false;
+            tb_tel.Enabled = true;
             tb_funktion.Enabled = false;
             cmb_typ.Enabled = false;
             tb_homepage.Enabled = false;
@@ -92,6 +92,7 @@ namespace DynamicPDFCreator
                 wesiTeam.firma =         tb_firma.Text;
                 wesiTeam.bereich =       tb_bereich.Text;   
                 wesiTeam.niederlassung = tb_niederlassung.Text;
+                wesiTeam.telefon = tb_tel.Text;
                 DBManager dbm = new DBManager();
                 dbm.set(wesiTeam);
             }

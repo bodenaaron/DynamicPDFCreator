@@ -168,6 +168,7 @@ namespace DynamicPDFCreator
                     cb_beteiligte.Checked,
                     cb_techBeschreibung.Checked,
                     cb_untervollmacht.Checked,
+                    cb_zustimmungsbescheid.Checked,
                     zusatzanlagen);
                     break;
                 case "Zustimmungsbescheid":
@@ -566,6 +567,7 @@ namespace DynamicPDFCreator
                         cb_plansaetze.Checked = true;
                         cb_techBeschreibung.Checked = false;
                         cb_untervollmacht.Checked = true;
+                        cb_zustimmungsbescheid.Checked = false;
                         break;
                     case 2:
                         break;
@@ -578,7 +580,8 @@ namespace DynamicPDFCreator
                         cb_beteiligte.Checked = true;
                         cb_plansaetze.Checked = true;
                         cb_techBeschreibung.Checked = true;
-                        cb_untervollmacht.Checked = true;                        
+                        cb_untervollmacht.Checked = true;
+                        cb_zustimmungsbescheid.Checked = true;
                         break;
                     case 4:
                         break;
@@ -589,6 +592,7 @@ namespace DynamicPDFCreator
                         workingPDF.pdfWriter = new Interfaces.Zustimmungsbescheid();
                         workingPDF.pflichtfelder = Pflichtfelder_Klassen.Pflicht_Zustimmungsbescheid.FELDER;
                         eH.manageFields(Pflichtfelder_Klassen.Pflicht_Zustimmungsbescheid.FELDER);
+                        cb_zustimmungsbescheid.Checked = false;
                         break;
                     case 7:
                         //Abstimmung Naturschutz                        
@@ -600,6 +604,7 @@ namespace DynamicPDFCreator
                         cb_plansaetze.Checked = true;
                         cb_techBeschreibung.Checked = false;
                         cb_untervollmacht.Checked = true;
+                        cb_zustimmungsbescheid.Checked = false;
                         break;
                     case 8:
                         break;
@@ -616,6 +621,7 @@ namespace DynamicPDFCreator
                         workingPDF.pdfWriter = new Interfaces.Kampfmittel();
                         workingPDF.pflichtfelder = Pflichtfelder_Klassen.Pflicht_Kampfmittel.FELDER;
                         eH.manageFields(Pflichtfelder_Klassen.Pflicht_Kampfmittel.FELDER);
+                        cb_zustimmungsbescheid.Checked = false;
                         break;
                     case 14:
                         //todo: tab wechsel einbauen
@@ -634,6 +640,7 @@ namespace DynamicPDFCreator
                         tb_LB_SMNummer.Enabled = true;
                         btn_LB_suchen.Enabled = true;//todo: mit dem Fieldhandler behandeln
                         Btn_LB_suchen_Click(sender, e);
+                        cb_zustimmungsbescheid.Checked = false;
                         break;
                 }
                 workingPDF.anschreibenTyp = anschreiben;

@@ -223,6 +223,10 @@ namespace DynamicPDFCreator.Interfaces
             {
                 html += "- Risikobewertung Kampfmittel<br/>";
             }
+            if (pdf.zustimmungsbescheid)
+            {
+                html += "- Vorgefertigter Zustimmungsbescheid<br/>";
+            }
 
             if (pdf.tblZusatzanlagen!=null)
             {
