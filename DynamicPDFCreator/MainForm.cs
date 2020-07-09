@@ -251,6 +251,14 @@ namespace DynamicPDFCreator
                 {
                     break;
                 }
+                else
+                {
+                    ordnerName = null;                    
+                }
+            }
+            if (ordnerName==null)
+            {
+                return null;
             }
             pfad += ordnerName;
             pfad += $@"\Wegesicherung\Anschreiben\{pdf.anschreibenTyp.bezeichnung}_{pdf.empfaenger.ansprechpartnerName}_{pdf.empfaenger.firma}.pdf";
@@ -883,6 +891,12 @@ namespace DynamicPDFCreator
                 fillFormular(0, workingPDF, sender, e);
             }
             string pfad = getDynamicPath(workingPDF);
+            if(pfad == null)
+            {
+                PopupMissingFolder popupMissingFolder = new PopupMissingFolder();
+                popupMissingFolder.Show();
+                return;
+            }
             savedFile = pfad;
             savedFolder = pfad.Substring(0, pfad.LastIndexOf("\\"));
             btn_openFile.Enabled = true;
@@ -1002,6 +1016,12 @@ namespace DynamicPDFCreator
             {
                 PDF FinalPDF = createPDF(zusatzanlagen, rtb.Rtf);
                 string pfad = getDynamicPath(FinalPDF);
+                if (pfad == null)
+                {
+                    PopupMissingFolder popupMissingFolder = new PopupMissingFolder();
+                    popupMissingFolder.Show();
+                    return;
+                }
 
                 workingPDF.pdfWriter.writeHTMLtoPDF(FinalPDF, pfad);
                 DBm.savePDF(new DBpdf(FinalPDF));
@@ -1239,6 +1259,12 @@ namespace DynamicPDFCreator
                 }
             }
             string pfad = getDynamicPath(pdf);
+            if (pfad == null)
+            {
+                PopupMissingFolder popupMissingFolder = new PopupMissingFolder();
+                popupMissingFolder.Show();
+                return;
+            }
             savedFile = pfad;
             savedFolder = pfad.Substring(0, pfad.LastIndexOf("\\"));
         }
@@ -1258,6 +1284,12 @@ namespace DynamicPDFCreator
             {
                 PDF FinalPDF = createPDF(zusatzanlagen, rtb.Rtf);
                 string pfad = getDynamicPath(FinalPDF);
+                if (pfad == null)
+                {
+                    PopupMissingFolder popupMissingFolder = new PopupMissingFolder();
+                    popupMissingFolder.Show();
+                    return;
+                }
 
                 workingPDF.pdfWriter.writeHTMLtoPDF(FinalPDF, pfad);
                 DBm.savePDF(new DBpdf(FinalPDF));
