@@ -76,6 +76,8 @@
             this.label40 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cb_zustimmungsbescheid = new System.Windows.Forms.CheckBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.cmb_ort = new System.Windows.Forms.ComboBox();
             this.btn_clear_all = new System.Windows.Forms.Button();
@@ -131,8 +133,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.tb_LB_SMNummer = new System.Windows.Forms.TextBox();
             this.pdfPreview_ListeBeteiligte = new System.Windows.Forms.WebBrowser();
-            this.cb_zustimmungsbescheid = new System.Windows.Forms.CheckBox();
-            this.label9 = new System.Windows.Forms.Label();
+            this.tb_addSM_Nummer = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.customFormular.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.MainTab.SuspendLayout();
@@ -481,6 +483,8 @@
             // groupBox1
             // 
             resources.ApplyResources(this.groupBox1, "groupBox1");
+            this.groupBox1.Controls.Add(this.label10);
+            this.groupBox1.Controls.Add(this.tb_addSM_Nummer);
             this.groupBox1.Controls.Add(this.cb_zustimmungsbescheid);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.label8);
@@ -533,6 +537,17 @@
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
+            // 
+            // cb_zustimmungsbescheid
+            // 
+            resources.ApplyResources(this.cb_zustimmungsbescheid, "cb_zustimmungsbescheid");
+            this.cb_zustimmungsbescheid.Name = "cb_zustimmungsbescheid";
+            this.cb_zustimmungsbescheid.UseVisualStyleBackColor = true;
+            // 
+            // label9
+            // 
+            resources.ApplyResources(this.label9, "label9");
+            this.label9.Name = "label9";
             // 
             // label8
             // 
@@ -896,16 +911,15 @@
             resources.ApplyResources(this.pdfPreview_ListeBeteiligte, "pdfPreview_ListeBeteiligte");
             this.pdfPreview_ListeBeteiligte.Name = "pdfPreview_ListeBeteiligte";
             // 
-            // cb_zustimmungsbescheid
+            // tb_addSM_Nummer
             // 
-            resources.ApplyResources(this.cb_zustimmungsbescheid, "cb_zustimmungsbescheid");
-            this.cb_zustimmungsbescheid.Name = "cb_zustimmungsbescheid";
-            this.cb_zustimmungsbescheid.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.tb_addSM_Nummer, "tb_addSM_Nummer");
+            this.tb_addSM_Nummer.Name = "tb_addSM_Nummer";
             // 
-            // label9
+            // label10
             // 
-            resources.ApplyResources(this.label9, "label9");
-            this.label9.Name = "label9";
+            resources.ApplyResources(this.label10, "label10");
+            this.label10.Name = "label10";
             // 
             // MainForm
             // 
@@ -1035,6 +1049,8 @@
         public System.Windows.Forms.ComboBox cmb_ort;
         public System.Windows.Forms.CheckBox cb_zustimmungsbescheid;
         public System.Windows.Forms.Label label9;
+        public System.Windows.Forms.Label label10;
+        public System.Windows.Forms.TextBox tb_addSM_Nummer;
     }
 }
 

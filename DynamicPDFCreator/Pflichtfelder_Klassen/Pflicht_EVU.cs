@@ -22,7 +22,8 @@ namespace DynamicPDFCreator.Pflichtfelder_Klassen
         //public const int ANSPRECHPARTNER_BAU = 10;
         public const int CHECKBOXEN = 11;
         public const int ZUSATZ = 12;
+        public const int ZUSATZSMNUMMERN = 14;
 
-        public static object[] FELDER = { EMPFAENGER, ORT_DER_MASSNAHMEN, ABSENDER, ANSPRECHPARTNER, CHECKBOXEN, ZUSATZ };
+        public static object[] FELDER = { EMPFAENGER, ORT_DER_MASSNAHMEN, ABSENDER, ANSPRECHPARTNER, CHECKBOXEN, ZUSATZ, ZUSATZSMNUMMERN };
     }
 }

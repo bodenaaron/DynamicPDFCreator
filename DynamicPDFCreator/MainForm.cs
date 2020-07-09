@@ -149,7 +149,8 @@ namespace DynamicPDFCreator
                     cb_untervollmacht.Checked,
                     cb_techBeschreibung.Checked,
                     cb_untervollmacht.Checked,
-                    zusatzanlagen);
+                    zusatzanlagen,
+                    tb_addSM_Nummer.Text);
                     break;
                 case "Antrag Wupfl":
                     FinalPDF = new PDF(

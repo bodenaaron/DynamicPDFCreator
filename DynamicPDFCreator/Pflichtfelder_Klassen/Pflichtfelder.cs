@@ -21,6 +21,7 @@ namespace DynamicPDFCreator.Pflichtfelder_Klassen
         public const int CHECKBOXEN = 11;
         public const int ZUSATZ = 12;
         public const int ORT = 13;
+        public const int ZUSATZSMNUMMERN = 14;
 
 
     }

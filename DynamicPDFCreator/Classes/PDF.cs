@@ -34,6 +34,7 @@ namespace DynamicPDFCreator
         public virtual IList<Zusatzanlage> tblZusatzanlagen { get; set; }
         public virtual bool aktiv { get; set; }
         public virtual IList<Ansprechpartner>beteiligte { get; set; }
+        public virtual string zusSMNummern { get; set; }
 
         public PDF(DBpdf pdf)
         {
@@ -108,7 +109,7 @@ namespace DynamicPDFCreator
         /// <summary>
         /// EVU
         /// </summary>
-        public PDF(Auftrag auftrag, AnschreibenTyp anschreibenTyp, Ansprechpartner empfaenger, Bearbeiter absender, DateTime datum, DateTime ausfuehrungszeitraum, DateTime ausfuehrungszeitraumEnde, Bearbeiter ansprechpartner, string ortDerMassnahme, bool plansaetze, bool listeBeteiligte, bool techBeschreibung, bool untervollmacht, List<Zusatzanlage> zusatzanlagen)
+        public PDF(Auftrag auftrag, AnschreibenTyp anschreibenTyp, Ansprechpartner empfaenger, Bearbeiter absender, DateTime datum, DateTime ausfuehrungszeitraum, DateTime ausfuehrungszeitraumEnde, Bearbeiter ansprechpartner, string ortDerMassnahme, bool plansaetze, bool listeBeteiligte, bool techBeschreibung, bool untervollmacht, List<Zusatzanlage> zusatzanlagen, string zusSMNummern)
         {
             this.auftrag = auftrag;
             this.anschreibenTyp = anschreibenTyp;
@@ -124,6 +125,7 @@ namespace DynamicPDFCreator
             this.techBeschreibung = techBeschreibung;
             this.untervollmacht = untervollmacht;
             this.tblZusatzanlagen = zusatzanlagen;
+            this.zusSMNummern = zusSMNummern;
             aktiv = true;
         }
 
