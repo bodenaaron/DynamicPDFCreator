@@ -87,6 +87,14 @@ namespace DynamicPDFCreator.Interfaces
                         <td>Ansprechpartner:</td>
                         <td>{pdf.absender.bearbeiterVorname} {pdf.absender.bearbeiterName}, {pdf.absender.telefon}, {pdf.absender.email}</td>
                     </tr>
+                    <tr>
+                	    <td valign= top>
+                  	        Datum:
+                        </td>
+                        <td>
+                  	        {pdf.datum.ToString("dd.MM.yyyy")}
+                        </td>
+                    </tr>
                 </table>
                 </td>
                 </tr>
