@@ -62,6 +62,7 @@
             this.label19 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.MainTab = new System.Windows.Forms.TabPage();
+            this.btn_merge_pdf = new System.Windows.Forms.Button();
             this.btn_delete_pdf = new System.Windows.Forms.Button();
             this.pdfPreview = new System.Windows.Forms.WebBrowser();
             this.rtb_BeschreibungMassnahme = new System.Windows.Forms.RichTextBox();
@@ -76,6 +77,8 @@
             this.label40 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.tb_addSM_Nummer = new System.Windows.Forms.TextBox();
             this.cb_zustimmungsbescheid = new System.Windows.Forms.CheckBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -133,8 +136,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.tb_LB_SMNummer = new System.Windows.Forms.TextBox();
             this.pdfPreview_ListeBeteiligte = new System.Windows.Forms.WebBrowser();
-            this.tb_addSM_Nummer = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
+            this.btn_lb_saveInFolder = new System.Windows.Forms.Button();
             this.customFormular.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.MainTab.SuspendLayout();
@@ -380,6 +382,7 @@
             // 
             // MainTab
             // 
+            this.MainTab.Controls.Add(this.btn_merge_pdf);
             this.MainTab.Controls.Add(this.btn_delete_pdf);
             this.MainTab.Controls.Add(this.error_label);
             this.MainTab.Controls.Add(this.pdfPreview);
@@ -398,6 +401,12 @@
             resources.ApplyResources(this.MainTab, "MainTab");
             this.MainTab.Name = "MainTab";
             this.MainTab.UseVisualStyleBackColor = true;
+            // 
+            // btn_merge_pdf
+            // 
+            resources.ApplyResources(this.btn_merge_pdf, "btn_merge_pdf");
+            this.btn_merge_pdf.Name = "btn_merge_pdf";
+            this.btn_merge_pdf.UseVisualStyleBackColor = true;
             // 
             // btn_delete_pdf
             // 
@@ -464,6 +473,7 @@
             this.listb_vorherige_PDF.FormattingEnabled = true;
             resources.ApplyResources(this.listb_vorherige_PDF, "listb_vorherige_PDF");
             this.listb_vorherige_PDF.Name = "listb_vorherige_PDF";
+            this.listb_vorherige_PDF.SelectedIndexChanged += new System.EventHandler(this.Listb_vorherige_PDF_SelectedIndexChanged_1);
             // 
             // label41
             // 
@@ -537,6 +547,16 @@
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
+            // 
+            // label10
+            // 
+            resources.ApplyResources(this.label10, "label10");
+            this.label10.Name = "label10";
+            // 
+            // tb_addSM_Nummer
+            // 
+            resources.ApplyResources(this.tb_addSM_Nummer, "tb_addSM_Nummer");
+            this.tb_addSM_Nummer.Name = "tb_addSM_Nummer";
             // 
             // cb_zustimmungsbescheid
             // 
@@ -867,6 +887,7 @@
             // 
             // listeBeteiligte
             // 
+            this.listeBeteiligte.Controls.Add(this.btn_lb_saveInFolder);
             this.listeBeteiligte.Controls.Add(this.label7);
             this.listeBeteiligte.Controls.Add(this.checked_listBox_Beteiligte);
             this.listeBeteiligte.Controls.Add(this.btn_LB_suchen);
@@ -911,15 +932,12 @@
             resources.ApplyResources(this.pdfPreview_ListeBeteiligte, "pdfPreview_ListeBeteiligte");
             this.pdfPreview_ListeBeteiligte.Name = "pdfPreview_ListeBeteiligte";
             // 
-            // tb_addSM_Nummer
+            // btn_lb_saveInFolder
             // 
-            resources.ApplyResources(this.tb_addSM_Nummer, "tb_addSM_Nummer");
-            this.tb_addSM_Nummer.Name = "tb_addSM_Nummer";
-            // 
-            // label10
-            // 
-            resources.ApplyResources(this.label10, "label10");
-            this.label10.Name = "label10";
+            resources.ApplyResources(this.btn_lb_saveInFolder, "btn_lb_saveInFolder");
+            this.btn_lb_saveInFolder.Name = "btn_lb_saveInFolder";
+            this.btn_lb_saveInFolder.UseVisualStyleBackColor = true;
+            this.btn_lb_saveInFolder.Click += new System.EventHandler(this.Btn_lb_saveInFolder_Click);
             // 
             // MainForm
             // 
@@ -1051,6 +1069,8 @@
         public System.Windows.Forms.Label label9;
         public System.Windows.Forms.Label label10;
         public System.Windows.Forms.TextBox tb_addSM_Nummer;
+        private System.Windows.Forms.Button btn_merge_pdf;
+        private System.Windows.Forms.Button btn_lb_saveInFolder;
     }
 }
 

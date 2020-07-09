@@ -1,4 +1,6 @@
-﻿using System;
+﻿using PdfSharp.Pdf;
+using PdfSharp.Pdf.IO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -23,6 +25,7 @@ namespace DynamicPDFCreator
         public bool neuzuweisung = false;
         public string savedFile = "";
         public string savedFolder="";
+        PdfDocument outPdf = new PdfDocument();
         public MainForm()
         {
             this.Font= new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -150,7 +153,8 @@ namespace DynamicPDFCreator
                     cb_techBeschreibung.Checked,
                     cb_untervollmacht.Checked,
                     zusatzanlagen,
-                    tb_addSM_Nummer.Text);
+                    tb_addSM_Nummer.Text, 
+                    PDF.EVU);
                     break;
                 case "Antrag Wupfl":
                     FinalPDF = new PDF(
@@ -170,7 +174,8 @@ namespace DynamicPDFCreator
                     cb_techBeschreibung.Checked,
                     cb_untervollmacht.Checked,
                     cb_zustimmungsbescheid.Checked,
-                    zusatzanlagen);
+                    zusatzanlagen,
+                    PDF.WUPFL);
                     break;
                 case "Zustimmungsbescheid":
                     FinalPDF = new PDF(
@@ -197,7 +202,8 @@ namespace DynamicPDFCreator
                     cb_beteiligte.Checked,
                     cb_techBeschreibung.Checked,
                     cb_untervollmacht.Checked,
-                    zusatzanlagen);
+                    zusatzanlagen,
+                    PDF.NATURSCHUTZ);
                     break;
                 case "Anschreiben Kampfmittel":
                     FinalPDF = new PDF(
@@ -262,7 +268,11 @@ namespace DynamicPDFCreator
                 return null;
             }
             pfad += ordnerName;
-            pfad += $@"\Wegesicherung\Anschreiben\{pdf.anschreibenTyp.bezeichnung}_{pdf.empfaenger.ansprechpartnerName}_{pdf.empfaenger.firma}.pdf";
+            try
+            {
+                pfad += $@"\Wegesicherung\Anschreiben\{pdf.anschreibenTyp.bezeichnung}_{pdf.empfaenger.ansprechpartnerName}_{pdf.empfaenger.firma}.pdf";
+            }
+            catch(Exception e) { pfad += $@"\Wegesicherung\Anschreiben\ListeBeteiligte.pdf"; }
             return pfad;
         }
         private void fillFormular(int tab, WorkingPDF pdf, object sender, EventArgs e)
@@ -1007,6 +1017,7 @@ namespace DynamicPDFCreator
         }
         private void Btn_speichern_auftrag_pfad_Click(object sender, EventArgs e)
         {
+            //Vorherige Operationen zurücksetzen
             listb_vorherige_PDF.SelectedItem = null;
             error_label.Text = "";
             List<Zusatzanlage> zusatzanlagen = eH.checkInput(workingPDF.pflichtfelder);
@@ -1032,9 +1043,70 @@ namespace DynamicPDFCreator
                 btn_openFile.Enabled = true;
                 btn_openFolder.Enabled = true;
                 Btn_suchen_Click(null, null);
+
+                mergePDF(FinalPDF, savedFolder, savedFile);
+
             }
             catch (Exception qe) { error_label.Text = "Datei konnte nicht gespeichert werden " + qe.Message; }
         }
+
+        private void mergePDF(PDF finalPDF, string savedFolder, string savedFile)
+        {
+            //Pfade holen
+            
+            string[] files = Directory.GetFiles(savedFolder);
+            List<string> mergeFiles = new List<string>();
+            outPdf = PdfReader.Open(savedFile, PdfDocumentOpenMode.Import);
+            string filename = "";
+            switch (finalPDF.kindOfPDF)
+            {
+                case PDF.WUPFL:
+                    filename = "Versende_PDF_WUPFL";
+                    foreach (string s in files)
+                    {
+                        if (s.Contains("Untervollmacht") || s.Contains("Plansatz") || s.Contains("ListeBeteiligte") || s.Contains("Anschreiben Kampfmittel") || s.Contains("Zustimmungsbescheid"))
+                        {
+                            mergeFiles.Add(s);
+                        }
+                    }
+                    break;
+                case PDF.EVU:
+                    filename = "Versende_PDF_EVU";
+                    foreach (string s in files)
+                    {
+                        if (s.Contains("Untervollmacht")|| s.Contains("Plansatz"))
+                        {
+                            mergeFiles.Add(s);
+                        }
+                    }
+                    break;
+                case PDF.NATURSCHUTZ:
+                    filename = "Versende_PDF_Naturschutz";
+                    foreach (string s in files)
+                    {
+                        if (s.Contains("Untervollmacht") || s.Contains("Plansatz")|| s.Contains("ListeBeteiligte"))
+                        {
+                            mergeFiles.Add(s);
+                        }
+                    }
+                    break;
+            }
+
+            foreach (string s in mergeFiles)
+            {
+                PdfDocument singlePDF = PdfReader.Open(s, PdfDocumentOpenMode.Import);
+                CopyPages(singlePDF);
+            }
+            outPdf.Save(savedFolder+"\\"+filename);
+        }
+        private void CopyPages(PdfDocument from)
+        {
+            for (int i = 0; i < from.PageCount; i++)
+            {
+                outPdf.AddPage(from.Pages[i]);
+            }        
+        }
+
         private void Btn_openFolder_Click(object sender, EventArgs e)
         {
             if (savedFolder != null&&savedFolder!="")
@@ -1367,6 +1439,19 @@ namespace DynamicPDFCreator
             }
             catch (Exception) { }//todo: Errorhandler implementieren
         }
+
+        private void Btn_lb_saveInFolder_Click(object sender, EventArgs e)
+        {
+            PDF lbPDF = createPDF(null, null);
+            string pfad = getDynamicPath(lbPDF);            
+            if (pfad == null)
+            {
+                PopupMissingFolder popupMissingFolder = new PopupMissingFolder();
+                popupMissingFolder.Show();
+                return;
+            }
+            workingPDF.pdfWriter.writeHTMLtoPDF(lbPDF, pfad);
+        }
         #endregion
 
         private void btn_clear_all_Click(object sender, EventArgs e)
@@ -1380,6 +1465,13 @@ namespace DynamicPDFCreator
         {
             tb_ortMassnahme.Text = cmb_ort.Text;            
         }
+
+        private void Listb_vorherige_PDF_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+
     }
 }
     
