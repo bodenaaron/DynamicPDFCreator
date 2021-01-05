@@ -40,6 +40,7 @@ namespace DynamicPDFCreator
         public const int WUPFL = 1;
         public const int EVU = 2;
         public const int NATURSCHUTZ = 3; 
+        public const int DENKMALSCHUTZ = 4;
 
         public PDF(DBpdf pdf)
         {

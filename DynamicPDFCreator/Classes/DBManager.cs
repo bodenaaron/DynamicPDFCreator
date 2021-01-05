@@ -45,7 +45,7 @@ namespace DynamicPDFCreator
                 getMetaDaten();
                 getAuftrag(smNummer);
             }
-            catch (Exception) { Debug.WriteLine("\n\n\n"+smNummer+ "\n\n\n"); }
+            catch (Exception e) { Debug.WriteLine(e.Message+"\n\n\n"+smNummer+ "\n\n\n"); }
         }
 
         //braucht SMNummer
@@ -86,11 +86,37 @@ namespace DynamicPDFCreator
                 if (typ == null)
                 {
                     typ = "";
-                }                
-                dbPDF.dic_Ansprechpartner.Add(typ.PadRight(12) + key.Trim(), an);
+                }
+
+                if (dbPDF.dic_Ansprechpartner.ContainsKey(typ.PadRight(12) + key.Trim()))
+                {
+                    if (an.bereich==null)
+                    {
+                        an.bereich = "";
+                    }
+                    dbPDF.dic_Ansprechpartner.Add(typ.PadRight(12) + key.Trim() +" "+ an.bereich.Trim(), an);
+                }
+                else
+                {
+                    dbPDF.dic_Ansprechpartner.Add(typ.PadRight(12) + key.Trim(), an);
+                }
+                                
+                
                 if (an.typ!=null)
                 {
-                    dbPDF.dic_Ansprechpartner_mitTyp.Add(typ.PadRight(12) + key.Trim(), an);
+                    if (dbPDF.dic_Ansprechpartner_mitTyp.ContainsKey(typ.PadRight(12) + key.Trim()))
+                    {
+                        if (an.bereich == null)
+                        {
+                            an.bereich = "";
+                        }
+                        dbPDF.dic_Ansprechpartner_mitTyp.Add(typ.PadRight(12) + key.Trim() + " " + an.bereich.Trim(), an);
+                    }
+                    else
+                    {
+                        dbPDF.dic_Ansprechpartner_mitTyp.Add(typ.PadRight(12) + key.Trim(), an);
+                    }
+                    
                 }
             }
             

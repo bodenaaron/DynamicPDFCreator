@@ -242,6 +242,25 @@ namespace DynamicPDFCreator
                         beteiligte
                         );
                     break;
+
+                case "Anschreiben Denkmalschutz":
+                    FinalPDF = new PDF(
+                    DBm.dbPDF.auftrag,
+                    ((KeyValuePair<string, AnschreibenTyp>)cmb_anschreibenTyp.SelectedItem).Value,
+                    ((KeyValuePair<string, Ansprechpartner>)cmb_empfaenger.SelectedItem).Value,
+                    ((KeyValuePair<string, Bearbeiter>)cmb_absender.SelectedItem).Value,
+                    datePicker.Value,
+                    datePickerAusfuehrung.Value,
+                    datePickerAusfuehrungEnde.Value.Date,
+                    tb_ortMassnahme.Text,
+                    rtb,
+                    cb_plansaetze.Checked,
+                    cb_beteiligte.Checked,
+                    cb_techBeschreibung.Checked,
+                    cb_untervollmacht.Checked,
+                    zusatzanlagen,
+                    PDF.DENKMALSCHUTZ);
+                    break;
             }
             FinalPDF.aktiv = true;
             return FinalPDF;
@@ -521,6 +540,10 @@ namespace DynamicPDFCreator
                     workingPDF.pflichtfelder = Pflichtfelder_Klassen.Pflicht_AbstimmungNaturschutz.FELDER;
                     workingPDF.pdfWriter = new Interfaces.AbstimmungNaturschutz();
                     break;
+                case "Abstimmung Denkmalschutz":
+                    workingPDF.pflichtfelder = Pflichtfelder_Klassen.Pflicht_AbstimmungDenkmalschutz.FELDER;
+                    workingPDF.pdfWriter = new Interfaces.AbstimmungDenkmalschutz();
+                    break;
                 case "SOS Zustimmungsbescheid":
                     break;
                 case "SOS Antrag":
@@ -659,6 +682,18 @@ namespace DynamicPDFCreator
                         tb_LB_SMNummer.Enabled = true;
                         btn_LB_suchen.Enabled = true;//todo: mit dem Fieldhandler behandeln
                         Btn_LB_suchen_Click(sender, e);
+                        cb_zustimmungsbescheid.Checked = false;
+                        break;
+                    case 16:
+                        //Abstimmung Denkmalschutz                        
+                        workingPDF.pdfWriter = new Interfaces.AbstimmungDenkmalschutz();
+                        workingPDF.pflichtfelder = Pflichtfelder_Klassen.Pflicht_AbstimmungDenkmalschutz.FELDER;
+                        eH.manageFields(Pflichtfelder_Klassen.Pflicht_AbstimmungDenkmalschutz.FELDER);
+                        //cb Liste Beteiligte untervollmacht plansatz
+                        cb_beteiligte.Checked = true;
+                        cb_plansaetze.Checked = true;
+                        cb_techBeschreibung.Checked = false;
+                        cb_untervollmacht.Checked = true;
                         cb_zustimmungsbescheid.Checked = false;
                         break;
                 }
@@ -1012,7 +1047,7 @@ namespace DynamicPDFCreator
 
                 pdfPreview.Navigate(workingPDF.pdfWriter.writeHTMLtoPDF(FinalPDF, hiddenPath));
             }
-            catch (Exception) { }
+            catch (Exception es) { }
 
         }
         private void Btn_speichern_auftrag_pfad_Click(object sender, EventArgs e)
@@ -1085,6 +1120,16 @@ namespace DynamicPDFCreator
                     foreach (string s in files)
                     {
                         if (s.Contains("Untervollmacht") || s.Contains("Plansatz")|| s.Contains("ListeBeteiligte"))
+                        {
+                            mergeFiles.Add(s);
+                        }
+                    }
+                    break;
+                case PDF.DENKMALSCHUTZ:
+                    filename = "Versende_PDF_Denkmalschutz";
+                    foreach (string s in files)
+                    {
+                        if (s.Contains("Untervollmacht") || s.Contains("Plansatz") || s.Contains("ListeBeteiligte"))
                         {
                             mergeFiles.Add(s);
                         }
