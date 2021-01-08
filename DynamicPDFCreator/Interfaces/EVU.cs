@@ -51,7 +51,7 @@ namespace DynamicPDFCreator.Interfaces
                 </tr>
                   <tr>
                 	<td valign: top>
-                  	{pdf.empfaenger.strasse}
+                  	{pdf.empfaenger.strasse} {pdf.empfaenger.hausnummer}
                   </td>
                 </tr>
                 <tr>

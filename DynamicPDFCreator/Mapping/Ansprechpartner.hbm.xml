@@ -17,6 +17,7 @@
     <property name = "homepage" column="`Homepage´"/>
     <property name = "plz" column="`PLZ´"/>
     <property name = "strasse" column="`Straße´"/>
+    <property name = "hausnummer" column="`Hausnummer´"/>
     <property name = "niederlassung" column="`Niederlassung´"/>
     <property name = "nlAbteilung" column="`NL-Abteilung´"/>
     <property name = "ptiBereich" column="`PTI-Bereich´"/>

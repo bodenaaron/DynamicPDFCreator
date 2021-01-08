@@ -73,7 +73,7 @@ namespace DynamicPDFCreator.Interfaces
                 </tr>
                 <tr>
                     <td>
-                        {a.strasse} 
+                        {a.strasse} {a.hausnummer}
                     </td>        
                 </tr>
                 <tr>

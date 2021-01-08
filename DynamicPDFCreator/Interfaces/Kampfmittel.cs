@@ -38,7 +38,7 @@ namespace DynamicPDFCreator.Interfaces
             string html = "<html><body> <font size='10'>";
             html = $@"
             <p style='font-size: 12px; ' >
-                {firma}<br/>{pdf.empfaenger.strasse} {pdf.empfaenger.plz} {pdf.empfaenger.ort}
+                {firma}<br/>{pdf.empfaenger.strasse} {pdf.empfaenger.hausnummer} {pdf.empfaenger.plz} {pdf.empfaenger.ort}
             </p>
             <table>
                 <tr>

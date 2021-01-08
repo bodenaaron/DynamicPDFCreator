@@ -64,6 +64,8 @@
             this.btn_abbrechen = new System.Windows.Forms.Button();
             this.btn_speichern = new System.Windows.Forms.Button();
             this.cmb_typ = new System.Windows.Forms.ComboBox();
+            this.tb_hausnummer = new System.Windows.Forms.TextBox();
+            this.lbl_hausnummer = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // tb_vorname
@@ -143,7 +145,7 @@
             // 
             this.tb_ort.Location = new System.Drawing.Point(113, 143);
             this.tb_ort.Name = "tb_ort";
-            this.tb_ort.Size = new System.Drawing.Size(249, 20);
+            this.tb_ort.Size = new System.Drawing.Size(186, 20);
             this.tb_ort.TabIndex = 8;
             // 
             // label6
@@ -359,11 +361,29 @@
             this.cmb_typ.Size = new System.Drawing.Size(121, 21);
             this.cmb_typ.TabIndex = 36;
             // 
+            // tb_hausnummer
+            // 
+            this.tb_hausnummer.Location = new System.Drawing.Point(305, 143);
+            this.tb_hausnummer.Name = "tb_hausnummer";
+            this.tb_hausnummer.Size = new System.Drawing.Size(57, 20);
+            this.tb_hausnummer.TabIndex = 37;
+            // 
+            // lbl_hausnummer
+            // 
+            this.lbl_hausnummer.AutoSize = true;
+            this.lbl_hausnummer.Location = new System.Drawing.Point(302, 124);
+            this.lbl_hausnummer.Name = "lbl_hausnummer";
+            this.lbl_hausnummer.Size = new System.Drawing.Size(69, 13);
+            this.lbl_hausnummer.TabIndex = 38;
+            this.lbl_hausnummer.Text = "Hausnummer";
+            // 
             // EditDataset
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(948, 450);
+            this.Controls.Add(this.lbl_hausnummer);
+            this.Controls.Add(this.tb_hausnummer);
             this.Controls.Add(this.cmb_typ);
             this.Controls.Add(this.btn_speichern);
             this.Controls.Add(this.btn_abbrechen);
@@ -445,5 +465,7 @@
         private System.Windows.Forms.Button btn_abbrechen;
         private System.Windows.Forms.Button btn_speichern;
         private System.Windows.Forms.ComboBox cmb_typ;
+        private System.Windows.Forms.TextBox tb_hausnummer;
+        private System.Windows.Forms.Label lbl_hausnummer;
     }
 }

@@ -24,6 +24,7 @@ namespace DynamicPDFCreator
             tb_vorname.Text =       ansprechpartner.ansprechpartnerVorname;
             tb_nachname.Text =      ansprechpartner.ansprechpartnerName;
             tb_strasse.Text =       ansprechpartner.strasse;
+            tb_hausnummer.Text =    ansprechpartner.hausnummer;
             tb_plz.Text =           ansprechpartner.plz;
             tb_ort.Text =           ansprechpartner.ort;
             tb_mobil.Text =         ansprechpartner.mobil;
@@ -102,6 +103,7 @@ namespace DynamicPDFCreator
                 ansprechpartner.ansprechpartnerVorname = tb_vorname.Text;
                 ansprechpartner.ansprechpartnerName = tb_nachname.Text;
                 ansprechpartner.strasse = tb_strasse.Text;
+                ansprechpartner.hausnummer = tb_hausnummer.Text;
                 ansprechpartner.plz = tb_plz.Text;
                 ansprechpartner.ort = tb_ort.Text;
                 ansprechpartner.mobil = tb_mobil.Text;

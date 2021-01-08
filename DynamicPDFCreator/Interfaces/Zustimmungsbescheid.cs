@@ -35,7 +35,7 @@ namespace DynamicPDFCreator.Interfaces
             html = $@"
             <p style='font-size: 18px; ' >Zustimmungsbescheid</p>
             <p>
-                {firma}<br/>{pdf.empfaenger.strasse}<br/><br/>{pdf.empfaenger.plz} {pdf.empfaenger.ort}
+                {firma}<br/>{pdf.empfaenger.strasse} {pdf.empfaenger.hausnummer}<br/><br/>{pdf.empfaenger.plz} {pdf.empfaenger.ort}
             </p>
             
             <table style='margin-top: 35px;>

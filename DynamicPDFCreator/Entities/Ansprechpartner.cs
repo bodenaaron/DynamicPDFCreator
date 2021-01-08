@@ -110,6 +110,11 @@ namespace DynamicPDFCreator
             get;
             set;
         }
+        public virtual string hausnummer
+        {
+            get;
+            set;
+        }
 
         public virtual string niederlassung
         {
